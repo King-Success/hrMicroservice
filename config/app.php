@@ -178,8 +178,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         
+        // Third Party Service Provider
+        Collective\Html\HtmlServiceProvider::class,
+        
         // Our Service Providers
         App\Providers\EmployeeServiceProvider::class,
+        App\Providers\RankServiceProvider::class,
+        App\Providers\DepartmentServiceProvider::class,
+        App\Providers\PaygradeServiceProvider::class,
+        App\Providers\TitleServiceProvider::class,
 
     ],
 
@@ -228,6 +235,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        
+        // Third Party Aliases
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

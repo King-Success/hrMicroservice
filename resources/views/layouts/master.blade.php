@@ -38,7 +38,7 @@
                                 <li class="nav-header hidden-folded"><span class="text-xs">Main</span></li>
                                 <li><a href="/dashboard" class="b-danger"><span class="nav-icon text-white no-fade"><i class="ion-filing"></i></span> <span class="nav-text">Dashboard</span></a></li>
                                 <li><a href="/payroll" class="b-success"><span class="nav-icon text-white no-fade"><i class="ion-android-apps"></i></span> <span class="nav-text">Payroll</span></a></li>
-                                <li><a href="/messaging" class="b-default"><span class="nav-label"><b class="label label-xs rounded danger"></b></span> <span class="nav-icon"><i class="ion-chatbubble-working"></i></span> <span class="nav-text">Messages</span></a></li>
+                                <li><a href="/messaging" class="b-default"><span class="nav-label"><b class="label label-xs rounded danger"></b></span> <span class="nav-icon"><i class="ion-chatbubble-working"></i></span> <span class="nav-text">Messaging</span></a></li>
                                 <li><a href="/contact" class="b-default"><span class="nav-icon"><i class="ion-person"></i></span> <span class="nav-text">Contacts</span></a></li>
                                 
                                 <li class="nav-header hidden-folded m-t"><span class="text-xs">Administration</span></li>

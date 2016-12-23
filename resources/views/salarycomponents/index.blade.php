@@ -28,13 +28,13 @@
                             <label for="InputValueType" class="col-sm-2 form-control-label">Value</label>
                             <div class="col-sm-10">
                                 <select class="form-control c-select" name="value_type" id="InputValueType">
-                                    <option value="Amount">Amount</option>
                                     <option value="Percentage">Percentage</option>
+                                    <option value="Amount">Amount</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="InputAmount">Value</label>
+                            <label for="InputAmount">Amount</label>
                             <input type="text" name="amount" class="form-control" id="InputAmount" placeholder="Enter the value. e.g 0.5">
                         </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
@@ -68,13 +68,13 @@
                             <label for="InputEditValueType" class="col-sm-2 form-control-label">Value</label>
                             <div class="col-sm-10">
                                 <select class="form-control c-select" name="value_type" id="InputEditValueType">
-                                    <option value="Amount">Amount</option>
                                     <option value="Percentage">Percentage</option>
+                                    <option value="Amount">Amount</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="InputEditAmount">Value</label>
+                            <label for="InputEditAmount">Amount</label>
                             <input type="text" name="amount" class="form-control" id="InputEditAmount" placeholder="Enter the value. e.g 0.5">
                         </div>
                         <button type="submit" class="btn black m-b">UPDATE</button>

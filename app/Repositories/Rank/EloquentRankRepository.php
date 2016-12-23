@@ -43,5 +43,6 @@ class EloquentRankRepository implements RankContract
     private function setRankProperties($rank, $request) {
         // Assign attributes to the rank here
         $rank->title = $request->title;
+        $rank->peculiar_allowance = $request->peculiar_allowance;
     }
 }

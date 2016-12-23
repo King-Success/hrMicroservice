@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRanksTable extends Migration
+class CreateEmployeeTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateRanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('ranks', function (Blueprint $table) {
+        Schema::create('employee_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->decimal('peculiar_allowance', 7, 2)->default(0.00);
+            $table->boolean('isPensionable')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateRanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ranks');
+        Schema::dropIfExists('employee_types');
     }
 }

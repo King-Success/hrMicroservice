@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Repositories\Title\TitleContract as ObjectContract;
+use App\Repositories\EmployeeType\EmployeeTypeContract as ObjectContract;
 
-class TitleTableSeeder extends Seeder
+class EmployeeTypeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,15 +20,18 @@ class TitleTableSeeder extends Seeder
     public function run()
     {
         $object = new StdClass;
-        $object->title = "Mr.";
+        $object->title = "Permanent Staff";
+        $object->isPensionable = false;
         $this->objectModel->create($object);
         
         $object = new StdClass;
-        $object->title = "Mrs.";
+        $object->title = "Part Time Staff";
+        $object->isPensionable = false;
         $this->objectModel->create($object);
         
         $object = new StdClass;
-        $object->title = "Miss.";
+        $object->title = "Contract Staff";
+        $object->isPensionable = false;
         $this->objectModel->create($object);
     }
 }

@@ -21,6 +21,7 @@ class RankTableSeeder extends Seeder
     {
         $object = new StdClass;
         $object->title = "Provost";
+        $object->peculiar_allowance = 0; //PAA or PNAA
         $this->objectModel->create($object);
     }
 }

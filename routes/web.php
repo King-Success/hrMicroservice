@@ -76,3 +76,12 @@ Route::group(['prefix' => 'salarycomponent'], function() {
     Route::put('/{id}/edit', 'SalaryComponentController@update')->name('update_salarycomponent');
     Route::get('/{id}/delete', 'SalaryComponentController@delete')->name('delete_salarycomponent');
 });
+
+Route::group(['prefix' => 'employeetype'], function() {
+    // Route::get('/', 'EmployeeTypeController@index')->name('employeetype_index');
+    // Route::get('/create', 'EmployeeTypeController@create')->name('create_employeetype');
+    // Route::post('/create', 'EmployeeTypeController@store')->name('store_employeetype');
+    // Route::get('/{id}/edit', 'EmployeeTypeController@edit')->name('edit_employeetype');
+    // Route::put('/{id}/edit', 'EmployeeTypeController@update')->name('update_employeetype');
+    // Route::get('/{id}/delete', 'EmployeeTypeController@delete')->name('delete_employeetype');
+});

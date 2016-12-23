@@ -29,8 +29,8 @@
                 <div class="box-body">
                     {!! Form::open(array('url' => '#', 'role' => 'form', 'id'=>'manageForm', 'method' => 'put')) !!}
                         <div class="form-group">
-                            <label for="InputEditTitle">Title</label>
-                            <input type="text" name="title" class="form-control" id="InputEditTitle" placeholder="Enter Department">
+                            <label for="InputEditDepartment">Title</label>
+                            <input type="text" name="title" class="form-control" id="InputEditDepartment" placeholder="Enter Department">
                             <input type="hidden" id="InputEditId" name="id" value="">
                         </div>
                         <button type="submit" class="btn black m-b">UPDATE</button>

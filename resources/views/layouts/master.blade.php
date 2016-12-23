@@ -14,7 +14,7 @@
   <meta name="apple-mobile-web-app-title" content="Flatkit">
   <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="shortcut icon" sizes="196x196" href="images/logo.png">
+  <link rel="shortcut icon" sizes="196x196" href="/images/logo.png">
   
   <!-- style -->
   <link rel="stylesheet" href="/css/animate.css/animate.min.css" type="text/css" />
@@ -156,7 +156,7 @@
                 <ul class="nav-sub">
                   <li>
                     <a href="/title" >
-                      <span class="nav-text">Titles</span>
+                      <span class="nav-text">Job Titles</span>
                     </a>
                   </li>
                   <li>

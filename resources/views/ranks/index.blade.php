@@ -10,7 +10,7 @@
                     <h2>Add Rank</h2><small>Add possible ranks for the system</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
-                    {!! Form::open(array('route' => 'store_rank', 'role' => 'form')) !!}
+                    {!! Form::open(array('url' => '/rank/create', 'role' => 'form')) !!}
                         <div class="form-group">
                             <label for="InputTitle">Title</label>
                             <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Enter Rank">
@@ -62,6 +62,7 @@
                                 <thead>
                                     <tr>
                                         <th>Title</th>
+                                        <th>PAA/PNAA</th>
                                         <th>Created At</th>
                                     </tr>
                                     </thead>
@@ -69,6 +70,7 @@
                                     @foreach($ranks as $rank)
                                     <tr>
                                         <td><a href="#" data-paa="{{$rank->peculiar_allowance}}" data-id="{{$rank->id}}" class="selectedRank">{{$rank->title}}</a></td>
+                                        <td>{{$rank->peculiar_allowance}}</td>
                                         <td>{{$rank->created_at}}</td>
                                     </tr>
                                     @endforeach
@@ -97,8 +99,8 @@
             $('#InputEditTitle').val($(evt.target).text());
             $('#InputEditId').val($(evt.target).attr('data-id'));
             $('#InputEditPaa').val($(evt.target).attr('data-paa'));
-            $('#deleteRank').attr('href', '/rank/' + $(evt.target).attr('data') + '/delete');
-            $('#manageForm').attr('action', '/rank/' + $(evt.target).attr('data') + '/edit');
+            $('#deleteRank').attr('href', '/rank/' + $(evt.target).attr('data-id') + '/delete');
+            $('#manageForm').attr('action', '/rank/' + $(evt.target).attr('data-id') + '/edit');
         });
     });
 </script>

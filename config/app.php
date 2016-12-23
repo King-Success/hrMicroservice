@@ -189,6 +189,10 @@ return [
         App\Providers\TitleServiceProvider::class,
         App\Providers\SalaryComponentServiceProvider::class,
         App\Providers\EmployeeTypeServiceProvider::class,
+        App\Providers\BankServiceProvider::class,
+        App\Providers\EmployeeBankInfoServiceProvider::class,
+        App\Providers\PensionServiceProvider::class,
+        App\Providers\EmployeePensionInfoServiceProvider::class,
 
     ],
 

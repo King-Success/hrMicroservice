@@ -214,7 +214,7 @@ class $1Controller extends Controller
      * Delete $1 from database
      * Redirect to prefered route or perform other action
      */
-    public function delete(\$id) {
+    public function delete(Request \$request, \$id) {
         if (\$this->${1,}Model->remove(\$id)) {
             // Redirect or do whatever you like
         } else {

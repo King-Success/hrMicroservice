@@ -175,6 +175,11 @@
                     </a>
                   </li>
                   <li>
+                    <a href="/pension" >
+                      <span class="nav-text">Pension</span>
+                    </a>
+                  </li>
+                  <li>
                     <a href="/salarycomponent" >
                       <span class="nav-text">Salary Component</span>
                     </a>
@@ -304,7 +309,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Blank</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Payroll Management System</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                   <li class="nav-item dropdown pos-stc-xs">

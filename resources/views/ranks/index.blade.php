@@ -15,6 +15,12 @@
                             <label for="InputTitle">Title</label>
                             <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Enter Rank">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="InputPaa">PAA/PNAA</label>
+                            <input type="text" name="peculiar_allowance" class="form-control" id="InputPaa" placeholder="Enter PAA/PNAA">
+                        </div>
+                        
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}
                 </div>
@@ -32,6 +38,10 @@
                             <label for="InputEditTitle">Title</label>
                             <input type="text" name="title" class="form-control" id="InputEditTitle" placeholder="Enter Rank">
                             <input type="hidden" id="InputEditId" name="id" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEditPaa">PAA/PNAA</label>
+                            <input type="text" name="peculiar_allowance" class="form-control" id="InputEditPaa" placeholder="Enter PAA/PNAA">
                         </div>
                         <button type="submit" class="btn black m-b">UPDATE</button>
                         <a href="#" id="deleteRank" class="m-b" style="text-decoration: underline;">DELETE</a>
@@ -58,7 +68,7 @@
                                 <tbody>
                                     @foreach($ranks as $rank)
                                     <tr>
-                                        <td><a href="#" data="{{$rank->id}}" class="selectedRank">{{$rank->title}}</a></td>
+                                        <td><a href="#" data-paa="{{$rank->peculiar_allowance}}" data-id="{{$rank->id}}" class="selectedRank">{{$rank->title}}</a></td>
                                         <td>{{$rank->created_at}}</td>
                                     </tr>
                                     @endforeach
@@ -85,7 +95,8 @@
             $('#addRank').hide();
             $('#manageRank').show();
             $('#InputEditTitle').val($(evt.target).text());
-            $('#InputEditId').val($(evt.target).attr('data'));
+            $('#InputEditId').val($(evt.target).attr('data-id'));
+            $('#InputEditPaa').val($(evt.target).attr('data-paa'));
             $('#deleteRank').attr('href', '/rank/' + $(evt.target).attr('data') + '/delete');
             $('#manageForm').attr('action', '/rank/' + $(evt.target).attr('data') + '/edit');
         });

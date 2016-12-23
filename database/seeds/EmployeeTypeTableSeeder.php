@@ -21,7 +21,7 @@ class EmployeeTypeTableSeeder extends Seeder
     {
         $object = new StdClass;
         $object->title = "Permanent Staff";
-        $object->isPensionable = false;
+        $object->isPensionable = true;
         $this->objectModel->create($object);
         
         $object = new StdClass;

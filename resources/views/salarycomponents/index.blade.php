@@ -18,7 +18,7 @@
                         <div class="form-group row">
                             <label for="InputComponentType" class="col-sm-2 form-control-label">Component Type</label>
                             <div class="col-sm-10">
-                                <select class="form-control c-select">
+                                <select class="form-control c-select" name="component_type" id="InputComponentType">
                                     <option>Earning</option>
                                     <option>Deduction</option>
                                 </select>
@@ -27,7 +27,7 @@
                         <div class="form-group row">
                             <label for="InputValueType" class="col-sm-2 form-control-label">Value Type</label>
                             <div class="col-sm-10">
-                                <select class="form-control c-select">
+                                <select class="form-control c-select" name="value_type" id="InputValueType">
                                     <option>Amount</option>
                                     <option>Percentage</option>
                                 </select>
@@ -54,7 +54,7 @@
                         <div class="form-group row">
                             <label for="InputEditComponentType" class="col-sm-2 form-control-label">Component Type</label>
                             <div class="col-sm-10">
-                                <select class="form-control c-select">
+                                <select class="form-control c-select" name="component_type" id="InputComponentType">
                                     <option>Earning</option>
                                     <option>Deduction</option>
                                 </select>
@@ -63,7 +63,7 @@
                         <div class="form-group row">
                             <label for="InputEditValueType" class="col-sm-2 form-control-label">Value Type</label>
                             <div class="col-sm-10">
-                                <select class="form-control c-select">
+                                <select class="form-control c-select" name="value_type" id="InputValueType">
                                     <option>Amount</option>
                                     <option>Percentage</option>
                                 </select>
@@ -90,7 +90,8 @@
                                         <th>Title</th>
                                         <th>Component Type</th>
                                         <th>Value Type</th>
-                                        <th>Created At</th>
+                                        <th>Amount</th>
+                                        <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
                                 <tbody>
@@ -99,7 +100,8 @@
                                         <td><a href="#" data-id="{{$salaryComponent->id}}" data-ctype="{{$salaryComponent->component_type}}" data-vtype="{{$salaryComponent->value_type}}" class="selectedSalaryComponent">{{$salaryComponent->title}}</a></td>
                                         <td>{{$salaryComponent->component_type}}</td>
                                         <td>{{$salaryComponent->value_type}}</td>
-                                        <td>{{$salaryComponent->created_at}}</td>
+                                        <td>{{ $salaryComponent->value_type == 'Amount' ?  'N' . $salaryComponent->amount : $salaryComponent->percentage . '%' }}</td>
+                                        <!--<td>{{$salaryComponent->created_at}}</td>-->
                                     </tr>
                                     @endforeach
                                 </tbody>

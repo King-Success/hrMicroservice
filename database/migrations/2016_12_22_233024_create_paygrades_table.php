@@ -16,7 +16,7 @@ class CreatePaygradesTable extends Migration
         Schema::create('paygrades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->decimal('amount', 7, 2)->default(0.00);
+            $table->decimal('amount', 12, 2)->default(0.00);
             $table->timestamps();
         });
     }

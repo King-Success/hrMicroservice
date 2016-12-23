@@ -22,6 +22,7 @@ class RankTableSeeder extends Seeder
         $object = new StdClass;
         $object->title = "Provost";
         $object->peculiar_allowance = 0; //PAA or PNAA
+        $object->consolidated_salary = 50000; //Real Annual Paycheck
         $this->objectModel->create($object);
     }
 }

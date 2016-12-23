@@ -17,6 +17,11 @@
                         </div>
                         
                         <div class="form-group">
+                            <label for="InputConsolidatedSalary">Consolidated Salary</label>
+                            <input type="text" name="consolidated_salary" class="form-control" id="InputConsolidatedSalary" placeholder="Enter Amount">
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="InputPaa">PAA/PNAA</label>
                             <input type="text" name="peculiar_allowance" class="form-control" id="InputPaa" placeholder="Enter PAA/PNAA">
                         </div>
@@ -38,6 +43,10 @@
                             <label for="InputEditTitle">Title</label>
                             <input type="text" name="title" class="form-control" id="InputEditTitle" placeholder="Enter Rank">
                             <input type="hidden" id="InputEditId" name="id" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEditConsolidatedSalary">Consolidated Salary</label>
+                            <input type="text" name="consolidated_salary" class="form-control" id="InputEditConsolidatedSalary" placeholder="Enter Amount">
                         </div>
                         <div class="form-group">
                             <label for="InputEditPaa">PAA/PNAA</label>
@@ -63,15 +72,17 @@
                                     <tr>
                                         <th>Title</th>
                                         <th>PAA/PNAA</th>
-                                        <th>Created At</th>
+                                        <th>Consolidated Salary</th>
+                                        <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
                                 <tbody>
                                     @foreach($ranks as $rank)
                                     <tr>
-                                        <td><a href="#" data-paa="{{$rank->peculiar_allowance}}" data-id="{{$rank->id}}" class="selectedRank">{{$rank->title}}</a></td>
+                                        <td><a href="#" data-cs="{{$rank->consolidated_salary}}" data-paa="{{$rank->peculiar_allowance}}" data-id="{{$rank->id}}" class="selectedRank">{{$rank->title}}</a></td>
                                         <td>{{$rank->peculiar_allowance}}</td>
-                                        <td>{{$rank->created_at}}</td>
+                                        <td>{{$rank->consolidated_salary}}</t>
+                                        <!--<td>{{$rank->created_at}}</td>-->
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -99,6 +110,7 @@
             $('#InputEditTitle').val($(evt.target).text());
             $('#InputEditId').val($(evt.target).attr('data-id'));
             $('#InputEditPaa').val($(evt.target).attr('data-paa'));
+            $('#InputEditConsolidatedSalary').val($(evt.target).attr('data-cs'));
             $('#deleteRank').attr('href', '/rank/' + $(evt.target).attr('data-id') + '/delete');
             $('#manageForm').attr('action', '/rank/' + $(evt.target).attr('data-id') + '/edit');
         });

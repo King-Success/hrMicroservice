@@ -16,7 +16,8 @@ class CreateRanksTable extends Migration
         Schema::create('ranks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->decimal('peculiar_allowance', 7, 2)->default(0.00);
+            $table->decimal('peculiar_allowance', 12, 2)->default(0.00);
+            $table->decimal('consolidated_salary', 12, 2); //Per year.
             $table->timestamps();
         });
     }

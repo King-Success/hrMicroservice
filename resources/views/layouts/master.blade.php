@@ -432,7 +432,7 @@
             <label class="md-check m-y-xs" data-target="folded">
               <input type="checkbox">
               <i></i>
-              <span>Folded Aside</span>
+              <span>Adjust Workspace</span>
             </label>
             <label class="m-y-xs pointer" data-ui-fullscreen data-target="fullscreen">
               <span class="fa fa-expand fa-fw m-r-xs"></span>

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TitleTableSeeder::class);
         $this->call(DepartmentTableSeeder::class);
         $this->call(PaygradeTableSeeder::class);
+        $this->call(SalaryComponentTableSeeder::class);
         $this->call(EmployeeTableSeeder::class);
     }
 }

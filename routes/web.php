@@ -67,3 +67,12 @@ Route::group(['prefix' => 'paygrade'], function() {
     Route::put('/{id}/edit', 'PaygradeController@update')->name('update_paygrade');
     Route::get('/{id}/delete', 'PaygradeController@delete')->name('delete_paygrade');
 });
+
+Route::group(['prefix' => 'salarycomponent'], function() {
+    Route::get('/', 'SalaryComponentController@index')->name('salarycomponent_index');
+    // Route::get('/create', 'SalaryComponentController@create')->name('create_salarycomponent');
+    Route::post('/create', 'SalaryComponentController@store')->name('store_salarycomponent');
+    // Route::get('/{id}/edit', 'SalaryComponentController@edit')->name('edit_salarycomponent');
+    Route::put('/{id}/edit', 'SalaryComponentController@update')->name('update_salarycomponent');
+    Route::get('/{id}/delete', 'SalaryComponentController@delete')->name('delete_salarycomponent');
+});

@@ -187,6 +187,7 @@ return [
         App\Providers\DepartmentServiceProvider::class,
         App\Providers\PaygradeServiceProvider::class,
         App\Providers\TitleServiceProvider::class,
+        App\Providers\SalaryComponentServiceProvider::class,
 
     ],
 

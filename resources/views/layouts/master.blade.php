@@ -175,7 +175,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/salary_component" >
+                    <a href="/salarycomponent" >
                       <span class="nav-text">Salary Component</span>
                     </a>
                   </li>

@@ -423,7 +423,7 @@
           <i class="fa fa-gear text-muted"></i>
         </a>
         <div class="box-header">
-          <a href="https://themeforest.net/item/aside-dashboard-ui-kit/17903768?ref=flatfull" class="btn btn-xs rounded danger pull-right">BUY</a>
+          <!--<a href="#" class="btn btn-xs rounded danger pull-right">BUY</a>-->
           <strong>Theme Switcher</strong>
         </div>
         <div class="box-divider"></div>

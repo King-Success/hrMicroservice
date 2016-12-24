@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Repositories\Rank\RankContract as ObjectContract;
+use App\Repositories\EmployeeLevel\EmployeeLevelContract as ObjectContract;
 
-class RankTableSeeder extends Seeder
+class EmployeeLevelTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,9 +20,7 @@ class RankTableSeeder extends Seeder
     public function run()
     {
         $object = new StdClass;
-        $object->title = "Provost";
-        $object->allowance = 0; //PAA or PNAA
-        $object->basic_salary = 50000; //Real Annual Paycheck
+        $object->title = "7";
         $this->objectModel->create($object);
     }
 }

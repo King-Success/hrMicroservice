@@ -193,6 +193,7 @@ return [
         App\Providers\EmployeeBankInfoServiceProvider::class,
         App\Providers\PensionServiceProvider::class,
         App\Providers\EmployeePensionInfoServiceProvider::class,
+        App\Providers\EmployeeLevelServiceProvider::class,
 
     ],
 

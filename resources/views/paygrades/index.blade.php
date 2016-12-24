@@ -15,9 +15,21 @@
                             <label for="InputTitle">Title</label>
                             <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Enter Pay Grade">
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="InputELevel" class="col-sm-2 form-control-label">Employee Level</label>
+                            <div class="col-sm-10">
+                                <select class="form-control c-select" name="employee_level_id" id="InputELevel">
+                                    @foreach($employeeLevels as $levels)
+                                    <option value="{{$levels->id}}">{{$levels->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">
-                            <label for="InputAmount">Amount</label>
-                            <input type="text" name="amount" class="form-control" id="InputAmount" placeholder="Enter Amount">
+                            <label for="InputAmount">Basic salary (N)</label>
+                            <input type="text" name="basic_salary" class="form-control" id="InputAmount" placeholder="Enter basic salary">
                         </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}
@@ -38,8 +50,8 @@
                             <input type="hidden" id="InputEditId" name="id" value="">
                         </div>
                         <div class="form-group">
-                            <label for="InputEditAmount">Amount (N)</label>
-                            <input type="text" name="amount" class="form-control" id="InputEditAmount" placeholder="Enter Amount">
+                            <label for="InputEditAmount">Basic salary (N)</label>
+                            <input type="text" name="basic_salary" class="form-control" id="InputEditAmount" placeholder="Enter basic salary">
                         </div>
                         <button type="submit" class="btn black m-b">UPDATE</button>
                         <a href="#" id="deletePaygrade" class="m-b" style="text-decoration: underline;">DELETE</a>
@@ -60,15 +72,17 @@
                                 <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Amount</th>
+                                        <th>Level</th>
+                                        <th>Basic Salary</th>
                                         <th>Created At</th>
                                     </tr>
                                     </thead>
                                 <tbody>
                                     @foreach($paygrades as $paygrade)
                                     <tr>
-                                        <td><a href="#" data-id="{{$paygrade->id}}" data-amount="{{$paygrade->amount}}" class="selectedPaygrade">{{$paygrade->title}}</a></td>
-                                        <td>{{$paygrade->amount}}</td>
+                                        <td><a href="#" data-id="{{$paygrade->id}}" data-amount="{{$paygrade->basic_salary}}" class="selectedPaygrade">{{$paygrade->title}}</a></td>
+                                        <td>{{$paygrade->employee_level->title}}</td>
+                                        <td>{{$paygrade->basic_salary}}</td>
                                         <td>{{$paygrade->created_at}}</td>
                                     </tr>
                                     @endforeach

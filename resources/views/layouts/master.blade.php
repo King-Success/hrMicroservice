@@ -165,6 +165,11 @@
                     </a>
                   </li>
                   <li>
+                    <a href="/employeelevel" >
+                      <span class="nav-text">Employee Level</span>
+                    </a>
+                  </li>
+                  <li>
                     <a href="/paygrade" >
                       <span class="nav-text">Pay Grades</span>
                     </a>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaygradesTable extends Migration
+class CreateEmployeeLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePaygradesTable extends Migration
      */
     public function up()
     {
-        Schema::create('paygrades', function (Blueprint $table) {
+        Schema::create('employee_levels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->decimal('amount', 12, 2)->default(0.00);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreatePaygradesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paygrades');
+        Schema::dropIfExists('employee_levels');
     }
 }

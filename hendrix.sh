@@ -5,7 +5,7 @@ REPOSITORIES="Repositories"
 
 # Make app/Repositories
 function createContainer {
-    mkdir ./app/$REPOSITORIES
+    mkdir ./app/$REPOSITORIES 2> /dev/null
 }
 
 # Make app/Repositories/Entity

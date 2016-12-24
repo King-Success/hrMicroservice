@@ -6,34 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Repositories\Paygrade\PaygradeContract;
 use App\Repositories\EmployeeLevel\EmployeeLevelContract;
 
-class PaygradeController extends Controller
+class EmployeeLevelController extends Controller
 {
-    protected $paygradeModel;
     protected $employeeLevelModel;
-    
-    public function __construct(PaygradeContract $paygradeContract, EmployeeLevelContract $employeeLevelContract) {
-        $this->paygradeModel = $paygradeContract;
+    public function __construct(EmployeeLevelContract $employeeLevelContract) {
         $this->employeeLevelModel = $employeeLevelContract;
     }
 
-    // Display paygrades.index with all paygrades
+    // Display employeelevels.index with all employeelevels
     public function index() {
-        $paygrades = $this->paygradeModel->findAll();
         $employeeLevels = $this->employeeLevelModel->findAll();
-        return view('paygrades.index', ['paygrades' => $paygrades, 'employeeLevels' => $employeeLevels]);
+        return view('employeelevels.index', ['employeeLevels' => $employeeLevels]);
     }
 
-    // Display paygrades.create
+    // Display employeelevels.create
     public function create() {
-        return view('paygrades.create');
+        return view('employeelevels.create');
     }
 
     /**
      * Validate form.
-     * Save Paygrade to database
+     * Save EmployeeLevel to database
      * Redirect to prefered route or perform other action
      */
      public function store(Request $request) {
@@ -41,27 +36,27 @@ class PaygradeController extends Controller
             // Specify validation rules here
          ]);
 
-         $paygrade = $this->paygradeModel->create($request);
-         if ($paygrade->id) {
+         $employeeLevel = $this->employeeLevelModel->create($request);
+         if ($employeeLevel->id) {
              // Redirect or do whatever you like
-             $request->session()->flash('status', 'Task was successful!');
-             return back();
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
          } else {
              return back()
                 ->withInput()
-                ->with('error', 'Could not create Paygrade. Try again!');
+                ->with('error', 'Could not create EmployeeLevel. Try again!');
          }
      }
 
-    // Display paygrades.edit with paygrade to edit
+    // Display employeelevels.edit with employeelevel to edit
     public function edit($id) {
-        $paygrade = $this->paygradeModel->findById($id);
-        return view('paygrades.edit', ['paygrade' => $paygrade]);
+        $employeeLevel = $this->employeeLevelModel->findById($id);
+        return view('employeelevels.edit', ['employeeLevel' => $employeeLevel]);
     }
 
     /**
      * Validate form.
-     * Update Paygrade in database
+     * Update EmployeeLevel in database
      * Redirect to prefered route or perform other action
      */
     public function update(Request $request, $id) {
@@ -69,30 +64,30 @@ class PaygradeController extends Controller
            // Specify validation rules here
         ]);
 
-        $paygrade = $this->paygradeModel->edit($id, $request);
-        if ($paygrade->id) {
+        $employeeLevel = $this->employeeLevelModel->edit($id, $request);
+        if ($employeeLevel->id) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
             return back();
         } else {
             return back()
                ->withInput()
-               ->with('error', 'Could not update Paygrade. Try again!');
+               ->with('error', 'Could not update EmployeeLevel. Try again!');
         }
     }
 
     /**
-     * Delete Paygrade from database
+     * Delete EmployeeLevel from database
      * Redirect to prefered route or perform other action
      */
     public function delete(Request $request, $id) {
-        if ($this->paygradeModel->remove($id)) {
+        if ($this->employeeLevelModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
             return back();
         } else {
             return back()
-               ->with('error', 'Could not delete Paygrade. Try again!');
+               ->with('error', 'Could not delete EmployeeLevel. Try again!');
         }
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRanksTable extends Migration
+class CreatePaygradesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateRanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('ranks', function (Blueprint $table) {
+        Schema::create('paygrades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->decimal('allowance', 12, 2)->default(0.00);
-            $table->decimal('basic_salary', 12, 2)->default(0.00); //Per year.
+            $table->integer('employee_level_id')->unsigned();
+            $table->decimal('basic_salary', 12, 2)->default(0.00);
             $table->timestamps();
+            
+            $table->foreign('employee_level_id')->references('id')->on('employee_levels');
         });
     }
 
@@ -29,6 +31,6 @@ class CreateRanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ranks');
+        Schema::dropIfExists('paygrades');
     }
 }

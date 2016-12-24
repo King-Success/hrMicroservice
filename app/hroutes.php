@@ -86,3 +86,11 @@ Route::group(['prefix' => 'employeepensioninfo'], function() {
     Route::put('/{id}/edit', 'EmployeePensionInfoController@update')->name('update_employeepensioninfo');
     Route::get('/{id}/delete', 'EmployeePensionInfoController@delete')->name('delete_employeepensioninfo');
 });
+Route::group(['prefix' => 'employeelevel'], function() {
+    Route::get('/', 'EmployeeLevelController@index')->name('employeelevel_index');
+    Route::get('/create', 'EmployeeLevelController@create')->name('create_employeelevel');
+    Route::post('/create', 'EmployeeLevelController@store')->name('store_employeelevel');
+    Route::get('/{id}/edit', 'EmployeeLevelController@edit')->name('edit_employeelevel');
+    Route::put('/{id}/edit', 'EmployeeLevelController@update')->name('update_employeelevel');
+    Route::get('/{id}/delete', 'EmployeeLevelController@delete')->name('delete_employeelevel');
+});

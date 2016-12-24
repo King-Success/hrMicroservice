@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RankTableSeeder::class);
         $this->call(TitleTableSeeder::class);
         $this->call(DepartmentTableSeeder::class);
+        $this->call(EmployeeLevelTableSeeder::class);
         $this->call(PaygradeTableSeeder::class);
         $this->call(SalaryComponentTableSeeder::class);
         $this->call(EmployeeTypeTableSeeder::class);

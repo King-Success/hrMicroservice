@@ -51,7 +51,7 @@
                                           close: 'fa fa-remove'
                                         }
                                       }">
-                                      <input type='text'  placeholder="Enter Date of Birth" id="InputDob" class="form-control" required/>
+                                      <input type='text' name="dob"  placeholder="Enter Date of Birth" id="InputDob" class="form-control" required/>
                                       <span class="input-group-addon">
                                           <span class="fa fa-calendar"></span>
                                       </span>
@@ -63,7 +63,7 @@
                               <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="InputEmail">Email address</label>
-                                    <input type="email" class="form-control" id="InputEmail" required placeholder="Enter email">
+                                    <input type="email" name="email" class="form-control" id="InputEmail" required placeholder="Enter email">
                                 </div>   
                               </div>
                               <div class="col-sm-6">
@@ -77,16 +77,16 @@
                         <div class="row m-b">
                               <div class="col-sm-6">
                                 <label>Mobile No. (Home)</label>
-                                <input type="tel" class="form-control" required id="InputMobileHome">   
+                                <input name="mobile_home" type="tel" class="form-control" required id="InputMobileHome">   
                               </div>
                               <div class="col-sm-6">
                                 <label>Mobile no. (Work)</label>
-                                <input type="tel" class="form-control" id="InputMobileWork" required>      
+                                <input name="mobile_work" type="tel" class="form-control" id="InputMobileWork" required>      
                               </div>   
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <textarea class="form-control" rows="6" data-minwords="6" required placeholder="Please Type Physical Address"></textarea>
+                            <textarea name="address" class="form-control" rows="6" data-minwords="6" required placeholder="Please Type Physical Address"></textarea>
                         </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}

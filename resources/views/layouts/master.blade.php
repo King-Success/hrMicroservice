@@ -108,12 +108,12 @@
                 <ul class="nav-sub nav-mega nav-mega-3">
                   <li>
                     <a href="/employee" >
-                      <span class="nav-text">List</span>
+                      <span class="nav-text">Employee List</span>
                     </a>
                   </li>
                   <li>
                     <a href="/employee/create" >
-                      <span class="nav-text">Add</span>
+                      <span class="nav-text">Add Employee</span>
                     </a>
                   </li>
                 </ul>
@@ -299,7 +299,7 @@
             <a class="dropdown-item" href="docs.html">
               Need help?
             </a>
-            <a class="dropdown-item" href="signin.html">Sign out</a>
+            <a class="dropdown-item" href="/login">Sign out</a>
           </div>
         </div>
       </div>
@@ -347,7 +347,7 @@
                           <ul class="list-group list-group-gap m-a-0">
                             <li class="list-group-item dark-white box-shadow-z0 b">
                               <span class="pull-left m-r">
-                                <img src="images/a0.jpg" alt="..." class="w-40 img-circle">
+                                <img src="/images/a0.jpg" alt="..." class="w-40 img-circle">
                               </span>
                               <span class="clear block">
                                 Use awesome <a href="#" class="text-primary">animate.css</a><br>
@@ -356,7 +356,7 @@
                             </li>
                             <li class="list-group-item dark-white box-shadow-z0 b">
                               <span class="pull-left m-r">
-                                <img src="images/a1.jpg" alt="..." class="w-40 img-circle">
+                                <img src="/images/a1.jpg" alt="..." class="w-40 img-circle">
                               </span>
                               <span class="clear block">
                                 <a href="#" class="text-primary">Joe</a> Added you as friend<br>
@@ -365,7 +365,7 @@
                             </li>
                             <li class="list-group-item dark-white text-color box-shadow-z0 b">
                               <span class="pull-left m-r">
-                                <img src="images/a2.jpg" alt="..." class="w-40 img-circle">
+                                <img src="/images/a2.jpg" alt="..." class="w-40 img-circle">
                               </span>
                               <span class="clear block">
                                 <a href="#" class="text-primary">Danie</a> sent you a message<br>
@@ -380,7 +380,7 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="images/a3.jpg" class="w-full rounded" alt="...">
+                        <img src="/images/a3.jpg" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -400,7 +400,7 @@
                       <a class="dropdown-item" href="docs.html">
                         Need help?
                       </a>
-                      <a class="dropdown-item" href="signin.html">Sign out</a>
+                      <a class="dropdown-item" href="/logout">Sign out</a>
                     </div>
                   </li>
                 </ul>

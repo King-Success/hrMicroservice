@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Repositories\Employee\EmployeeContract;
 use App\Repositories\Prefix\PrefixContract;
 
+use Yajra\Datatables\Datatables;
+
 class EmployeeController extends Controller
 {
     protected $employeeModel;
@@ -17,6 +19,10 @@ class EmployeeController extends Controller
     public function __construct(EmployeeContract $employeeContract, PrefixContract $prefixContract) {
         $this->employeeModel = $employeeContract;
         $this->prefixModel = $prefixContract;
+    }
+    
+    public function ajaxSearch(){
+         return Datatables::of($this->employeeModel->findAll())->make(true);
     }
 
     // Display employees.index with all employees
@@ -52,6 +58,12 @@ class EmployeeController extends Controller
                 ->with('error', 'Could not create Employee. Try again!');
          }
      }
+     
+     // Display employees.edit with employee to edit
+    public function show(Request $request, $id) {
+        $employee = $this->employeeModel->findById($id);
+        return view('employees.show', ['employee' => $employee]);
+    }
 
     // Display employees.edit with employee to edit
     public function edit($id) {

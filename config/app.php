@@ -180,6 +180,7 @@ return [
         
         // Third Party Service Provider
         Collective\Html\HtmlServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
         
         // Our Service Providers
         App\Providers\EmployeeServiceProvider::class,

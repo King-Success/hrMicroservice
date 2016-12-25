@@ -11,20 +11,21 @@
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
                     <form role="form" action="/employee/create" method="POST">
-                        
-                        <div class="form-group">
-                            <label for="InputName">Full  Name</label>
-                            <input type="text" class="form-control" id="InputName" placeholder="Enter name">
-                        </div>
-                        
                         <div class="row m-b">
-                              <div class="col-sm-6">
-                                <label>Surname</label>
-                                <input type="password" class="form-control" required id="pwd">   
+                              <div class="col-sm-2">
+                                <label>Title</label>
+                                <select class="form-control c-select" name="title" id="InputEditTitle">
+                                    <option value="1">Mr</option>
+                                    <option value="2">Mrs.</option>
+                                </select>
                               </div>
-                              <div class="col-sm-6">
+                              <div class="col-sm-5">
+                                <label>Surname</label>
+                                <input type="text" name="surname" class="form-control" required id="InputSurname">   
+                              </div>
+                              <div class="col-sm-5">
                                 <label>Other Names</label>
-                                <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
+                                <input type="text" class="form-control" name="other_names" required id="InputOtherNames">      
                               </div>   
                         </div>
                         
@@ -53,13 +54,46 @@
                         
                         <div class="form-group">
                             <label for="InputEmail">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail" placeholder="Enter email">
+                            <input type="email" class="form-control" id="InputEmail" required placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label>Address</label>
                             <textarea class="form-control" rows="6" data-minwords="6" required placeholder="Please Type Physical Address"></textarea>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header">
+                    <h2>Bank Information</h2><small>Bank Information.</small></div>
+                <div class="box-divider m-a-0"></div>
+                <div class="box-body">
+                    <div class="app-body">
+                        <div class="padding">
+                            <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                            <div class="form-group">
+                              <label>Account Name</label>
+                              <input type="text" name="bank_account_name" class="form-control" required>                        
+                            </div>
+                            <div class="row m-b">
+                              <div class="col-sm-6">
+                                <label>Bank</label>
+                                <select class="form-control c-select" name="bank_id" id="InputEditBank">
+                                    <option value="Percentage">UBA</option>
+                                    <option value="Amount">Access Bank</option>
+                                </select>
+                              </div>
+                              <div class="col-sm-6">
+                                <label>Sort Code</label>
+                                <input type="sort_code" class="form-control" data-parsley-equalto="#pwd" required>      
+                              </div>   
+                            </div>
+                          </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

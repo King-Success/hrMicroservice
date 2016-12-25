@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class TitleServiceProvider extends ServiceProvider
+class EmployeeDepartmentInfoServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -21,6 +21,6 @@ class TitleServiceProvider extends ServiceProvider
      * @return void
      */
     public function register() {
-        $this->app->bind('App\Repositories\Title\TitleContract', 'App\Repositories\Title\EloquentTitleRepository');
+        $this->app->bind('App\Repositories\EmployeeDepartmentInfo\EmployeeDepartmentInfoContract', 'App\Repositories\EmployeeDepartmentInfo\EloquentEmployeeDepartmentInfoRepository');
     }
 }

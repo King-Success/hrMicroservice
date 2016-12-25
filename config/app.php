@@ -186,7 +186,7 @@ return [
         App\Providers\RankServiceProvider::class,
         App\Providers\DepartmentServiceProvider::class,
         App\Providers\PaygradeServiceProvider::class,
-        App\Providers\TitleServiceProvider::class,
+        App\Providers\PrefixServiceProvider::class,
         App\Providers\SalaryComponentServiceProvider::class,
         App\Providers\EmployeeTypeServiceProvider::class,
         App\Providers\BankServiceProvider::class,

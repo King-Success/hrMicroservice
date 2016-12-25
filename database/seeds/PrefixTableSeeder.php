@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Repositories\Title\TitleContract as ObjectContract;
+use App\Repositories\Prefix\PrefixContract as ObjectContract;
 
-class TitleTableSeeder extends Seeder
+class PrefixTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

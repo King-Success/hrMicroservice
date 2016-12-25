@@ -42,7 +42,15 @@ class EloquentEmployeeRepository implements EmployeeContract
 
     private function setEmployeeProperties($employee, $request) {
         // Assign attributes to the employee here
-        $employee->name = $request->name;
+        $employee->surname = $request->surname;
+        $employee->other_names = $request->other_names;
+        $employee->employee_number = $request->employee_number;
         $employee->dob = $request->dob;
+        $employee->prefix_id = $request->prefix;
+        $employee->gender = $request->gender;
+        $employee->email = $request->email;
+        $employee->address = $request->address;
+        $employee->mobile_work = $request->mobile_work;
+        $employee->mobile_home = $request->mobile_home;
     }
 }

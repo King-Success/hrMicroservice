@@ -6,29 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Repositories\Title\TitleContract;
+use App\Repositories\Prefix\PrefixContract;
 
-class TitleController extends Controller
+class PrefixController extends Controller
 {
-    protected $titleModel;
-    public function __construct(TitleContract $titleContract) {
-        $this->titleModel = $titleContract;
+    protected $prefixModel;
+    public function __construct(PrefixContract $prefixContract) {
+        $this->prefixModel = $prefixContract;
     }
 
-    // Display titles.index with all titles
+    // Display prefixes.index with all prefixes
     public function index() {
-        $titles = $this->titleModel->findAll();
-        return view('titles.index', ['titles' => $titles]);
+        $prefixes = $this->prefixModel->findAll();
+        return view('prefixes.index', ['prefixes' => $prefixes]);
     }
 
-    // Display titles.create
+    // Display prefixes.create
     public function create() {
-        return view('titles.create');
+        return view('prefixes.create');
     }
 
     /**
      * Validate form.
-     * Save Title to database
+     * Save Prefix to database
      * Redirect to prefered route or perform other action
      */
      public function store(Request $request) {
@@ -36,27 +36,27 @@ class TitleController extends Controller
             // Specify validation rules here
          ]);
 
-         $title = $this->titleModel->create($request);
-         if ($title->id) {
+         $prefix = $this->prefixModel->create($request);
+         if ($prefix->id) {
              // Redirect or do whatever you like
              $request->session()->flash('status', 'Task was successful!');
              return back();
          } else {
              return back()
                 ->withInput()
-                ->with('error', 'Could not create Title. Try again!');
+                ->with('error', 'Could not create Prefix. Try again!');
          }
      }
 
-    // Display titles.edit with title to edit
+    // Display prefixes.edit with prefix to edit
     public function edit($id) {
-        $title = $this->titleModel->findById($id);
-        return view('titles.edit', ['title' => $title]);
+        $prefix = $this->prefixModel->findById($id);
+        return view('prefixes.edit', ['prefix' => $prefix]);
     }
 
     /**
      * Validate form.
-     * Update Title in database
+     * Update Prefix in database
      * Redirect to prefered route or perform other action
      */
     public function update(Request $request, $id) {
@@ -64,30 +64,30 @@ class TitleController extends Controller
            // Specify validation rules here
         ]);
 
-        $title = $this->titleModel->edit($id, $request);
-        if ($title->id) {
+        $prefix = $this->prefixModel->edit($id, $request);
+        if ($prefix->id) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
             return back();
         } else {
             return back()
                ->withInput()
-               ->with('error', 'Could not update Title. Try again!');
+               ->with('error', 'Could not update Prefix. Try again!');
         }
     }
 
     /**
-     * Delete Title from database
+     * Delete Prefix from database
      * Redirect to prefered route or perform other action
      */
     public function delete(Request $request, $id) {
-        if ($this->titleModel->remove($id)) {
+        if ($this->prefixModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
             return back();
         } else {
             return back()
-               ->with('error', 'Could not delete Title. Try again!');
+               ->with('error', 'Could not delete Prefix. Try again!');
         }
     }
 }

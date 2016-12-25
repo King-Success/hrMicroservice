@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Repositories\Employee\EmployeeContract;
+use App\Repositories\Prefix\PrefixContract;
 
 class EmployeeController extends Controller
 {
     protected $employeeModel;
-    public function __construct(EmployeeContract $employeeContract) {
+    protected $prefixModel;
+    
+    public function __construct(EmployeeContract $employeeContract, PrefixContract $prefixContract) {
         $this->employeeModel = $employeeContract;
+        $this->prefixModel = $prefixContract;
     }
 
     // Display employees.index with all employees
@@ -23,7 +27,8 @@ class EmployeeController extends Controller
 
     // Display employees.create
     public function create() {
-        return view('employees.create');
+        $prefixes = $this->prefixModel->findAll();
+        return view('employees.create', ['prefixes' => $prefixes]);
     }
 
     /**
@@ -39,6 +44,8 @@ class EmployeeController extends Controller
          $employee = $this->employeeModel->create($request);
          if ($employee->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
          } else {
              return back()
                 ->withInput()
@@ -65,6 +72,8 @@ class EmployeeController extends Controller
         $employee = $this->employeeModel->edit($id, $request);
         if ($employee->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
         } else {
             return back()
                ->withInput()
@@ -79,6 +88,8 @@ class EmployeeController extends Controller
     public function delete($id) {
         if ($this->employeeModel->remove($id)) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
         } else {
             return back()
                ->with('error', 'Could not delete Employee. Try again!');

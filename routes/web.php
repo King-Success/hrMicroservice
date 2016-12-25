@@ -41,13 +41,13 @@ Route::group(['prefix' => 'rank'], function() {
     Route::get('/{id}/delete', 'RankController@delete')->name('delete_rank');
 });
 
-Route::group(['prefix' => 'title'], function() {
-    Route::get('/', 'TitleController@index')->name('title_index');
-    // Route::get('/create', 'TitleController@create')->name('create_title');
-    Route::post('/create', 'TitleController@store')->name('store_title');
-    // Route::get('/{id}/edit', 'TitleController@edit')->name('edit_title');
-    Route::put('/{id}/edit', 'TitleController@update')->name('update_title');
-    Route::get('/{id}/delete', 'TitleController@delete')->name('delete_title');
+Route::group(['prefix' => 'prefix'], function() {
+    Route::get('/', 'PrefixController@index')->name('prefix_index');
+    // Route::get('/create', 'PrefixController@create')->name('create_title');
+    Route::post('/create', 'PrefixController@store')->name('store_prefix');
+    // Route::get('/{id}/edit', 'PrefixController@edit')->name('edit_title');
+    Route::put('/{id}/edit', 'PrefixController@update')->name('update_prefix');
+    Route::get('/{id}/delete', 'PrefixController@delete')->name('delete_prefix');
 });
 
 Route::group(['prefix' => 'department'], function() {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTitlesTable extends Migration
+class CreateEmployeeDepartmentInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateTitlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('titles', function (Blueprint $table) {
+        Schema::create('employee_department_infos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            
+            $table->integer('employee_id')->unsigned();
+            $table->foreign('employee_id')->references('id')->on('employees');
+            
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateTitlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('titles');
+        Schema::dropIfExists('employee_department_infos');
     }
 }

@@ -9,6 +9,23 @@ use App\Http\Requests;
 use App\Repositories\Employee\EmployeeContract;
 use App\Repositories\Prefix\PrefixContract;
 
+// 
+use App\Repositories\Department\DepartmentContract;
+use App\Repositories\Rank\RankContract;
+use App\Repositories\Paygrade\PaygradeContract;
+use App\Repositories\Bank\BankContract;
+use App\Repositories\Pension\PensionContract;
+use App\Repositories\SalaryComponent\SalaryComponentContract;
+
+// 
+use App\Repositories\EmployeeDepartmentInfo\EmployeeDepartmentInfoContract;
+use App\Repositories\EmployeeRankInfo\EmployeeRankInfoContract;
+use App\Repositories\EmployeePaygradeInfo\EmployeePaygradeInfoContract;
+use App\Repositories\EmployeeBankInfo\EmployeeBankInfoContract;
+use App\Repositories\EmployeePensionInfo\EmployeePensionInfoContract;
+use App\Repositories\EmployeeSalaryComponentInfo\EmployeeSalaryComponentInfoContract;
+
+// Third Party
 use Yajra\Datatables\Datatables;
 
 class EmployeeController extends Controller
@@ -16,9 +33,53 @@ class EmployeeController extends Controller
     protected $employeeModel;
     protected $prefixModel;
     
-    public function __construct(EmployeeContract $employeeContract, PrefixContract $prefixContract) {
+    // 
+    protected $departmentModel;
+    protected $rankModel;
+    protected $paygradeModel;
+    protected $bankModel;
+    protected $pensionModel;
+    protected $salaryComponentModel;
+    
+    // 
+    protected $employeeDepartmentInfoModel;
+    protected $employeeRankInfoModel;
+    protected $employeePaygradeInfoModel;
+    protected $employeeBankInfoModel;
+    protected $employeePensionInfoModel;
+    protected $employeeSalaryComponentInfoModel;
+    
+    public function __construct(EmployeeContract $employeeContract, 
+        PrefixContract $prefixContract,
+        DepartmentContract $departmentContract,
+        RankContract $rankContract,
+        PaygradeContract $paygradeContract,
+        BankContract $bankContract,
+        PensionContract $pensionContract,
+        SalaryComponentContract $salaryComponentContract,
+        
+        EmployeeDepartmentInfoContract $employeeDepartmentInfoContract,
+        EmployeeRankInfoContract $employeeRankInfoContract,
+        EmployeePaygradeInfoContract $employeePaygradeInfoContract,
+        EmployeeBankInfoContract $employeeBankInfoContract,
+        EmployeePensionInfoContract $employeePensionInfoContract,
+        EmployeeSalaryComponentInfoContract $employeeSalaryComponentInfoContract
+        ) {
         $this->employeeModel = $employeeContract;
         $this->prefixModel = $prefixContract;
+        $this->departmentModel = $departmentContract;
+        $this->rankModel = $rankContract;
+        $this->paygradeModel = $paygradeContract;
+        $this->bankModel = $bankContract;
+        $this->pensionModel = $pensionContract;
+        $this->salaryComponentModel = $salaryComponentContract;
+        
+        $this->employeeDepartmentInfoModel = $employeeDepartmentInfoContract;
+        $this->employeeRankInfoModel = $employeeRankInfoContract;
+        $this->employeePaygradeInfo = $employeePaygradeInfoContract;
+        $this->employeeBankInfoModel = $employeeBankInfoContract;
+        $this->employeePensionInfoModel = $employeePensionInfoContract;
+        $this->employeeSalaryComponentInfoModel = $employeeSalaryComponentInfoContract;
     }
     
     public function ajaxSearch(){
@@ -61,8 +122,26 @@ class EmployeeController extends Controller
      
      // Display employees.edit with employee to edit
     public function show(Request $request, $id) {
-        $employee = $this->employeeModel->findById($id);
-        return view('employees.show', ['employee' => $employee]);
+        $data = array();
+        $data['employee'] = $this->employeeModel->findById($id);
+        // 
+        $data['departments'] = $this->departmentModel->findAll();
+        $data['ranks'] = $this->rankModel->findAll();
+        $data['paygrades'] = $this->paygradeModel->findAll();
+        $data['banks'] = $this->bankModel->findAll();
+        $data['pensions'] = $this->pensionModel->findAll();
+        $data['salaryComponents'] = $this->salaryComponentModel->findAll(); //Allowances
+        
+        // 
+        $data['employeeRank'] = $this->rankModel->findById($id);
+        $data['employeeDepartment'] = $this->departmentModel->findById($id);
+        $data['ranks'] = $this->rankModel->findById($id);
+        $data['employeePaygrade'] = $this->paygradeModel->findById($id);
+        $data['employeeBank'] = $this->bankModel->findById($id);
+        $data['pensions'] = $this->pensionModel->findById($id);
+        $data['employeeSalaryComponents'] = $this->salaryComponentModel->findById($id); //Allowances //Array Expected
+        
+        return view('employees.show', $data);
     }
 
     // Display employees.edit with employee to edit

@@ -195,6 +195,10 @@ return [
         App\Providers\PensionServiceProvider::class,
         App\Providers\EmployeePensionInfoServiceProvider::class,
         App\Providers\EmployeeLevelServiceProvider::class,
+        App\Providers\EmployeeDepartmentInfoServiceProvider::class,
+        App\Providers\EmployeeRankInfoServiceProvider::class,
+        App\Providers\EmployeePaygradeInfoServiceProvider::class,
+        App\Providers\EmployeeSalaryComponentInfoServiceProvider::class,
 
     ],
 

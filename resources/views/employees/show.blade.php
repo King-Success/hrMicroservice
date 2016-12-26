@@ -143,7 +143,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h2>Department</h2><small></small></div>
+                            <h2>Department</h2><small>Department Information</small></div>
                         <div class="box-divider m-a-0"></div>
                         <div class="box-body">
                             <div class="app-body">
@@ -158,7 +158,7 @@
                                         </select>                        
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
-                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                    <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h2>Rank</h2><small></small></div>
+                            <h2>Rank</h2><small>Rank Information</small></div>
                         <div class="box-divider m-a-0"></div>
                         <div class="box-body">
                             <div class="app-body">
@@ -190,7 +190,7 @@
                                         </select>        
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
-                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                    <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                   </form>
                                 </div>
@@ -208,7 +208,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h2>Pay Grade</h2><small></small></div>
+                            <h2>Pay Grade</h2><small>Pay Grade Information</small></div>
                         <div class="box-divider m-a-0"></div>
                         <div class="box-body">
                             <div class="app-body">
@@ -223,7 +223,7 @@
                                         </select>                      
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
-                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                    <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                 </div>
                             </div>
@@ -247,13 +247,15 @@
                             <div class="app-body">
                                 <div class="padding">
                                     {!! Form::open(array('url' => '/employeebankinfo/create', 'id'=>'bank', 'role' => 'form', 'method'=>'POST')) !!}
-                                    <div class="form-group">
-                                      <label>Account Name</label>
-                                      <input type="text" value="{{$employeeBank->account_name}}" name="account_name" class="form-control" required>                        
-                                    </div>
-                                    <div class="form-group">
-                                      <label>Account Number</label>
-                                      <input type="text" value="{{$employeeBank->account_number}}" name="account_number" class="form-control" required>                        
+                                    <div class="row m-b">
+                                      <div class="col-sm-6">
+                                        <label>Account Name</label>
+                                      <input type="text" value="{{$employeeBank->account_name}}" name="account_name" class="form-control" required>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label>Account Number</label>
+                                        <input type="text" value="{{$employeeBank->account_number}}" name="account_number" class="form-control" required>       
+                                      </div>   
                                     </div>
                                     <div class="row m-b">
                                       <div class="col-sm-6">
@@ -270,7 +272,7 @@
                                       </div>   
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">   
-                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                    <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                 </div>
                             </div>
@@ -306,7 +308,7 @@
                                       </div>   
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
-                                    <button type="submit" class="btn black m-b" id="updatePension">SAVE</button>
+                                    <button type="submit" class="btn black m-b" id="updatePension">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                 </div>
                             </div>
@@ -333,7 +335,11 @@
                                     @foreach($salaryComponents as $salaryComponenet)
                                     <p>
                                       <label class="md-check">
-                                        <input type="checkbox" value="{{$salaryComponenet->id}}" name="salary_components[]">
+                                        <input type="checkbox" value="{{$salaryComponenet->id}}" name="salary_components[]"
+                                        @foreach($employeeSalaryComponents as $employeeSalaryComponent)
+                                        {{$employeeSalaryComponent->salary_component_id == $salaryComponenet->id ? 'checked' : ''}}
+                                        @endforeach
+                                        />
                                         <i class="indigo"></i>{{$salaryComponenet->title}}
                                       </label>
                                     </p>
@@ -341,7 +347,7 @@
                                   </div>
                                   </div>
                                   <input type="hidden" name="employee" value="{{$employee->id}}">
-                                  <button type="submit" class="btn black m-b">SAVE</button>
+                                  <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                 </div>
                             </div>

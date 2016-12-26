@@ -76,25 +76,25 @@
       <div class="col-sm-6 pull-sm-6">
         <div class="p-y-md clearfix nav-active-dark">
           <ul class="nav nav-pills nav-sm">
-            <li class="nav-item active">
+            <li class="nav-item {{empty($_GET['tab']) ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_1">Profile</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{isset($_GET['tab']) && $_GET['tab'] == 'department' ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_2">Department</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{isset($_GET['tab']) && $_GET['tab'] == 'rank' ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_3">Rank</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{isset($_GET['tab']) && $_GET['tab'] == 'paygrade' ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_4">Pay Grade</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'bank') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_5">Bank</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'pension') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_6">Pension</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'salarycomponent') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_7">Allowances</a>
             </li>
           </ul>

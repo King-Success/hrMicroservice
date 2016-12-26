@@ -148,20 +148,14 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                                    <form action="#" id="department">
                                     <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="email" class="form-control" required>                        
-                                    </div>
-                                    <div class="row m-b">
-                                      <div class="col-sm-6">
-                                        <label>Enter password</label>
-                                        <input type="password" class="form-control" required id="pwd">   
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <label>Confirm password</label>
-                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
-                                      </div>   
+                                      <label>Department</label>
+                                        <select class="form-control c-select" name="department_id" id="InputDepartment">
+                                            @foreach($departments as $department)
+                                            <option value="{{$department->id}}">{{$department->title}}</option>
+                                            @endforeach
+                                        </select>                        
                                     </div>
                                     <button type="submit" class="btn black m-b">SAVE</button>
                                   </form>
@@ -185,20 +179,14 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                                    <form action="#" id="rank">
                                     <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="email" class="form-control" required>                        
-                                    </div>
-                                    <div class="row m-b">
-                                      <div class="col-sm-6">
-                                        <label>Enter password</label>
-                                        <input type="password" class="form-control" required id="pwd">   
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <label>Confirm password</label>
-                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
-                                      </div>   
+                                      <label>Rank</label>
+                                        <select class="form-control c-select" name="bank_id" id="InputRank">
+                                            @foreach($ranks as $rank)
+                                            <option value="{{$rank->id}}">{{$rank->title}}</option>
+                                            @endforeach
+                                        </select>        
                                     </div>
                                     <button type="submit" class="btn black m-b">SAVE</button>
                                   </form>
@@ -222,20 +210,14 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                                    <form action="#" id="paygrade">
                                     <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="email" class="form-control" required>                        
-                                    </div>
-                                    <div class="row m-b">
-                                      <div class="col-sm-6">
-                                        <label>Enter password</label>
-                                        <input type="password" class="form-control" required id="pwd">   
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <label>Confirm password</label>
-                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
-                                      </div>   
+                                      <label>Pay Grade</label>
+                                        <select class="form-control c-select" name="bank_id" id="InputPaygrade">
+                                            @foreach($paygrades as $paygrade)
+                                            <option value="{{$paygrade->id}}">{{$paygrade->title}}</option>
+                                            @endforeach
+                                        </select>                      
                                     </div>
                                     <button type="submit" class="btn black m-b">SAVE</button>
                                   </form>
@@ -260,7 +242,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form>
+                                    <form id="bank">
                                     <div class="form-group">
                                       <label>Account Name</label>
                                       <input type="text" name="bank_account_name" class="form-control" required>                        
@@ -268,9 +250,10 @@
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Bank</label>
-                                        <select class="form-control c-select" name="bank_id" id="InputEditBank">
-                                            <option value="Percentage">UBA</option>
-                                            <option value="Amount">Access Bank</option>
+                                        <select class="form-control c-select" name="bank_id" id="InputBank">
+                                            @foreach($banks as $bank)
+                                            <option value="{{$bank->id}}">{{$bank->title}}</option>
+                                            @endforeach
                                         </select>
                                       </div>
                                       <div class="col-sm-6">
@@ -298,18 +281,19 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form>
+                                    <form id="pension">
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Name of PFA</label>
-                                        <select class="form-control c-select" name="pfa" id="InputEditBank">
-                                            <option value="Percentage">TRUST FUND</option>
-                                            <option value="Amount">PENCOM</option>
+                                        <select class="form-control c-select" name="pfa" id="InputPension">
+                                            @foreach($pensions as $pension)
+                                            <option value="{{$pension->id}}">{{$pension->title}}</option>
+                                            @endforeach
                                         </select>
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Pin Number</label>
-                                        <input type="number" name="pin_number" class="form-control">      
+                                        <input type="number" name="pin_number" id="InputPinNumber" class="form-control">      
                                       </div>   
                                     </div>
                                     <button type="submit" class="btn black m-b">SAVE</button>
@@ -333,21 +317,8 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
-                                    <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="email" class="form-control" required>                        
-                                    </div>
-                                    <div class="row m-b">
-                                      <div class="col-sm-6">
-                                        <label>Enter password</label>
-                                        <input type="password" class="form-control" required id="pwd">   
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <label>Confirm password</label>
-                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
-                                      </div>   
-                                    </div>
+                                    <form action="#" class="">
+                                    
                                     <button type="submit" class="btn black m-b">SAVE</button>
                                   </form>
                                 </div>

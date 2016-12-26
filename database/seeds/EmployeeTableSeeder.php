@@ -31,6 +31,7 @@ class EmployeeTableSeeder extends Seeder
         $object->mobile_work = "08036504287";
         $object->dob = "2003-05-11";
         $object->prefix = "1";
+        $object->employee_type = "1";
         $this->objectModel->create($object);
     }
 }

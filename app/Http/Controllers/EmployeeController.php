@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\Repositories\Employee\EmployeeContract;
 use App\Repositories\Prefix\PrefixContract;
+use App\Repositories\EmployeeType\EmployeeTypeContract;
 
 // 
 use App\Repositories\Department\DepartmentContract;
@@ -32,6 +33,7 @@ class EmployeeController extends Controller
 {
     protected $employeeModel;
     protected $prefixModel;
+    protected $employeeTypeModel;
     
     // 
     protected $departmentModel;
@@ -51,6 +53,8 @@ class EmployeeController extends Controller
     
     public function __construct(EmployeeContract $employeeContract, 
         PrefixContract $prefixContract,
+        EmployeeTypeContract $employeeTypeContract,
+        
         DepartmentContract $departmentContract,
         RankContract $rankContract,
         PaygradeContract $paygradeContract,
@@ -67,6 +71,8 @@ class EmployeeController extends Controller
         ) {
         $this->employeeModel = $employeeContract;
         $this->prefixModel = $prefixContract;
+        $this->employeeTypeModel = $employeeTypeContract;
+        
         $this->departmentModel = $departmentContract;
         $this->rankModel = $rankContract;
         $this->paygradeModel = $paygradeContract;
@@ -95,7 +101,8 @@ class EmployeeController extends Controller
     // Display employees.create
     public function create() {
         $prefixes = $this->prefixModel->findAll();
-        return view('employees.create', ['prefixes' => $prefixes]);
+        $employeeTypes = $this->employeeTypeModel->findAll();
+        return view('employees.create', ['prefixes' => $prefixes, 'employeeTypes' => $employeeTypes]);
     }
 
     /**

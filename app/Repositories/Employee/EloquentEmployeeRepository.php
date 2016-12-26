@@ -47,6 +47,7 @@ class EloquentEmployeeRepository implements EmployeeContract
         $employee->employee_number = $request->employee_number;
         $employee->dob = $request->dob;
         $employee->prefix_id = $request->prefix;
+        $employee->employee_type_id = $request->employee_type;
         $employee->gender = $request->gender;
         $employee->email = $request->email;
         $employee->address = $request->address;

@@ -13,7 +13,7 @@
                     {!! Form::open(array('url' => '/employee/create', 'role' => 'form', 'method'=>'POST')) !!}
                         <div class="row m-b">
                               <div class="col-sm-2">
-                                <label>Title</label>
+                                <label>Prefix</label>
                                 <select class="form-control c-select" name="prefix" id="InputEditPrefix">
                                     @foreach($prefixes as $prefix)
                                     <option value="{{$prefix->id}}">{{$prefix->title}}</option>
@@ -29,7 +29,14 @@
                                 <input type="text" class="form-control" name="other_names" required id="InputOtherNames">      
                               </div>   
                         </div>
-                        
+                         <div class="form-group">
+                                <label>Employee Type</label>
+                                <select class="form-control c-select" name="prefix" id="InputEditPrefix">
+                                    @foreach($employeeTypes as $employeeType)
+                                    <option value="{{$employeeType->id}}">{{$employeeType->title}}</option>
+                                    @endforeach
+                                </select>
+                        </div>
                         <div class="row m-b">
                               <div class="col-sm-6">
                                 <label>PSN No.</label>

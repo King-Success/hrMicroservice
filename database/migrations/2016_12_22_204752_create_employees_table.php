@@ -25,11 +25,14 @@ class CreateEmployeesTable extends Migration
             $table->string('mobile_work')->nullable();
             $table->string('address')->nullable();
             $table->integer('prefix_id')->unsigned();
+            $table->integer('employee_type_id')->unsigned();
             $table->string('profile_is_complete')->default(0);
             $table->integer('setup_stage')->default(1);
             $table->timestamps();
             
             $table->foreign('prefix_id')->references('id')->on('prefixes');
+            $table->foreign('employee_type_id')->references('id')->on('employee_types');
+            
         });
     }
 

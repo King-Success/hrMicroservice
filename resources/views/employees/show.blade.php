@@ -36,10 +36,12 @@
                 <i class="fa fa-linkedin cyan-600"></i>
               </a>
             </div>
+            <!--
             <a href="#" class="btn btn-sm warn rounded success active m-b" data-ui-toggle-class="success">
               <span class="inline">Follow</span>
               <span class="none">Following</span>
             </a>
+            -->
           </div>
         </div>
         <!--
@@ -78,13 +80,22 @@
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_1">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_2">Employee Setup</a>
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_2">Department</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_3">Bank Setup</a>
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_3">Rank</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_4">Pension</a>
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_4">Pay Grade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_5">Bank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_6">Pension</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_7">Allowances</a>
             </li>
           </ul>
         </div>
@@ -125,13 +136,14 @@
                 <!-- End -->
             </div>
           </div>
+          
           <div class="tab-pane p-v-sm" id="tab_2">
             <div class="streamline">
                 <!-- Begin -->
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h2>Organization Setup</h2><small>Employee Information.</small></div>
+                            <h2>Department</h2><small></small></div>
                         <div class="box-divider m-a-0"></div>
                         <div class="box-body">
                             <div class="app-body">
@@ -161,7 +173,83 @@
                 <!-- END -->
             </div>
           </div>
+          
           <div class="tab-pane p-v-sm" id="tab_3">
+            <div class="streamline">
+                <!-- Begin -->
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2>Rank</h2><small></small></div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="box-body">
+                            <div class="app-body">
+                                <div class="padding">
+                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                                    <div class="form-group">
+                                      <label>Email</label>
+                                      <input type="email" class="form-control" required>                        
+                                    </div>
+                                    <div class="row m-b">
+                                      <div class="col-sm-6">
+                                        <label>Enter password</label>
+                                        <input type="password" class="form-control" required id="pwd">   
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label>Confirm password</label>
+                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
+                                      </div>   
+                                    </div>
+                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                  </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+          </div>
+          
+          <div class="tab-pane p-v-sm" id="tab_4">
+            <div class="streamline">
+                <!-- Begin -->
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2>Pay Grade</h2><small></small></div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="box-body">
+                            <div class="app-body">
+                                <div class="padding">
+                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                                    <div class="form-group">
+                                      <label>Email</label>
+                                      <input type="email" class="form-control" required>                        
+                                    </div>
+                                    <div class="row m-b">
+                                      <div class="col-sm-6">
+                                        <label>Enter password</label>
+                                        <input type="password" class="form-control" required id="pwd">   
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label>Confirm password</label>
+                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
+                                      </div>   
+                                    </div>
+                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                  </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+          </div>
+          
+          
+          <div class="tab-pane p-v-sm" id="tab_5">
               <div class="row row-sm">
                 <!-- BEGIN -->
                 <div class="col-md-12">
@@ -200,7 +288,7 @@
                 <!-- END -->
               </div>
           </div>
-          <div class="tab-pane p-v-sm" id="tab_4">
+          <div class="tab-pane p-v-sm" id="tab_6">
             <!-- BEGIN -->
             <div class="col-md-12">
                     <div class="box">
@@ -233,6 +321,44 @@
             </div>
             <!--- END -->
           </div>
+          
+          <div class="tab-pane p-v-sm" id="tab_7">
+            <div class="streamline">
+                <!-- Begin -->
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2>Allowances</h2><small></small></div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="box-body">
+                            <div class="app-body">
+                                <div class="padding">
+                                    <form action="{{ URL::secure('/') }}/api/dropzone" class="dropzone white">
+                                    <div class="form-group">
+                                      <label>Email</label>
+                                      <input type="email" class="form-control" required>                        
+                                    </div>
+                                    <div class="row m-b">
+                                      <div class="col-sm-6">
+                                        <label>Enter password</label>
+                                        <input type="password" class="form-control" required id="pwd">   
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label>Confirm password</label>
+                                        <input type="password" class="form-control" data-parsley-equalto="#pwd" required>      
+                                      </div>   
+                                    </div>
+                                    <button type="submit" class="btn black m-b">SAVE</button>
+                                  </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+          </div>
+          
         </div>
       </div>
       <!--

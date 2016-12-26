@@ -76,7 +76,7 @@ class EmployeeController extends Controller
         
         $this->employeeDepartmentInfoModel = $employeeDepartmentInfoContract;
         $this->employeeRankInfoModel = $employeeRankInfoContract;
-        $this->employeePaygradeInfo = $employeePaygradeInfoContract;
+        $this->employeePaygradeInfoModel = $employeePaygradeInfoContract;
         $this->employeeBankInfoModel = $employeeBankInfoContract;
         $this->employeePensionInfoModel = $employeePensionInfoContract;
         $this->employeeSalaryComponentInfoModel = $employeeSalaryComponentInfoContract;
@@ -133,13 +133,12 @@ class EmployeeController extends Controller
         $data['salaryComponents'] = $this->salaryComponentModel->findAll(); //Allowances
         
         // 
-        $data['employeeRank'] = $this->rankModel->findById($id);
-        $data['employeeDepartment'] = $this->departmentModel->findById($id);
-        $data['ranks'] = $this->rankModel->findById($id);
-        $data['employeePaygrade'] = $this->paygradeModel->findById($id);
-        $data['employeeBank'] = $this->bankModel->findById($id);
-        $data['pensions'] = $this->pensionModel->findById($id);
-        $data['employeeSalaryComponents'] = $this->salaryComponentModel->findById($id); //Allowances //Array Expected
+        $data['employeeRank'] = $this->employeeRankInfoModel->findById($id);
+        $data['employeeDepartment'] = $this->employeeDepartmentInfoModel->findById($id);
+        $data['employeePaygrade'] = $this->employeePaygradeInfoModel->findById($id);
+        $data['employeeBank'] = $this->employeeBankInfoModel->findById($id);
+        $data['pensions'] = $this->employeePensionInfoModel->findById($id);
+        $data['employeeSalaryComponents'] = $this->employeeSalaryComponentInfoModel->findById($id); //Allowances //Array Expected
         
         return view('employees.show', $data);
     }

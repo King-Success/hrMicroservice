@@ -31,7 +31,7 @@
                         </div>
                          <div class="form-group">
                                 <label>Employee Type</label>
-                                <select class="form-control c-select" name="prefix" id="InputEditPrefix">
+                                <select class="form-control c-select" name="employee_type" id="InputEditPrefix">
                                     @foreach($employeeTypes as $employeeType)
                                     <option value="{{$employeeType->id}}">{{$employeeType->title}}</option>
                                     @endforeach

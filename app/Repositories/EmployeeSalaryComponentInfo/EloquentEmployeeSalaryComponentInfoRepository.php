@@ -43,9 +43,14 @@ class EloquentEmployeeSalaryComponentInfoRepository implements EmployeeSalaryCom
         $employeeSalaryComponentInfo = $this->findById($employeeSalaryComponentInfoId);
         return $employeeSalaryComponentInfo->delete();
     }
+    
+    public function clear($employerId){
+        return EmployeeSalaryComponentInfo::where('employee_id', $employerId)->delete();
+    }
 
     private function setEmployeeSalaryComponentInfoProperties($employeeSalaryComponentInfo, $request) {
         // Assign attributes to the employeeSalaryComponentInfo here
         $employeeSalaryComponentInfo->employee_id = $request->employee;
+        $employeeSalaryComponentInfo->salary_component_id = $request->salary_component;
     }
 }

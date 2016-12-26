@@ -305,7 +305,7 @@
                                         <input type="number" name="pin_number" id="InputPinNumber" class="form-control">     
                                       </div>   
                                     </div>
-                                    <input type="hidden" name="employee" value="{{$employee->id}}">   
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">
                                     <button type="submit" class="btn black m-b" id="updatePension">SAVE</button>
                                   {!! Form::close() !!}
                                 </div>
@@ -322,15 +322,27 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h2>Allowances</h2><small></small></div>
+                            <h2>Salary Components</h2><small>General Allowances and Deductions</small></div>
                         <div class="box-divider m-a-0"></div>
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="#" class="">
-                                    
-                                    <button type="submit" class="btn black m-b">SAVE</button>
-                                  </form>
+                                  {!! Form::open(array('url' => '/employeesalarycomponentinfo/create', 'id'=>'salarycomponent', 'role' => 'form', 'method'=>'POST')) !!}
+                                  <div class="row">
+                                  <div class="col-sm-4">
+                                    @foreach($salaryComponents as $salaryComponenet)
+                                    <p>
+                                      <label class="md-check">
+                                        <input type="checkbox" value="{{$salaryComponenet->id}}" name="salary_components[]">
+                                        <i class="indigo"></i>{{$salaryComponenet->title}}
+                                      </label>
+                                    </p>
+                                    @endforeach
+                                  </div>
+                                  </div>
+                                  <input type="hidden" name="employee" value="{{$employee->id}}">
+                                  <button type="submit" class="btn black m-b">SAVE</button>
+                                  {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>

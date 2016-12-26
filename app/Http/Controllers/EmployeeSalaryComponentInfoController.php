@@ -35,10 +35,23 @@ class EmployeeSalaryComponentInfoController extends Controller
          $this->validate($request, [
             // Specify validation rules here
          ]);
-
-         $employeeSalaryComponentInfo = $this->employeeSalaryComponentInfoModel->create($request);
-         if ($employeeSalaryComponentInfo->id) {
+        //  Delete existing
+        $this->employeeSalaryComponentInfoModel->clear($request->input('employee'));
+         
+        $selectedSalaryComponents = $request->input('salary_components');
+        
+        foreach($selectedSalaryComponents as $selectedSalaryComponent){
+             $salaryComponent = new \StdClass;
+             $salaryComponent->employee = $request->input('employee');
+             $salaryComponent->salary_component = $selectedSalaryComponent;
+             if($this->employeeSalaryComponentInfoModel->create($salaryComponent)) continue;
+             throw new \Exception("A fatal error occured");
+         }
+         
+         if (true) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=salarycomponent');
          } else {
              return back()
                 ->withInput()

@@ -155,3 +155,12 @@ Route::group(['prefix' => 'employeerankinfo'], function() {
     // Route::put('/{id}/edit', 'EmployeeRankInfoController@update')->name('update_employeerankinfo');
     // Route::get('/{id}/delete', 'EmployeeRankInfoController@delete')->name('delete_employeerankinfo');
 });
+
+Route::group(['prefix' => 'employeesalarycomponentinfo'], function() {
+    // Route::get('/', 'EmployeeSalaryComponentInfoController@index')->name('employeesalarycomponentinfo_index');
+    // Route::get('/create', 'EmployeeSalaryComponentInfoController@create')->name('create_employeesalarycomponentinfo');
+    Route::post('/create', 'EmployeeSalaryComponentInfoController@store')->name('store_employeesalarycomponentinfo');
+    // Route::get('/{id}/edit', 'EmployeeSalaryComponentInfoController@edit')->name('edit_employeesalarycomponentinfo');
+    // Route::put('/{id}/edit', 'EmployeeSalaryComponentInfoController@update')->name('update_employeesalarycomponentinfo');
+    // Route::get('/{id}/delete', 'EmployeeSalaryComponentInfoController@delete')->name('delete_employeesalarycomponentinfo');
+});

@@ -9,4 +9,5 @@ interface EmployeePensionInfoContract
     public function findAll();
     public function findById($employeePensionInfoId);
     public function remove($employeePensionInfoId);
+    public function findByEmployeeId($employeeId);
 }

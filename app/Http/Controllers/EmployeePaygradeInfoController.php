@@ -35,10 +35,17 @@ class EmployeePaygradeInfoController extends Controller
          $this->validate($request, [
             // Specify validation rules here
          ]);
+         
+         $employeePaygradeInfo = $this->employeePaygradeInfoModel->findByEmployeeId($request->input('employee'));
+         if($employeePaygradeInfo){
+             return $this->update($request, $employeePaygradeInfo->id);
+         }
 
          $employeePaygradeInfo = $this->employeePaygradeInfoModel->create($request);
          if ($employeePaygradeInfo->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=paygrade');
          } else {
              return back()
                 ->withInput()
@@ -65,6 +72,8 @@ class EmployeePaygradeInfoController extends Controller
         $employeePaygradeInfo = $this->employeePaygradeInfoModel->edit($id, $request);
         if ($employeePaygradeInfo->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=paygrade');
         } else {
             return back()
                ->withInput()

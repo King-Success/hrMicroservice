@@ -35,10 +35,17 @@ class EmployeeRankInfoController extends Controller
          $this->validate($request, [
             // Specify validation rules here
          ]);
+         
+         $employeeRankInfo = $this->employeeRankInfoModel->findByEmployeeId($request->input('employee'));
+         if($employeeRankInfo){
+             return $this->update($request, $employeeRankInfo->id);
+         }
 
          $employeeRankInfo = $this->employeeRankInfoModel->create($request);
          if ($employeeRankInfo->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=rank');
          } else {
              return back()
                 ->withInput()
@@ -65,6 +72,8 @@ class EmployeeRankInfoController extends Controller
         $employeeRankInfo = $this->employeeRankInfoModel->edit($id, $request);
         if ($employeeRankInfo->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=rank');
         } else {
             return back()
                ->withInput()

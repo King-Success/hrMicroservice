@@ -83,13 +83,15 @@ $( document ).ready(function() {
         });
 	});
 	
-	$('#updatePension').on('click',function(){
+	$('#cupdatePension').on('click',function(){
 	   // $('#loader').dimmer('show');
-	   var request;
+	   var pension_id = $('#InputPension').val();
+	   var pin_number = $('#InputPinNumber').val();
+	   
 	    $.ajax({
             url: "/bank/create", 
             method: 'POST',
-            data: request,
+            data: {pin_number: pin_number, pension_id: pension_id},
             dataType: 'json',
             contentType: 'application/json',
         }).done(function( data ) {

@@ -9,4 +9,5 @@ interface EmployeeDepartmentInfoContract
     public function findAll();
     public function findById($employeeDepartmentInfoId);
     public function remove($employeeDepartmentInfoId);
+    public function findByEmployeeId($employeeId);
 }

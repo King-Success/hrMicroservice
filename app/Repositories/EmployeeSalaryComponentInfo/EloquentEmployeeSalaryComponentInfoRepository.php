@@ -34,6 +34,10 @@ class EloquentEmployeeSalaryComponentInfoRepository implements EmployeeSalaryCom
     public function findById($employeeSalaryComponentInfoId) {
         return EmployeeSalaryComponentInfo::find($employeeSalaryComponentInfoId);
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeeSalaryComponentInfo::where('employee_id', $employeeId)->get();
+    }
 
     public function remove($employeeSalaryComponentInfoId) {
         $employeeSalaryComponentInfo = $this->findById($employeeSalaryComponentInfoId);
@@ -42,5 +46,6 @@ class EloquentEmployeeSalaryComponentInfoRepository implements EmployeeSalaryCom
 
     private function setEmployeeSalaryComponentInfoProperties($employeeSalaryComponentInfo, $request) {
         // Assign attributes to the employeeSalaryComponentInfo here
+        $employeeSalaryComponentInfo->employee_id = $request->employee;
     }
 }

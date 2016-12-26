@@ -34,6 +34,10 @@ class EloquentEmployeePaygradeInfoRepository implements EmployeePaygradeInfoCont
     public function findById($employeePaygradeInfoId) {
         return EmployeePaygradeInfo::find($employeePaygradeInfoId);
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeePaygradeInfo::where('employee_id', $employeeId)->first();
+    }
 
     public function remove($employeePaygradeInfoId) {
         $employeePaygradeInfo = $this->findById($employeePaygradeInfoId);
@@ -42,5 +46,7 @@ class EloquentEmployeePaygradeInfoRepository implements EmployeePaygradeInfoCont
 
     private function setEmployeePaygradeInfoProperties($employeePaygradeInfo, $request) {
         // Assign attributes to the employeePaygradeInfo here
+        $employeePaygradeInfo->employee_id = $request->employee;
+        $employeePaygradeInfo->paygrade_id = $request->paygrade;
     }
 }

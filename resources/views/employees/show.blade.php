@@ -148,17 +148,18 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="#" id="department">
+                                    {!! Form::open(array('url' => '/employeedepartmentinfo/create', 'id'=>'department', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Department</label>
-                                        <select class="form-control c-select" name="department_id" id="InputDepartment">
+                                        <select class="form-control c-select" name="department" id="InputDepartment">
                                             @foreach($departments as $department)
                                             <option value="{{$department->id}}">{{$department->title}}</option>
                                             @endforeach
                                         </select>                        
                                     </div>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">
                                     <button type="submit" class="btn black m-b">SAVE</button>
-                                  </form>
+                                  {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -179,16 +180,18 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="#" id="rank">
+                                    {!! Form::open(array('url' => '/employeerankinfo/create', 'id'=>'rank', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Rank</label>
-                                        <select class="form-control c-select" name="bank_id" id="InputRank">
+                                        <select class="form-control c-select" name="rank" id="InputRank">
                                             @foreach($ranks as $rank)
                                             <option value="{{$rank->id}}">{{$rank->title}}</option>
                                             @endforeach
                                         </select>        
                                     </div>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">
                                     <button type="submit" class="btn black m-b">SAVE</button>
+                                  {!! Form::close() !!}
                                   </form>
                                 </div>
                             </div>
@@ -210,17 +213,18 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form action="#" id="paygrade">
+                                    {!! Form::open(array('url' => '/employeepaygradeinfo/create', 'id'=>'paygrade', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Pay Grade</label>
-                                        <select class="form-control c-select" name="bank_id" id="InputPaygrade">
+                                        <select class="form-control c-select" name="paygrade" id="InputPaygrade">
                                             @foreach($paygrades as $paygrade)
                                             <option value="{{$paygrade->id}}">{{$paygrade->title}}</option>
                                             @endforeach
                                         </select>                      
                                     </div>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">
                                     <button type="submit" class="btn black m-b">SAVE</button>
-                                  </form>
+                                  {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -242,15 +246,19 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form id="bank">
+                                    {!! Form::open(array('url' => '/employeebankinfo/create', 'id'=>'bank', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Account Name</label>
-                                      <input type="text" name="bank_account_name" class="form-control" required>                        
+                                      <input type="text" name="account_name" class="form-control" required>                        
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Account Number</label>
+                                      <input type="text" name="account_number" class="form-control" required>                        
                                     </div>
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Bank</label>
-                                        <select class="form-control c-select" name="bank_id" id="InputBank">
+                                        <select class="form-control c-select" name="bank" id="InputBank">
                                             @foreach($banks as $bank)
                                             <option value="{{$bank->id}}">{{$bank->title}}</option>
                                             @endforeach
@@ -261,8 +269,9 @@
                                         <input type="text" name="sort_code" class="form-control">      
                                       </div>   
                                     </div>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">   
                                     <button type="submit" class="btn black m-b">SAVE</button>
-                                  </form>
+                                  {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -281,11 +290,11 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    <form id="pension">
+                                    {!! Form::open(array('url' => '/employeepensioninfo/create', 'id'=>'pension', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Name of PFA</label>
-                                        <select class="form-control c-select" name="pfa" id="InputPension">
+                                        <select class="form-control c-select" name="pension" id="InputPension">
                                             @foreach($pensions as $pension)
                                             <option value="{{$pension->id}}">{{$pension->title}}</option>
                                             @endforeach
@@ -293,11 +302,12 @@
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Pin Number</label>
-                                        <input type="number" name="pin_number" id="InputPinNumber" class="form-control">      
+                                        <input type="number" name="pin_number" id="InputPinNumber" class="form-control">     
                                       </div>   
                                     </div>
-                                    <button type="submit" class="btn black m-b">SAVE</button>
-                                  </form>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">   
+                                    <button type="submit" class="btn black m-b" id="updatePension">SAVE</button>
+                                  {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>

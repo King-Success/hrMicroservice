@@ -34,6 +34,10 @@ class EloquentEmployeeDepartmentInfoRepository implements EmployeeDepartmentInfo
     public function findById($employeeDepartmentInfoId) {
         return EmployeeDepartmentInfo::find($employeeDepartmentInfoId);
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeeDepartmentInfo::where('employee_id', $employeeId)->first();
+    }
 
     public function remove($employeeDepartmentInfoId) {
         $employeeDepartmentInfo = $this->findById($employeeDepartmentInfoId);
@@ -42,5 +46,7 @@ class EloquentEmployeeDepartmentInfoRepository implements EmployeeDepartmentInfo
 
     private function setEmployeeDepartmentInfoProperties($employeeDepartmentInfo, $request) {
         // Assign attributes to the employeeDepartmentInfo here
+        $employeeDepartmentInfo->employee_id = $request->employee;
+        $employeeDepartmentInfo->department_id = $request->department;
     }
 }

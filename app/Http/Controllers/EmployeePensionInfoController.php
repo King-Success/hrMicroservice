@@ -35,10 +35,17 @@ class EmployeePensionInfoController extends Controller
          $this->validate($request, [
             // Specify validation rules here
          ]);
+         
+         $employeePensionInfo = $this->employeePensionInfoModel->findByEmployeeId($request->input('employee'));
+         if($employeePensionInfo){
+             return $this->update($request, $employeePensionInfo->id);
+         }
 
          $employeePensionInfo = $this->employeePensionInfoModel->create($request);
          if ($employeePensionInfo->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=pension');
          } else {
              return back()
                 ->withInput()
@@ -65,6 +72,8 @@ class EmployeePensionInfoController extends Controller
         $employeePensionInfo = $this->employeePensionInfoModel->edit($id, $request);
         if ($employeePensionInfo->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=pension');
         } else {
             return back()
                ->withInput()

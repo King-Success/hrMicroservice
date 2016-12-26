@@ -15,6 +15,11 @@ class CreateEmployeeRankInfosTable extends Migration
     {
         Schema::create('employee_rank_infos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('employee_id')->unsigned();
+            $table->integer('rank_id')->unsigned();
+            
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('rank_id')->references('id')->on('ranks');
             $table->timestamps();
         });
     }

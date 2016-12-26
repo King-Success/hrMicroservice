@@ -9,4 +9,5 @@ interface EmployeeRankInfoContract
     public function findAll();
     public function findById($employeeRankInfoId);
     public function remove($employeeRankInfoId);
+    public function findByEmployeeId($employeeId);
 }

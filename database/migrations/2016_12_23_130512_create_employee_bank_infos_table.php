@@ -17,6 +17,8 @@ class CreateEmployeeBankInfosTable extends Migration
             $table->increments('id');
             
             $table->string('sort_code')->nullable();
+            $table->string('account_name')->nullable();
+            $table->string('account_number')->nullable();
             $table->integer('employee_id')->unsigned();
             $table->integer('bank_id')->unsigned();
             

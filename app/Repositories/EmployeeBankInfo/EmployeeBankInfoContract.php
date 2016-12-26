@@ -9,4 +9,5 @@ interface EmployeeBankInfoContract
     public function findAll();
     public function findById($employeeBankInfoId);
     public function remove($employeeBankInfoId);
+    public function findByEmployeeId($employeeId);
 }

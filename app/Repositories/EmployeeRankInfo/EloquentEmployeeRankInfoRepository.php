@@ -34,6 +34,10 @@ class EloquentEmployeeRankInfoRepository implements EmployeeRankInfoContract
     public function findById($employeeRankInfoId) {
         return EmployeeRankInfo::find($employeeRankInfoId);
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeeRankInfo::where('employee_id', $employeeId)->first();
+    }
 
     public function remove($employeeRankInfoId) {
         $employeeRankInfo = $this->findById($employeeRankInfoId);
@@ -42,5 +46,7 @@ class EloquentEmployeeRankInfoRepository implements EmployeeRankInfoContract
 
     private function setEmployeeRankInfoProperties($employeeRankInfo, $request) {
         // Assign attributes to the employeeRankInfo here
+        $employeeRankInfo->employee_id = $request->employee;
+        $employeeRankInfo->rank_id = $request->rank;
     }
 }

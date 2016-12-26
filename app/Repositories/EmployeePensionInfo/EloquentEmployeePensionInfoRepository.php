@@ -39,8 +39,15 @@ class EloquentEmployeePensionInfoRepository implements EmployeePensionInfoContra
         $employeePensionInfo = $this->findById($employeePensionInfoId);
         return $employeePensionInfo->delete();
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeePensionInfo::where('employee_id', $employeeId)->first();
+    }
 
     private function setEmployeePensionInfoProperties($employeePensionInfo, $request) {
         // Assign attributes to the employeePensionInfo here
+        $employeePensionInfo->pin_number = $request->pin_number;
+        $employeePensionInfo->pension_id = $request->pension;
+        $employeePensionInfo->employee_id = $request->employee;
     }
 }

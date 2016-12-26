@@ -35,10 +35,17 @@ class EmployeeBankInfoController extends Controller
          $this->validate($request, [
             // Specify validation rules here
          ]);
+         
+         $employeeBankInfo = $this->employeeBankInfoModel->findByEmployeeId($request->input('employee'));
+         if($employeeBankInfo){
+             return $this->update($request, $employeeBankInfo->id);
+         }
 
          $employeeBankInfo = $this->employeeBankInfoModel->create($request);
          if ($employeeBankInfo->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=bank');
          } else {
              return back()
                 ->withInput()
@@ -65,6 +72,8 @@ class EmployeeBankInfoController extends Controller
         $employeeBankInfo = $this->employeeBankInfoModel->edit($id, $request);
         if ($employeeBankInfo->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=bank');
         } else {
             return back()
                ->withInput()

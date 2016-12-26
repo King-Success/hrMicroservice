@@ -9,4 +9,5 @@ interface EmployeePaygradeInfoContract
     public function findAll();
     public function findById($employeePaygradeInfoId);
     public function remove($employeePaygradeInfoId);
+    public function findByEmployeeId($employeeId);
 }

@@ -22,5 +22,9 @@ class BankTableSeeder extends Seeder
         $object = new StdClass;
         $object->title = "Ecobank";
         $this->objectModel->create($object);
+        
+        $object = new StdClass;
+        $object->title = "GTBank";
+        $this->objectModel->create($object);
     }
 }

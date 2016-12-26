@@ -34,6 +34,10 @@ class EloquentEmployeeBankInfoRepository implements EmployeeBankInfoContract
     public function findById($employeeBankInfoId) {
         return EmployeeBankInfo::find($employeeBankInfoId);
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeeBankInfo::where('employee_id', $employeeId)->first();
+    }
 
     public function remove($employeeBankInfoId) {
         $employeeBankInfo = $this->findById($employeeBankInfoId);
@@ -42,5 +46,10 @@ class EloquentEmployeeBankInfoRepository implements EmployeeBankInfoContract
 
     private function setEmployeeBankInfoProperties($employeeBankInfo, $request) {
         // Assign attributes to the employeeBankInfo here
+        $employeeBankInfo->sort_code = $request->sort_code;
+        $employeeBankInfo->bank_id = $request->bank;
+        $employeeBankInfo->employee_id = $request->employee;
+        $employeeBankInfo->account_name = $request->account_name;
+        $employeeBankInfo->account_number = $request->account_number;
     }
 }

@@ -35,10 +35,17 @@ class EmployeeDepartmentInfoController extends Controller
          $this->validate($request, [
             // Specify validation rules here
          ]);
+         
+         $employeeDepartmentInfo = $this->employeeDepartmentInfoModel->findByEmployeeId($request->input('employee'));
+         if($employeeDepartmentInfo){
+             return $this->update($request, $employeeDepartmentInfo->id);
+         }
 
          $employeeDepartmentInfo = $this->employeeDepartmentInfoModel->create($request);
          if ($employeeDepartmentInfo->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=department');
          } else {
              return back()
                 ->withInput()
@@ -65,6 +72,8 @@ class EmployeeDepartmentInfoController extends Controller
         $employeeDepartmentInfo = $this->employeeDepartmentInfoModel->edit($id, $request);
         if ($employeeDepartmentInfo->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/employee/' . $request->input('employee') . '?tab=department');
         } else {
             return back()
                ->withInput()

@@ -139,16 +139,17 @@ class EmployeeController extends Controller
         $salaryComponents = $this->salaryComponentModel->findAll(); //Allowances
         
         // 
-        $employeeRank = $this->employeeRankInfoModel->findById($id);
-        $employeeDepartment = $this->employeeDepartmentInfoModel->findById($id);
-        $employeePaygrade = $this->employeePaygradeInfoModel->findById($id);
-        $employeeBank = $this->employeeBankInfoModel->findById($id);
-        $employeePensions = $this->employeePensionInfoModel->findById($id);
-        $employeeSalaryComponents = $this->employeeSalaryComponentInfoModel->findById($id); //Allowances //Array Expected
+        $employeeRank = $this->employeeRankInfoModel->findByEmployeeId($id);
+        $employeeDepartment = $this->employeeDepartmentInfoModel->findByEmployeeId($id);
+        $employeePaygrade = $this->employeePaygradeInfoModel->findByEmployeeId($id);
+        $employeeBank = $this->employeeBankInfoModel->findByEmployeeId($id);
+        $employeePension = $this->employeePensionInfoModel->findByEmployeeId($id);
+        $employeeSalaryComponents = $this->employeeSalaryComponentInfoModel->findByEmployeeId($id); //Allowances //Array Expected
+        
         return view('employees.show', ['employee'=>$employee, 'departments'=>$departments, 'ranks'=>$ranks, 'paygrades'=>$paygrades,
-        'banks'=>$banks, 'pensions'=>$paygrades,'salaryComponents'=>$salaryComponents,
+        'banks'=>$banks, 'pensions'=> $pensions,'salaryComponents'=>$salaryComponents,
         'employeeRank'=>$employeeRank, 'employeeDepartment'=>$employeeDepartment,'employeePaygrade'=>$employeePaygrade,
-        'employeeBank'=>$employeeBank,'employeePension'=>$employeePensions, 'employeeSalaryComponents'=>$employeeSalaryComponents]);
+        'employeeBank'=>$employeeBank,'employeePension'=>$employeePension, 'employeeSalaryComponents'=>$employeeSalaryComponents]);
     }
 
     // Display employees.edit with employee to edit

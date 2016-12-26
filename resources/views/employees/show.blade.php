@@ -153,7 +153,7 @@
                                       <label>Department</label>
                                         <select class="form-control c-select" name="department" id="InputDepartment">
                                             @foreach($departments as $department)
-                                            <option value="{{$department->id}}">{{$department->title}}</option>
+                                            <option value="{{$department->id}}" {{ $employeeDepartment && $employeeDepartment->department_id == $department->id ? 'selected' : '' }}>{{$department->title}}</option>
                                             @endforeach
                                         </select>                        
                                     </div>
@@ -185,7 +185,7 @@
                                       <label>Rank</label>
                                         <select class="form-control c-select" name="rank" id="InputRank">
                                             @foreach($ranks as $rank)
-                                            <option value="{{$rank->id}}">{{$rank->title}}</option>
+                                            <option value="{{$rank->id}}" {{ $employeeRank && $employeeRank->rank_id == $rank->id ? 'selected' : '' }}>{{$rank->title}}</option>
                                             @endforeach
                                         </select>        
                                     </div>
@@ -218,7 +218,7 @@
                                       <label>Pay Grade</label>
                                         <select class="form-control c-select" name="paygrade" id="InputPaygrade">
                                             @foreach($paygrades as $paygrade)
-                                            <option value="{{$paygrade->id}}">{{$paygrade->title}}</option>
+                                            <option value="{{$paygrade->id}}" {{ $employeePaygrade && $employeePaygrade->paygrade_id == $paygrade->id ? 'selected' : '' }}>{{$paygrade->title}}</option>
                                             @endforeach
                                         </select>                      
                                     </div>
@@ -249,24 +249,24 @@
                                     {!! Form::open(array('url' => '/employeebankinfo/create', 'id'=>'bank', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Account Name</label>
-                                      <input type="text" name="account_name" class="form-control" required>                        
+                                      <input type="text" value="{{$employeeBank->account_name}}" name="account_name" class="form-control" required>                        
                                     </div>
                                     <div class="form-group">
                                       <label>Account Number</label>
-                                      <input type="text" name="account_number" class="form-control" required>                        
+                                      <input type="text" value="{{$employeeBank->account_number}}" name="account_number" class="form-control" required>                        
                                     </div>
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Bank</label>
                                         <select class="form-control c-select" name="bank" id="InputBank">
                                             @foreach($banks as $bank)
-                                            <option value="{{$bank->id}}">{{$bank->title}}</option>
+                                            <option value="{{$bank->id}}" {{ $employeePension && $employeeBank->bank_id == $bank->id ? 'selected' : '' }}>{{$bank->title}}</option>
                                             @endforeach
                                         </select>
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Sort Code</label>
-                                        <input type="text" name="sort_code" class="form-control">      
+                                        <input type="text" value="{{$employeeBank->sort_code}}" name="sort_code" class="form-control">      
                                       </div>   
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">   
@@ -296,13 +296,13 @@
                                         <label>Name of PFA</label>
                                         <select class="form-control c-select" name="pension" id="InputPension">
                                             @foreach($pensions as $pension)
-                                            <option value="{{$pension->id}}">{{$pension->title}}</option>
+                                            <option value="{{$pension->id}}" {{ $employeePension && $employeePension->pension_id == $pension->id ? 'selected' : '' }}>{{$pension->title}}</option>
                                             @endforeach
                                         </select>
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Pin Number</label>
-                                        <input type="number" name="pin_number" id="InputPinNumber" class="form-control">     
+                                        <input type="number" value="{{ $employeePension->pin_number }}" name="pin_number" id="InputPinNumber" class="form-control">     
                                       </div>   
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">

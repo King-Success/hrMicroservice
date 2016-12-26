@@ -250,11 +250,11 @@
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Account Name</label>
-                                      <input type="text" value="{{$employeeBank->account_name}}" name="account_name" class="form-control" required>
+                                      <input type="text" value="{{$employeeBank ? $employeeBank->account_name : ''}}" name="account_name" class="form-control" required>
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Account Number</label>
-                                        <input type="text" value="{{$employeeBank->account_number}}" name="account_number" class="form-control" required>       
+                                        <input type="text" value="{{$employeeBank ? $employeeBank->account_number : ''}}" name="account_number" class="form-control" required>       
                                       </div>   
                                     </div>
                                     <div class="row m-b">
@@ -268,7 +268,7 @@
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Sort Code</label>
-                                        <input type="text" value="{{$employeeBank->sort_code}}" name="sort_code" class="form-control">      
+                                        <input type="text" value="{{$employeeBank ? $employeeBank->sort_code : ''}}" name="sort_code" class="form-control">      
                                       </div>   
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">   
@@ -304,7 +304,7 @@
                                       </div>
                                       <div class="col-sm-6">
                                         <label>Pin Number</label>
-                                        <input type="number" value="{{ $employeePension->pin_number }}" name="pin_number" id="InputPinNumber" class="form-control">     
+                                        <input type="number" value="{{ $employeePension ? $employeePension->pin_number : '' }}" name="pin_number" id="InputPinNumber" class="form-control">     
                                       </div>   
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">

@@ -155,7 +155,11 @@ class EmployeeController extends Controller
     // Display employees.edit with employee to edit
     public function edit($id) {
         $employee = $this->employeeModel->findById($id);
-        return view('employees.edit', ['employee' => $employee]);
+        
+        $prefixes = $this->prefixModel->findAll();
+        $employeeTypes = $this->employeeTypeModel->findAll();
+        
+        return view('employees.edit', ['employee' => $employee, 'prefixes' => $prefixes, 'employeeTypes' => $employeeTypes]);
     }
 
     /**

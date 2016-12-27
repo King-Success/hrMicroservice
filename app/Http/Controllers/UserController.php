@@ -6,29 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Repositories\Prefix\PrefixContract;
+use App\Repositories\User\UserContract;
 
-class PrefixController extends Controller
+class UserController extends Controller
 {
-    protected $prefixModel;
-    public function __construct(PrefixContract $prefixContract) {
-        $this->prefixModel = $prefixContract;
+    protected $userModel;
+    public function __construct(UserContract $userContract) {
+        $this->userModel = $userContract;
     }
 
-    // Display prefixes.index with all prefixes
+    // Display users.index with all users
     public function index() {
-        $prefixes = $this->prefixModel->findAll();
-        return view('prefixes.index', ['prefixes' => $prefixes]);
+        $users = $this->userModel->findAll();
+        return view('users.index', ['users' => $users]);
     }
 
-    // Display prefixes.create
+    // Display users.create
     public function create() {
-        return view('prefixes.create');
+        return view('users.create');
     }
 
     /**
      * Validate form.
-     * Save Prefix to database
+     * Save User to database
      * Redirect to prefered route or perform other action
      */
      public function store(Request $request) {
@@ -36,27 +36,27 @@ class PrefixController extends Controller
             // Specify validation rules here
          ]);
 
-         $prefix = $this->prefixModel->create($request);
-         if ($prefix->id) {
+         $user = $this->userModel->create($request);
+         if ($user->id) {
              // Redirect or do whatever you like
              $request->session()->flash('status', 'Task was successful!');
-             return back();
+             return redirect('/user');
          } else {
              return back()
                 ->withInput()
-                ->with('error', 'Could not create Prefix. Try again!');
+                ->with('error', 'Could not create User. Try again!');
          }
      }
 
-    // Display prefixes.edit with prefix to edit
+    // Display users.edit with user to edit
     public function edit($id) {
-        $prefix = $this->prefixModel->findById($id);
-        return view('prefixes.edit', ['prefix' => $prefix]);
+        $user = $this->userModel->findById($id);
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
      * Validate form.
-     * Update Prefix in database
+     * Update User in database
      * Redirect to prefered route or perform other action
      */
     public function update(Request $request, $id) {
@@ -64,30 +64,30 @@ class PrefixController extends Controller
            // Specify validation rules here
         ]);
 
-        $prefix = $this->prefixModel->edit($id, $request);
-        if ($prefix->id) {
+        $user = $this->userModel->edit($id, $request);
+        if ($user->id) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/user');
         } else {
             return back()
                ->withInput()
-               ->with('error', 'Could not update Prefix. Try again!');
+               ->with('error', 'Could not update User. Try again!');
         }
     }
 
     /**
-     * Delete Prefix from database
+     * Delete User from database
      * Redirect to prefered route or perform other action
      */
     public function delete(Request $request, $id) {
-        if ($this->prefixModel->remove($id)) {
+        if ($this->userModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
             return back();
         } else {
             return back()
-               ->with('error', 'Could not delete Prefix. Try again!');
+               ->with('error', 'Could not delete User. Try again!');
         }
     }
 }

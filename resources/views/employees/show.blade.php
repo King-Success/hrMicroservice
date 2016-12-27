@@ -360,10 +360,10 @@
           
         </div>
       </div>
-      <!--
+      
       <div class="col-sm-4 col-lg-3">
         <div>
-          <div class="box info">
+          <div class="box white">
             <div class="box-body">
               <a href="#" class="pull-left m-r">
                 <img src="/images/a0.jpg" class="img-circle w-40">
@@ -377,7 +377,7 @@
           </div>
         </div>
       </div>
-      -->
+      
     </div>
   </div>
 

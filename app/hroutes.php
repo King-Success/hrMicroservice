@@ -126,3 +126,11 @@ Route::group(['prefix' => 'employeesalarycomponentinfo'], function() {
     Route::put('/{id}/edit', 'EmployeeSalaryComponentInfoController@update')->name('update_employeesalarycomponentinfo');
     Route::get('/{id}/delete', 'EmployeeSalaryComponentInfoController@delete')->name('delete_employeesalarycomponentinfo');
 });
+Route::group(['prefix' => 'useremployeemap'], function() {
+    Route::get('/', 'UserEmployeeMapController@index')->name('useremployeemap_index');
+    Route::get('/create', 'UserEmployeeMapController@create')->name('create_useremployeemap');
+    Route::post('/create', 'UserEmployeeMapController@store')->name('store_useremployeemap');
+    Route::get('/{id}/edit', 'UserEmployeeMapController@edit')->name('edit_useremployeemap');
+    Route::put('/{id}/edit', 'UserEmployeeMapController@update')->name('update_useremployeemap');
+    Route::get('/{id}/delete', 'UserEmployeeMapController@delete')->name('delete_useremployeemap');
+});

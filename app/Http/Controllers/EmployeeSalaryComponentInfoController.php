@@ -45,7 +45,7 @@ class EmployeeSalaryComponentInfoController extends Controller
              $salaryComponent->employee = $request->input('employee');
              $salaryComponent->salary_component = $selectedSalaryComponent;
              if($this->employeeSalaryComponentInfoModel->create($salaryComponent)) continue;
-             throw new \Exception("A fatal error occured");
+             throw new \Exception('A fatal error occured.');
          }
          
          if (true) {

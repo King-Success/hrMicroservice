@@ -23,6 +23,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::group(['prefix' => 'user'], function() {
+    Route::get('/', 'UserController@index')->name('user_index');
+    Route::get('/create', 'UserController@create')->name('create_user');
+    Route::post('/create', 'UserController@store')->name('store_user');
+    Route::get('/{id}/edit', 'UserController@edit')->name('edit_user');
+    Route::get('/{id}', 'UserController@show')->name('show_user');
+    Route::put('/{id}/edit', 'UserController@update')->name('update_user');
+    Route::get('/{id}/delete', 'UserController@delete')->name('delete_user');
+});
+
 Route::group(['prefix' => 'employee'], function() {
     Route::get('/', 'EmployeeController@index')->name('employee_index');
     Route::get('/create', 'EmployeeController@create')->name('create_employee');

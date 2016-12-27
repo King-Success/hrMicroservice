@@ -91,58 +91,28 @@
                   <span class="nav-text">Contacts</span>
                 </a>
               </li>
+              
+              <li>
+                <a href="/employee" class="b-default">
+                  <span class="nav-icon">
+                    <i class="ion-ios-people"></i>
+                  </span>
+                  <span class="nav-text">Employees</span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="/user" class="b-default">
+                  <span class="nav-icon">
+                    <i class="ion-social-tux"></i>
+                  </span>
+                  <span class="nav-text">Users</span>
+                </a>
+              </li>
             
               <li class="nav-header hidden-folded m-t">
                 <span class="text-xs">Administration</span>
               </li>
-              <li>
-                <a>
-                  <span class="nav-caret">
-                    <i class="fa fa-caret-down"></i>
-                  </span>
-                  <span class="nav-icon">
-                    <i class="ion-plus-circled"></i>
-                  </span>
-                  <span class="nav-text">Employees</span>
-                </a>
-                <ul class="nav-sub nav-mega nav-mega-3">
-                  <li>
-                    <a href="/employee" >
-                      <span class="nav-text">Employee List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/employee/create" >
-                      <span class="nav-text">Add Employee</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            
-              <li>
-                <a>
-                  <span class="nav-caret">
-                    <i class="fa fa-caret-down"></i>
-                  </span>
-                  <span class="nav-icon">
-                    <i class="ion-ios-photos"></i>
-                  </span>
-                  <span class="nav-text">Users</span>
-                </a>
-                <ul class="nav-sub nav-mega">
-                  <li>
-                    <a href="/user" >
-                      <span class="nav-text">List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/user/create">
-                      <span class="nav-text">Add</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            
               <li>
                 <a>
                   <span class="nav-caret">

@@ -374,7 +374,7 @@
           
         </div>
       </div>
-      
+      <!--
       <div class="col-sm-4 col-lg-3">
         <div>
           <div class="box white">
@@ -391,6 +391,7 @@
           </div>
         </div>
       </div>
+      -->
       
     </div>
   </div>

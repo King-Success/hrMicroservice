@@ -1,47 +1,52 @@
 @extends('layouts.app')
 
-<!-- Main Content -->
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
-                        {{ csrf_field() }}
+<div class="app" id="app">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+<!-- ############ LAYOUT START-->
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+  <div class="padding">
+    <div class="navbar">
+      <div class="pull-center">
+        <!-- brand -->
+        <a href="/" class="navbar-brand">
+        	<div data-ui-include="'{{ URL::secure('/') }}/images/logo.svg'"></div>
+        	<img src="{{ URL::secure('/') }}/images/logo.png" alt="." class="hide">
+        	<span class="hidden-folded inline">aside</span>
+        </a>
+        <!-- / brand -->
+      </div>
     </div>
-</div>
+  </div>
+  <div class="b-t">
+    <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+      <div class="p-a-md">
+        @if (session('status'))
+            <div class="alert alert-success">
+            {{ session('status') }}
+            </div>
+        @endif
+        <div>
+          <h4>Forgot your password?</h4>
+          <p class="text-muted m-y">
+            Enter your email below and we will send you instructions on how to change your password.
+          </p>
+        </div>
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+            {{ csrf_field() }}
+          <div class="form-group">
+            <input name="reset" value="{{ $email or old('email') }}" placeholder="Email" class="form-control" required="" type="email" required autofocus>
+          </div>
+          <button type="submit" class="btn black btn-block p-x-md" >Send</button>
+        </form>
+        <div class="p-y-lg">
+          Return to <a href="/login" class="text-primary _600">Sign in</a>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+<!-- ############ LAYOUT END-->
+  </div>
 @endsection

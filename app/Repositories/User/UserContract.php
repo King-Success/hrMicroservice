@@ -9,4 +9,5 @@ interface UserContract
     public function findAll();
     public function findById($userId);
     public function remove($userId);
+    public function updatePassword($userId, $request);
 }

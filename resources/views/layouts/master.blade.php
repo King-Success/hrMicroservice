@@ -167,7 +167,7 @@
                 </ul>
               </li>
               <li>
-                <a href="/appconfig">
+                <a href="/appsetting">
                   <!--
                   <span class="nav-caret">
                     <i class="fa fa-caret-down"></i>
@@ -201,7 +201,7 @@
             <a class="dropdown-item" href="profile.html">
               <span>Profile</span>
             </a>
-            <a class="dropdown-item" href="setting.html">
+            <a class="dropdown-item" href="/appsetting">
               <span>Settings</span>
             </a>
             <a class="dropdown-item" href="app.inbox.html">
@@ -302,7 +302,7 @@
                       <a class="dropdown-item" href="profile.html">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="setting.html">
+                      <a class="dropdown-item" href="/appsetting">
                         <span>Settings</span>
                       </a>
                       <a class="dropdown-item" href="app.inbox.html">

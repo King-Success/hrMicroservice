@@ -16,7 +16,10 @@ class CreateAppConfigsTable extends Migration
         Schema::create('app_configs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('company_title')->default('DigitalPatterns Ltd');
+            $table->string('company_logo')->nullable();
             $table->boolean('rank_is_king')->default(false);
+            $table->string('cargodriveClientId')->nullable();
+            $table->string('cargodriveSecret')->nullable();
             $table->timestamps();
         });
     }

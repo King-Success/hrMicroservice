@@ -11,7 +11,7 @@
             <a class="nav-link block active" href="#" data-toggle="tab" data-target="#tab-1">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-2">Account Settings</a>
+            <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-2">CargoDrive Settings</a>
           </li>
           <!--
           <li class="nav-item">
@@ -44,23 +44,27 @@
           </div>
           <div class="form-group">
             <label>Company name</label>
-            <input type="text" class="form-control" placeholder="Enter company name">
+            <input type="text" class="form-control" name="company_title" placeholder="Enter company name">
+          </div>
+          
+          <div class="form-group">
+            <p><label class="md-check"><input class="has-value" name="rank_is_king" type="checkbox"> <i class="indigo"></i> Let app use a rank-based salary</label></p>
           </div>
           <button type="submit" class="btn btn-info m-t">Update</button>
         </form>
       </div>
       <div class="tab-pane" id="tab-2">
-        <div class="p-a-md b-b _600">Cloud settings</div>
+        <div class="p-a-md b-b _600">CargoDrive settings</div>
         <form role="form" class="p-a-md col-md-6">
           <div class="form-group">
             <label>Client ID</label>
-            <input type="text" disabled class="form-control" value="d6386c0651d6380745846efe300b9869">
+            <input type="text" disabled class="form-control" name="cargodrive_client_id" value="d6386c0651d6380745846efe300b9869">
           </div>
           <div class="form-group">
             <label>Secret Key</label>
-            <input type="text" disabled class="form-control" value="3f9573e88f65787d86d8a685aeb4bd13">
+            <input type="text" disabled class="form-control" name="cargodrive_secret" value="3f9573e88f65787d86d8a685aeb4bd13">
           </div>
-          <button type="submit" class="btn btn-info m-t">Update</button>
+          <button type="submit" class="btn btn-info m-t" disabled="disabled">Update</button>
         </form>
       </div>
       <!-- <div class="tab-pane" id="tab-3">
@@ -124,15 +128,15 @@
             <form role="form" class="col-md-6 p-a-0">
               <div class="form-group">
                 <label>Old Password</label>
-                <input type="password" class="form-control">
+                <input type="password" name="oldpassword" class="form-control">
               </div>
               <div class="form-group">
                 <label>New Password</label>
-                <input type="password" class="form-control">
+                <input type="password" name="password" class="form-control">
               </div>
               <div class="form-group">
                 <label>New Password Again</label>
-                <input type="password" class="form-control">
+                <input type="password" name="confirm_password" class="form-control">
               </div>
               <button type="submit" class="btn btn-info m-t">Update</button>
             </form>

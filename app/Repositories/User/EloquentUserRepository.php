@@ -48,4 +48,12 @@ class EloquentUserRepository implements UserContract
             $user->password = bcrypt($request->password);
         }
     }
+    
+    public function updatePassword($userId, $request){
+        $user = $this->findById($userId);
+        $user->old_password = $user->password;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return $user;
+    }
 }

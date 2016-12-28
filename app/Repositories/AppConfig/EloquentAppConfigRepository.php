@@ -4,6 +4,7 @@ namespace App\Repositories\AppConfig;
 
 use App\AppConfig;
 use App\Repositories\AppConfig\AppConfigContract;
+use Cache;
 
 class EloquentAppConfigRepository implements AppConfigContract
 {
@@ -14,7 +15,12 @@ class EloquentAppConfigRepository implements AppConfigContract
         $this->setAppConfigProperties($appConfig, $request);
 
         $appConfig->save();
+        $this->clearCache();
         return $appConfig;
+    }
+    
+    private function clearCache(){
+        Cache::forget('AppConfig');
     }
 
     public function edit($appConfigId, $request) {
@@ -24,6 +30,7 @@ class EloquentAppConfigRepository implements AppConfigContract
         $this->setAppConfigProperties($appConfig, $request);
 
         $appConfig->save();
+        $this->clearCache();
         return $appConfig;
     }
 
@@ -44,5 +51,27 @@ class EloquentAppConfigRepository implements AppConfigContract
         // Assign attributes to the appConfig here
         $appConfig->company_title = $request->company_title;
         $appConfig->rank_is_king = $request->rank_is_king; //if true, rank determines basic salary & allowances
+    }
+    
+    public function editCompanyProfile($id, $request){
+        $appConfig = $this->findById($id);
+        $appConfig->company_title = $request->company_title;
+        if($request->has('rank_is_king')){
+            $appConfig->rank_is_king = true;
+        }else{
+            $appConfig->rank_is_king = false;
+        }
+        $appConfig->save();
+        $this->clearCache();
+        return $appConfig;
+    }
+    
+    public function editCargoProfile($id, $request){
+        $appConfig = $this->findById($id);
+        $appConfig->cargodriveClientId = $request->cargodrive_client_id;
+        $appConfig->cargodriveSecret = $request->cargodrive_secret;
+        $appConfig->save();
+        $this->clearCache();
+        return $appConfig;
     }
 }

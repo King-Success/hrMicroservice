@@ -43,7 +43,7 @@ class EloquentPaygradeRepository implements PaygradeContract
     private function setPaygradeProperties($paygrade, $request) {
         // Assign attributes to the paygrade here
         $paygrade->title = $request->title;
-        $paygrade->basic_salary = $request->basic_salary;
+        $paygrade->amount = (double)$request->amount;
         $paygrade->employee_level_id = $request->employee_level_id;
     }
 }

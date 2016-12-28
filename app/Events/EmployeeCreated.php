@@ -12,15 +12,18 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class EmployeeCreated
 {
     use InteractsWithSockets, SerializesModels;
+    
+    public $employee;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($employee)
     {
         //
+        $this->employee = $employee;
     }
 
     /**

@@ -51,7 +51,8 @@ class DepartmentController extends Controller
     // Display departments.edit with department to edit
     public function edit($id) {
         $department = $this->departmentModel->findById($id);
-        return view('departments.edit', ['department' => $department]);
+        $departments = $this->departmentModel->findAll();
+        return view('departments.edit', ['department' => $department, 'departments' => $departments]);
     }
 
     /**
@@ -68,7 +69,7 @@ class DepartmentController extends Controller
         if ($department->id) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/department');
         } else {
             return back()
                ->withInput()

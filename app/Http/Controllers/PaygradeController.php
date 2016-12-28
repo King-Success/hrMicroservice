@@ -56,7 +56,9 @@ class PaygradeController extends Controller
     // Display paygrades.edit with paygrade to edit
     public function edit($id) {
         $paygrade = $this->paygradeModel->findById($id);
-        return view('paygrades.edit', ['paygrade' => $paygrade]);
+        $paygrades = $this->paygradeModel->findAll();
+        $employeeLevels = $this->employeeLevelModel->findAll();
+        return view('paygrades.edit', ['paygrade' => $paygrade, 'paygrades' => $paygrades, 'employeeLevels' => $employeeLevels]);
     }
 
     /**
@@ -89,7 +91,7 @@ class PaygradeController extends Controller
         if ($this->paygradeModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/paygrade');
         } else {
             return back()
                ->with('error', 'Could not delete Paygrade. Try again!');

@@ -15,9 +15,9 @@ class CreatePaygradesTable extends Migration
     {
         Schema::create('paygrades', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->string('title'); //step
             $table->integer('employee_level_id')->unsigned();
-            $table->decimal('basic_salary', 12, 2)->default(0.00);
+            $table->decimal('amount', 12, 2)->default(0.00);
             $table->timestamps();
             
             $table->foreign('employee_level_id')->references('id')->on('employee_levels');

@@ -84,7 +84,7 @@ class UserController extends Controller
         if ($this->userModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/user');
         } else {
             return back()
                ->with('error', 'Could not delete User. Try again!');

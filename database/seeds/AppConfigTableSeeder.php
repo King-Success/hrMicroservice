@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Repositories\SalaryComponent\SalaryComponentContract as ObjectContract;
+use App\Repositories\AppConfig\AppConfigContract as ObjectContract;
 
-class SalaryComponentTableSeeder extends Seeder
+class AppConfigTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,9 +20,8 @@ class SalaryComponentTableSeeder extends Seeder
     public function run()
     {
         $object = new StdClass;
-        $object->title = "Car Allowance";
-        $object->component_type = "Earning"; //or Deduction
-        $object->value_type = "Amount"; // or Percentage (of consolidated salary)
+        $object->company_title = "College of Education Billiry, Gombe";
+        $object->rank_is_king = false;
         $this->objectModel->create($object);
     }
 }

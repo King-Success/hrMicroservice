@@ -47,7 +47,7 @@ Route::group(['prefix' => 'rank'], function() {
     Route::get('/', 'RankController@index')->name('rank_index');
     // Route::get('/create', 'RankController@create')->name('create_rank');
     Route::post('/create', 'RankController@store')->name('store_rank');
-    // Route::get('/{id}/edit', 'RankController@edit')->name('edit_rank');
+    Route::get('/{id}/edit', 'RankController@edit')->name('edit_rank');
     Route::put('/{id}/edit', 'RankController@update')->name('update_rank');
     Route::get('/{id}/delete', 'RankController@delete')->name('delete_rank');
 });
@@ -56,7 +56,7 @@ Route::group(['prefix' => 'prefix'], function() {
     Route::get('/', 'PrefixController@index')->name('prefix_index');
     // Route::get('/create', 'PrefixController@create')->name('create_title');
     Route::post('/create', 'PrefixController@store')->name('store_prefix');
-    // Route::get('/{id}/edit', 'PrefixController@edit')->name('edit_title');
+    Route::get('/{id}/edit', 'PrefixController@edit')->name('edit_title');
     Route::put('/{id}/edit', 'PrefixController@update')->name('update_prefix');
     Route::get('/{id}/delete', 'PrefixController@delete')->name('delete_prefix');
 });
@@ -65,7 +65,7 @@ Route::group(['prefix' => 'department'], function() {
     Route::get('/', 'DepartmentController@index')->name('department_index');
     // Route::get('/create', 'DepartmentController@create')->name('create_department');
     Route::post('/create', 'DepartmentController@store')->name('store_department');
-    // Route::get('/{id}/edit', 'DepartmentController@edit')->name('edit_department');
+    Route::get('/{id}/edit', 'DepartmentController@edit')->name('edit_department');
     Route::put('/{id}/edit', 'DepartmentController@update')->name('update_department');
     Route::get('/{id}/delete', 'DepartmentController@delete')->name('delete_department');
 });
@@ -74,7 +74,7 @@ Route::group(['prefix' => 'paygrade'], function() {
     Route::get('/', 'PaygradeController@index')->name('paygrade_index');
     // Route::get('/create', 'PaygradeController@create')->name('create_paygrade');
     Route::post('/create', 'PaygradeController@store')->name('store_paygrade');
-    // Route::get('/{id}/edit', 'PaygradeController@edit')->name('edit_paygrade');
+    Route::get('/{id}/edit', 'PaygradeController@edit')->name('edit_paygrade');
     Route::put('/{id}/edit', 'PaygradeController@update')->name('update_paygrade');
     Route::get('/{id}/delete', 'PaygradeController@delete')->name('delete_paygrade');
 });
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'salarycomponent'], function() {
     Route::get('/', 'SalaryComponentController@index')->name('salarycomponent_index');
     // Route::get('/create', 'SalaryComponentController@create')->name('create_salarycomponent');
     Route::post('/create', 'SalaryComponentController@store')->name('store_salarycomponent');
-    // Route::get('/{id}/edit', 'SalaryComponentController@edit')->name('edit_salarycomponent');
+    Route::get('/{id}/edit', 'SalaryComponentController@edit')->name('edit_salarycomponent');
     Route::put('/{id}/edit', 'SalaryComponentController@update')->name('update_salarycomponent');
     Route::get('/{id}/delete', 'SalaryComponentController@delete')->name('delete_salarycomponent');
 });
@@ -174,3 +174,5 @@ Route::group(['prefix' => 'employeesalarycomponentinfo'], function() {
     // Route::put('/{id}/edit', 'EmployeeSalaryComponentInfoController@update')->name('update_employeesalarycomponentinfo');
     // Route::get('/{id}/delete', 'EmployeeSalaryComponentInfoController@delete')->name('delete_employeesalarycomponentinfo');
 });
+
+Auth::routes();

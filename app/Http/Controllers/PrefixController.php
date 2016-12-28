@@ -51,7 +51,8 @@ class PrefixController extends Controller
     // Display prefixes.edit with prefix to edit
     public function edit($id) {
         $prefix = $this->prefixModel->findById($id);
-        return view('prefixes.edit', ['prefix' => $prefix]);
+        $prefixes = $this->prefixModel->findAll();
+        return view('prefixes.edit', ['prefix' => $prefix, 'prefixes' => $prefixes]);
     }
 
     /**
@@ -84,7 +85,7 @@ class PrefixController extends Controller
         if ($this->prefixModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/prefix');
         } else {
             return back()
                ->with('error', 'Could not delete Prefix. Try again!');

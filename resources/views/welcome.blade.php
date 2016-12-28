@@ -71,7 +71,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="signin.html" class="nav-link">
+                    <a href="/login" class="nav-link">
                       <span class="btn btn-md rounded info">
                         Log in
                       </span>

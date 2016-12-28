@@ -21,7 +21,7 @@ class PaygradeTableSeeder extends Seeder
     {
         $object = new StdClass;
         $object->title = "Level 7";
-        $object->basic_salary = 7000;
+        $object->amount = 7000;
         $object->employee_level_id = 1;
         $this->objectModel->create($object);
     }

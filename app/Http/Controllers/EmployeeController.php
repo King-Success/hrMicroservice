@@ -192,7 +192,7 @@ class EmployeeController extends Controller
         if ($this->employeeModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/employee');
         } else {
             return back()
                ->with('error', 'Could not delete Employee. Try again!');

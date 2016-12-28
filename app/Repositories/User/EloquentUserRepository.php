@@ -4,7 +4,6 @@ namespace App\Repositories\User;
 
 use App\User;
 use App\Repositories\User\UserContract;
-use Illuminate\Support\Facades\Hash;
 
 class EloquentUserRepository implements UserContract
 {
@@ -46,7 +45,7 @@ class EloquentUserRepository implements UserContract
         $user->name = $request->name;
         $user->email = $request->email;
         if(strlen(trim($request->password)) > 0){
-            $user->password = Hash::make($request->password);
+            $user->password = bcrypt($request->password);
         }
     }
 }

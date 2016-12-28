@@ -51,7 +51,8 @@ class BankController extends Controller
     // Display banks.edit with bank to edit
     public function edit($id) {
         $bank = $this->bankModel->findById($id);
-        return view('banks.edit', ['bank' => $bank]);
+        $banks = $this->bankModel->findAll();
+        return view('banks.edit', ['bank' => $bank, 'banks' => $banks]);
     }
 
     /**

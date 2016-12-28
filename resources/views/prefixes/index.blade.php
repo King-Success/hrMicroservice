@@ -21,25 +21,6 @@
             </div>
         </div>
         
-        <div class="col-md-6" id="managePrefix" style="display: none;">
-            <div class="box">
-                <div class="box-header">
-                    <h2>Manage Prefix</h2><small>Edit/Remove the selected Prefix</small></div>
-                <div class="box-divider m-a-0"></div>
-                <div class="box-body">
-                    {!! Form::open(array('url' => '#', 'role' => 'form', 'id'=>'manageForm', 'method' => 'put')) !!}
-                        <div class="form-group">
-                            <label for="InputEditTitle">Title</label>
-                            <input type="text" name="title" class="form-control" id="InputEditTitle" placeholder="Enter Prefix, e.g Mr.">
-                            <input type="hidden" id="InputEditId" name="id" value="">
-                        </div>
-                        <button type="submit" class="btn black m-b">UPDATE</button>
-                        <a href="#" id="deletePrefix" class="m-b" style="text-decoration: underline;">DELETE</a>
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
-        
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header">
@@ -56,10 +37,10 @@
                                     </tr>
                                     </thead>
                                 <tbody>
-                                    @foreach($prefixes as $prefix)
+                                    @foreach($prefixes as $_prefix)
                                     <tr>
-                                        <td><a href="#" data="{{$prefix->id}}" class="selectedPrefix">{{$prefix->title}}</a></td>
-                                        <td>{{$prefix->created_at}}</td>
+                                        <td><a href="/prefix/{{$_prefix->id}}/edit">{{$_prefix->title}}</a></td>
+                                        <td>{{$_prefix->created_at}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -77,19 +58,5 @@
 
 
 @section('jsFooter')
-
-<script type="text/javascript">
-    $( document ).ready(function() {
-        
-        $('.selectedPrefix').on('click', function(evt){
-            $('#addPrefix').hide();
-            $('#managePrefix').show();
-            $('#InputEditTitle').val($(evt.target).text());
-            $('#InputEditId').val($(evt.target).attr('data'));
-            $('#deleteTPrefix').attr('href', '/prefix/' + $(evt.target).attr('data') + '/delete');
-            $('#manageForm').attr('action', '/prefix/' + $(evt.target).attr('data') + '/edit');
-        });
-    });
-</script>
 
 @stop

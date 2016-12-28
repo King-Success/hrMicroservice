@@ -51,7 +51,8 @@ class RankController extends Controller
     // Display ranks.edit with rank to edit
     public function edit($id) {
         $rank = $this->rankModel->findById($id);
-        return view('ranks.edit', ['rank' => $rank]);
+        $ranks = $this->rankModel->findAll();
+        return view('ranks.edit', ['rank' => $rank, 'ranks' => $ranks]);
     }
 
     /**
@@ -84,7 +85,7 @@ class RankController extends Controller
         if ($this->rankModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/rank');
         } else {
             return back()
                ->with('error', 'Could not delete Rank. Try again!');

@@ -183,6 +183,7 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         
         // Our Service Providers
+        App\Providers\AppConfigServiceProvider::class,
         App\Providers\UserServiceProvider::class,
         App\Providers\EmployeeServiceProvider::class,
         App\Providers\UserEmployeeMapServiceProvider::class,

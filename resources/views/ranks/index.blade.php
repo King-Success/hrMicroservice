@@ -15,7 +15,7 @@
                             <label for="InputTitle">Title</label>
                             <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Enter Rank">
                         </div>
-                        
+                        @if($AppConfig->rank_is_king)
                         <div class="form-group">
                             <label for="InputBasicSalary">Basic Salary</label>
                             <input type="text" name="basic_salary" class="form-control" id="InputBasicSalary" placeholder="Enter Amount">
@@ -25,35 +25,11 @@
                             <label for="InputPaa">Allowance</label>
                             <input type="text" name="allowance" class="form-control" id="InputPaa" placeholder="Enter Allowance">
                         </div>
-                        
+                        @else
+                        <input type="hidden" name="basic_salary" value="0">
+                        <input type="hidden" name="allowance" value="0">
+                        @endif
                         <button type="submit" class="btn black m-b">SAVE</button>
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-6" id="manageRank" style="display: none;">
-            <div class="box">
-                <div class="box-header">
-                    <h2>Manage Rank</h2><small>Edit/Remove the selected rank</small></div>
-                <div class="box-divider m-a-0"></div>
-                <div class="box-body">
-                    {!! Form::open(array('url' => '#', 'role' => 'form', 'id'=>'manageForm', 'method' => 'put')) !!}
-                        <div class="form-group">
-                            <label for="InputEditTitle">Title</label>
-                            <input type="text" name="title" class="form-control" id="InputEditTitle" placeholder="Enter Rank">
-                            <input type="hidden" id="InputEditId" name="id" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEditBasicSalary">Basic Salary</label>
-                            <input type="text" name="basic_salary" class="form-control" id="InputEditBasicSalary" placeholder="Enter Amount">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEditPaa">Allowance</label>
-                            <input type="text" name="allowance" class="form-control" id="InputEditPaa" placeholder="Enter Allowance">
-                        </div>
-                        <button type="submit" class="btn black m-b">UPDATE</button>
-                        <a href="#" id="deleteRank" class="m-b" style="text-decoration: underline;">DELETE</a>
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -71,18 +47,24 @@
                                 <thead>
                                     <tr>
                                         <th>Title</th>
+                                        @if($AppConfig->rank_is_king)
                                         <th>Allowance</th>
                                         <th>Basic Salary</th>
-                                        <!--<th>Created At</th>-->
+                                        @else
+                                        <th>Created At</th>
+                                        @endif
                                     </tr>
                                     </thead>
                                 <tbody>
-                                    @foreach($ranks as $rank)
+                                    @foreach($ranks as $_rank)
                                     <tr>
-                                        <td><a href="#" data-bs="{{$rank->basic_salary}}" data-paa="{{$rank->allowance}}" data-id="{{$rank->id}}" class="selectedRank">{{$rank->title}}</a></td>
-                                        <td>{{$rank->allowance}}</td>
-                                        <td>{{$rank->basic_salary}}</t>
-                                        <!--<td>{{$rank->created_at}}</td>-->
+                                        <td><a href="/rank/{{$_rank->id}}/edit">{{$_rank->title}}</a></td>
+                                        @if($AppConfig->rank_is_king)
+                                        <td>{{$_rank->allowance}}</td>
+                                        <td>{{$_rank->basic_salary}}</t>
+                                        @else
+                                        <td>{{$_rank->created_at}}</td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -100,21 +82,5 @@
 
 
 @section('jsFooter')
-
-<script type="text/javascript">
-    $( document ).ready(function() {
-        
-        $('.selectedRank').on('click', function(evt){
-            $('#addRank').hide();
-            $('#manageRank').show();
-            $('#InputEditTitle').val($(evt.target).text());
-            $('#InputEditId').val($(evt.target).attr('data-id'));
-            $('#InputEditPaa').val($(evt.target).attr('data-paa'));
-            $('#InputEditBasicSalary').val($(evt.target).attr('data-bs'));
-            $('#deleteRank').attr('href', '/rank/' + $(evt.target).attr('data-id') + '/delete');
-            $('#manageForm').attr('action', '/rank/' + $(evt.target).attr('data-id') + '/edit');
-        });
-    });
-</script>
 
 @stop

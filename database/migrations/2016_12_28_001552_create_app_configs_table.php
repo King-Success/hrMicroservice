@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalaryComponentsTable extends Migration
+class CreateAppConfigsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateSalaryComponentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('salary_components', function (Blueprint $table) {
+        Schema::create('app_configs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->enum('component_type', ['Earning', 'Deduction']);
-            $table->enum('value_type', ['Amount', 'Percentage']);
+            $table->string('company_title')->default('DigitalPatterns Ltd');
+            $table->boolean('rank_is_king')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateSalaryComponentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salary_components');
+        Schema::dropIfExists('app_configs');
     }
 }

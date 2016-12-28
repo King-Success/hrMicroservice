@@ -42,5 +42,7 @@ class EloquentUserEmployeeMapRepository implements UserEmployeeMapContract
 
     private function setUserEmployeeMapProperties($userEmployeeMap, $request) {
         // Assign attributes to the userEmployeeMap here
+        $userEmployeeMap->employee_id = $request->employee_id;
+        $userEmployeeMap->user_id = $request->user_id;
     }
 }

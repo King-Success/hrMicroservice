@@ -51,7 +51,8 @@ class EmployeeLevelController extends Controller
     // Display employeelevels.edit with employeelevel to edit
     public function edit($id) {
         $employeeLevel = $this->employeeLevelModel->findById($id);
-        return view('employeelevels.edit', ['employeeLevel' => $employeeLevel]);
+        $employeeLevels = $this->employeeLevelModel->findAll();
+        return view('employeelevels.edit', ['employeeLevel' => $employeeLevel, 'employeeLevels' => $employeeLevels]);
     }
 
     /**
@@ -84,7 +85,7 @@ class EmployeeLevelController extends Controller
         if ($this->employeeLevelModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/employeelevel');
         } else {
             return back()
                ->with('error', 'Could not delete EmployeeLevel. Try again!');

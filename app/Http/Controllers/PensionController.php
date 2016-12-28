@@ -51,7 +51,8 @@ class PensionController extends Controller
     // Display pensions.edit with pension to edit
     public function edit($id) {
         $pension = $this->pensionModel->findById($id);
-        return view('pensions.edit', ['pension' => $pension]);
+        $pensions = $this->pensionModel->findAll();
+        return view('pensions.edit', ['pension' => $pension, 'pensions' => $pensions]);
     }
 
     /**
@@ -84,7 +85,7 @@ class PensionController extends Controller
         if ($this->pensionModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/pension');
         } else {
             return back()
                ->with('error', 'Could not delete Pension. Try again!');

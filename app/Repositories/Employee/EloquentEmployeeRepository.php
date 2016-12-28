@@ -4,6 +4,7 @@ namespace App\Repositories\Employee;
 
 use App\Employee;
 use App\Repositories\Employee\EmployeeContract;
+use App\Events\EmployeeCreated;
 
 class EloquentEmployeeRepository implements EmployeeContract
 {
@@ -14,6 +15,7 @@ class EloquentEmployeeRepository implements EmployeeContract
         $this->setEmployeeProperties($employee, $request);
 
         $employee->save();
+        event(new EmployeeCreated($employee->toArray()));
         return $employee;
     }
 

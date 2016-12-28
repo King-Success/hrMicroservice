@@ -51,7 +51,8 @@ class SalaryComponentController extends Controller
     // Display salarycomponents.edit with salarycomponent to edit
     public function edit($id) {
         $salaryComponent = $this->salaryComponentModel->findById($id);
-        return view('salarycomponents.edit', ['salaryComponent' => $salaryComponent]);
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        return view('salarycomponents.edit', ['salaryComponent' => $salaryComponent, 'salaryComponents' => $salaryComponents]);
     }
 
     /**
@@ -84,7 +85,7 @@ class SalaryComponentController extends Controller
         if ($this->salaryComponentModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/salarycomponent');
         } else {
             return back()
                ->with('error', 'Could not delete SalaryComponent. Try again!');

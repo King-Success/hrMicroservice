@@ -45,12 +45,5 @@ class EloquentSalaryComponentRepository implements SalaryComponentContract
         $salaryComponent->title = $request->title;
         $salaryComponent->component_type = $request->component_type;
         $salaryComponent->value_type = $request->value_type;
-        if($request->value_type == "Percentage"){
-            $salaryComponent->amount = 0.0;
-            $salaryComponent->percentage = $request->amount;
-        }else{
-            $salaryComponent->amount = $request->amount;
-            $salaryComponent->percentage = 0.0;
-        }
     }
 }

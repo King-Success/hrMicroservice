@@ -35,5 +35,17 @@ class CreateUserForEmployee
     public function handle(EmployeeCreated $event)
     {
         //
+        $userObject = new \StdClass;
+        $userObject->name = $event->employee['surname'] . " " . $event->employee['other_names'];
+        $userObject->email = $event->employee['email'];
+        $userObject->password =  "password";
+        
+        $user = $this->userModel->create($userObject);
+        
+        $userEmployeeMapObject = new \StdClass;
+        $userEmployeeMapObject->employee_id = $event->employee['id'];
+        $userEmployeeMapObject->user_id = $user->id;
+        
+        $this->userEmployeeMapModel->create($userEmployeeMapObject);
     }
 }

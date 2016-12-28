@@ -52,5 +52,6 @@ class EloquentEmployeeSalaryComponentInfoRepository implements EmployeeSalaryCom
         // Assign attributes to the employeeSalaryComponentInfo here
         $employeeSalaryComponentInfo->employee_id = $request->employee;
         $employeeSalaryComponentInfo->salary_component_id = $request->salary_component;
+        $employeeSalaryComponentInfo->amount = $request->amount ? $request->amount : 0.00;
     }
 }

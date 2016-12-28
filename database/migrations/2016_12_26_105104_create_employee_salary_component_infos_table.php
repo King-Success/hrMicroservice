@@ -19,6 +19,8 @@ class CreateEmployeeSalaryComponentInfosTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('salary_component_id')->unsigned();
             
+            $table->decimal('amount', 12, 2)->default(0.00);
+            
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('salary_component_id')->references('id')->on('salary_components');
             

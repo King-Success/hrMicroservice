@@ -331,18 +331,32 @@
                                 <div class="padding">
                                   {!! Form::open(array('url' => '/employeesalarycomponentinfo/create', 'id'=>'salarycomponent', 'role' => 'form', 'method'=>'POST')) !!}
                                   <div class="row">
-                                  <div class="col-sm-4">
+                                  <div class="col-sm-6">
                                     @foreach($salaryComponents as $salaryComponenet)
-                                    <p>
-                                      <label class="md-check">
-                                        <input type="checkbox" value="{{$salaryComponenet->id}}" name="salary_components[]"
-                                        @foreach($employeeSalaryComponents as $employeeSalaryComponent)
-                                        {{$employeeSalaryComponent->salary_component_id == $salaryComponenet->id ? 'checked' : ''}}
-                                        @endforeach
-                                        />
-                                        <i class="indigo"></i>{{$salaryComponenet->title}}
-                                      </label>
-                                    </p>
+                                    
+                                    <div class="row m-b">
+                                      <div class="col-sm-6">
+                                        <p>
+                                          <label class="md-check">
+                                            <input type="checkbox" value="{{$salaryComponenet->id}}" name="salary_components[]"
+                                            <?php $amount = 0.00; ?>
+                                            @foreach($employeeSalaryComponents as $employeeSalaryComponent)
+                                            @if($employeeSalaryComponent->salary_component_id == $salaryComponenet->id)
+                                            {{'checked'}}
+                                            <?php 
+                                            $amount = $employeeSalaryComponent->amount > 0 ? $employeeSalaryComponent->amount : $salaryComponenet->amount; 
+                                            ?>
+                                            @endif
+                                            @endforeach
+                                            />
+                                            <i class="indigo"></i>{{$salaryComponenet->title}}
+                                          </label>
+                                        </p>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <input type="number" value="{{$amount > 0 ? $amount : $salaryComponenet->amount}}" name="salary_component_amount[{{$salaryComponenet->id}}]" class="form-control">   
+                                      </div>   
+                                    </div>
                                     @endforeach
                                   </div>
                                   </div>

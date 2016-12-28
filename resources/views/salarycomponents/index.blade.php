@@ -29,7 +29,7 @@
                             <div class="col-sm-10">
                                 <select class="form-control c-select" name="value_type" id="InputValueType">
                                     <option value="Percentage">Percentage</option>
-                                    <option value="Amount">Amount</option>
+                                    <option value="Amount" selected>Amount</option>
                                 </select>
                             </div>
                         </div>
@@ -58,6 +58,7 @@
                                         <th>Title</th>
                                         <th>Component</th>
                                         <th>Value</th>
+                                        <th>Amount (N/%)</th>
                                         <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
@@ -67,6 +68,7 @@
                                         <td><a href="/salarycomponent/{{$salaryComponent->id}}/edit">{{$salaryComponent->title}}</a></td>
                                         <td>{{$salaryComponent->component_type}}</td>
                                         <td>{{$salaryComponent->value_type}}</td>
+                                        <td>{{$salaryComponent->amount}}</td>
                                         <!--<td>{{$salaryComponent->created_at}}</td>-->
                                     </tr>
                                     @endforeach

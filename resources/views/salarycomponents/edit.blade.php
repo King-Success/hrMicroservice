@@ -59,6 +59,7 @@
                                         <th>Title</th>
                                         <th>Component</th>
                                         <th>Value</th>
+                                        <th>Amount (N/%)</th>
                                         <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
@@ -68,6 +69,7 @@
                                         <td><a href="/salarycomponent/{{$salaryComponent->id}}/edit">{{$salaryComponent->title}}</a></td>
                                         <td>{{$salaryComponent->component_type}}</td>
                                         <td>{{$salaryComponent->value_type}}</td>
+                                        <td>{{$salaryComponent->amount}}</td>
                                         <!--<td>{{$salaryComponent->created_at}}</td>-->
                                     </tr>
                                     @endforeach

@@ -39,11 +39,13 @@ class EmployeeSalaryComponentInfoController extends Controller
         $this->employeeSalaryComponentInfoModel->clear($request->input('employee'));
          
         $selectedSalaryComponents = $request->input('salary_components');
+        $salaryComponentAmounts = $request->input('salary_component_amount');
         
         foreach($selectedSalaryComponents as $selectedSalaryComponent){
              $salaryComponent = new \StdClass;
              $salaryComponent->employee = $request->input('employee');
              $salaryComponent->salary_component = $selectedSalaryComponent;
+             $salaryComponent->amount = $salaryComponentAmounts[$selectedSalaryComponent];
              if($this->employeeSalaryComponentInfoModel->create($salaryComponent)) continue;
              throw new \Exception('A fatal error occured.');
          }

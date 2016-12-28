@@ -18,12 +18,12 @@
                         @if($AppConfig->rank_is_king)
                         <div class="form-group">
                             <label for="InputBasicSalary">Basic Salary</label>
-                            <input type="text" name="basic_salary" class="form-control" id="InputBasicSalary" placeholder="Enter Amount">
+                            <input type="text" value="0.00" name="basic_salary" class="form-control" id="InputBasicSalary" placeholder="Enter Amount">
                         </div>
                         
                         <div class="form-group">
                             <label for="InputPaa">Allowance</label>
-                            <input type="text" name="allowance" class="form-control" id="InputPaa" placeholder="Enter Allowance">
+                            <input type="text" value="0.00" name="allowance" class="form-control" id="InputPaa" placeholder="Enter Allowance">
                         </div>
                         @else
                         <input type="hidden" name="basic_salary" value="0">

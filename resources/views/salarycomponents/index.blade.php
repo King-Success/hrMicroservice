@@ -33,6 +33,11 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="InputAmount">Amount (N)</label>
+                            <input type="text" value="0.00" name="amount" class="form-control" id="InputAmount" placeholder="Enter amount">
+                            <p class="help-block"><small>Global but overridable for each employee</small></p>
+                        </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}
                 </div>

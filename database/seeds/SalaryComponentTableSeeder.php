@@ -23,6 +23,7 @@ class SalaryComponentTableSeeder extends Seeder
         $object->title = "Car Allowance";
         $object->component_type = "Earning"; //or Deduction
         $object->value_type = "Amount"; // or Percentage (of consolidated salary)
+        $object->amount = 500; //globally, but overridable on employee's individual page
         $this->objectModel->create($object);
     }
 }

@@ -29,7 +29,7 @@
                         
                         <div class="form-group">
                             <label for="InputAmount">Amount (N)</label>
-                            <input type="text" value="0" name="amount" class="form-control" id="InputAmount" placeholder="Enter amount">
+                            <input type="text" value="0.00" name="amount" class="form-control" id="InputAmount" placeholder="Enter amount">
                         </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}

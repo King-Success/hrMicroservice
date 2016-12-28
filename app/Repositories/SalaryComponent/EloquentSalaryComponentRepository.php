@@ -45,5 +45,6 @@ class EloquentSalaryComponentRepository implements SalaryComponentContract
         $salaryComponent->title = $request->title;
         $salaryComponent->component_type = $request->component_type;
         $salaryComponent->value_type = $request->value_type;
+        $salaryComponent->amount = $request->amount;
     }
 }

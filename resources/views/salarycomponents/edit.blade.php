@@ -34,6 +34,10 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="InputAmount">Amount (N)</label>
+                            <input type="text" value="{{$salaryComponent->amount}}" name="amount" class="form-control" id="InputAmount" placeholder="Enter amount">
+                        </div>
                         <button type="submit" class="btn black m-b">UPDATE</button>
                         <a href="/salarycomponent/{{$salaryComponent->id}}/delete" id="deleteSalaryComponent" class="m-b" style="text-decoration: underline;">DELETE</a>
                     {!! Form::close() !!}

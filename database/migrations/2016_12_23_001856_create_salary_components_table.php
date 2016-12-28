@@ -18,6 +18,7 @@ class CreateSalaryComponentsTable extends Migration
             $table->string('title');
             $table->enum('component_type', ['Earning', 'Deduction']);
             $table->enum('value_type', ['Amount', 'Percentage']);
+            $table->decimal('amount', 12, 2)->default(0.00);
             $table->timestamps();
         });
     }

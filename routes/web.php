@@ -191,6 +191,6 @@ Route::group(['prefix' => 'appsetting'], function() {
     Route::get('/create', 'AppSettingController@create')->name('create_appsetting');
     Route::post('/create', 'AppSettingController@store')->name('store_appsetting');
     Route::get('/{id}/edit', 'AppSettingController@edit')->name('edit_appsetting');
-    Route::put('/1/edit', 'AppSettingController@update')->name('update_appsetting');
+    Route::put('/{id}/edit', 'AppSettingController@update')->name('update_appsetting');
     Route::get('/{id}/delete', 'AppSettingController@delete')->name('delete_appsetting');
 });

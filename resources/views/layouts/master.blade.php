@@ -167,72 +167,17 @@
                 </ul>
               </li>
               <li>
-                <a>
+                <a href="/appconfig">
+                  <!--
                   <span class="nav-caret">
                     <i class="fa fa-caret-down"></i>
                   </span>
+                  -->
                   <span class="nav-icon">
-                    <i class="ion-pie-graph"></i>
+                    <i class="ion-gear-b"></i>
                   </span>
                   <span class="nav-text">Settings</span>
                 </a>
-                <ul class="nav-sub">
-                  <li>
-                    <a href="chart.html" >
-                      <span class="nav-text">Chart</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="chartjs.html" >
-                      <span class="nav-text">Chartjs</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="nav-caret">
-                        <i class="fa fa-caret-down"></i>
-                      </span>
-                      <span class="nav-text">Echarts</span>
-                    </a>
-                    <ul class="nav-sub">
-                      <li>
-                        <a href="echarts-line.html" >
-                          <span class="nav-text">line</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="echarts-bar.html" >
-                          <span class="nav-text">Bar</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="echarts-pie.html" >
-                          <span class="nav-text">Pie</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="echarts-scatter.html" >
-                          <span class="nav-text">Scatter</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="echarts-radar-chord.html" >
-                          <span class="nav-text">Radar &amp; Chord</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="echarts-gauge-funnel.html" >
-                          <span class="nav-text">Gauges &amp; Funnel</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="echarts-map.html" >
-                          <span class="nav-text">Map</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
             </ul>
           </nav>

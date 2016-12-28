@@ -42,7 +42,7 @@
                 <i class="ion-android-menu"></i>
               </a>
               <!-- brand -->
-              <a href="index.html" class="navbar-brand">
+              <a href="/" class="navbar-brand">
               	<div data-ui-include="'/images/logo.svg'"></div>
               	<img src="/images/logo.png" alt="." class="hide">
               	<span class="hidden-folded inline">aside</span>
@@ -64,7 +64,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="signup.html" class="nav-link">
+                    <a href="/register" class="nav-link">
                       <span class="nav-text text-info">
                         Sign Up
                       </span>
@@ -96,8 +96,8 @@
 		<div class="p-t-lg">
 			<h1 class="m-y-md text-white">Office Dashboard</h1>
 			<h6 class="text-muted m-b-lg">All in one payroll management system</h6>
-			<a href="/dashboard" class="btn btn-lg rounded success p-x-md m-x">Live Demo</a>
-			<a href="https://themeforest.net/item/aside-dashboard-ui-kit/17903768?ref=flatfull" class="btn btn-lg rounded p-x-md m-x">Get it today just for $25</a>
+			<a href="/login" class="btn btn-lg rounded success p-x-md m-x">Go Live</a>
+			<a href="/register" class="btn btn-lg rounded p-x-md m-x">$1 per employee per month</a>
 		</div>
 	</div>
 	<div class="col-sm-3"></div>

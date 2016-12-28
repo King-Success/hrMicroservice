@@ -176,3 +176,12 @@ Route::group(['prefix' => 'employeesalarycomponentinfo'], function() {
 });
 
 Auth::routes();
+
+Route::group(['prefix' => 'appconfig'], function() {
+    Route::get('/', 'AppConfigController@index')->name('appconfig_index');
+    Route::get('/create', 'AppConfigController@create')->name('create_appconfig');
+    Route::post('/create', 'AppConfigController@store')->name('store_appconfig');
+    Route::get('/{id}/edit', 'AppConfigController@edit')->name('edit_appconfig');
+    Route::put('/{id}/edit', 'AppConfigController@update')->name('update_appconfig');
+    Route::get('/{id}/delete', 'AppConfigController@delete')->name('delete_appconfig');
+});

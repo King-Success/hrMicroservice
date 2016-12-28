@@ -9,6 +9,6 @@ interface AppConfigContract
     public function findAll();
     public function findById($appConfigId);
     public function remove($appConfigId);
-    public function editCargoProfile($id, $request);
-    public function editCompanyProfile($id, $request);
+    public function updateCargoProfile($id, $request);
+    public function updateCompanyProfile($id, $request);
 }

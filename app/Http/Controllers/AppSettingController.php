@@ -36,24 +36,26 @@ class AppSettingController extends Controller
            // Specify validation rules here
         ]);
         
-        if($request->input('tab') == 'company_profile')){
-            $appSetting = $this->appConfigModel->editCompanyProfile($id, $request);
-        }else if($request->input('tab') == 'cargodrive')){
-            $appSetting = $this->appConfigModel->editCargoProfile($id, $request);
-        }else if($request->input('tab') == 'security')){
+        if($request->input('tab') == 'company_profile'){
+            $appSetting = $this->appConfigModel->updateCompanyProfile($id, $request);
+        }else if($request->input('tab') == 'cargodrive'){
+            $appSetting = $this->appConfigModel->updateCargoProfile($id, $request);
+        }else if($request->input('tab') == 'security'){
             if (Auth::check()) {
                 $userId = Auth::user()->id;
             }else{
                 //Safe to forget to comment here since we are gonna use Auth Middleware later
-               $userId = userModel->findById(1)->id; //for testing purposes.
+               $userId = $this->userModel->findById(1)->id; //for testing purposes.
             }
             $appSetting = $this->userModel->updatePassword($userId, $request);
         }else{
-            throw new \Exception;
+            $appSetting = false;
         }
         
-        if ($appSetting->id) {
+        if ($appSetting && $appSetting->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/appsetting');
         } else {
             return back()
                ->withInput()

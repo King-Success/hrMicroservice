@@ -51,9 +51,11 @@ class EloquentAppConfigRepository implements AppConfigContract
         // Assign attributes to the appConfig here
         $appConfig->company_title = $request->company_title;
         $appConfig->rank_is_king = $request->rank_is_king; //if true, rank determines basic salary & allowances
+        $appConfig->cargodriveClientId = $request->cargodriveClientId;
+        $appConfig->cargodriveSecret = $request->cargodriveSecret;
     }
     
-    public function editCompanyProfile($id, $request){
+    public function updateCompanyProfile($id, $request){
         $appConfig = $this->findById($id);
         $appConfig->company_title = $request->company_title;
         if($request->has('rank_is_king')){
@@ -66,10 +68,10 @@ class EloquentAppConfigRepository implements AppConfigContract
         return $appConfig;
     }
     
-    public function editCargoProfile($id, $request){
+    public function updateCargoProfile($id, $request){
         $appConfig = $this->findById($id);
-        $appConfig->cargodriveClientId = $request->cargodrive_client_id;
-        $appConfig->cargodriveSecret = $request->cargodrive_secret;
+        $appConfig->cargodriveClientId = $request->cargodriveClientId;
+        $appConfig->cargodriveSecret = $request->cargodriveSecret;
         $appConfig->save();
         $this->clearCache();
         return $appConfig;

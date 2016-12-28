@@ -34,7 +34,7 @@
     <div class="tab-content pos-rlt">
       <div class="tab-pane active" id="tab-1">
         <div class="p-a-md b-b _600">Company profile</div>
-        <form role="form" class="p-a-md col-md-6">
+        {!! Form::open(array('url' => '/appsetting/' . $appSetting->id . '/edit', 'role' => 'form', 'method'=>'PUT', 'class' => 'p-a-md col-md-6')) !!}
           <div class="form-group">
             <label>Company logo</label>
             <div class="form-file">
@@ -44,27 +44,30 @@
           </div>
           <div class="form-group">
             <label>Company name</label>
-            <input type="text" class="form-control" name="company_title" placeholder="Enter company name">
+            <input type="text" class="form-control" name="company_title" value="{{$appSetting->company_title}}" placeholder="Enter company name">
           </div>
           
           <div class="form-group">
-            <p><label class="md-check"><input class="has-value" name="rank_is_king" type="checkbox"> <i class="indigo"></i> Let app use a rank-based salary</label></p>
+            <p><label class="md-check"><input class="has-value" name="rank_is_king" type="checkbox" {{$appSetting->rank_is_king ? 'checked' : ''}}> <i class="indigo"></i> Let app use a rank-based salary</label></p>
           </div>
+          <input type="hidden" name="tab" value="company_profile"/>
           <button type="submit" class="btn btn-info m-t">Update</button>
-        </form>
+        {!! Form::close() !!}
       </div>
       <div class="tab-pane" id="tab-2">
         <div class="p-a-md b-b _600">CargoDrive settings</div>
-        <form role="form" class="p-a-md col-md-6">
+        {!! Form::open(array('url' => '/appsetting/' . $appSetting->id . '/edit', 'role' => 'form', 'method'=>'PUT', 'class' => 'p-a-md col-md-6')) !!}
           <div class="form-group">
             <label>Client ID</label>
-            <input type="text" disabled class="form-control" name="cargodrive_client_id" value="d6386c0651d6380745846efe300b9869">
+            <input type="text" disabled class="form-control" name="cargodriveClientId" value="{{$appSetting->cargodriveClientId}}">
           </div>
           <div class="form-group">
             <label>Secret Key</label>
-            <input type="text" disabled class="form-control" name="cargodrive_secret" value="3f9573e88f65787d86d8a685aeb4bd13">
+            <input type="text" disabled class="form-control" name="cargodriveSecret" value="{{$appSetting->cargodriveSecret}}">
           </div>
+          <input type="hidden" name="tab" value="cargodrive"/>
           <button type="submit" class="btn btn-info m-t" disabled="disabled">Update</button>
+          {!! Form::close() !!}
         </form>
       </div>
       <!-- <div class="tab-pane" id="tab-3">
@@ -125,7 +128,7 @@
         <div class="p-a-md b-b _600">Security</div>
         <div class="p-a-md">
           <div class="clearfix m-b-lg">
-            <form role="form" class="col-md-6 p-a-0">
+            {!! Form::open(array('url' => '/appsetting/' . $appSetting->id . '/edit', 'role' => 'form', 'method'=>'PUT', 'class' => 'col-md-6 p-a-0')) !!}
               <div class="form-group">
                 <label>Old Password</label>
                 <input type="password" name="oldpassword" class="form-control">
@@ -138,8 +141,9 @@
                 <label>New Password Again</label>
                 <input type="password" name="confirm_password" class="form-control">
               </div>
+              <input type="hidden" name="tab" value="security"/>
               <button type="submit" class="btn btn-info m-t">Update</button>
-            </form>
+            {!! Form::close() !!}
           </div>
           <!--
           <p><strong>Delete account?</strong></p>

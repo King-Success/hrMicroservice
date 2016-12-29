@@ -56,7 +56,7 @@
               <li class="nav-header hidden-folded">
                 <span class="text-xs">Main</span>
               </li>
-              <li>
+              <li {{ Request::is('dashboard/', '*') ? 'active' : ''}}>
                 <a href="/dashboard" class="b-danger">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-filing"></i>
@@ -64,7 +64,7 @@
                   <span class="nav-text">Dashboard</span>
                 </a>
               </li>
-              <li>
+              <li {{ Request::is('payroll/', '*') ? 'active' : ''}}>
                 <a href="/payroll" class="b-success">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-android-apps"></i>
@@ -72,6 +72,7 @@
                   <span class="nav-text">Payroll</span>
                 </a>
               </li>
+              <!--
               <li>
                 <a href="/messaging" class="b-default">
                   <span class="nav-label">
@@ -91,9 +92,9 @@
                   <span class="nav-text">Contacts</span>
                 </a>
               </li>
-              
-              <li>
-                <a href="/employee" class="b-default">
+              -->
+              <li {{ Request::is('employee/', '*') ? 'active' : ''}}>
+                <a href="/employee" class="b-warn">
                   <span class="nav-icon">
                     <i class="ion-ios-people"></i>
                   </span>
@@ -101,8 +102,8 @@
                 </a>
               </li>
               
-              <li>
-                <a href="/user" class="b-default">
+              <li {{ Request::is('user/', '*') ? 'active' : ''}}>
+                <a href="/user" class="b-primary">
                   <span class="nav-icon">
                     <i class="ion-social-tux"></i>
                   </span>
@@ -166,8 +167,8 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <a href="/appsetting">
+              <li {{ Request::is('appsetting/', '*') ? 'active' : ''}}>
+                <a href="/appsetting"  class="b-warning">
                   <!--
                   <span class="nav-caret">
                     <i class="fa fa-caret-down"></i>

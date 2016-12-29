@@ -199,22 +199,26 @@
               </div>
           </a>
           <div class="dropdown-menu w dropdown-menu-scale ">
-            <a class="dropdown-item" href="profile.html">
+            <a class="dropdown-item" href="/employee">
               <span>Profile</span>
             </a>
             <a class="dropdown-item" href="/appsetting">
               <span>Settings</span>
             </a>
+            <!--
             <a class="dropdown-item" href="app.inbox.html">
               <span>Inbox</span>
             </a>
             <a class="dropdown-item" href="app.message.html">
               <span>Message</span>
             </a>
+            -->
             <div class="dropdown-divider"></div>
+            <!--
             <a class="dropdown-item" href="docs.html">
               Need help?
             </a>
+            -->
             <a class="dropdown-item" href="/login">Sign out</a>
           </div>
         </div>
@@ -233,12 +237,13 @@
                 <div class="navbar-item pull-left h5" id="pageTitle">Payroll Management System</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
+                  <!--
                   <li class="nav-item dropdown pos-stc-xs">
                     <a class="nav-link" data-toggle="dropdown">
                       <i class="ion-android-search w-24"></i>
                     </a>
                     <div class="dropdown-menu text-color w-md animated fadeInUp pull-right">
-                      <!-- search form -->
+                      
                       <form class="navbar-form form-inline navbar-item m-a-0 p-x v-m" role="search">
                         <div class="form-group l-h m-a-0">
                           <div class="input-group">
@@ -249,15 +254,18 @@
                           </div>
                         </div>
                       </form>
-                      <!-- / search form -->
+                      
                     </div>
                   </li>
+                  -->
+                  
+                  <!--
                   <li class="nav-item dropdown pos-stc-xs">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <i class="ion-android-notifications-none w-24"></i>
                       <span class="label up p-a-0 danger"></span>
                     </a>
-                    <!-- dropdown -->
+                    
                     <div class="dropdown-menu pull-right w-xl animated fadeIn no-bg no-border no-shadow">
                         <div class="scrollable" style="max-height: 220px">
                           <ul class="list-group list-group-gap m-a-0">
@@ -291,8 +299,9 @@
                           </ul>
                         </div>
                     </div>
-                    <!-- / dropdown -->
+                    
                   </li>
+                  -->
                   <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
@@ -300,22 +309,26 @@
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="profile.html">
+                      <a class="dropdown-item" href="/employee">
                         <span>Profile</span>
                       </a>
                       <a class="dropdown-item" href="/appsetting">
                         <span>Settings</span>
                       </a>
+                      <!--
                       <a class="dropdown-item" href="app.inbox.html">
                         <span>Inbox</span>
                       </a>
                       <a class="dropdown-item" href="app.message.html">
                         <span>Message</span>
                       </a>
+                      -->
                       <div class="dropdown-divider"></div>
+                      <!--
                       <a class="dropdown-item" href="docs.html">
                         Need help?
                       </a>
+                      -->
                       <a class="dropdown-item" href="/logout">Sign out</a>
                     </div>
                   </li>

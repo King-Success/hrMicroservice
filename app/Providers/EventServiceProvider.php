@@ -15,6 +15,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\EmployeeCreated' => [
             'App\Listeners\CreateUserForEmployee',
+            'App\Listeners\CreateBasicSalaryForEmployee',
         ],
     ];
 

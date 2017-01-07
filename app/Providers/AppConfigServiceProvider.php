@@ -36,6 +36,7 @@ class AppConfigServiceProvider extends ServiceProvider
                 $view->with('User', Auth::user());   
             }else{
                 $anomnimous = new \StdClass;
+                $anomnimous->id = 0;
                 $anomnimous->name = "Anonymous";
                 $view->with('User', $anomnimous);   
             }

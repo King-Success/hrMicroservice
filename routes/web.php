@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::group(['prefix' => 'user'], function() {
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function() {
     Route::get('/', 'UserController@index')->name('user_index');
     Route::get('/create', 'UserController@create')->name('create_user');
     Route::post('/create', 'UserController@store')->name('store_user');
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/{id}/delete', 'UserController@delete')->name('delete_user');
 });
 
-Route::group(['prefix' => 'employee'], function() {
+Route::group(['prefix' => 'employee', 'middleware' => ['auth']], function() {
     Route::get('/', 'EmployeeController@index')->name('employee_index');
     Route::get('/create', 'EmployeeController@create')->name('create_employee');
     Route::post('/create', 'EmployeeController@store')->name('store_employee');
@@ -43,7 +43,7 @@ Route::group(['prefix' => 'employee'], function() {
     Route::get('/{id}/delete', 'EmployeeController@delete')->name('delete_employee');
 });
 
-Route::group(['prefix' => 'rank'], function() {
+Route::group(['prefix' => 'rank', 'middleware' => ['auth']], function() {
     Route::get('/', 'RankController@index')->name('rank_index');
     // Route::get('/create', 'RankController@create')->name('create_rank');
     Route::post('/create', 'RankController@store')->name('store_rank');
@@ -52,7 +52,7 @@ Route::group(['prefix' => 'rank'], function() {
     Route::get('/{id}/delete', 'RankController@delete')->name('delete_rank');
 });
 
-Route::group(['prefix' => 'prefix'], function() {
+Route::group(['prefix' => 'prefix', 'middleware' => ['auth']], function() {
     Route::get('/', 'PrefixController@index')->name('prefix_index');
     // Route::get('/create', 'PrefixController@create')->name('create_title');
     Route::post('/create', 'PrefixController@store')->name('store_prefix');
@@ -61,7 +61,7 @@ Route::group(['prefix' => 'prefix'], function() {
     Route::get('/{id}/delete', 'PrefixController@delete')->name('delete_prefix');
 });
 
-Route::group(['prefix' => 'department'], function() {
+Route::group(['prefix' => 'department', 'middleware' => ['auth']], function() {
     Route::get('/', 'DepartmentController@index')->name('department_index');
     // Route::get('/create', 'DepartmentController@create')->name('create_department');
     Route::post('/create', 'DepartmentController@store')->name('store_department');
@@ -70,7 +70,7 @@ Route::group(['prefix' => 'department'], function() {
     Route::get('/{id}/delete', 'DepartmentController@delete')->name('delete_department');
 });
 
-Route::group(['prefix' => 'paygrade'], function() {
+Route::group(['prefix' => 'paygrade', 'middleware' => ['auth']], function() {
     Route::get('/', 'PaygradeController@index')->name('paygrade_index');
     // Route::get('/create', 'PaygradeController@create')->name('create_paygrade');
     Route::post('/create', 'PaygradeController@store')->name('store_paygrade');
@@ -79,7 +79,7 @@ Route::group(['prefix' => 'paygrade'], function() {
     Route::get('/{id}/delete', 'PaygradeController@delete')->name('delete_paygrade');
 });
 
-Route::group(['prefix' => 'salarycomponent'], function() {
+Route::group(['prefix' => 'salarycomponent', 'middleware' => ['auth']], function() {
     Route::get('/', 'SalaryComponentController@index')->name('salarycomponent_index');
     // Route::get('/create', 'SalaryComponentController@create')->name('create_salarycomponent');
     Route::post('/create', 'SalaryComponentController@store')->name('store_salarycomponent');
@@ -88,7 +88,7 @@ Route::group(['prefix' => 'salarycomponent'], function() {
     Route::get('/{id}/delete', 'SalaryComponentController@delete')->name('delete_salarycomponent');
 });
 
-Route::group(['prefix' => 'employeetype'], function() {
+Route::group(['prefix' => 'employeetype', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeeTypeController@index')->name('employeetype_index');
     // Route::get('/create', 'EmployeeTypeController@create')->name('create_employeetype');
     // Route::post('/create', 'EmployeeTypeController@store')->name('store_employeetype');
@@ -97,7 +97,7 @@ Route::group(['prefix' => 'employeetype'], function() {
     // Route::get('/{id}/delete', 'EmployeeTypeController@delete')->name('delete_employeetype');
 });
 
-Route::group(['prefix' => 'bank'], function() {
+Route::group(['prefix' => 'bank', 'middleware' => ['auth']], function() {
     Route::get('/', 'BankController@index')->name('bank_index');
     Route::get('/create', 'BankController@create')->name('create_bank');
     Route::post('/create', 'BankController@store')->name('store_bank');
@@ -105,7 +105,7 @@ Route::group(['prefix' => 'bank'], function() {
     Route::put('/{id}/edit', 'BankController@update')->name('update_bank');
     Route::get('/{id}/delete', 'BankController@delete')->name('delete_bank');
 });
-Route::group(['prefix' => 'employeebankinfo'], function() {
+Route::group(['prefix' => 'employeebankinfo', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeeBankInfoController@index')->name('employeebankinfo_index');
     // Route::get('/create', 'EmployeeBankInfoController@create')->name('create_employeebankinfo');
     Route::post('/create', 'EmployeeBankInfoController@store')->name('store_employeebankinfo');
@@ -113,7 +113,7 @@ Route::group(['prefix' => 'employeebankinfo'], function() {
     // Route::put('/{id}/edit', 'EmployeeBankInfoController@update')->name('update_employeebankinfo');
     // Route::get('/{id}/delete', 'EmployeeBankInfoController@delete')->name('delete_employeebankinfo');
 });
-Route::group(['prefix' => 'pension'], function() {
+Route::group(['prefix' => 'pension', 'middleware' => ['auth']], function() {
     Route::get('/', 'PensionController@index')->name('pension_index');
     Route::get('/create', 'PensionController@create')->name('create_pension');
     Route::post('/create', 'PensionController@store')->name('store_pension');
@@ -121,7 +121,7 @@ Route::group(['prefix' => 'pension'], function() {
     Route::put('/{id}/edit', 'PensionController@update')->name('update_pension');
     Route::get('/{id}/delete', 'PensionController@delete')->name('delete_pension');
 });
-Route::group(['prefix' => 'employeepensioninfo'], function() {
+Route::group(['prefix' => 'employeepensioninfo', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeePensionInfoController@index')->name('employeepensioninfo_index');
     // Route::get('/create', 'EmployeePensionInfoController@create')->name('create_employeepensioninfo');
     Route::post('/create', 'EmployeePensionInfoController@store')->name('store_employeepensioninfo');
@@ -130,7 +130,7 @@ Route::group(['prefix' => 'employeepensioninfo'], function() {
     // Route::get('/{id}/delete', 'EmployeePensionInfoController@delete')->name('delete_employeepensioninfo');
 });
 
-Route::group(['prefix' => 'employeelevel'], function() {
+Route::group(['prefix' => 'employeelevel', 'middleware' => ['auth']], function() {
     Route::get('/', 'EmployeeLevelController@index')->name('employeelevel_index');
     Route::get('/create', 'EmployeeLevelController@create')->name('create_employeelevel');
     Route::post('/create', 'EmployeeLevelController@store')->name('store_employeelevel');
@@ -139,7 +139,7 @@ Route::group(['prefix' => 'employeelevel'], function() {
     Route::get('/{id}/delete', 'EmployeeLevelController@delete')->name('delete_employeelevel');
 });
 
-Route::group(['prefix' => 'employeepaygradeinfo'], function() {
+Route::group(['prefix' => 'employeepaygradeinfo', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeePaygradeInfoController@index')->name('employeepaygradeinfo_index');
     // Route::get('/create', 'EmployeePaygradeInfoController@create')->name('create_employeepaygradeinfo');
     Route::post('/create', 'EmployeePaygradeInfoController@store')->name('store_employeepaygradeinfo');
@@ -148,7 +148,7 @@ Route::group(['prefix' => 'employeepaygradeinfo'], function() {
     // Route::get('/{id}/delete', 'EmployeePaygradeInfoController@delete')->name('delete_employeepaygradeinfo');
 });
 
-Route::group(['prefix' => 'employeedepartmentinfo'], function() {
+Route::group(['prefix' => 'employeedepartmentinfo', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeeDepartmentInfoController@index')->name('employeedepartmentinfo_index');
     // Route::get('/create', 'EmployeeDepartmentInfoController@create')->name('create_employeedepartmentinfo');
     Route::post('/create', 'EmployeeDepartmentInfoController@store')->name('store_employeedepartmentinfo');
@@ -157,7 +157,7 @@ Route::group(['prefix' => 'employeedepartmentinfo'], function() {
     // Route::get('/{id}/delete', 'EmployeeDepartmentInfoController@delete')->name('delete_employeedepartmentinfo');
 });
 
-Route::group(['prefix' => 'employeerankinfo'], function() {
+Route::group(['prefix' => 'employeerankinfo', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeeRankInfoController@index')->name('employeerankinfo_index');
     // Route::get('/create', 'EmployeeRankInfoController@create')->name('create_employeerankinfo');
     Route::post('/create', 'EmployeeRankInfoController@store')->name('store_employeerankinfo');
@@ -166,7 +166,7 @@ Route::group(['prefix' => 'employeerankinfo'], function() {
     // Route::get('/{id}/delete', 'EmployeeRankInfoController@delete')->name('delete_employeerankinfo');
 });
 
-Route::group(['prefix' => 'employeesalarycomponentinfo'], function() {
+Route::group(['prefix' => 'employeesalarycomponentinfo', 'middleware' => ['auth']], function() {
     // Route::get('/', 'EmployeeSalaryComponentInfoController@index')->name('employeesalarycomponentinfo_index');
     // Route::get('/create', 'EmployeeSalaryComponentInfoController@create')->name('create_employeesalarycomponentinfo');
     Route::post('/create', 'EmployeeSalaryComponentInfoController@store')->name('store_employeesalarycomponentinfo');
@@ -177,7 +177,7 @@ Route::group(['prefix' => 'employeesalarycomponentinfo'], function() {
 
 Auth::routes();
 
-Route::group(['prefix' => 'appconfig'], function() {
+Route::group(['prefix' => 'appconfig', 'middleware' => ['auth']], function() {
     // Route::get('/', 'AppConfigController@index')->name('appconfig_index');
     // Route::get('/create', 'AppConfigController@create')->name('create_appconfig');
     // Route::post('/create', 'AppConfigController@store')->name('store_appconfig');
@@ -186,7 +186,7 @@ Route::group(['prefix' => 'appconfig'], function() {
     // Route::get('/{id}/delete', 'AppConfigController@delete')->name('delete_appconfig');
 });
 
-Route::group(['prefix' => 'appsetting'], function() {
+Route::group(['prefix' => 'appsetting', 'middleware' => ['auth']], function() {
     Route::get('/', 'AppSettingController@index')->name('appsetting_index');
     Route::get('/create', 'AppSettingController@create')->name('create_appsetting');
     Route::post('/create', 'AppSettingController@store')->name('store_appsetting');
@@ -195,6 +195,6 @@ Route::group(['prefix' => 'appsetting'], function() {
     Route::get('/{id}/delete', 'AppSettingController@delete')->name('delete_appsetting');
 });
 
-Route::group(['prefix' => 'employee_basic_salary'], function() {
+Route::group(['prefix' => 'employee_basic_salary', 'middleware' => ['auth']], function() {
     Route::put('/{id}/edit', 'EmployeeBasicSalaryController@update')->name('update_employee_basic_salary');
 });

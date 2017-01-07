@@ -31,7 +31,7 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                                <input type="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
                             </div>
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 @if ($errors->has('password'))
@@ -39,7 +39,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                                <input type="password" class="form-control" placeholder="password" value="{{ old('email') }}" required>
+                                <input type="password" name="password" class="form-control" placeholder="password" value="" required>
                             </div>
                              <div class="m-b-md">
                                 <label class="md-check"><input type="checkbox" name="remember">

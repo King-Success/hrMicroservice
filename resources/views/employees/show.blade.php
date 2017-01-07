@@ -18,9 +18,18 @@
           <div class="clear m-b">
             <h4 class="m-a-0 m-b-sm">{{$employee->surname}} {{$employee->other_names}}</h4>
             <p class="text-muted"><span class="m-r">
-              @foreach($ranks as $rank)
-              {{ $employeeRank && $employeeRank->rank_id == $rank->id ? $rank->title : '' }}
-              @endforeach
+              @if($employeeRank)
+                @foreach($ranks as $rank)
+                {{ $employeeRank && $employeeRank->rank_id == $rank->id ? $rank->title : '' }}
+                @endforeach
+              @endif
+              @if($employeeDepartment)
+              (
+                @foreach($departments as $department)
+                {{ $employeeDepartment && $employeeDepartment->department_id == $department->id ? $department->title : '' }}
+                @endforeach
+              )
+              @endif
             </span> <small><i class="fa fa-map-marker m-r-xs"></i>{{$employee->address}}</small></p>
             <div class="block clearfix m-b">
               <a href="" class="btn btn-icon btn-social rounded b-a btn-sm">

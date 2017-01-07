@@ -14,8 +14,8 @@ class Employee extends Model
         return $this->hasOne('App\EmployeeDepartmentInfo');
     }
     
-    public function basic_salary(){
-        return $this->hasOne('App\BasicSalary');
+    public function employee_basic_salary(){
+        return $this->hasOne('App\EmployeeBasicSalary');
     }
     
     public function employee_pension_info(){

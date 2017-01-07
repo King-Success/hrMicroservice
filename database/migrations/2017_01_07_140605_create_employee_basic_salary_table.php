@@ -13,7 +13,7 @@ class CreateEmployeeBasicSalaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('basic_salaries', function (Blueprint $table) {
+        Schema::create('employee_basic_salaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
@@ -29,6 +29,6 @@ class CreateEmployeeBasicSalaryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('basic_salaries');
+        Schema::dropIfExists('employee_basic_salaries');
     }
 }

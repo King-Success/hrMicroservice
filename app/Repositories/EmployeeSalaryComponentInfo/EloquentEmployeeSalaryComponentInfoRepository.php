@@ -44,8 +44,8 @@ class EloquentEmployeeSalaryComponentInfoRepository implements EmployeeSalaryCom
         return $employeeSalaryComponentInfo->delete();
     }
     
-    public function clear($employerId){
-        return EmployeeSalaryComponentInfo::where('employee_id', $employerId)->delete();
+    public function clear($employeeId){
+        return EmployeeSalaryComponentInfo::where('employee_id', $employeeId)->delete();
     }
 
     private function setEmployeeSalaryComponentInfoProperties($employeeSalaryComponentInfo, $request) {

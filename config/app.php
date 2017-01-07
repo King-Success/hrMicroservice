@@ -202,6 +202,7 @@ return [
         App\Providers\EmployeeRankInfoServiceProvider::class,
         App\Providers\EmployeePaygradeInfoServiceProvider::class,
         App\Providers\EmployeeSalaryComponentInfoServiceProvider::class,
+        App\Providers\EmployeeBasicSalaryServiceProvider::class,
 
     ],
 

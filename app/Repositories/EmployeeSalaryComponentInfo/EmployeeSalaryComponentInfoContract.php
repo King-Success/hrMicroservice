@@ -10,5 +10,5 @@ interface EmployeeSalaryComponentInfoContract
     public function findById($employeeSalaryComponentInfoId);
     public function remove($employeeSalaryComponentInfoId);
     public function findByEmployeeId($employeeId);
-    public function clear($employerId);
+    public function clear($employeeId);
 }

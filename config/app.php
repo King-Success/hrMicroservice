@@ -203,6 +203,7 @@ return [
         App\Providers\EmployeePaygradeInfoServiceProvider::class,
         App\Providers\EmployeeSalaryComponentInfoServiceProvider::class,
         App\Providers\EmployeeBasicSalaryServiceProvider::class,
+        App\Providers\PayrollServiceProvider::class,
 
     ],
 

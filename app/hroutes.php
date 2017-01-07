@@ -150,3 +150,11 @@ Route::group(['prefix' => 'appsetting'], function() {
     Route::put('/{id}/edit', 'AppSettingController@update')->name('update_appsetting');
     Route::get('/{id}/delete', 'AppSettingController@delete')->name('delete_appsetting');
 });
+Route::group(['prefix' => 'payroll'], function() {
+    Route::get('/', 'PayrollController@index')->name('payroll_index');
+    Route::get('/create', 'PayrollController@create')->name('create_payroll');
+    Route::post('/create', 'PayrollController@store')->name('store_payroll');
+    Route::get('/{id}/edit', 'PayrollController@edit')->name('edit_payroll');
+    Route::put('/{id}/edit', 'PayrollController@update')->name('update_payroll');
+    Route::get('/{id}/delete', 'PayrollController@delete')->name('delete_payroll');
+});

@@ -198,3 +198,12 @@ Route::group(['prefix' => 'appsetting', 'middleware' => ['auth']], function() {
 Route::group(['prefix' => 'employee_basic_salary', 'middleware' => ['auth']], function() {
     Route::put('/{id}/edit', 'EmployeeBasicSalaryController@update')->name('update_employee_basic_salary');
 });
+
+Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
+    Route::get('/', 'PayrollController@index')->name('payroll_index');
+    // Route::get('/create', 'PayrollController@create')->name('create_payroll');
+    Route::post('/create', 'PayrollController@store')->name('store_payroll');
+    // Route::get('/{id}/edit', 'PayrollController@edit')->name('edit_payroll');
+    // Route::put('/{id}/edit', 'PayrollController@update')->name('update_payroll');
+    // Route::get('/{id}/delete', 'PayrollController@delete')->name('delete_payroll');
+});

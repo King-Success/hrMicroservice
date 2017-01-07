@@ -11,13 +11,14 @@ use App\Repositories\UserEmployeeMap\UserEmployeeMapContract;
 
 class CreateUserForEmployee
 {
+    protected $userModel;
+    protected $userEmployeeMapModel;
+    
     /**
      * Create the event listener.
      *
      * @return void
      */
-    protected $userModel;
-    protected $userEmployeeMapModel;
     
     public function __construct(UserContract $userContract, UserEmployeeMapContract $userEmployeeMapContract)
     {

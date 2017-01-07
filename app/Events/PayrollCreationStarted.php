@@ -13,14 +13,17 @@ class PayrollCreationStarted
 {
     use InteractsWithSockets, SerializesModels;
 
+    public $payroll;
+    
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($payroll)
     {
-        //
+        $this->payroll = $payroll;
+        
     }
 
     /**

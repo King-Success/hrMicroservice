@@ -18,15 +18,15 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\CreateBasicSalaryForEmployee',
         ],
         'App\Events\PayrollCreationStarted' => [
-            'App\Listeners\FreezAllInputs',
+            'App\Listeners\FreezeAllInputs',
         ],
         
         'App\Events\PayrollCreationCancelled' => [
-            'App\Listeners\UnFreezAllInputs',
+            'App\Listeners\UnFreezeAllInputs',
         ],
         
         'App\Events\PayrollCreationFinished' => [
-            'App\Listeners\UnFreezAllInputs',
+            'App\Listeners\UnFreezeAllInputs',
         ],
     ];
 

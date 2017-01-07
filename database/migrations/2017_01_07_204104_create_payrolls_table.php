@@ -17,6 +17,7 @@ class CreatePayrollsTable extends Migration
             $table->increments('id');
             $table->text('title')->nullable(); //call it "November, 2016 Salary" for all i care
             $table->text('description')->nullable(); //call it memo all you want
+            $table->integer('state')->default(0);
             $table->date('paid_at');
             $table->timestamps();
         });

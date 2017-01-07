@@ -2,14 +2,14 @@
 
 namespace App\Listeners;
 
-use App\Events\PayrollCreationFinished;
+use App\Events\PayrollCreationStarted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\Repositories\Payroll\PayrollContract;
 use App\Repositories\AppConfig\AppConfigContract;
 
-class UnFreezAllInputs
+class FreezeAllInputs
 {
     protected $payrollModel;
     protected $appConfigModel;
@@ -28,10 +28,10 @@ class UnFreezAllInputs
     /**
      * Handle the event.
      *
-     * @param  PayrollCreationFinished  $event
+     * @param  PayrollCreationStarted  $event
      * @return void
      */
-    public function handle(PayrollCreationFinished $event)
+    public function handle(PayrollCreationStarted $event)
     {
         //$event->employee['other_names'];
     }

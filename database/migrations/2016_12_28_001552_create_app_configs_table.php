@@ -18,6 +18,7 @@ class CreateAppConfigsTable extends Migration
             $table->string('company_title')->default('DigitalPatterns Ltd');
             $table->string('company_logo')->nullable();
             $table->boolean('rank_is_king')->default(false);
+            $table->boolean('freeze_mode_activated')->default(false);
             $table->string('cargodriveClientId')->nullable();
             $table->string('cargodriveSecret')->nullable();
             $table->timestamps();

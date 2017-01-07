@@ -9,20 +9,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Repositories\Payroll\PayrollContract;
 use App\Repositories\AppConfig\AppConfigContract;
 
-class UnFreezeAllInputs
+class FlagPayrollInactive
 {
     protected $payrollModel;
-    protected $appConfigModel;
-    
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct(AppConfigContract $appConfigContract, PayrollContract $payrollContract)
+    public function __construct(PayrollContract $payrollContract)
     {
+        //
         $this->payrollModel = $payrollContract;
-        $this->appConfigModel = $appConfigContract;
     }
 
     /**
@@ -33,9 +31,8 @@ class UnFreezeAllInputs
      */
     public function handle(PayrollCreationFinished $event)
     {
-        $appConfigModel = $this->appConfigModel->findById(1);
-        $appConfigModel->freeze_mode_activated = false;
-        $appConfigModel->save();
-        $this->appConfigModel->clearCache();
+        $payrollModel = $this->payrollModel->findById($event->payroll['id']);
+        $payrollModel->active = false;
+        $payrollModel->save();
     }
 }

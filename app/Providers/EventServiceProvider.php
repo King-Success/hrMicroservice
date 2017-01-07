@@ -27,6 +27,7 @@ class EventServiceProvider extends ServiceProvider
         
         'App\Events\PayrollCreationFinished' => [
             'App\Listeners\UnFreezeAllInputs',
+            'App\Listeners\FlagPayrollInactive',
         ],
     ];
 

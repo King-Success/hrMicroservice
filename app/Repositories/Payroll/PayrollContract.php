@@ -9,4 +9,5 @@ interface PayrollContract
     public function findAll();
     public function findById($payrollId);
     public function remove($payrollId);
+    public function getActive();
 }

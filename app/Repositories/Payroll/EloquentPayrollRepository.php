@@ -43,4 +43,8 @@ class EloquentPayrollRepository implements PayrollContract
     private function setPayrollProperties($payroll, $request) {
         // Assign attributes to the payroll here
     }
+    
+    public function getActive(){
+        return Payroll::Where('active', '=', 1)->first();
+    }
 }

@@ -8,17 +8,43 @@ use App\Http\Requests;
 
 use App\Repositories\Payroll\PayrollContract;
 
+use DigitalPatterns\PayrollState;
+use Cache;
+
 class PayrollController extends Controller
 {
     protected $payrollModel;
+    protected $appConfig;
+    
     public function __construct(PayrollContract $payrollContract) {
         $this->payrollModel = $payrollContract;
+        $this->appConfig = Cache::get('AppConfig');
     }
 
     // Display payrolls.index with all payrolls
     public function index() {
+        
         $payrolls = $this->payrollModel->findAll();
-        return view('payrolls.index', ['payrolls' => $payrolls]);
+        
+        if(!$this->appConfig->freeze_mode_activated){
+            return view('payrolls.index', ['payrolls' => $payrolls]);
+        }
+        
+        $curPayroll = $this->payrollModel->getActive();
+        
+        switch ($curPayroll->state) {
+            case PayrollState::$NEW_PAYROLL_CREATED:
+                return view('payrolls.employee_selection', ['payrolls' => $payrolls]);
+                break;
+            case PayrollState::$EMPLOYEE_SELECTED:
+                return view('payrolls.preview', ['payrolls' => $payrolls]);
+                break;
+            case PayrollState::$PAYROLL_APPROVED:
+                return view('payrolls.paycheck', ['payrolls' => $payrolls]);
+                break;
+            default:
+                throw new \Exception('Invalid Payroll State');
+        }
     }
 
     // Display payrolls.create

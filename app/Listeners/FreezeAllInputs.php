@@ -33,6 +33,9 @@ class FreezeAllInputs
      */
     public function handle(PayrollCreationStarted $event)
     {
-        //$event->employee['other_names'];
+        $appConfigModel = $this->appConfigModel->findById(1);
+        $appConfigModel->freeze_mode_activated = true;
+        $appConfigModel->save();
+        $this->appConfigModel->clearCache();
     }
 }

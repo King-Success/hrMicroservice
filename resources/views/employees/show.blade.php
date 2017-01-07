@@ -17,7 +17,11 @@
           </a>
           <div class="clear m-b">
             <h4 class="m-a-0 m-b-sm">{{$employee->surname}} {{$employee->other_names}}</h4>
-            <p class="text-muted"><span class="m-r">UX/UI Director</span> <small><i class="fa fa-map-marker m-r-xs"></i>{{$employee->address}}</small></p>
+            <p class="text-muted"><span class="m-r">
+              @foreach($ranks as $rank)
+              {{ $employeeRank && $employeeRank->rank_id == $rank->id ? $rank->title : '' }}
+              @endforeach
+            </span> <small><i class="fa fa-map-marker m-r-xs"></i>{{$employee->address}}</small></p>
             <div class="block clearfix m-b">
               <a href="" class="btn btn-icon btn-social rounded b-a btn-sm">
                 <i class="fa fa-facebook"></i>
@@ -58,7 +62,7 @@
   </div>
   <div class="white bg b-b p-x">
     <div class="row">
-      <div class="col-sm-6 push-sm-6">
+      <div class="col-sm-3 push-sm-9">
         <div class="p-y text-center text-sm-right">
             <a href="/employee/{{$employee->id}}/edit" class="btn rounded b-dark">Edit</a>
           <!--
@@ -73,7 +77,7 @@
           -->
         </div>
       </div>
-      <div class="col-sm-6 pull-sm-6">
+      <div class="col-sm-9 pull-sm-3">
         <div class="p-y-md clearfix nav-active-dark">
           <ul class="nav nav-pills nav-sm">
             <li class="nav-item {{empty($_GET['tab']) ? 'active' : ''}}">

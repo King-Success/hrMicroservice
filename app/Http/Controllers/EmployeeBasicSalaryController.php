@@ -34,7 +34,7 @@ class EmployeeBasicSalaryController extends Controller
         if ($employeeBasicSalary->id) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');
-            return back();
+            return redirect('/employee/' . $request->input('employee') . '?tab=basic_salary');
         } else {
             return back()
                ->withInput()

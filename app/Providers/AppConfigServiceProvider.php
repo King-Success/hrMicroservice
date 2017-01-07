@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use Cache;
+use Illuminate\Support\Facades\Auth;
 
 class AppConfigServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,16 @@ class AppConfigServiceProvider extends ServiceProvider
         
         view()->composer('*', function($view) use ($appConfig){
             $view->with('AppConfig', $appConfig);
+        });
+        
+        view()->composer('*', function($view) use ($appConfig){
+            if (Auth::check()) {
+                $view->with('User', Auth::user());   
+            }else{
+                $anomnimous = new \StdClass;
+                $anomnimous->name = "Anonymous";
+                $view->with('User', $anomnimous);   
+            }
         });
     }
 

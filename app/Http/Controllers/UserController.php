@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Repositories\User\UserContract;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -19,6 +20,13 @@ class UserController extends Controller
     public function index() {
         $users = $this->userModel->findAll();
         return view('users.index', ['users' => $users]);
+    }
+    
+    // Display employeelevels.index with all employeelevels
+    public function show($id, Request $request) {
+        if(Auth::check() && Auth::user()->id != $id) return back();
+        $user = $this->userModel->findById($id);
+        return view('users.show', ['user' => $user]);
     }
 
     // Display users.create

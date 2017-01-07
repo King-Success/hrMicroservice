@@ -25,6 +25,8 @@ use App\Repositories\EmployeePaygradeInfo\EmployeePaygradeInfoContract;
 use App\Repositories\EmployeeBankInfo\EmployeeBankInfoContract;
 use App\Repositories\EmployeePensionInfo\EmployeePensionInfoContract;
 use App\Repositories\EmployeeSalaryComponentInfo\EmployeeSalaryComponentInfoContract;
+use App\Repositories\EmployeeBasicSalary\EmployeeBasicSalaryContract;
+
 
 // Third Party
 use Yajra\Datatables\Datatables;
@@ -50,6 +52,7 @@ class EmployeeController extends Controller
     protected $employeeBankInfoModel;
     protected $employeePensionInfoModel;
     protected $employeeSalaryComponentInfoModel;
+    protected $employeeBasicSalaryModel;
     
     public function __construct(EmployeeContract $employeeContract, 
         PrefixContract $prefixContract,
@@ -67,7 +70,8 @@ class EmployeeController extends Controller
         EmployeePaygradeInfoContract $employeePaygradeInfoContract,
         EmployeeBankInfoContract $employeeBankInfoContract,
         EmployeePensionInfoContract $employeePensionInfoContract,
-        EmployeeSalaryComponentInfoContract $employeeSalaryComponentInfoContract
+        EmployeeSalaryComponentInfoContract $employeeSalaryComponentInfoContract,
+        EmployeeBasicSalaryContract $employeeBasicSalaryContract
         ) {
         $this->employeeModel = $employeeContract;
         $this->prefixModel = $prefixContract;
@@ -86,6 +90,7 @@ class EmployeeController extends Controller
         $this->employeeBankInfoModel = $employeeBankInfoContract;
         $this->employeePensionInfoModel = $employeePensionInfoContract;
         $this->employeeSalaryComponentInfoModel = $employeeSalaryComponentInfoContract;
+        $this->employeeBasicSalaryModel = $employeeBasicSalaryContract;
     }
     
     public function ajaxSearch(){
@@ -145,11 +150,13 @@ class EmployeeController extends Controller
         $employeeBank = $this->employeeBankInfoModel->findByEmployeeId($id);
         $employeePension = $this->employeePensionInfoModel->findByEmployeeId($id);
         $employeeSalaryComponents = $this->employeeSalaryComponentInfoModel->findByEmployeeId($id); //Allowances //Array Expected
+        $employeeBasicSalary = $this->employeeBasicSalaryModel->findByEmployeeId($id);
         
         return view('employees.show', ['employee'=>$employee, 'departments'=>$departments, 'ranks'=>$ranks, 'paygrades'=>$paygrades,
         'banks'=>$banks, 'pensions'=> $pensions,'salaryComponents'=>$salaryComponents,
         'employeeRank'=>$employeeRank, 'employeeDepartment'=>$employeeDepartment,'employeePaygrade'=>$employeePaygrade,
-        'employeeBank'=>$employeeBank,'employeePension'=>$employeePension, 'employeeSalaryComponents'=>$employeeSalaryComponents]);
+        'employeeBank'=>$employeeBank,'employeePension'=>$employeePension, 'employeeSalaryComponents'=>$employeeSalaryComponents,
+        'employeeBasicSalary'=>$employeeBasicSalary]);
     }
 
     // Display employees.edit with employee to edit

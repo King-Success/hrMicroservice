@@ -36,7 +36,7 @@ class EloquentEmployeeBasicSalaryRepository implements EmployeeBasicSalaryContra
     }
     
     public function findByEmployeeId($employeeId){
-        return EmployeeBasicSalary::where('employee_id', $employeeId)->get();
+        return EmployeeBasicSalary::where('employee_id', $employeeId)->get()->first();
     }
 
     public function remove($employeeBasicSalaryId) {
@@ -46,7 +46,7 @@ class EloquentEmployeeBasicSalaryRepository implements EmployeeBasicSalaryContra
 
     private function setEmployeeBasicSalaryProperties($employeeBasicSalary, $request) {
         // Assign attributes to the employeeSalaryComponentInfo here
-        $employeeBasicSalary->employee_id = $request->employee_id;
+        $employeeBasicSalary->employee_id = $request->employee;
         $employeeBasicSalary->amount = $request->amount ? $request->amount : 0.00;
     }
 }

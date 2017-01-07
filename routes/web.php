@@ -194,3 +194,7 @@ Route::group(['prefix' => 'appsetting'], function() {
     Route::put('/{id}/edit', 'AppSettingController@update')->name('update_appsetting');
     Route::get('/{id}/delete', 'AppSettingController@delete')->name('delete_appsetting');
 });
+
+Route::group(['prefix' => 'employee_basic_salary'], function() {
+    Route::put('/{id}/edit', 'EmployeeBasicSalaryController@update')->name('update_employee_basic_salary');
+});

@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Repositories\Employee\EmployeeContract;
+use App\Repositories\EmployeeBasicSalary\EmployeeBasicSalaryContract;
+
+class EmployeeBasicSalaryController extends Controller
+{
+    //
+    
+    protected $employeeModel;
+    protected $employeeBasicSalaryModel;
+    
+    public function __construct(EmployeeContract $employeeContract, 
+    EmployeeBasicSalaryContract $employeeBasicSalaryContract
+        ) {
+        $this->employeeModel = $employeeContract;
+        $this->employeeBasicSalaryModel = $employeeBasicSalaryContract;
+    }
+    /**
+     * Validate form.
+     * Update EmployeeBasicSalary in database
+     * Redirect to prefered route or perform other action
+     */
+    public function update(Request $request, $id) {
+        $this->validate($request, [
+           // Specify validation rules here
+        ]);
+
+        $employeeBasicSalary = $this->employeeBasicSalaryModel->edit($id, $request);
+        if ($employeeBasicSalary->id) {
+            // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
+        } else {
+            return back()
+               ->withInput()
+               ->with('error', 'Could not update Employee. Try again!');
+        }
+    }
+}

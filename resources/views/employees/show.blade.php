@@ -94,6 +94,11 @@
             <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'pension') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_6">Pension</a>
             </li>
+            @if($AppConfig->rank_is_king == 0)
+            <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'pension') ? 'active' : ''}}">
+              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_8">Basic Salary</a>
+            </li>
+            @endif
             <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'salarycomponent') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_7">Allowances</a>
             </li>
@@ -317,7 +322,7 @@
             </div>
             <!--- END -->
           </div>
-          
+        
           <div class="tab-pane p-v-sm" id="tab_7">
             <div class="streamline">
                 <!-- Begin -->
@@ -362,6 +367,35 @@
                                   </div>
                                   <input type="hidden" name="employee" value="{{$employee->id}}">
                                   <button type="submit" class="btn black m-b">SAVE CHANGES</button>
+                                  {!! Form::close() !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+          </div>
+          
+          <div class="tab-pane p-v-sm" id="tab_8">
+            <div class="streamline">
+                <!-- Begin -->
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2>Basic Salary</h2><small>Annual Consolidated Salary</small></div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="box-body">
+                            <div class="app-body">
+                                <div class="padding">
+                                    {!! Form::open(array('url' => '/employee_basic_salary/' . $employeeBasicSalary->id . '/edit', 'id'=>'basic_salary', 'role' => 'form', 'method'=>'PUT')) !!}
+                                    <div class="form-group">
+                                      <label>Salary</label>
+                                      <input type="number" value="{{$employeeBasicSalary->amount}}" name="amount" class="form-control">
+                                    </div>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">
+                                    <!--<div class="col-sm-6"></div>-->
+                                    <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
                                 </div>
                             </div>

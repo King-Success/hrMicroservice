@@ -31,6 +31,11 @@
                             <label for="InputAmount">Amount (N)</label>
                             <input type="text" value="0.00" name="amount" class="form-control" id="InputAmount" placeholder="Enter amount">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="InputAllowance">Allowance (N)</label>
+                            <input type="text" value="0.00" name="allowance" class="form-control" id="InputAllowance" placeholder="Enter amount">
+                        </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}
                 </div>
@@ -51,6 +56,7 @@
                                         <th>Title/Step</th>
                                         <th>Level</th>
                                         <th>Amount (N)</th>
+                                        <th>Allowance (N)</th>
                                         <th>Created At</th>
                                     </tr>
                                     </thead>
@@ -60,6 +66,7 @@
                                         <td><a href="/paygrade/{{$paygrade->id}}/edit">{{$paygrade->title}}</a></td>
                                         <td>{{$paygrade->employee_level->title}}</td>
                                         <td>{{$paygrade->amount}}</td>
+                                        <td>{{$paygrade->allowance}}</td>
                                         <td>{{$paygrade->created_at}}</td>
                                     </tr>
                                     @endforeach

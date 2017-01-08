@@ -18,6 +18,7 @@ class CreatePaygradesTable extends Migration
             $table->string('title'); //step
             $table->integer('employee_level_id')->unsigned();
             $table->decimal('amount', 12, 2)->default(0.00);
+            $table->decimal('allowance', 12, 2)->default(0.00);
             $table->timestamps();
             
             $table->foreign('employee_level_id')->references('id')->on('employee_levels');

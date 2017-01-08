@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Repositories\Payroll\PayrollContract;
+use App\Repositories\Employee\EmployeeContract;
 
 use DigitalPatterns\PayrollState;
 use Cache;
@@ -15,13 +16,15 @@ class PayrollController extends Controller
 {
     protected $payrollModel;
     protected $appConfig;
+    protected $employeeModel;
     
-    public function __construct(PayrollContract $payrollContract) {
+    public function __construct(PayrollContract $payrollContract, EmployeeContract $employeeContract) {
         $this->payrollModel = $payrollContract;
+        $this->employeeModel = $employeeContract;
         $this->appConfig = Cache::get('AppConfig');
     }
 
-    // Display payrolls.index with all payrolls
+
     public function index() {
         
         $payrolls = $this->payrollModel->findAll();
@@ -34,7 +37,7 @@ class PayrollController extends Controller
         
         switch ($curPayroll->state) {
             case PayrollState::$NEW_PAYROLL_CREATED:
-                return view('payrolls.employee_selection', ['payrolls' => $payrolls]);
+                return view('payrolls.selection', ['payroll' => $curPayroll, 'employees' => $this->employeeModel->findAll()]);
                 break;
             case PayrollState::$EMPLOYEE_SELECTED:
                 return view('payrolls.preview', ['payrolls' => $payrolls]);
@@ -49,6 +52,9 @@ class PayrollController extends Controller
 
     // Display payrolls.create
     public function create() {
+        if($this->appConfig->freeze_mode_activated){
+            return redirect('/payroll');
+        }
         return view('payrolls.create');
     }
 
@@ -65,6 +71,7 @@ class PayrollController extends Controller
          $payroll = $this->payrollModel->create($request);
          if ($payroll->id) {
              // Redirect or do whatever you like
+             return redirect('/payroll');
          } else {
              return back()
                 ->withInput()

@@ -10,6 +10,10 @@ class Employee extends Model
         return $this->hasOne('App\EmployeePaygradeInfo'); //one-off access to level/step/basic_salary
     }
     
+    public function employee_rank_info(){
+        return $this->hasOne('App\EmployeeRankInfo');
+    }
+    
     public function employee_department_info(){
         return $this->hasOne('App\EmployeeDepartmentInfo');
     }
@@ -24,5 +28,9 @@ class Employee extends Model
     
     public function employee_bank_info(){
         return $this->hasOne('App\EmployeeBankInfo');
+    }
+    
+    public function employee_salary_component_infos(){
+        return $this->hasMany('App\EmployeeSalaryComponentInfo');
     }
 }

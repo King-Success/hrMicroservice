@@ -4,6 +4,9 @@ namespace App\Repositories\Payroll;
 
 use App\Payroll;
 use App\Repositories\Payroll\PayrollContract;
+use App\Events\PayrollCreationStarted;
+use App\Events\PayrollCreationCancelled;
+use App\Events\PayrollCreationFinished;
 
 class EloquentPayrollRepository implements PayrollContract
 {
@@ -14,6 +17,7 @@ class EloquentPayrollRepository implements PayrollContract
         $this->setPayrollProperties($payroll, $request);
 
         $payroll->save();
+        event(new PayrollCreationStarted($payroll->toArray()));
         return $payroll;
     }
 
@@ -42,6 +46,10 @@ class EloquentPayrollRepository implements PayrollContract
 
     private function setPayrollProperties($payroll, $request) {
         // Assign attributes to the payroll here
+        $payroll->title = $request->title;
+        $payroll->cycle = $request->cycle;
+        $payroll->paid_at = $request->paid_at;
+        $payroll->description = $request->description;
     }
     
     public function getActive(){

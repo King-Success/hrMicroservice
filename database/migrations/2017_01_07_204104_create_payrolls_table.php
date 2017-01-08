@@ -15,11 +15,12 @@ class CreatePayrollsTable extends Migration
     {
         Schema::create('payrolls', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('title')->nullable(); //call it "November, 2016 Salary" for all i care
+            $table->string('title')->nullable(); //call it "November, 2016 Salary" for all i care
             $table->text('description')->nullable(); //call it memo all you want
             $table->integer('state')->default(0); //see App/DigitalPatterns/PayrollState.php
             $table->integer('active')->default(true);
-            $table->date('paid_at');
+            $table->integer('cycle')->default(1); //monthly
+            $table->date('paid_at')->nullable();
             $table->timestamps();
         });
     }

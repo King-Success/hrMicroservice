@@ -35,7 +35,6 @@ class UnFreezeAllInputs
     {
         $appConfigModel = $this->appConfigModel->findById(1);
         $appConfigModel->freeze_mode_activated = false;
-        $appConfigModel->save();
-        $this->appConfigModel->clearCache();
+        $this->appConfigModel->setFreezeMode(1, $appConfigModel);
     }
 }

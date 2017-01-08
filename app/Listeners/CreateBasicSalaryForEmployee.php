@@ -39,6 +39,7 @@ class CreateBasicSalaryForEmployee
         $employeeBasicSalaryObject = new \StdClass;
         $employeeBasicSalaryObject->employee = $event->employee['id'];
         $employeeBasicSalaryObject->amount = 0;
+        $employeeBasicSalaryObject->allowance = 0;
         $this->employeeBasicSalaryModel->create($employeeBasicSalaryObject);
     }
 }

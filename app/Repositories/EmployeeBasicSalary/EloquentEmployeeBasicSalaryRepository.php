@@ -48,5 +48,6 @@ class EloquentEmployeeBasicSalaryRepository implements EmployeeBasicSalaryContra
         // Assign attributes to the employeeSalaryComponentInfo here
         $employeeBasicSalary->employee_id = $request->employee;
         $employeeBasicSalary->amount = $request->amount ? $request->amount : 0.00;
+        $employeeBasicSalary->allowance = $request->allowance ? $request->allowance : 0.00;
     }
 }

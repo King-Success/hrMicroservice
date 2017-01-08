@@ -68,6 +68,14 @@ class EloquentAppConfigRepository implements AppConfigContract
         return $appConfig;
     }
     
+    public function setFreezeMode($id, $request){
+        $appConfig = $this->findById($id);
+        $appConfig->freeze_mode_activated = $request->freeze_mode_activated;
+        $appConfig->save();
+        $this->clearCache();
+        return $appConfig;
+    }
+    
     public function updateCargoProfile($id, $request){
         $appConfig = $this->findById($id);
         $appConfig->cargodriveClientId = $request->cargodriveClientId;

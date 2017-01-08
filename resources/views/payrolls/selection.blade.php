@@ -5,17 +5,30 @@
 <!-- ############ PAGE START-->
 <div class="padding">
     <div class="row" id="new_payroll_form">
-        <div class="col-md-12 offset-sm-0">
+        <div class="col-md-12">
             <div class="box">
-                <div class="box-header">
-                    <h2>Payroll</h2><small>Select & Deselect employees</small>
+                <div class="col-sm-6 push-sm-6">
+                    <div class="p-y text-center text-sm-right">
+                        <a href="#" class="btn rounded b-dark">Pay</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 pull-sm-6 box-header">
+                    <h2>Payroll ({{$payroll->title}})</h2><small>Select & Deselect employees</small>
                 </div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
                     <div class="app-body">
                         <div class="padding">
+                            <div class="table-responsive" id="datatable">
                             {!! Form::open(array('url' => '/payroll/apply_to_employees', 'role' => 'form')) !!}
-                            <table class="table">
+                            <table class="table b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
+                                  lengthChange: false,
+                                  buttons: ['excel', 'pdf', 'colvis' ],
+                                  'initComplete': function () {
+                                    this.api().buttons().container()
+                                      .appendTo( '#datatable .col-md-6:eq(0)' );
+                                  }
+                                }" >
                                 <thead>
                                     <td></td>
                                     <th>Employee</th>
@@ -23,7 +36,7 @@
                                     <th>Rank</th>
                                     <th>Level</th>
                                     <th>Step</th>
-                                    <th>Consolidated</th>
+                                    <th>Basic Salary</th>
                                     <th>PAA/PNAA</th>
                                     <th>Gross Total</th>
                                     <!--Autocreate columns here for all deductions/earnings -->
@@ -34,7 +47,12 @@
                                 <tbody>
                                     @foreach($employees as $employee)
                                     <tr>
-                                        <td></td>
+                                        <td>
+                                            <label class="md-check">
+                                                <input class="has-value" checked="" type="checkbox" name="employees[{{$employee->id}}]">
+                                                <i class="teal no-icon"></i>
+                                            </label>
+                                        </td>
                                         <td>{{$employee->surname}} {{$employee->other_names}}</td>
                                         <td>{{$employee->employee_number}}</td>
                                         <td>{{$employee->employee_rank_info ? $employee->employee_rank_info->rank->title : ''}}</td>
@@ -76,6 +94,7 @@
                                 </tbody>
                             </table>
                             {!! Form::close() !!}
+                            </div>
                         </div>
                     </div>
                 </div>

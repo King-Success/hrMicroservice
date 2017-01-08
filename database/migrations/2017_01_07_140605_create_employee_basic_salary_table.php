@@ -18,6 +18,7 @@ class CreateEmployeeBasicSalaryTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->decimal('amount', 12, 2)->default(0.00);
+            $table->decimal('allowance', 12, 2)->default(0.00);
             $table->timestamps();
         });
     }

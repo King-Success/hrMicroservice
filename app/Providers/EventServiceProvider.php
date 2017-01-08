@@ -29,6 +29,10 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\UnFreezeAllInputs',
             'App\Listeners\FlagPayrollInactive',
         ],
+        
+        'App\Events\EmployeeAssignedRank' => [
+            'App\Listeners\PopulateEmployeeBasicSalaryIf',
+        ],
     ];
 
     /**

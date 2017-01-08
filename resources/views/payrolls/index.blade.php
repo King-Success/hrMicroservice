@@ -21,7 +21,7 @@
                 <div class="box-body">
                     <div class="app-body">
                         <div class="padding">
-                            <form>
+                            {!! Form::open(array('route' => 'store_payroll', 'role' => 'form')) !!}
                                 <div class="form-group">
                                     <label for="InputTitle">Title</label>
                                     <input name="title" class="form-control" id="InputTitle" required placeholder="Enter Title" type="text">
@@ -32,7 +32,7 @@
                                 </div>
                                 <button type="submit" class="btn black m-b">Create</button>
                                 <a href="#" class="b-primary text-info p-x-md m-y" id="btnCancel">Cancel</a>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

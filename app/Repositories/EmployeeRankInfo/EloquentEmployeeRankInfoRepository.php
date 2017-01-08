@@ -4,9 +4,17 @@ namespace App\Repositories\EmployeeRankInfo;
 
 use App\EmployeeRankInfo;
 use App\Repositories\EmployeeRankInfo\EmployeeRankInfoContract;
+use App\Events\EmployeeAssignedRank;
+use App\Repositories\Rank\RankContract;
 
 class EloquentEmployeeRankInfoRepository implements EmployeeRankInfoContract
 {
+    protected $rankModel;
+    
+    public function __construct(RankContract $rankContract){
+        $this->rankModel = $rankContract;
+    }
+    
     public function create($request) {
         $employeeRankInfo = new EmployeeRankInfo;
 
@@ -14,6 +22,8 @@ class EloquentEmployeeRankInfoRepository implements EmployeeRankInfoContract
         $this->setEmployeeRankInfoProperties($employeeRankInfo, $request);
 
         $employeeRankInfo->save();
+        event(new EmployeeAssignedRank($this->rankModel->findById($employeeRankInfo->rank_id)->toArray(), 
+            $employeeRankInfo->employee_id));
         return $employeeRankInfo;
     }
 
@@ -24,6 +34,8 @@ class EloquentEmployeeRankInfoRepository implements EmployeeRankInfoContract
         $this->setEmployeeRankInfoProperties($employeeRankInfo, $request);
 
         $employeeRankInfo->save();
+        event(new EmployeeAssignedRank($this->rankModel->findById($employeeRankInfo->rank_id)->toArray(), 
+            $employeeRankInfo->employee_id));
         return $employeeRankInfo;
     }
 

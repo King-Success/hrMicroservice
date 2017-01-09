@@ -56,6 +56,7 @@
               <li class="nav-header hidden-folded">
                 <span class="text-xs">Main</span>
               </li>
+              <!--
               <li {{ Request::is('dashboard/', '*') ? 'active' : ''}}>
                 <a href="/dashboard" class="b-danger">
                   <span class="nav-icon text-white no-fade">
@@ -64,6 +65,7 @@
                   <span class="nav-text">Dashboard</span>
                 </a>
               </li>
+              -->
               <li {{ Request::is('payroll/', '*') ? 'active' : ''}}>
                 <a href="/payroll" class="b-success">
                   <span class="nav-icon text-white no-fade">

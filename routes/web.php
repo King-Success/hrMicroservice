@@ -20,6 +20,7 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard', function () {
+    return redirect('/payroll');
     return view('dashboard');
 });
 

@@ -45,7 +45,7 @@
         <a href="/dashboard" class="navbar-brand">
         	<div data-ui-include="'/images/logo.svg'"></div>
         	<img src="/images/logo.png" alt="." class="hide">
-        	<span class="hidden-folded inline">aside</span>
+        	<span class="hidden-folded inline">Payroll</span>
         </a>
         <!-- / brand -->
       </div>
@@ -236,7 +236,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Payroll Management System</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">{{$AppConfig->company_title}}</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                   <!--

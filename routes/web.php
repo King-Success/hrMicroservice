@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
+    return redirect('/login');
     return view('welcome');
+});
+
+Route::get('/home', function () {
+    return redirect('/dashboard');
 });
 
 Route::get('/login', function () {

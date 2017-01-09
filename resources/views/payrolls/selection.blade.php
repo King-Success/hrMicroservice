@@ -37,7 +37,7 @@
                                     <th>Rank</th>
                                     <th>Level</th>
                                     <th>Step</th>
-                                    <th>Paygrade</th>
+                                    <th>Pay grade</th>
                                     <th>P-Allowance</th>
                                     <th>Basic</th>
                                     <th>PAA/PNAA</th>

@@ -6,10 +6,11 @@
 <div class="padding">
     <div class="row" id="new_payroll_form">
         <div class="col-md-12">
+            {!! Form::open(array('url' => '/payroll/apply_to_employees', 'role' => 'form')) !!}
             <div class="box">
                 <div class="col-sm-6 push-sm-6">
                     <div class="p-y text-center text-sm-right">
-                        <a href="#" class="btn rounded b-dark">Pay</a>
+                        <button class="btn rounded b-dark">Pay</button>
                     </div>
                 </div>
                 <div class="col-sm-6 pull-sm-6 box-header">
@@ -20,7 +21,7 @@
                     <div class="app-body">
                         <div class="padding">
                             <div class="table-responsive" id="datatable">
-                            {!! Form::open(array('url' => '/payroll/apply_to_employees', 'role' => 'form')) !!}
+
                             <table class="table b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
                                   lengthChange: false,
                                   buttons: ['excel', 'pdf', 'colvis' ],
@@ -32,16 +33,18 @@
                                 <thead>
                                     <td></td>
                                     <th>Employee</th>
-                                    <th>PSN No.</th>
+                                    <th>ENo</th>
                                     <th>Rank</th>
                                     <th>Level</th>
                                     <th>Step</th>
-                                    <th>Basic Salary</th>
+                                    <th>Paygrade</th>
+                                    <th>P-Allowance</th>
+                                    <th>Basic</th>
                                     <th>PAA/PNAA</th>
-                                    <th>Gross Total</th>
+                                    <th>Total</th>
                                     <!--Autocreate columns here for all deductions/earnings -->
-                                    <th>Total Deduction</th>
-                                    <th>Total Earning</th>
+                                    <th>Deductions</th>
+                                    <th>Earnings</th>
                                     <th>Net Pay</th>
                                 </thead>
                                 <tbody>
@@ -58,6 +61,12 @@
                                         <td>{{$employee->employee_rank_info ? $employee->employee_rank_info->rank->title : ''}}</td>
                                         <td>{{$employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->employee_level->title : ''}}</td>
                                         <td>{{$employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->title : ''}}</td>
+                                        <?php
+                                        $paygrade = $employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->amount : 0;
+                                        $paygradeAllowance = $employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->allowance : 0;
+                                        ?>
+                                        <td>{{number_format($employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->amount : 0.00, 2)}}</td>
+                                        <td>{{number_format($employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->allowance : 0.00, 2)}}</td>
                                         <td>{{number_format($employee->employee_basic_salary->amount, 2)}}</td>
                                         <td>{{number_format($employee->employee_basic_salary->allowance, 2)}}</td>
                                         <?php
@@ -88,17 +97,18 @@
                                         ?>
                                         <td>{{number_format($totalDeductions, 2)}}</td>
                                         <td>{{number_format($totalEarnings, 2)}}</td>
-                                        <td>{{number_format($grossTotal + $totalEarnings - $totalDeductions, 2)}}</td>
+                                        <td>{{number_format($paygrade + $paygradeAllowance + $grossTotal + $totalEarnings - $totalDeductions, 2)}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {!! Form::close() !!}
+                            
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {!! Form::close() !!}
         </div>
     </div>
  </div>

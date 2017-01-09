@@ -30,17 +30,17 @@
                                       .appendTo( '#datatable .col-md-6:eq(0)' );
                                   }
                                 }" >
-                                <thead>
+                                <thead align="center">
                                     <td></td>
                                     <th>Employee</th>
-                                    <th>ENo</th>
+                                    <th>Employee No.</th>
                                     <th>Rank</th>
                                     <th>Level</th>
                                     <th>Step</th>
                                     <th>Pay grade</th>
-                                    <th>P-Allowance</th>
-                                    <th>Basic</th>
-                                    <th>PAA/PNAA</th>
+                                    <th>Pay grade allowance</th>
+                                    <th>Basic Salary</th>
+                                    <th>Peculiar Allowance</th>
                                     <th>Total</th>
                                     <!--Autocreate columns here for all deductions/earnings -->
                                     <th>Deductions</th>

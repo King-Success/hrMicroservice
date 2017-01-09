@@ -24,6 +24,7 @@ class CreateEmployeesTable extends Migration
             $table->string('mobile_home')->nullable();
             $table->string('mobile_work')->nullable();
             $table->string('address')->nullable();
+            $table->string('logical_address')->nullable();
             $table->integer('prefix_id')->unsigned();
             $table->integer('employee_type_id')->unsigned();
             $table->string('profile_is_complete')->default(0);

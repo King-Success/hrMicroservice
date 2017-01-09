@@ -95,6 +95,10 @@
                             <label>Address</label>
                             <textarea name="address" class="form-control" rows="6" data-minwords="6" required placeholder="Please Type Physical Address"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Logical Address</label>
+                            <input type="text" name="logical_address" class="form-control" placeholder="Employee's Logical Address"></textarea>
+                        </div>
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}
                 </div>

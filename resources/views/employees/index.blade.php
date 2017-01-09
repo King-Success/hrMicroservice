@@ -38,6 +38,7 @@
                                         <th>Employee Number</th>
                                         <th>Gender</th>
                                         <th>Email</th>
+                                        <th>Logical Address</th>
                                         <th>Mobile (Home)</th>
                                         <th>Mobile (Work)</th>
                                         <!--<th>Created At</th>-->
@@ -53,6 +54,7 @@
                                         <td>{{$employee->employee_number}}</td>
                                         <td>{{$employee->gender}}</td>
                                         <td>{{$employee->email}}</td>
+                                        <td>{{$employee->logical_address}}</td>
                                         <td>{{$employee->mobile_home}}</td>
                                         <td>{{$employee->mobile_work}}</td>
                                         <!--<td>{{$employee->created_at}}</td>-->

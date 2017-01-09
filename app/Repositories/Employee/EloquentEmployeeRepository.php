@@ -53,6 +53,7 @@ class EloquentEmployeeRepository implements EmployeeContract
         $employee->gender = $request->gender;
         $employee->email = $request->email;
         $employee->address = $request->address;
+        $employee->logical_address = $request->logical_address;
         $employee->mobile_work = $request->mobile_work;
         $employee->mobile_home = $request->mobile_home;
     }

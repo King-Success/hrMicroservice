@@ -27,6 +27,7 @@ class EmployeeTableSeeder extends Seeder
         $object->gender = "Female";
         $object->email = "dretnan@logicaladdress.com";
         $object->address = "32 Yakubu Gowon Way, Jos";
+        $object->logical_address = "";
         $object->mobile_home = "08161730129";
         $object->mobile_work = "08036504287";
         $object->dob = "2003-05-11";

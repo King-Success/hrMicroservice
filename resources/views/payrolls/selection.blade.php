@@ -70,7 +70,7 @@
                                         <td>{{number_format($employee->employee_basic_salary->amount, 2)}}</td>
                                         <td>{{number_format($employee->employee_basic_salary->allowance, 2)}}</td>
                                         <?php
-                                        $grossTotal = $employee->employee_basic_salary->amount + $employee->employee_basic_salary->allowance;
+                                        $grossTotal = $employee->employee_basic_salary->amount + $employee->employee_basic_salary->allowance + $paygrade + $paygradeAllowance;
                                         ?>
                                         <td>{{number_format($grossTotal, 2)}}</td>
                                         <?php
@@ -97,7 +97,7 @@
                                         ?>
                                         <td>{{number_format($totalDeductions, 2)}}</td>
                                         <td>{{number_format($totalEarnings, 2)}}</td>
-                                        <td>{{number_format($paygrade + $paygradeAllowance + $grossTotal + $totalEarnings - $totalDeductions, 2)}}</td>
+                                        <td>{{number_format($grossTotal + $totalEarnings - $totalDeductions, 2)}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

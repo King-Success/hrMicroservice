@@ -33,13 +33,15 @@
                                 <thead align="center">
                                     <td></td>
                                     <th>Employee</th>
-                                    <th>Employee No.</th>
+                                    <th>No.</th>
                                     <th>Rank</th>
                                     <th>Level</th>
                                     <th>Step</th>
+                                    <!--
                                     <th>Pay grade</th>
                                     <th>Pay grade allowance</th>
-                                    <th>Basic Salary</th>
+                                    -->
+                                    <th>Consolidated Salary</th>
                                     <th>Peculiar Allowance</th>
                                     <th>Total</th>
                                     <!--Autocreate columns here for all deductions/earnings -->
@@ -64,17 +66,21 @@
                                         <?php
                                         $paygrade = $employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->amount : 0;
                                         $paygradeAllowance = $employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->allowance : 0;
+                                        $consolidatedSalary = $employee->employee_basic_salary->amount + $paygrade;
+                                        $consolidatedAllowance = $employee->employee_basic_salary->allowance + $paygradeAllowance;
                                         ?>
-                                        <td>{{number_format($employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->amount : 0.00, 2)}}</td>
-                                        <td>{{number_format($employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->allowance : 0.00, 2)}}</td>
-                                        <td>{{number_format($employee->employee_basic_salary->amount, 2)}}</td>
-                                        <td>{{number_format($employee->employee_basic_salary->allowance, 2)}}</td>
+                                        <!--
+                                        <td>{{number_format($paygrade, 2)}}</td>
+                                        <td>{{number_format($paygradeAllowance, 2)}}</td>
+                                        -->
+                                        <td>{{number_format($consolidatedSalary, 2)}}</td>
+                                        <td>{{number_format($consolidatedAllowance, 2)}}</td>
                                         <?php
-                                        $grossTotal = $employee->employee_basic_salary->amount + $employee->employee_basic_salary->allowance + $paygrade + $paygradeAllowance;
+                                        $grossTotal = $consolidatedSalary + $consolidatedAllowance;
                                         ?>
                                         <td>{{number_format($grossTotal, 2)}}</td>
                                         <?php
-                                        $basic_salary = $employee->employee_basic_salary->amount;
+                                        // $basic_salary = $employee->employee_basic_salary->amount;
                                         $totalDeductions = 0;
                                         $totalEarnings = 0;
                                         if(count($employee->employee_salary_component_infos) > 0){
@@ -83,13 +89,13 @@
                                                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                         $totalEarnings += $employee_salary_component_info->amount;
                                                     }else{
-                                                        $totalEarnings += $basic_salary * ($employee_salary_component_info->amount / 100);
+                                                        $totalEarnings += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
                                                     }
                                                 }else{
                                                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                         $totalDeductions += $employee_salary_component_info->amount;
                                                     }else{
-                                                        $totalDeductions += $basic_salary * ($employee_salary_component_info->amount / 100);
+                                                        $totalDeductions += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
                                                     }
                                                 }
                                             }

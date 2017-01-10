@@ -13,14 +13,11 @@ class EloquentPaycheckComponentRepository implements PaycheckComponentContract
         $this->payrollModel = $payrollContract;
     }
     
-    public function create($request) {
-        $paycheckComponent = new PaycheckComponent;
-        
-        $paycheckComponent->save();
-        return $paycheckComponent;
+    public function getInstance(){
+        return new PaycheckComponent;
     }
 
     public function findById($paycheckComponentId) {
-        return Paycheck::find($paycheckComponentId);
+        return PaycheckComponent::find($paycheckComponentId);
     }
 }

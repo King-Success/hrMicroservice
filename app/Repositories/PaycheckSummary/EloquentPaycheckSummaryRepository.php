@@ -13,11 +13,8 @@ class EloquentPaycheckSummaryRepository implements PaycheckSummaryContract
         $this->payrollModel = $payrollContract;
     }
     
-    public function create($request) {
-        $paycheckSummary = new PaycheckSummary;
-        
-        $paycheckSummary->save();
-        return $paycheckSummary;
+    public function getInstance(){
+        return new PaycheckSummary;
     }
 
     public function findById($paycheckSummaryId) {

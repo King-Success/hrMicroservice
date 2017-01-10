@@ -21,11 +21,8 @@ class EloquentPaycheckRepository implements PaycheckContract
         $this->paycheckSummaryModel = $paycheckSummaryContract;
     }
     
-    public function create($request) {
-        $paygrade = new Paycheck;
-        
-        $paygrade->save();
-        return $paygrade;
+    public function getInstance(){
+        return new Paycheck;
     }
 
     public function findById($paygradeId) {

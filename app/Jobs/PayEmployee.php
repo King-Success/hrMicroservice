@@ -70,12 +70,12 @@ class PayEmployee implements ShouldQueue
         $this->consolidatedSalary = $this->employee->employee_basic_salary->amount + $paygrade;
         $this->consolidatedAllowance = $this->employee->employee_basic_salary->allowance + $paygradeAllowance;
         $this->grossTotal = $this->consolidatedSalary + $this->consolidatedAllowance;
-        $paycheck = new \StdClass;
+        $paycheck = $this->paycheckModel->getInstance();
         $paycheck->employee_id = $this->employee->id;
         $paycheck->payroll_id = $this->payroll->id;
         $paycheck->consolidated_salary = $this->consolidatedSalary;
         $paycheck->consolidated_allowance = $this->consolidatedAllowance;
-        if(!$this->paycheckModel->create($paycheck)){
+        if(!$paycheck->save()){
             throw new \Exception("Error Creating paycheck for employee " . $this->employee->surname);
         }
     }
@@ -103,14 +103,14 @@ class PayEmployee implements ShouldQueue
                         $amount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
                     }
                 }
-                $paycheckComponent = new \StdClass;
+                $paycheckComponent = $this->paycheckComponentModel->getInstance();
                 $paycheckComponent->employee_id = $this->employee->id;
                 $paycheckComponent->payroll_id = $this->payroll->id;
                 $paycheckComponent->employee_salary_component_info_id = $employee_salary_component_info->id;
                 $paycheckComponent->amount = $amount;
                 $paycheckComponent->component_type = $employee_salary_component_info->salary_component->value_type;
                 $paycheckComponent->cycle = $this->payroll->cycle;
-                if(!$this->paycheckComponentModel->create($paycheckComponent)){
+                if(!$paycheckComponent->save()){
                     throw new \Exception("Error Creating paycheck component for employee " . $this->employee->surname);
                 }
             }
@@ -118,7 +118,7 @@ class PayEmployee implements ShouldQueue
     }
     
     private function populate_paycheck_summary(){
-        $paycheckSummary = new \StdClass;
+        $paycheckSummary = $this->paycheckSummarymodel->getInstance();
         $paycheckSummary->employee_id = $this->employee->id;
         $paycheckSummary->payroll_id = $this->payroll->id;
         $paycheckSummary->rank = $this->employee->employee_rank_info ? $this->employee->employee_rank_info->rank->title : '';
@@ -134,7 +134,7 @@ class PayEmployee implements ShouldQueue
         $paycheckSummary->net_pay = $this->grossTotal + $this->totalEarnings - $this->totalDeductions;
         $paycheckSummary->cycle = $this->payroll->cycle; 
         
-        if(!$this->paycheckSummarymodel->create($paycheckSummary)){
+        if(!$paycheckSummary->save()){
             throw new \Exception("Error Creating paycheck summary for employee " . $this->employee->surname);
         }
     }

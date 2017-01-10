@@ -108,7 +108,7 @@ class PayEmployee implements ShouldQueue
                 $paycheckComponent->payroll_id = $this->payroll->id;
                 $paycheckComponent->employee_salary_component_info_id = $employee_salary_component_info->id;
                 $paycheckComponent->amount = $amount;
-                $paycheckComponent->component_type = $employee_salary_component_info->salary_component->value_type;
+                $paycheckComponent->component_type = $employee_salary_component_info->salary_component->component_type;
                 $paycheckComponent->cycle = $this->payroll->cycle;
                 if(!$paycheckComponent->save()){
                     throw new \Exception("Error Creating paycheck component for employee " . $this->employee->surname);
@@ -124,8 +124,10 @@ class PayEmployee implements ShouldQueue
         $paycheckSummary->rank = $this->employee->employee_rank_info ? $this->employee->employee_rank_info->rank->title : '';
         $paycheckSummary->level = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->employee_level->title : '';
         $paycheckSummary->step = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->title : '';
+        $paycheckSummary->basic_salary = $this->employee->employee_basic_salary->amount;
+        $paycheckSummary->allowance = $this->employee->employee_basic_salary->allowance;
         $paycheckSummary->paygrade_amount = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->amount : 0;
-        $paycheckSummary->paygrade_amount = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->allowance : 0;
+        $paycheckSummary->paygrade_allowance = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->allowance : 0;
         $paycheckSummary->consolidated_salary = $this->consolidatedSalary;
         $paycheckSummary->consolidated_allowance = $this->consolidatedAllowance;
         $paycheckSummary->gross_total = $this->grossTotal;

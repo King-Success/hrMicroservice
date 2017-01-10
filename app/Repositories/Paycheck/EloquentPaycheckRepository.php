@@ -3,7 +3,7 @@
 namespace App\Repositories\Paycheck;
 
 use App\Paycheck;
-use App\Repositories\Paycheck\PaycheckContract;
+use App\Repositories\Payroll\PayrollContract;
 use App\Repositories\PaycheckComponent\PaycheckComponentContract;
 use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
 

@@ -209,16 +209,8 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
     Route::get('/', 'PayrollController@index')->name('payroll_index');
     Route::get('/create', 'PayrollController@create')->name('create_payroll');
     Route::post('/create', 'PayrollController@store')->name('store_payroll');
+    Route::post('/{id}/paycheck', 'PayrollController@createPaycheck')->name('create_paycheck');
     // Route::get('/{id}/edit', 'PayrollController@edit')->name('edit_payroll');
     // Route::put('/{id}/edit', 'PayrollController@update')->name('update_payroll');
     // Route::get('/{id}/delete', 'PayrollController@delete')->name('delete_payroll');
-});
-
-Route::group(['prefix' => 'paycheck', 'middleware' => ['auth']], function() {
-    // Route::get('/', 'PaycheckController@index')->name('paycheck_index');
-    // Route::get('/create', 'PaycheckController@create')->name('create_paycheck');
-    Route::post('/create', 'PayrollController@store')->name('store_paycheck');
-    // Route::get('/{id}/edit', 'PaycheckController@edit')->name('edit_paycheck');
-    // Route::put('/{id}/edit', 'PaycheckController@update')->name('update_paycheck');
-    // Route::get('/{id}/delete', 'PaycheckController@delete')->name('delete_paycheck');
 });

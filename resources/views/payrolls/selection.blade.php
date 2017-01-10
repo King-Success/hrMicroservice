@@ -6,7 +6,8 @@
 <div class="padding">
     <div class="row" id="new_payroll_form">
         <div class="col-md-12">
-            {!! Form::open(array('url' => '/payroll/apply_to_employees', 'role' => 'form')) !!}
+            {!! Form::open(array('url' => '/payroll/' . $payroll->id . '/paycheck', 'role' => 'form')) !!}
+            <input type="hidden" name="payroll" value="{{$payroll->id}}"/>
             <div class="box">
                 <div class="col-sm-6 push-sm-6">
                     <div class="p-y text-center text-sm-right">
@@ -31,7 +32,7 @@
                                   }
                                 }" >
                                 <thead align="center">
-                                    <td></td>
+                                    <th></th>
                                     <th>Employee</th>
                                     <th>No.</th>
                                     <th>Rank</th>

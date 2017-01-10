@@ -24,6 +24,6 @@ class PaycheckComponentServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app->bind('App\Repositories\PaycheckComponent\PaycheckComponentContract', 'App\Repositories\Paycheck\EloquentPaycheckComponentRepository');
+        $this->app->bind('App\Repositories\PaycheckComponent\PaycheckComponentContract', 'App\Repositories\PaycheckComponent\EloquentPaycheckComponentRepository');
     }
 }

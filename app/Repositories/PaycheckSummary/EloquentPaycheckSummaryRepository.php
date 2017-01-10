@@ -3,6 +3,7 @@
 namespace App\Repositories\PaycheckSummary;
 
 use App\PaycheckSummary;
+use App\Repositories\Payroll\PayrollContract;
 
 class EloquentPaycheckSummaryRepository implements PaycheckSummaryContract
 {

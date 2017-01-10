@@ -12,6 +12,8 @@ use App\Repositories\Employee\EmployeeContract;
 use DigitalPatterns\PayrollState;
 use Cache;
 
+use App\Jobs\PayEmployee;
+
 class PayrollController extends Controller
 {
     protected $payrollModel;
@@ -42,6 +44,9 @@ class PayrollController extends Controller
             case PayrollState::$EMPLOYEE_SELECTED:
                 return view('payrolls.preview', ['payrolls' => $payrolls]);
                 break;
+            case PayrollState::$PAYROLL_PROCESSING:
+                return view('payrolls.processing', ['currentPayroll' => $curPayroll]);
+                break;
             case PayrollState::$PAYROLL_APPROVED:
                 return view('payrolls.paycheck', ['payrolls' => $payrolls]);
                 break;
@@ -71,6 +76,31 @@ class PayrollController extends Controller
          $payroll = $this->payrollModel->create($request);
          if ($payroll->id) {
              // Redirect or do whatever you like
+             return redirect('/payroll');
+         } else {
+             return back()
+                ->withInput()
+                ->with('error', 'Could not create Payroll. Try again!');
+         }
+     }
+     
+     public function createPaycheck($id, Request $request) {
+         $this->validate($request, [
+            // Specify validation rules here
+            'employees' => 'required',
+         ]);
+
+         $payroll = $this->payrollModel->findById($id);
+         
+         foreach ($request->employees as $employeeId => $value) {
+             dispatch(new PayEmployee($this->employeeModel->findById($employeeId), $payroll));
+         }
+         
+         if ($payroll) {
+             // Redirect or do whatever you like
+             $payroll->state = PayrollState::$PAYROLL_PROCESSING;
+             $payroll->save();
+            //  $this->payrollModel->edit($payroll->id, $payroll);
              return redirect('/payroll');
          } else {
              return back()

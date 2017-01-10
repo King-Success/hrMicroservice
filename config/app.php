@@ -205,6 +205,8 @@ return [
         App\Providers\EmployeeBasicSalaryServiceProvider::class,
         App\Providers\PayrollServiceProvider::class,
         App\Providers\PaycheckServiceProvider::class,
+        App\Providers\PaycheckComponentServiceProvider::class,
+        App\Providers\PaycheckSummaryServiceProvider::class,
 
     ],
 

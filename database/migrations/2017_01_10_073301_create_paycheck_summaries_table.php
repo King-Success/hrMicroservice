@@ -21,6 +21,10 @@ class CreatePaycheckSummariesTable extends Migration
             $table->string('rank')->nullable();
             $table->string('level')->nullable();
             $table->string('step')->nullable();
+            $table->decimal('basic_salary', 12, 2)->default(0.00);
+            $table->decimal('allowance', 12, 2)->default(0.00);
+            $table->decimal('paygrade_amount', 12, 2)->default(0.00);
+            $table->decimal('paygrade_allowance', 12, 2)->default(0.00);
             $table->decimal('consolidated_salary', 12, 2)->default(0.00);
             $table->decimal('consolidated_allowance', 12, 2)->default(0.00);
             $table->decimal('gross_total', 12, 2)->default(0.00);

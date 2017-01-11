@@ -10,9 +10,17 @@ use App\Repositories\Payroll\PayrollContract;
 use App\Repositories\Employee\EmployeeContract;
 
 use DigitalPatterns\PayrollState;
+use DigitalPatterns\PayrollGlobals;
 use Cache;
 
 use App\Jobs\PayEmployee;
+use App\Events\PayrollCreationStarted;
+use App\Events\PayrollCreationCancelled;
+use App\Events\PayrollCreationFinished;
+
+use App\Repositories\Paycheck\PaycheckContract;
+use App\Repositories\PaycheckComponent\PaycheckComponentContract;
+use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
 
 class PayrollController extends Controller
 {
@@ -20,10 +28,20 @@ class PayrollController extends Controller
     protected $appConfig;
     protected $employeeModel;
     
-    public function __construct(PayrollContract $payrollContract, EmployeeContract $employeeContract) {
+    protected $paycheckModel;
+    protected $paycheckComponentModel;
+    protected $paycheckSummaryModel;
+    
+    public function __construct(PayrollContract $payrollContract, EmployeeContract $employeeContract,
+        PaycheckContract $paycheckContract, PaycheckSummaryContract $paycheckSummaryContract, 
+        PaycheckComponentContract $paycheckComponentContract) {
         $this->payrollModel = $payrollContract;
         $this->employeeModel = $employeeContract;
         $this->appConfig = Cache::get('AppConfig');
+        
+        $this->paycheckModel = $paycheckContract;
+        $this->paycheckComponentModel = $paycheckComponentContract;
+        $this->paycheckSummaryModel = $paycheckSummaryContract;
     }
 
 
@@ -92,14 +110,23 @@ class PayrollController extends Controller
 
          $payroll = $this->payrollModel->findById($id);
          
-         foreach ($request->employees as $employeeId => $value) {
-             dispatch(new PayEmployee($this->employeeModel->findById($employeeId), $payroll));
-         }
-         
          if ($payroll) {
-             // Redirect or do whatever you like
-             $payroll->state = PayrollState::$PAYROLL_PROCESSING;
-             $payroll->save();
+             
+            if(count($request->employees) >= PayrollGlobals::$MAX_EMPLOYEES_CAN_PAY_VIA_WEB){
+                foreach ($request->employees as $employeeId => $value) {
+                    dispatch(new PayEmployee($this->employeeModel->findById($employeeId), $payroll));
+                }
+                $payroll->state = PayrollState::$PAYROLL_PROCESSING;
+                $payroll->save();
+            }else{
+                foreach ($request->employees as $employeeId => $value) {
+                    $payEmployee = new PayEmployee($this->employeeModel->findById($employeeId), $payroll);
+                    $payEmployee->handle($this->paycheckModel, $this->paycheckComponentModel, $this->paycheckSummaryModel);
+                }
+                $payroll->state = PayrollState::$PAYROLL_APPROVED;
+                $payroll->save();
+                event(new PayrollCreationFinished($payroll->toArray()));
+            }
             //  $this->payrollModel->edit($payroll->id, $payroll);
              return redirect('/payroll');
          } else {

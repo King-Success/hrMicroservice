@@ -42,7 +42,7 @@
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 842,
+                            "width": 980,
                             "height": 127
                         }
                     },
@@ -57,37 +57,16 @@
                         "tab2"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {},
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [],
                             "pos": 0
-                        },
-                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
-                        "meta": {},
-                        "changed": false
+                        }
                     },
                     "editorType": "immediate",
                     "active": false
@@ -110,19 +89,19 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
+            "@ace": 2,
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
             "@document": 10,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 8,
-            "@tab": 8,
+            "@session": 10,
+            "@tab": 5,
             "@undoManager": 10,
             "@welcome": 1
         }
@@ -149,7 +128,7 @@
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 301,
+        "@width-left": 163,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -176,17 +155,25 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 804,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/resources/views/pensions",
                 "/database/seeds",
-                "/app",
                 "/app/Repositories/Pension",
-                "/resources",
-                "/resources/views"
+                "/app/Http/Controllers",
+                "/vendor/laravel",
+                "/vendor/laravel/framework",
+                "/vendor/laravel/framework/src",
+                "/vendor/laravel/framework/src/Illuminate",
+                "/vendor/laravel/framework/src/Illuminate/Contracts",
+                "/vendor/laravel/framework/src/Illuminate/Contracts/Queue",
+                "/app/Repositories",
+                "/app/Repositories/Payroll",
+                "/app",
+                "/app/Http"
             ]
         }
     },
@@ -207,13 +194,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/pensions/index.blade.php",
+            "focus": "/app/Http/Controllers/PayrollController.php",
             "meta": {
                 "accessList": [
                     "tab4",
-                    "tab3",
-                    "tab13",
-                    "tab16"
+                    "tab16",
+                    "tab13"
                 ]
             },
             "name": "pane0",
@@ -251,49 +237,27 @@
                         "tab16"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484107272258
+                        },
                         "filter": true,
                         "title": "mysql - \"musty@solum: ~/dippay\"",
                         "tooltip": "mysql - \"musty@solum: ~/dippay\"",
                         "terminal": {
                             "id": "devel_152",
                             "cwd": "",
-                            "width": 842,
-                            "height": 34,
-                            "scrollTop": 4885
-                        },
-                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-                        "meta": {
-                            "timestamp": 1484107272258
-                        },
-                        "changed": false
+                            "width": 0,
+                            "height": 0
+                        }
                     },
                     "editorType": "terminal",
                     "active": false
                 },
                 {
                     "type": "tab",
-                    "name": "tab3",
-                    "path": "/database/seeds/PensionTableSeeder.php",
-                    "className": [
-                        "tab3"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484110557400
-                        },
-                        "filter": true,
-                        "title": "PensionTableSeeder.php",
-                        "tooltip": "/database/seeds/PensionTableSeeder.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
                     "name": "tab4",
-                    "path": "/resources/views/pensions/index.blade.php",
+                    "path": "/app/Http/Controllers/PayrollController.php",
                     "className": [
                         "tab4",
                         "focus"
@@ -301,11 +265,11 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484110829397
+                            "timestamp": 1484132458461
                         },
                         "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/pensions/index.blade.php",
+                        "title": "PayrollController.php",
+                        "tooltip": "/app/Http/Controllers/PayrollController.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -319,7 +283,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/pensions/edit.blade.php"
+            "/app/Http/Controllers/PayrollController.php"
         ]
     }
 }

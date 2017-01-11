@@ -25,7 +25,10 @@
                                 <select name="cycle" class="form-control c-select">
                                     <option value = "1" selected>1 X</option>
                                     <option value = "2">2 X</option>
-                                    <option value = "3">2 X</option>
+                                    <option value = "3">3 X</option>
+                                    <option value = "4">4 X</option>
+                                    <option value = "5">5 X</option>
+                                    <option value = "6">6 X</option>
                                 </select>
                               </div>
                               <div class="col-sm-6">

@@ -54,7 +54,7 @@
                                         <th>Title/Step</th>
                                         <th>Level</th>
                                         <th>Amount (N)</th>
-                                        <th>Created At</th>
+                                        <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
                                 <tbody>
@@ -63,7 +63,7 @@
                                         <td><a href="/paygrade/"{{$paygrade->id}}/edit">{{$paygrade->title}}</a></td>
                                         <td>{{$paygrade->employee_level->title}}</td>
                                         <td>{{$paygrade->amount}}</td>
-                                        <td>{{$paygrade->created_at}}</td>
+                                        <!--<td>{{$paygrade->created_at}}</td>-->
                                     </tr>
                                     @endforeach
                                 </tbody>

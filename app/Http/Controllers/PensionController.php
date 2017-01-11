@@ -7,18 +7,23 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Repositories\Pension\PensionContract;
+use App\Repositories\SalaryComponent\SalaryComponentContract;
 
 class PensionController extends Controller
 {
     protected $pensionModel;
-    public function __construct(PensionContract $pensionContract) {
+    protected $salaryComponentModel;
+    
+    public function __construct(PensionContract $pensionContract, SalaryComponentContract $salaryComponentContract) {
         $this->pensionModel = $pensionContract;
+        $this->salaryComponentModel = $salaryComponentContract;
     }
 
     // Display pensions.index with all pensions
     public function index() {
         $pensions = $this->pensionModel->findAll();
-        return view('pensions.index', ['pensions' => $pensions]);
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        return view('pensions.index', ['pensions' => $pensions, 'salaryComponents' => $salaryComponents]);
     }
 
     // Display pensions.create
@@ -52,7 +57,8 @@ class PensionController extends Controller
     public function edit($id) {
         $pension = $this->pensionModel->findById($id);
         $pensions = $this->pensionModel->findAll();
-        return view('pensions.edit', ['pension' => $pension, 'pensions' => $pensions]);
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        return view('pensions.edit', ['pension' => $pension, 'pensions' => $pensions, 'salaryComponents' => $salaryComponents]);
     }
 
     /**

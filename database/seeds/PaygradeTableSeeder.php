@@ -20,8 +20,8 @@ class PaygradeTableSeeder extends Seeder
     public function run()
     {
         $object = new StdClass;
-        $object->title = "Level 7";
-        $object->amount = 7000;
+        $object->title = "Step 7";
+        $object->amount = 0;
         $object->employee_level_id = 1;
         $this->objectModel->create($object);
     }

@@ -20,7 +20,7 @@ class EmployeeLevelTableSeeder extends Seeder
     public function run()
     {
         $object = new StdClass;
-        $object->title = "7";
+        $object->title = "Level 5";
         $this->objectModel->create($object);
     }
 }

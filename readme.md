@@ -11,3 +11,6 @@ basic_salary determined by rank if set is the same as not set. see EmployeeAssig
 If anything is wrong with the maths. two files need to be edited.
 
 /app/Jobs/PayEmployee and /resources/payroll/selection.blade.php
+
+Run Local Instance of C9
+node server.js -p 8080 -a : -w ~/dippay

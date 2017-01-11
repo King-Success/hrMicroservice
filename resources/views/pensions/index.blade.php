@@ -15,6 +15,18 @@
                             <label for="InputPension">Title</label>
                             <input type="text" name="title" class="form-control" id="InputPension" placeholder="Enter PFA name, e.g Trust Fund.">
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="InputSalaryComponent" class="col-sm-2 form-control-label">Salary Component</label>
+                            <div class="col-sm-10">
+                                <select class="form-control c-select" name="salary_component" id="InputSalaryComponent">
+                                    @foreach($salaryComponents as $salaryComponent)
+                                    <option value="{{$salaryComponent->id}}">{{$salaryComponent->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        
                         <button type="submit" class="btn black m-b">SAVE</button>
                     {!! Form::close() !!}
                 </div>
@@ -33,14 +45,16 @@
                                 <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Created At</th>
+                                        <th>Salary Component</th>
+                                        <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
                                 <tbody>
                                     @foreach($pensions as $pension)
                                     <tr>
                                         <td><a href="/pension/{{$pension->id}}/edit">{{$pension->title}}</a></td>
-                                        <td>{{$pension->created_at}}</td>
+                                        <td><a href="/pension/{{$pension->id}}/edit">{{$pension->salary_component->title}}</a></td>
+                                        <!--<td>{{$pension->created_at}}</td>-->
                                     </tr>
                                     @endforeach
                                 </tbody>

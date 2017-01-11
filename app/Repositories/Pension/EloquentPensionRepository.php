@@ -43,5 +43,6 @@ class EloquentPensionRepository implements PensionContract
     private function setPensionProperties($pension, $request) {
         // Assign attributes to the pension here
         $pension->title = $request->title;
+        $pension->salary_component_id = $request->salary_component;
     }
 }

@@ -21,6 +21,7 @@ class PensionTableSeeder extends Seeder
     {
         $object = new StdClass;
         $object->title = "Trust Fund";
+        $object->salary_component = 1;
         $this->objectModel->create($object);
     }
 }

@@ -214,3 +214,5 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
     // Route::put('/{id}/edit', 'PayrollController@update')->name('update_payroll');
     // Route::get('/{id}/delete', 'PayrollController@delete')->name('delete_payroll');
 });
+
+Route::get('/payslip/{id}', 'PayrollController@createPayslip')->middleware('auth');

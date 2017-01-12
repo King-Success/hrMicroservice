@@ -47,8 +47,10 @@
                                 </div> 
                             <button type="submit" class="btn btn-lg black p-x-lg">Sign in</button>
                         </form>
+                         <!--
                          <div class="m-y"><a href="{{ url('/password/reset') }}" class="_600">Forgot password?</a></div> 
                          <div>Do not have an account? <a href="/register" class="text-primary _600">Sign up</a></div> 
+                         -->
                     </div>
                 </div>
             </div>

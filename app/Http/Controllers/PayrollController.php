@@ -22,6 +22,8 @@ use App\Repositories\Paycheck\PaycheckContract;
 use App\Repositories\PaycheckComponent\PaycheckComponentContract;
 use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
 
+use PDF;
+
 class PayrollController extends Controller
 {
     protected $payrollModel;
@@ -45,11 +47,15 @@ class PayrollController extends Controller
     }
 
     public function createPayslip($id, Request $request){
+        $payroll = $this->payrollModel->findById($id);
         $paychecks = $this->paycheckModel->findByPayrollId($id);
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
-        return view('payrolls.payslip', ['paychecks' => $paychecks, 
+        // return view('payrolls.payslip', ['paychecks' => $paychecks, 
+        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
+        $pdf = PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
+        return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
     }
     
     public function index() {

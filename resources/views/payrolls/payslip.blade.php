@@ -13,7 +13,7 @@
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
                     <div><h3>{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}</h3><small><i>Staff No: {{$paycheck->employee->employee_number}}</i></small></div>
-                    <table class="table table-striped">
+                    <table class="table">
                         <tr>
                             <td>Consolidated Salary</td>
                             <td align="right">{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
@@ -28,7 +28,7 @@
                         </tr>
                     </table>
                     <div><h5>Allowances</h5><small><i>Earnings/Deductions</i></small></div>
-                    <table class="table table-striped">
+                    <table class="table">
                         @foreach($paycheckComponents as $paycheckComponent)
                         <?php if($paycheckComponent->employee_id != $paycheck->employee_id) continue; ?>
                         <tr>

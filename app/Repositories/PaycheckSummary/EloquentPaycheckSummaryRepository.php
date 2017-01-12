@@ -20,4 +20,8 @@ class EloquentPaycheckSummaryRepository implements PaycheckSummaryContract
     public function findById($paycheckSummaryId) {
         return PaycheckSummary::find($paycheckSummaryId);
     }
+    
+    public function findByPayrollId($payrollId){
+        return PaycheckSummary::where('payroll_id', '=', $payrollId)->get();
+    }
 }

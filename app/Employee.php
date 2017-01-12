@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
+    public function prefix(){
+        return $this->belongsTo('App\Prefix');
+    }
+    
     public function employee_paygrade_info(){
         return $this->hasOne('App\EmployeePaygradeInfo'); //one-off access to level/step/basic_salary
     }

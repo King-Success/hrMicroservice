@@ -37,12 +37,12 @@
                             "timestamp": 1484104681254
                         },
                         "filter": true,
-                        "title": "bash - \"musty@solum: ~/dippay\"",
-                        "tooltip": "bash - \"musty@solum: ~/dippay\"",
+                        "title": "bash - \"solum\"",
+                        "tooltip": "bash - \"solum\"",
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 914,
+                            "width": 907,
                             "height": 128
                         }
                     },
@@ -110,20 +110,20 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
-            "@acestatus": 2,
+            "@ace": 1,
+            "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 16,
+            "@document": 24,
             "@form": 5,
             "@immediate": 1,
             "@menu": 6,
             "@menuitem": 16,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 14,
-            "@tab": 13,
-            "@undoManager": 16,
+            "@session": 23,
+            "@tab": 24,
+            "@undoManager": 24,
             "@welcome": 1
         }
     },
@@ -149,7 +149,7 @@
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 229,
+        "@width-left": 236,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 914,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -191,155 +191,19 @@
                 "/vendor/laravel/framework/src/Illuminate/Contracts",
                 "/vendor/laravel/framework/src/Illuminate/Contracts/Queue",
                 "/app/Repositories/Payroll",
+                "/resources",
+                "/app",
+                "/app/Repositories/Paycheck",
+                "/app/Repositories/PaycheckComponent",
+                "/app/Repositories/PaycheckSummary",
                 "/resources/views",
-                "/resources/views/layouts",
-                "/resources"
+                "/resources/views/vendor",
+                "/resources/views/vendor/notifications"
             ]
         }
     },
     "recentfiles": {
-        "json()": [
-            {
-                "type": "tab",
-                "name": "tab12",
-                "path": "/resources/views/layouts/master.blade.php",
-                "className": [
-                    "tab12"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484106883819
-                    },
-                    "filter": true,
-                    "title": "master.blade.php",
-                    "tooltip": "/resources/views/layouts/master.blade.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab0",
-                "path": "/resources/views/auth/login.blade.php",
-                "className": [
-                    "tab0"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484186819700
-                    },
-                    "filter": true,
-                    "title": "login.blade.php",
-                    "tooltip": "/resources/views/auth/login.blade.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab3",
-                "path": "/routes/web.php",
-                "className": [
-                    "tab3"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484187077816
-                    },
-                    "filter": true,
-                    "title": "web.php",
-                    "tooltip": "/routes/web.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab6",
-                "path": "/resources/views/payrolls/index.blade.php",
-                "className": [
-                    "tab6"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484137821952
-                    },
-                    "filter": true,
-                    "title": "index.blade.php",
-                    "tooltip": "/resources/views/payrolls/index.blade.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab7",
-                "path": "/resources/views/layouts/app.blade.php",
-                "className": [
-                    "tab7"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484106902943
-                    },
-                    "filter": true,
-                    "title": "app.blade.php",
-                    "tooltip": "/resources/views/layouts/app.blade.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab8",
-                "path": "/resources/views/banks/index.blade.php",
-                "className": [
-                    "tab8"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484104329587
-                    },
-                    "filter": true,
-                    "title": "index.blade.php",
-                    "tooltip": "/resources/views/banks/index.blade.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab10",
-                "path": "/resources/views/layouts/master.blade.php",
-                "className": [
-                    "tab10"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1484106883819
-                    },
-                    "filter": true,
-                    "title": "master.blade.php",
-                    "tooltip": "/resources/views/layouts/master.blade.php",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            }
-        ]
+        "json()": []
     },
     "search-history": {
         "replace": {
@@ -349,6 +213,7 @@
         },
         "search": {
             "json()": [
+                "money",
                 "content",
                 "employee",
                 "{{ URL::secure('/') }}"
@@ -366,11 +231,10 @@
             "meta": {
                 "accessList": [
                     "tab5",
-                    "tab9",
-                    "tab4",
-                    "tab11",
                     "tab16",
-                    "tab13"
+                    "tab13",
+                    "tab9",
+                    "tab11"
                 ]
             },
             "name": "pane0",
@@ -383,21 +247,19 @@
                         "tab13"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484106661653
+                        },
                         "filter": true,
                         "title": "php - \"musty@solum: ~/dippay\"",
                         "tooltip": "php - \"musty@solum: ~/dippay\"",
                         "terminal": {
                             "id": "devel_74",
                             "cwd": "",
-                            "width": 980,
-                            "height": 495,
-                            "scrollTop": 15173.406127929688
-                        },
-                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-                        "meta": {
-                            "timestamp": 1484106661653
-                        },
-                        "changed": false
+                            "width": 0,
+                            "height": 0
+                        }
                     },
                     "editorType": "terminal",
                     "active": false
@@ -415,8 +277,8 @@
                             "timestamp": 1484107272258
                         },
                         "filter": true,
-                        "title": "php - \"solum\"",
-                        "tooltip": "php - \"solum\"",
+                        "title": "mysql - \"musty@solum: ~/dippay\"",
+                        "tooltip": "mysql - \"musty@solum: ~/dippay\"",
                         "terminal": {
                             "id": "devel_152",
                             "cwd": "",
@@ -425,26 +287,6 @@
                         }
                     },
                     "editorType": "terminal",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/config/app.php",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484138341835
-                        },
-                        "filter": true,
-                        "title": "app.php",
-                        "tooltip": "/config/app.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
                     "active": false
                 },
                 {
@@ -458,7 +300,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484202896913
+                            "timestamp": 1484264653280
                         },
                         "filter": true,
                         "title": "payslip.blade.php",
@@ -478,7 +320,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484202475093
+                            "timestamp": 1484202475291
                         },
                         "filter": true,
                         "title": "payslip.blade.php",
@@ -498,7 +340,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484188413353
+                            "timestamp": 1484262726155
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -516,7 +358,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/public"
+            "/resources/views/vendor/notifications/email.blade.php"
         ]
     }
 }

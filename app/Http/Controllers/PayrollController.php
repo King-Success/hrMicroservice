@@ -45,7 +45,11 @@ class PayrollController extends Controller
     }
 
     public function createPayslip($id, Request $request){
-        return view('payrolls.payslip');
+        $paychecks = $this->paycheckModel->findByPayrollId($id);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        return view('payrolls.payslip', ['paychecks' => $paychecks, 
+            'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
     }
     
     public function index() {

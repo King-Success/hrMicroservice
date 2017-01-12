@@ -17,13 +17,13 @@
             }
             
             .table td, .table th {
-                padding: 0px;
+                padding: 2px;
             }
             
             .total{
                 font-weight: bold; 
                 font-size: 16px;
-                border-top: 1px solid #000000;
+                border-top: 2px solid #eceeef;
             }
         </style>
     </head>

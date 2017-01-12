@@ -110,20 +110,20 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
-            "@acestatus": 1,
+            "@ace": 2,
+            "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 15,
+            "@document": 16,
             "@form": 5,
             "@immediate": 1,
             "@menu": 6,
             "@menuitem": 16,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 13,
+            "@session": 14,
             "@tab": 13,
-            "@undoManager": 15,
+            "@undoManager": 16,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab9"
+            "tab5"
         ]
     },
     "panels": {
@@ -198,7 +198,148 @@
         }
     },
     "recentfiles": {
-        "json()": []
+        "json()": [
+            {
+                "type": "tab",
+                "name": "tab12",
+                "path": "/resources/views/layouts/master.blade.php",
+                "className": [
+                    "tab12"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484106883819
+                    },
+                    "filter": true,
+                    "title": "master.blade.php",
+                    "tooltip": "/resources/views/layouts/master.blade.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            },
+            {
+                "type": "tab",
+                "name": "tab0",
+                "path": "/resources/views/auth/login.blade.php",
+                "className": [
+                    "tab0"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484186819700
+                    },
+                    "filter": true,
+                    "title": "login.blade.php",
+                    "tooltip": "/resources/views/auth/login.blade.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            },
+            {
+                "type": "tab",
+                "name": "tab3",
+                "path": "/routes/web.php",
+                "className": [
+                    "tab3"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484187077816
+                    },
+                    "filter": true,
+                    "title": "web.php",
+                    "tooltip": "/routes/web.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            },
+            {
+                "type": "tab",
+                "name": "tab6",
+                "path": "/resources/views/payrolls/index.blade.php",
+                "className": [
+                    "tab6"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484137821952
+                    },
+                    "filter": true,
+                    "title": "index.blade.php",
+                    "tooltip": "/resources/views/payrolls/index.blade.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            },
+            {
+                "type": "tab",
+                "name": "tab7",
+                "path": "/resources/views/layouts/app.blade.php",
+                "className": [
+                    "tab7"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484106902943
+                    },
+                    "filter": true,
+                    "title": "app.blade.php",
+                    "tooltip": "/resources/views/layouts/app.blade.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            },
+            {
+                "type": "tab",
+                "name": "tab8",
+                "path": "/resources/views/banks/index.blade.php",
+                "className": [
+                    "tab8"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484104329587
+                    },
+                    "filter": true,
+                    "title": "index.blade.php",
+                    "tooltip": "/resources/views/banks/index.blade.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            },
+            {
+                "type": "tab",
+                "name": "tab10",
+                "path": "/resources/views/layouts/master.blade.php",
+                "className": [
+                    "tab10"
+                ],
+                "document": {
+                    "changed": false,
+                    "meta": {
+                        "timestamp": 1484106883819
+                    },
+                    "filter": true,
+                    "title": "master.blade.php",
+                    "tooltip": "/resources/views/layouts/master.blade.php",
+                    "ace": {}
+                },
+                "editorType": "ace",
+                "active": false
+            }
+        ]
     },
     "search-history": {
         "replace": {
@@ -212,15 +353,20 @@
                 "employee",
                 "{{ URL::secure('/') }}"
             ]
+        },
+        "searchfiles": {
+            "json()": [
+                "strip"
+            ]
         }
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/payslip.blade.php",
+            "focus": "tab1",
             "meta": {
                 "accessList": [
-                    "tab9",
                     "tab5",
+                    "tab9",
                     "tab11",
                     "tab4",
                     "tab16",
@@ -306,13 +452,12 @@
                     "name": "tab5",
                     "path": "/resources/views/payrolls/payslip.blade.php",
                     "className": [
-                        "tab5",
-                        "focus"
+                        "tab5"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484201844586
+                            "timestamp": 1484202802883
                         },
                         "filter": true,
                         "title": "payslip.blade.php",
@@ -332,7 +477,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484201894925
+                            "timestamp": 1484202475093
                         },
                         "filter": true,
                         "title": "payslip.blade.php",
@@ -370,7 +515,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/layouts/master.blade.php"
+            "/public"
         ]
     }
 }

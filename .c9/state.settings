@@ -362,13 +362,13 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab1",
+            "focus": "/resources/views/payrolls/payslip.blade.php",
             "meta": {
                 "accessList": [
                     "tab5",
                     "tab9",
-                    "tab11",
                     "tab4",
+                    "tab11",
                     "tab16",
                     "tab13"
                 ]
@@ -452,12 +452,13 @@
                     "name": "tab5",
                     "path": "/resources/views/payrolls/payslip.blade.php",
                     "className": [
-                        "tab5"
+                        "tab5",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484202802883
+                            "timestamp": 1484202896913
                         },
                         "filter": true,
                         "title": "payslip.blade.php",

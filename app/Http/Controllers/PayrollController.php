@@ -21,9 +21,10 @@ use App\Events\PayrollCreationFinished;
 use App\Repositories\Paycheck\PaycheckContract;
 use App\Repositories\PaycheckComponent\PaycheckComponentContract;
 use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
+use App\Repositories\SalaryComponent\SalaryComponentContract;
 
 // use PDF;
-use View;
+// use View;
 
 class PayrollController extends Controller
 {
@@ -37,7 +38,7 @@ class PayrollController extends Controller
     
     public function __construct(PayrollContract $payrollContract, EmployeeContract $employeeContract,
         PaycheckContract $paycheckContract, PaycheckSummaryContract $paycheckSummaryContract, 
-        PaycheckComponentContract $paycheckComponentContract) {
+        PaycheckComponentContract $paycheckComponentContract, SalaryComponentContract $salaryComponentModelContract) {
         $this->payrollModel = $payrollContract;
         $this->employeeModel = $employeeContract;
         $this->appConfig = Cache::get('AppConfig');
@@ -45,6 +46,18 @@ class PayrollController extends Controller
         $this->paycheckModel = $paycheckContract;
         $this->paycheckComponentModel = $paycheckComponentContract;
         $this->paycheckSummaryModel = $paycheckSummaryContract;
+        $this->salaryComponentModel = $salaryComponentModelContract;
+    }
+    
+    public function show($id, Request $request){
+        $payroll = $this->payrollModel->findById($id);
+        $paychecks = $this->paycheckModel->findByPayrollId($id);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        return view('payrolls.report', ['paychecks' => $paychecks,
+            'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,
+            'salaryComponents' => $salaryComponents]);
     }
 
     public function createPayslip($id, Request $request){
@@ -53,7 +66,7 @@ class PayrollController extends Controller
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         
-        return view('payrolls.payslip', ['paychecks' => $paychecks, 
+        return view('payrolls.payslip', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
         
         // $pdf = \PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 

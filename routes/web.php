@@ -208,6 +208,7 @@ Route::group(['prefix' => 'employee_basic_salary', 'middleware' => ['auth']], fu
 Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
     Route::get('/', 'PayrollController@index')->name('payroll_index');
     Route::get('/create', 'PayrollController@create')->name('create_payroll');
+    Route::get('/{id}', 'PayrollController@show')->name('show_payroll_report');
     Route::post('/create', 'PayrollController@store')->name('store_payroll');
     Route::post('/{id}/paycheck', 'PayrollController@createPaycheck')->name('create_paycheck');
     // Route::get('/{id}/edit', 'PayrollController@edit')->name('edit_payroll');
@@ -216,9 +217,3 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
 });
 
 Route::get('/payslip/{id}', 'PayrollController@createPayslip')->middleware('auth');
-
-Route::get('/paysli/', function(){
-    $pdf = App::make('dompdf.wrapper');
-    $pdf->loadHTML('<h1>Test</h1>');
-    return $pdf->stream();
-});

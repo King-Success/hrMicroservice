@@ -117,8 +117,8 @@
             "@document": 25,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 6,
-            "@menuitem": 16,
+            "@menu": 7,
+            "@menuitem": 19,
             "@pane": 2,
             "@preferences": 1,
             "@session": 24,
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab11"
+            "tab16"
         ]
     },
     "panels": {
@@ -211,6 +211,7 @@
         },
         "search": {
             "json()": [
+                "PDF",
                 "money",
                 "content",
                 "employee",
@@ -225,14 +226,13 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/app/Http/Controllers/PayrollController.php",
+            "focus": "tab16",
             "meta": {
                 "accessList": [
+                    "tab16",
                     "tab11",
                     "tab24",
                     "tab5",
-                    "tab16",
-                    "tab13",
                     "tab9"
                 ]
             },
@@ -240,35 +240,11 @@
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab13",
-                    "path": "",
-                    "className": [
-                        "tab13"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484106661653
-                        },
-                        "filter": true,
-                        "title": "php - \"musty@solum: ~/dippay\"",
-                        "tooltip": "php - \"musty@solum: ~/dippay\"",
-                        "terminal": {
-                            "id": "devel_74",
-                            "cwd": "",
-                            "width": 0,
-                            "height": 0
-                        }
-                    },
-                    "editorType": "terminal",
-                    "active": false
-                },
-                {
-                    "type": "tab",
                     "name": "tab16",
                     "path": "",
                     "className": [
-                        "tab16"
+                        "tab16",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -281,12 +257,12 @@
                         "terminal": {
                             "id": "devel_152",
                             "cwd": "",
-                            "width": 0,
-                            "height": 0
+                            "width": 907,
+                            "height": 494
                         }
                     },
                     "editorType": "terminal",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -333,13 +309,12 @@
                     "name": "tab11",
                     "path": "/app/Http/Controllers/PayrollController.php",
                     "className": [
-                        "tab11",
-                        "focus"
+                        "tab11"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484262726155
+                            "timestamp": 1484265736059
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -347,7 +322,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",

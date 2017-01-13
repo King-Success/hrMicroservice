@@ -51,11 +51,19 @@ class PayrollController extends Controller
         $paychecks = $this->paycheckModel->findByPayrollId($id);
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        
         // return view('payrolls.payslip', ['paychecks' => $paychecks, 
         //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
-        $pdf = PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
+        
+        // $pdf = PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
+        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
+        // return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
+        
+        $payslip = view('payrolls.payslip', ['paychecks' => $paychecks, 
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
-        return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($payslip);
+        return $pdf->stream();
     }
     
     public function index() {

@@ -113,17 +113,17 @@
             "@ace": 1,
             "@acestatus": 1,
             "@datagrid": 1,
-            "@divider": 5,
-            "@document": 25,
+            "@divider": 8,
+            "@document": 28,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 7,
-            "@menuitem": 19,
+            "@menu": 9,
+            "@menuitem": 33,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 24,
-            "@tab": 25,
-            "@undoManager": 25,
+            "@session": 27,
+            "@tab": 28,
+            "@undoManager": 28,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab16"
+            "tab11"
         ]
     },
     "panels": {
@@ -196,7 +196,8 @@
                 "/app/Repositories/PaycheckSummary",
                 "/resources/views",
                 "/resources/views/vendor",
-                "/resources/views/vendor/notifications"
+                "/resources/views/vendor/notifications",
+                "/config"
             ]
         }
     },
@@ -226,44 +227,16 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab16",
+            "focus": "tab1",
             "meta": {
                 "accessList": [
-                    "tab16",
                     "tab11",
-                    "tab24",
-                    "tab5",
-                    "tab9"
+                    "tab9",
+                    "tab5"
                 ]
             },
             "name": "pane0",
             "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab16",
-                    "path": "",
-                    "className": [
-                        "tab16",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484107272258
-                        },
-                        "filter": true,
-                        "title": "mysql - \"musty@solum: ~/dippay\"",
-                        "tooltip": "mysql - \"musty@solum: ~/dippay\"",
-                        "terminal": {
-                            "id": "devel_152",
-                            "cwd": "",
-                            "width": 907,
-                            "height": 494
-                        }
-                    },
-                    "editorType": "terminal",
-                    "active": true
-                },
                 {
                     "type": "tab",
                     "name": "tab5",
@@ -314,7 +287,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484265736059
+                            "timestamp": 1484266580824
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -322,27 +295,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab24",
-                    "path": "/composer.json",
-                    "className": [
-                        "tab24"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484263238845
-                        },
-                        "filter": true,
-                        "title": "composer.json",
-                        "tooltip": "/composer.json",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -352,7 +305,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/composer.json"
+            "/config/dompdf.php"
         ]
     }
 }

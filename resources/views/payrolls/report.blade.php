@@ -224,12 +224,14 @@
 		                <div class="list-group no-border no-radius">
 		                	@foreach($pensions as $pension)
 		                	<?php $amountInEntity = 0; ?>
-			                	@foreach($paycheckSummaries as $paycheckSummary)
-			                	<?php 
-			                	if($paycheckSummary->employee->employee_pension_info && $pension->id == $paycheckSummary->employee->employee_pension_info->pension_id)
-			                		$amountInEntity += $paycheckSummary->net_pay * $paycheckSummary->cycle;
-			                	else
+			                	@foreach($paycheckComponents as $paycheckComponent)
+			                	<?php
+			                	if(count($paycheckComponent->employee_salary_component_info->salary_component->pension) > 0 &&
+			                		$paycheckComponent->employee_salary_component_info->salary_component->pension[0]->id == $pension->id){
+			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
+			                	}else{
 			                		continue;
+			                	}
 			                	?>
 						        @endforeach
 					        <div class="list-group-item">

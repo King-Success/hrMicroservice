@@ -33,6 +33,7 @@
 						<th>Date</th>
 						<th>Cycle</th>
 						<th>Description</th>
+						<th>Payslip</th>
 						<!--<th>Created At</th>-->
 						</tr>
 					</thead>
@@ -45,6 +46,7 @@
 						<td>{{$payroll->paid_at}}</td>
 						<td>{{$payroll->cycle}}</td>
 						<td>{{$payroll->description}}</td>
+						<td><a href="/payslip/{{$payroll->id}}">View</a></td>
 						<!--<td>{{$payroll->created_at}}</td>-->
 						</tr>
 						@endforeach

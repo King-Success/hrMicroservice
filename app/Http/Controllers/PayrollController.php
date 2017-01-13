@@ -23,6 +23,7 @@ use App\Repositories\PaycheckComponent\PaycheckComponentContract;
 use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
 
 // use PDF;
+use View;
 
 class PayrollController extends Controller
 {
@@ -52,17 +53,21 @@ class PayrollController extends Controller
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         
-        // return view('payrolls.payslip', ['paychecks' => $paychecks, 
-        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
-        
-        $pdf = \PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
+        return view('payrolls.payslip', ['paychecks' => $paychecks, 
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
-        return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
         
-        // $payslip = view('payrolls.payslip', ['paychecks' => $paychecks, 
+        // $pdf = \PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
         //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
-        // // $pdf = \App::make('dompdf.wrapper');
-        // return \PDF::loadHTML($payslip)->stream($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
+        // return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
+        
+        // $pdf = \App::make('dompdf.wrapper');
+        // $pdf->loadHTML(loadView('payrolls.payslip', ['paychecks' => $paychecks, 
+        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]));
+        // return $pdf->stream();
+    
+        // $payslip = View::make('payrolls.payslip', ['paychecks' => $paychecks, 
+        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents])->render();
+        // return \PDF::loadHTML($payslip)->setWarnings(false)->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
     }
     
     public function index() {

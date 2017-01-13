@@ -216,3 +216,9 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
 });
 
 Route::get('/payslip/{id}', 'PayrollController@createPayslip')->middleware('auth');
+
+Route::get('/paysli/', function(){
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadHTML('<h1>Test</h1>');
+    return $pdf->stream();
+});

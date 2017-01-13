@@ -19,7 +19,7 @@
                             <td align="right">{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
                         </tr>
                         <tr>
-                            <td>PAA</td>
+                            <td>Peculiar Allowance</td>
                             <td align="right">{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
                         </tr>
                         <tr class="total">

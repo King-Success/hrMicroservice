@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 9,
+            "@document": 8,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 8,
-            "@tab": 4,
-            "@undoManager": 9,
+            "@session": 7,
+            "@tab": 5,
+            "@undoManager": 8,
             "@welcome": 1
         }
     },
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 244,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -200,10 +200,8 @@
                 "/public/aside/html",
                 "/resources",
                 "/resources/views",
-                "/resources/views/New Folder",
-                "/resources/views/_partials",
                 "/resources/views/payrolls",
-                "/app"
+                "/resources/views/layouts"
             ]
         }
     },
@@ -220,6 +218,9 @@
         },
         "search": {
             "json()": [
+                "<div class=\"padding\">\n                        <div>Authorized Signature_________________________</div>\n                    </div>",
+                "yield",
+                "js",
                 "start",
                 "chat",
                 "_500",
@@ -243,10 +244,11 @@
             "meta": {
                 "accessList": [
                     "tab35",
-                    "tab5",
-                    "tab36",
                     "tab9",
-                    "tab11"
+                    "tab5",
+                    "tab11",
+                    "tab36",
+                    "tab4"
                 ]
             },
             "name": "pane0",
@@ -302,7 +304,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484293961289
+                            "timestamp": 1484294571301
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -351,6 +353,26 @@
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/resources/views/layouts/master.blade.php",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484294438959
+                        },
+                        "filter": true,
+                        "title": "master.blade.php",
+                        "tooltip": "/resources/views/layouts/master.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -360,7 +382,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Paycheck.php"
+            "/resources/views/layouts/master.blade.php"
         ]
     }
 }

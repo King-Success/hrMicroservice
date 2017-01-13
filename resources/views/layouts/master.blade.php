@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="{{ URL::to('/') }}/css/styles/style.css" type="text/css" />
   <!-- endbuild -->
   <link rel="stylesheet" href="{{ URL::to('/') }}/css/styles/font.css" type="text/css" />
+  @yield('css_header')
 </head>
 <body>
   <div class="app" id="app">

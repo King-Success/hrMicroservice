@@ -1,5 +1,19 @@
 @extends('layouts.master')
 
+@section('css_header')
+<style type="text/css">
+    .payslip .table td, .table th {
+        padding: 2px;
+    }
+    
+    .payslip .total{
+        font-weight: bold; 
+        font-size: 16px;
+        border-top: 2px solid #eceeef;
+    }
+</style>
+@stop
+
 @section('content')
 
 <!-- ############ PAGE START-->
@@ -128,7 +142,7 @@
 
 <?php $counter = 0; ?>
 @foreach($paychecks as $paycheck)
-<div class="modal fade inactive" id="employee_{{$paycheck->employee_id}}" data-backdrop="false">
+<div class="modal fade inactive payslip" id="employee_{{$paycheck->employee_id}}" data-backdrop="false">
     <div class="modal-right w-xxl dark-white b-l">
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
@@ -175,6 +189,9 @@
 				                </tr>
 				                @endforeach
 				            </table>
+				            <div class="container" style="margin-top: 50px; margin-bottom: 40px;">
+                        		<div>Authorized Signature_________________________</div>
+                    		</div>
 				        </div>
 				    </div>
 				<!--</div>-->

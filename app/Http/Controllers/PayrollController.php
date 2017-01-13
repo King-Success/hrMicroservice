@@ -23,6 +23,9 @@ use App\Repositories\PaycheckComponent\PaycheckComponentContract;
 use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
 use App\Repositories\SalaryComponent\SalaryComponentContract;
 
+use App\Repositories\Bank\BankContract;
+use App\Repositories\Pension\PensionContract;
+
 // use PDF;
 // use View;
 
@@ -36,9 +39,13 @@ class PayrollController extends Controller
     protected $paycheckComponentModel;
     protected $paycheckSummaryModel;
     
+    protected $bankModel;
+    protected $pensionModel;
+    
     public function __construct(PayrollContract $payrollContract, EmployeeContract $employeeContract,
         PaycheckContract $paycheckContract, PaycheckSummaryContract $paycheckSummaryContract, 
-        PaycheckComponentContract $paycheckComponentContract, SalaryComponentContract $salaryComponentModelContract) {
+        PaycheckComponentContract $paycheckComponentContract, SalaryComponentContract $salaryComponentModelContract,
+        BankContract $bankContract, PensionContract $pensionContract) {
         $this->payrollModel = $payrollContract;
         $this->employeeModel = $employeeContract;
         $this->appConfig = Cache::get('AppConfig');
@@ -47,6 +54,9 @@ class PayrollController extends Controller
         $this->paycheckComponentModel = $paycheckComponentContract;
         $this->paycheckSummaryModel = $paycheckSummaryContract;
         $this->salaryComponentModel = $salaryComponentModelContract;
+        
+        $this->bankModel = $bankContract;
+        $this->pensionModel = $pensionContract;
     }
     
     public function show($id, Request $request){
@@ -57,7 +67,9 @@ class PayrollController extends Controller
         $salaryComponents = $this->salaryComponentModel->findAll();
         return view('payrolls.report', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,
-            'salaryComponents' => $salaryComponents]);
+            'salaryComponents' => $salaryComponents,
+            'banks' => $this->bankModel->findAll(),
+            'pensions' => $this->pensionModel->findAll()]);
     }
 
     public function createPayslip($id, Request $request){

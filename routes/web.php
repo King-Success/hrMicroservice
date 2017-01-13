@@ -217,3 +217,6 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
 });
 
 Route::get('/payslip/{id}', 'PayrollController@createPayslip')->middleware('auth');
+Route::get('/payslip/bank/{payroll_id}/{component_id}', 'PayrollController@showBankComponent')->middleware('auth');
+Route::get('/payslip/tax/{payroll_id}/{component_id}', 'PayrollController@showTaxComponent')->middleware('auth');
+Route::get('/payslip/pension/{payroll_id}/{component_id}', 'PayrollController@showPensionComponent')->middleware('auth');

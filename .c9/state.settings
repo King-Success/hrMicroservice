@@ -28,8 +28,7 @@
                     "name": "tab1",
                     "path": "",
                     "className": [
-                        "tab1",
-                        "focus"
+                        "tab1"
                     ],
                     "document": {
                         "changed": false,
@@ -37,8 +36,8 @@
                             "timestamp": 1484104681254
                         },
                         "filter": true,
-                        "title": "bash - \"solum\"",
-                        "tooltip": "bash - \"solum\"",
+                        "title": "mysql - \"solum\"",
+                        "tooltip": "mysql - \"solum\"",
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
@@ -114,16 +113,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 8,
+            "@document": 16,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 7,
-            "@tab": 5,
-            "@undoManager": 8,
+            "@session": 15,
+            "@tab": 14,
+            "@undoManager": 16,
             "@welcome": 1
         }
     },
@@ -142,8 +141,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab1",
-            "tab35"
+            "tab13",
+            "tab1"
         ]
     },
     "panels": {
@@ -176,7 +175,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 161,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -197,11 +196,11 @@
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
-                "/public/aside/html",
-                "/resources",
-                "/resources/views",
                 "/resources/views/payrolls",
-                "/resources/views/layouts"
+                "/resources/views/layouts",
+                "/resources/views",
+                "/public",
+                "/app"
             ]
         }
     },
@@ -218,6 +217,7 @@
         },
         "search": {
             "json()": [
+                "all",
                 "<div class=\"padding\">\n                        <div>Authorized Signature_________________________</div>\n                    </div>",
                 "yield",
                 "js",
@@ -240,14 +240,18 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/app/EmployeeSalaryComponentInfo.php",
             "meta": {
                 "accessList": [
+                    "tab13",
+                    "tab12",
                     "tab35",
+                    "tab7",
+                    "tab36",
+                    "tab11",
+                    "tab3",
                     "tab9",
                     "tab5",
-                    "tab11",
-                    "tab36",
                     "tab4"
                 ]
             },
@@ -261,14 +265,39 @@
                         "tab9"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484284583360
-                        },
                         "filter": true,
                         "title": "payslip.blade.php",
                         "tooltip": "/resources/views/layouts/payslip.blade.php",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 13,
+                                    "column": 8
+                                },
+                                "end": {
+                                    "row": 27,
+                                    "column": 16
+                                },
+                                "isBackwards": true
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 127,
+                                "mode": "ace/mode/php"
+                            }
+                        },
+                        "hash": "df935415d8a894d0932df0ed12ccaa6ce5ee5c86",
+                        "meta": {
+                            "timestamp": 1484284583360
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -281,14 +310,39 @@
                         "tab5"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484293194574
-                        },
                         "filter": true,
                         "title": "payslip.blade.php",
                         "tooltip": "/resources/views/payrolls/payslip.blade.php",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 461.8001708984375,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 47,
+                                    "column": 20
+                                },
+                                "end": {
+                                    "row": 49,
+                                    "column": 26
+                                },
+                                "isBackwards": true
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 168,
+                                "mode": "ace/mode/php"
+                            }
+                        },
+                        "hash": "faa2a1da2941478d4a6b1c4eade3f78c15ca085b",
+                        "meta": {
+                            "timestamp": 1484293197415
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -298,13 +352,12 @@
                     "name": "tab35",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab35",
-                        "focus"
+                        "tab35"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484294571301
+                            "timestamp": 1484307950867
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -312,7 +365,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -324,7 +377,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484288248858
+                            "timestamp": 1484306381259
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -362,17 +415,124 @@
                         "tab4"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484294438959
-                        },
                         "filter": true,
                         "title": "master.blade.php",
                         "tooltip": "/resources/views/layouts/master.blade.php",
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 19,
+                                    "column": 32
+                                },
+                                "end": {
+                                    "row": 19,
+                                    "column": 32
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 0,
+                                "state": "start",
+                                "mode": "ace/mode/php"
+                            }
+                        },
+                        "hash": "9c1e93b5042e78bb81ef1dcd7046f2dc40bd1891",
+                        "meta": {
+                            "timestamp": 1484294441809
+                        },
+                        "changed": false
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "/routes/web.php",
+                    "className": [
+                        "tab3"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484303010191
+                        },
+                        "filter": true,
+                        "title": "web.php",
+                        "tooltip": "/routes/web.php",
                         "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab7",
+                    "path": "/app/Employee.php",
+                    "className": [
+                        "tab7"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484264711751
+                        },
+                        "filter": true,
+                        "title": "Employee.php",
+                        "tooltip": "/app/Employee.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab12",
+                    "path": "/app/PaycheckComponent.php",
+                    "className": [
+                        "tab12"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484263623884
+                        },
+                        "filter": true,
+                        "title": "PaycheckComponent.php",
+                        "tooltip": "/app/PaycheckComponent.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab13",
+                    "path": "/app/EmployeeSalaryComponentInfo.php",
+                    "className": [
+                        "tab13",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484104329275
+                        },
+                        "filter": true,
+                        "title": "EmployeeSalaryComponentInfo.php",
+                        "tooltip": "/app/EmployeeSalaryComponentInfo.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -382,7 +542,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/layouts/master.blade.php"
+            "/app/EmployeeSalaryComponentInfo.php"
         ]
     }
 }

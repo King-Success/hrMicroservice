@@ -99,12 +99,12 @@
 			<div class="col-xs-6 col-sm-3 b-r b-b">
 				<div class="padding">
 					<div>
-						<span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
+						<span class="pull-right"><i class="fa {{$salaryComponent->component_type == "Earning" ? 'fa-caret-up' : 'fa-caret-down'}} text-primary m-y-xs"></i></span>
 						<span class="text-muted l-h-1x"><i class="ion-document text-muted"></i></span>
 					</div>
 					<div class="text-center">
 						<h3 class="text-center _600">{{number_format($sum, 2)}}</h3>
-						<p class="text-muted m-b-md">{{$salaryComponent->title}} ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}})</p>
+						<p class="text-muted m-b-md">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>
@@ -113,11 +113,141 @@
 			</div>
 			@endforeach
 		</div>
+		<div class="padding">
+			<div class="row">
+		    <!--<div class="col-sm-6">-->
+		    <!--    <div class="box">-->
+		    <!--        <div class="box-header">-->
+		    <!--            <span class="label success pull-right">52</span>-->
+		    <!--            <h3>Members</h3>-->
+		    <!--        </div>-->
+		    <!--        <div class="p-b-sm">-->
+		    <!--            <ul class="list no-border m-a-0">-->
+		    <!--                <li class="list-item">-->
+		    <!--                    <a href="#" class="list-left">-->
+		    <!--                        <span class="w-40 avatar danger">-->
+						<!--	                  <span>C</span>-->
+		    <!--                        <i class="on b-white bottom"></i>-->
+		    <!--                        </span>-->
+		    <!--                    </a>-->
+		    <!--                    <div class="list-body">-->
+		    <!--                        <div><a href="#">Chris Fox</a></div>-->
+		    <!--                        <small class="text-muted text-ellipsis">Designer, Blogger</small>-->
+		    <!--                    </div>-->
+		    <!--                </li>-->
+		    <!--                <li class="list-item">-->
+		    <!--                    <a href="#" class="list-left">-->
+		    <!--                        <span class="w-40 avatar purple">-->
+						<!--	                  <span>M</span>-->
+		    <!--                        <i class="on b-white bottom"></i>-->
+		    <!--                        </span>-->
+		    <!--                    </a>-->
+		    <!--                    <div class="list-body">-->
+		    <!--                        <div><a href="#">Mogen Polish</a></div>-->
+		    <!--                        <small class="text-muted text-ellipsis">Writter, Mag Editor</small>-->
+		    <!--                    </div>-->
+		    <!--                </li>-->
+		    <!--                <li class="list-item">-->
+		    <!--                    <a href="#" class="list-left">-->
+		    <!--                        <span class="w-40 avatar info">-->
+						<!--	                  <span>J</span>-->
+		    <!--                        <i class="off b-white bottom"></i>-->
+		    <!--                        </span>-->
+		    <!--                    </a>-->
+		    <!--                    <div class="list-body">-->
+		    <!--                        <div><a href="#">Joge Lucky</a></div>-->
+		    <!--                        <small class="text-muted text-ellipsis">Art director, Movie Cut</small>-->
+		    <!--                    </div>-->
+		    <!--                </li>-->
+		    <!--                <li class="list-item">-->
+		    <!--                    <a href="#" class="list-left">-->
+		    <!--                        <span class="w-40 avatar warning">-->
+						<!--	                  <span>F</span>-->
+		    <!--                        <i class="on b-white bottom"></i>-->
+		    <!--                        </span>-->
+		    <!--                    </a>-->
+		    <!--                    <div class="list-body">-->
+		    <!--                        <div><a href="#">Folisise Chosielie</a></div>-->
+		    <!--                        <small class="text-muted text-ellipsis">Musician, Player</small>-->
+		    <!--                    </div>-->
+		    <!--                </li>-->
+		    <!--                <li class="list-item">-->
+		    <!--                    <a href="#" class="list-left">-->
+		    <!--                        <span class="w-40 avatar success">-->
+						<!--	                  <span>P</span>-->
+		    <!--                        <i class="away b-white bottom"></i>-->
+		    <!--                        </span>-->
+		    <!--                    </a>-->
+		    <!--                    <div class="list-body">-->
+		    <!--                        <div><a href="#">Peter</a></div>-->
+		    <!--                        <small class="text-muted text-ellipsis">Musician, Player</small>-->
+		    <!--                    </div>-->
+		    <!--                </li>-->
+		    <!--            </ul>-->
+		    <!--        </div>-->
+		    <!--    </div>-->
+		    <!--</div>-->
+		    <div class="col-sm-6">
+		        <div class="box">
+		            <div class="box-header">
+		                <span class="label success pull-right">{{count($banks)}}</span>
+		                <h3>Banks</h3>
+		            </div>
+		            <div class="p-b-sm">
+		                <div class="list-group no-border no-radius">
+		                	@foreach($banks as $bank)
+		                	<?php $amountInEntity = 0; ?>
+			                	@foreach($paycheckSummaries as $paycheckSummary)
+			                	<?php 
+			                	if($paycheckSummary->employee->employee_bank_info && $bank->id == $paycheckSummary->employee->employee_bank_info->bank_id)
+			                		$amountInEntity += $paycheckSummary->net_pay * $paycheckSummary->cycle;
+			                	else
+			                		continue;
+			                	?>
+						        @endforeach
+					        <div class="list-group-item">
+					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
+					            <i class="label label-xs red m-r-sm"></i> {{$bank->title}}
+					        </div>
+					        @endforeach
+					    </div>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="col-sm-6">
+		        <div class="box">
+		            <div class="box-header">
+		                <span class="label success pull-right">{{count($pensions)}}</span>
+		                <h3>Pension</h3>
+		            </div>
+		            <div class="p-b-sm">
+		                <div class="list-group no-border no-radius">
+		                	@foreach($pensions as $pension)
+		                	<?php $amountInEntity = 0; ?>
+			                	@foreach($paycheckSummaries as $paycheckSummary)
+			                	<?php 
+			                	if($paycheckSummary->employee->employee_pension_info && $pension->id == $paycheckSummary->employee->employee_pension_info->pension_id)
+			                		$amountInEntity += $paycheckSummary->net_pay * $paycheckSummary->cycle;
+			                	else
+			                		continue;
+			                	?>
+						        @endforeach
+					        <div class="list-group-item">
+					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
+					            <i class="label label-xs red m-r-sm"></i> {{$pension->title}}
+					        </div>
+					        @endforeach
+					    </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		</div>
 	</div>
 	<div class="col-lg w-lg w-auto-md white bg">
 		<div>
 			<div class="p-a">
-				<h6 class="text-muted m-a-0">Pay Slip</h6>
+				<h6 class="text-muted m-a-0"><a href="/payslip/{{$paychecks[0]->payroll_id}}">{{$paychecks[0]->payroll->title}} - {{$paychecks[0]->payroll->paid_at}}</a></h6>
 			</div>
 			<div class="list inset">
 				@foreach($paychecks as $paycheck)

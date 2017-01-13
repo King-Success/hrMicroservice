@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 7,
+            "@document": 9,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 6,
-            "@tab": 37,
-            "@undoManager": 7,
+            "@session": 8,
+            "@tab": 4,
+            "@undoManager": 9,
             "@welcome": 1
         }
     },
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 161,
+        "@scrollpos": 244,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -197,10 +197,13 @@
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
-                "/resources/views/payrolls",
                 "/public/aside/html",
                 "/resources",
-                "/resources/views"
+                "/resources/views",
+                "/resources/views/New Folder",
+                "/resources/views/_partials",
+                "/resources/views/payrolls",
+                "/app"
             ]
         }
     },
@@ -217,6 +220,9 @@
         },
         "search": {
             "json()": [
+                "start",
+                "chat",
+                "_500",
                 "show",
                 "PDF",
                 "money",
@@ -237,9 +243,9 @@
             "meta": {
                 "accessList": [
                     "tab35",
+                    "tab5",
                     "tab36",
                     "tab9",
-                    "tab5",
                     "tab11"
                 ]
             },
@@ -253,40 +259,14 @@
                         "tab9"
                     ],
                     "document": {
-                        "filter": true,
-                        "title": "payslip.blade.php",
-                        "tooltip": "/resources/views/layouts/payslip.blade.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 18,
-                                    "column": 34
-                                },
-                                "end": {
-                                    "row": 18,
-                                    "column": 34
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 30,
-                                "state": "start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "df935415d8a894d0932df0ed12ccaa6ce5ee5c86",
+                        "changed": false,
                         "meta": {
                             "timestamp": 1484284583360
                         },
-                        "changed": false
+                        "filter": true,
+                        "title": "payslip.blade.php",
+                        "tooltip": "/resources/views/layouts/payslip.blade.php",
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -299,36 +279,14 @@
                         "tab5"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484293194574
+                        },
                         "filter": true,
                         "title": "payslip.blade.php",
                         "tooltip": "/resources/views/payrolls/payslip.blade.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 195.80026245117188,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 32,
-                                    "column": 24
-                                },
-                                "end": {
-                                    "row": 32,
-                                    "column": 104
-                                },
-                                "isBackwards": true
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
-                        "hash": "faa2a1da2941478d4a6b1c4eade3f78c15ca085b",
-                        "meta": {
-                            "timestamp": 1484286599433
-                        },
-                        "changed": false
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -339,13 +297,12 @@
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
                         "tab35",
-                        "changed",
                         "focus"
                     ],
                     "document": {
-                        "changed": true,
+                        "changed": false,
                         "meta": {
-                            "timestamp": 1484290337450
+                            "timestamp": 1484293961289
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -363,40 +320,14 @@
                         "tab11"
                     ],
                     "document": {
-                        "filter": true,
-                        "title": "PayrollController.php",
-                        "tooltip": "/app/Http/Controllers/PayrollController.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 648.200439453125,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 58,
-                                    "column": 13
-                                },
-                                "end": {
-                                    "row": 58,
-                                    "column": 30
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 13,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "c1d35cd7c20b26a36d1828a5c0bdf129fbafad25",
+                        "changed": false,
                         "meta": {
                             "timestamp": 1484288248858
                         },
-                        "changed": false
+                        "filter": true,
+                        "title": "PayrollController.php",
+                        "tooltip": "/app/Http/Controllers/PayrollController.php",
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -429,7 +360,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/report.blade.1.php"
+            "/app/Paycheck.php"
         ]
     }
 }

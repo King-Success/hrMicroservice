@@ -53,7 +53,7 @@
 						<td>{{$paycheckSummary->employee->employee_number}}</td>
 						<td>{{$paycheckSummary->employee->employee_rank_info ? $paycheckSummary->employee->employee_rank_info->rank->title : ''}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->bank->title}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank_info->bank->sort_code}}</td>
+						<td>{{$paycheckSummary->employee->employee_bank_info->sort_code}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->account_name}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->account_number}}</td>
 						<td>{{number_format($paycheckSummary->cycle * $paycheckSummary->net_pay, 2)}}</td>

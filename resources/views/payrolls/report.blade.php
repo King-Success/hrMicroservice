@@ -88,6 +88,7 @@
 					</div>
 				</div>
 			</div>
+			<?php $edgeDetection = 1; ?>
 			@foreach($salaryComponents as $salaryComponent)
 			<?php $sum = 0; ?>
 			@foreach($paycheckComponents as $paycheckComponent)
@@ -96,7 +97,8 @@
 			$sum += $paycheckComponent->amount * $paycheckComponent->cycle;
 			?>
 			@endforeach
-			<div class="col-xs-6 col-sm-3 b-r b-b">
+			<div class="col-xs-6 col-sm-3 {{$edgeDetection % 4 != 0 ? 'b-r' : ''}} b-b">
+			<?php $edgeDetection++; ?>
 				<div class="padding">
 					<div>
 						<span class="pull-right"><i class="fa {{$salaryComponent->component_type == "Earning" ? 'fa-caret-up' : 'fa-caret-down'}} text-primary m-y-xs"></i></span>

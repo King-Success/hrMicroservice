@@ -107,7 +107,7 @@
             <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'pension') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_6">Pension</a>
             </li>
-            <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'pension') ? 'active' : ''}}">
+            <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'basic_salary') ? 'active' : ''}}">
               <a class="nav-link" href="#" data-toggle="tab" data-target="#tab_8">Basic Salary</a>
             </li>
             <li class="nav-item {{(isset($_GET['tab']) && $_GET['tab'] == 'salarycomponent') ? 'active' : ''}}">
@@ -278,7 +278,7 @@
                                         <label>Bank</label>
                                         <select class="form-control c-select" name="bank" id="InputBank">
                                             @foreach($banks as $bank)
-                                            <option value="{{$bank->id}}" {{ $employeePension && $employeeBank->bank_id == $bank->id ? 'selected' : '' }}>{{$bank->title}}</option>
+                                            <option value="{{$bank->id}}" {{ $employeeBank && $employeeBank->bank_id == $bank->id ? 'selected' : '' }}>{{$bank->title}}</option>
                                             @endforeach
                                         </select>
                                       </div>
@@ -323,6 +323,12 @@
                                         <input type="number" value="{{ $employeePension ? $employeePension->pin_number : '' }}" name="pin_number" id="InputPinNumber" class="form-control">     
                                       </div>   
                                     </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Employer's Contribution</label>
+                                      <input type="number" value="{{ $employeePension ? $employeePension->employer_contribution : 0}}" name="employer_contribution" class="form-control">
+                                    </div>
+                                    
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
                                     <button type="submit" class="btn black m-b" id="updatePension">SAVE CHANGES</button>
                                   {!! Form::close() !!}

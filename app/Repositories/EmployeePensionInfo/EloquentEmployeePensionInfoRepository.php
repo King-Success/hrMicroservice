@@ -49,5 +49,6 @@ class EloquentEmployeePensionInfoRepository implements EmployeePensionInfoContra
         $employeePensionInfo->pin_number = $request->pin_number;
         $employeePensionInfo->pension_id = $request->pension;
         $employeePensionInfo->employee_id = $request->employee;
+        $employeePensionInfo->employer_contribution = $request->employer_contribution;
     }
 }

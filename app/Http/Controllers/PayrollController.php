@@ -125,7 +125,7 @@ class PayrollController extends Controller
         $payrolls = $this->payrollModel->findAll();
         
         if(!$this->appConfig->freeze_mode_activated){
-            return view('payrolls.index', ['payrolls' => $payrolls]);
+            return view('payrolls.index', ['payrolls' => $payrolls, 'payroll'=> $payrolls ? $payrolls->last() : null]);
         }
         
         $curPayroll = $this->payrollModel->getActive();

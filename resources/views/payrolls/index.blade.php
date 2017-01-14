@@ -9,6 +9,9 @@
 		<h2 class="_700 m-b">It's pay day already?</h2>
 		<h5 class="m-b-md">Click on "Start Now" to generate the payroll</h5>
 		<a href="/payroll/create" class="btn rounded btn-outline b-info text-info p-x-md m-y">Start Now</a>
+		@if($payroll)
+		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
+		@endif
 	</div>
 	</div>
  </div>

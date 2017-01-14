@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 29,
+            "@document": 31,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 28,
-            "@tab": 21,
-            "@undoManager": 29,
+            "@session": 30,
+            "@tab": 23,
+            "@undoManager": 31,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab19"
+            "tab35"
         ]
     },
     "panels": {
@@ -256,16 +256,11 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/employees/index.blade.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab19",
-                    "tab20",
-                    "tab18",
-                    "tab11",
                     "tab35",
-                    "tab13",
-                    "tab14"
+                    "tab11"
                 ]
             },
             "name": "pane0",
@@ -280,7 +275,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484396151311
+                            "timestamp": 1484397452346
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -295,7 +290,8 @@
                     "name": "tab35",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab35"
+                        "tab35",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -308,108 +304,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab13",
-                    "path": "/resources/views/payrolls/net_pay.blade.php",
-                    "className": [
-                        "tab13"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484395156614
-                        },
-                        "filter": true,
-                        "title": "net_pay.blade.php",
-                        "tooltip": "/resources/views/payrolls/net_pay.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab14",
-                    "path": "/routes/web.php",
-                    "className": [
-                        "tab14"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484394488409
-                        },
-                        "filter": true,
-                        "title": "web.php",
-                        "tooltip": "/routes/web.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab18",
-                    "path": "/resources/views/payrolls/index.blade.php",
-                    "className": [
-                        "tab18"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484287021445
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/payrolls/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab19",
-                    "path": "/resources/views/employees/index.blade.php",
-                    "className": [
-                        "tab19",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484396305465
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/employees/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab20",
-                    "path": "/resources/views/users/index.blade.php",
-                    "className": [
-                        "tab20"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484396783045
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/users/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",

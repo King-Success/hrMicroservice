@@ -2,26 +2,37 @@
 
 @section('content')
 
+<!-- ############ PAGE START-->
+<div class="padding">
+	<div class="p-y-lg clearfix" id="tagline">
+	<div class="text-center">
+		<h2 class="_700 m-b">Employees</h2>
+		<h5 class="m-b-md">Click on "Add Employee" to add an employee</h5>
+		<a href="/employee/create" class="btn rounded btn-outline b-info text-info p-x-md m-y">Add Employee</a>
+	</div>
+	</div>
+</div>
+ 
 <div class="padding">
     <div class="row">
-
         <div class="col-md-12">
             <div class="box">
                 <!--<div class="box-header">-->
                 <!--    <h2>Employees</h2><small>Employee information</small></div>-->
                 <!--<div class="box-divider m-a-0"></div>-->
+                <!--
                 <div class="col-sm-6 push-sm-6">
                     <div class="p-y text-center text-sm-right">
                         <a href="/employee/create" class="btn rounded b-dark">Add</a>
                     </div>
               </div>
-              <div class="col-sm-6 pull-sm-6 box-header">
-                  <h2>Employees</h2><small>Employee information</small>
-              </div>
+              -->
+                <div class="col-sm-6 pull-sm-6 box-header">
+                    <h2>Employees</h2><small>Employee information</small>
+                </div>
                 <div class="box-body">
                     <div class="app-body">
-                        <div class="padding">
-                            <div class="table-responsive" id="datatable">
+                        <div class="table-responsive" id="datatable">
                             <table id="employees" class="table b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
                                   lengthChange: false,
                                   buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
@@ -62,13 +73,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 

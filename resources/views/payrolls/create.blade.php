@@ -59,7 +59,7 @@
                                 <textarea name="description" class="form-control" rows="3" data-minwords="6" placeholder="Description"></textarea>
                             </div>
                             <button type="submit" class="btn black m-b">Create</button>
-                            <a href="#" class="b-primary text-info p-x-md m-y" id="btnCancel">Cancel</a>
+                            <a href="/payroll" class="b-primary text-info p-x-md m-y">Cancel</a>
                             {!! Form::close() !!}
                         </div>
                     </div>

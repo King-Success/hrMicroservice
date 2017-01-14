@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- ############ PAGE START-->
-<div class="padding">
+<!--<div class="padding">-->
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
 		<h2 class="_700 m-b">It's pay day already?</h2>
@@ -14,9 +14,9 @@
 		@endif
 	</div>
 	</div>
- </div>
+ <!--</div>-->
 @if(count($payrolls) > 0)
-<div class="padding">
+<!--<div class="padding">-->
 	<div class="row">
 	<!--<div class="col-md-12">-->
 	<div class="col-md-8 offset-sm-2">
@@ -63,7 +63,7 @@
 	</div>
 	<!--</div>-->
 	</div>
-</div>
+<!--</div>-->
 @endif
 <!-- ############ PAGE END-->
 @stop

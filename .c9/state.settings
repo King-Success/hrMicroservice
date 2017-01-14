@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 155,
+        "@height": 153,
         "@maximized": false,
         "json()": {
             "meta": {
@@ -43,7 +43,7 @@
                             "id": "devel_859",
                             "cwd": "",
                             "width": 927,
-                            "height": 129
+                            "height": 127
                         }
                     },
                     "editorType": "terminal",
@@ -110,20 +110,20 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
-            "@acestatus": 1,
+            "@ace": 2,
+            "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 31,
+            "@document": 36,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 30,
-            "@tab": 23,
-            "@undoManager": 31,
+            "@session": 35,
+            "@tab": 27,
+            "@undoManager": 36,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab35"
+            "tab25"
         ]
     },
     "panels": {
@@ -176,11 +176,10 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 290,
+        "@scrollpos": 230,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
                 "/app/Repositories/Pension",
                 "/app/Http/Controllers",
                 "/vendor/laravel",
@@ -198,11 +197,10 @@
                 "/storage/app/public",
                 "/app/Repositories/EmployeePensionInfo",
                 "/resources/views",
-                "/database",
-                "/routes",
+                "/",
                 "/resources",
                 "/resources/views/employees",
-                "/resources/views/payrolls"
+                "/resources/views/users"
             ]
         }
     },
@@ -219,6 +217,7 @@
         },
         "search": {
             "json()": [
+                "parse",
                 "btnCancel",
                 "bank",
                 "showNetPay",
@@ -250,15 +249,19 @@
         },
         "searchfiles": {
             "json()": [
+                "Carbon",
                 "strip"
             ]
         }
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/resources/views/employees/index.blade.php",
             "meta": {
                 "accessList": [
+                    "tab25",
+                    "tab26",
+                    "tab24",
                     "tab35",
                     "tab11"
                 ]
@@ -275,7 +278,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484397452346
+                            "timestamp": 1484397727259
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -290,13 +293,12 @@
                     "name": "tab35",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab35",
-                        "focus"
+                        "tab35"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484394898960
+                            "timestamp": 1484397976020
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -304,7 +306,68 @@
                         "ace": {}
                     },
                     "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab24",
+                    "path": "/resources/views/payrolls/index.blade.php",
+                    "className": [
+                        "tab24"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484398160478
+                        },
+                        "filter": true,
+                        "title": "index.blade.php",
+                        "tooltip": "/resources/views/payrolls/index.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab25",
+                    "path": "/resources/views/employees/index.blade.php",
+                    "className": [
+                        "tab25",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484398354854
+                        },
+                        "filter": true,
+                        "title": "index.blade.php",
+                        "tooltip": "/resources/views/employees/index.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab26",
+                    "path": "/resources/views/users/index.blade.php",
+                    "className": [
+                        "tab26"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484398390435
+                        },
+                        "filter": true,
+                        "title": "index.blade.php",
+                        "tooltip": "/resources/views/users/index.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -314,7 +377,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/index.blade.php"
+            "/resources/views/users/index.blade.php"
         ]
     }
 }

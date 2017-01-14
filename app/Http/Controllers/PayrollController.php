@@ -12,6 +12,7 @@ use App\Repositories\Employee\EmployeeContract;
 use DigitalPatterns\PayrollState;
 use DigitalPatterns\PayrollGlobals;
 use Cache;
+use Carbon\Carbon;
 
 use App\Jobs\PayEmployee;
 use App\Events\PayrollCreationStarted;

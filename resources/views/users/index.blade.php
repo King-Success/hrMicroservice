@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- ############ PAGE START-->
-<div class="padding">
+<!--<div class="padding">-->
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
 		<h2 class="_700 m-b">Users</h2>
@@ -11,9 +11,9 @@
 		<a href="/user/create" class="btn rounded btn-outline b-info text-info p-x-md m-y">Add User</a>
 	</div>
 	</div>
-</div>
+<!--</div>-->
 
-<div class="padding">
+<!--<div class="padding">-->
     <div class="row">
 
         <div class="col-md-8 offset-sm-2"><!--<div class="col-md-12">-->
@@ -62,7 +62,7 @@
         </div>
         
     </div>
-</div>
+<!--</div>-->
 
 @stop
 

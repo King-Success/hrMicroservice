@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- ############ PAGE START-->
-<div class="padding">
+<!--<div class="padding">-->
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
 		<h2 class="_700 m-b">Employees</h2>
@@ -11,10 +11,10 @@
 		<a href="/employee/create" class="btn rounded btn-outline b-info text-info p-x-md m-y">Add Employee</a>
 	</div>
 	</div>
-</div>
+<!--</div>-->
  
-<div class="padding">
-    <div class="row">
+<!--<div class="padding">-->
+    <div class="container">
         <div class="col-md-12">
             <div class="box">
                 <!--<div class="box-header">-->
@@ -47,7 +47,7 @@
                                         <th>Surname</th>
                                         <th>Other Names</th>
                                         <th>Employee Number</th>
-                                        <th>Gender</th>
+                                        <!--<th>Gender</th>-->
                                         <th>Email</th>
                                         <th>Logical Address</th>
                                         <th>Mobile (Home)</th>
@@ -63,7 +63,7 @@
                                         <td><a href="/employee/{{$employee->id}}">{{$employee->surname}}</a></td>
                                         <td>{{$employee->other_names}}</td>
                                         <td>{{$employee->employee_number}}</td>
-                                        <td>{{$employee->gender}}</td>
+                                        <!--<td>{{$employee->gender}}</td>-->
                                         <td>{{$employee->email}}</td>
                                         <td>{{$employee->logical_address}}</td>
                                         <td>{{$employee->mobile_home}}</td>
@@ -79,7 +79,7 @@
             </div>
         </div>
     </div>
-</div>
+<!--</div>-->
 
 @stop
 

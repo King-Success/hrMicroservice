@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 34,
+            "@document": 35,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 33,
-            "@tab": 30,
-            "@undoManager": 34,
+            "@session": 34,
+            "@tab": 31,
+            "@undoManager": 35,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab28"
+            "tab30"
         ]
     },
     "panels": {
@@ -248,13 +248,13 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/payslip.blade.php",
+            "focus": "/resources/views/layouts/print.blade.php",
             "meta": {
                 "accessList": [
+                    "tab30",
                     "tab28",
                     "tab11",
                     "tab27",
-                    "tab9",
                     "tab29",
                     "tab23",
                     "tab35",
@@ -264,26 +264,6 @@
             },
             "name": "pane0",
             "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab9",
-                    "path": "/resources/views/layouts/payslip.blade.php",
-                    "className": [
-                        "tab9"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484284583360
-                        },
-                        "filter": true,
-                        "title": "payslip.blade.php",
-                        "tooltip": "/resources/views/layouts/payslip.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
                 {
                     "type": "tab",
                     "name": "tab35",
@@ -409,13 +389,12 @@
                     "name": "tab28",
                     "path": "/resources/views/payrolls/payslip.blade.php",
                     "className": [
-                        "tab28",
-                        "focus"
+                        "tab28"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484384652314
+                            "timestamp": 1484384745038
                         },
                         "filter": true,
                         "title": "payslip.blade.php",
@@ -423,7 +402,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -444,6 +423,27 @@
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab30",
+                    "path": "/resources/views/layouts/print.blade.php",
+                    "className": [
+                        "tab30",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484106902943
+                        },
+                        "filter": true,
+                        "title": "print.blade.php",
+                        "tooltip": "/resources/views/layouts/print.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -453,7 +453,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/layouts/payslip.blade.php"
+            "/resources/views/layouts/print.blade.php"
         ]
     }
 }

@@ -75,6 +75,13 @@ class PayrollController extends Controller
             'salaryComponent' => $salaryComponent, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
+    public function showNetPay($payrollId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
+        return view('payrolls.net_pay', ['payroll' => $payroll, 'paycheckSummaries' => $paycheckSummaries,
+        'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+    }
+    
     public function show($id, Request $request){
         $payroll = $this->payrollModel->findById($id);
         $paychecks = $this->paycheckModel->findByPayrollId($id);

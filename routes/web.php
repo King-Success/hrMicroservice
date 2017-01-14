@@ -221,3 +221,6 @@ Route::get('/payslip/bank/{bank_id}/{payroll_id}', 'PayrollController@oneBankRep
 Route::get('/payslip/salary_component/{componentId}/{payroll_id}', 'PayrollController@showComponent')->middleware('auth');
 Route::get('/payslip/tax/{payroll_id}', 'PayrollController@showTaxComponent')->middleware('auth');
 Route::get('/payslip/pension/{payroll_id}', 'PayrollController@showPensionComponent')->middleware('auth');
+Route::get('/payslip/net_pay/{id}', 'PayrollController@showNetPay')->middleware('auth');
+
+// Route::get('/payslip/net_pay/{$payrollId}', 'PayrollController@showNetPay')->middleware('auth');

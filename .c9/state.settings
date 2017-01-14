@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 21,
+            "@document": 25,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 20,
-            "@tab": 13,
-            "@undoManager": 21,
+            "@session": 24,
+            "@tab": 17,
+            "@undoManager": 25,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab35"
+            "tab13"
         ]
     },
     "panels": {
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 290,
+        "@scrollpos": 230,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -196,11 +196,12 @@
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
-                "/resources/views/payrolls",
                 "/app/Repositories/EmployeePensionInfo",
-                "/resources",
                 "/resources/views",
-                "/database"
+                "/database",
+                "/routes",
+                "/resources",
+                "/resources/views/layouts"
             ]
         }
     },
@@ -217,6 +218,11 @@
         },
         "search": {
             "json()": [
+                "bank",
+                "showNetPay",
+                "payslip",
+                "net_pay",
+                "$employeePensions",
                 "$pensions",
                 "rank",
                 "bank",
@@ -248,10 +254,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/resources/views/payrolls/net_pay.blade.php",
             "meta": {
                 "accessList": [
+                    "tab13",
                     "tab35",
+                    "tab14",
                     "tab11"
                 ]
             },
@@ -267,7 +275,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484384693171
+                            "timestamp": 1484394505431
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -282,13 +290,12 @@
                     "name": "tab35",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab35",
-                        "focus"
+                        "tab35"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484391823154
+                            "timestamp": 1484394898960
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -296,7 +303,48 @@
                         "ace": {}
                     },
                     "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab13",
+                    "path": "/resources/views/payrolls/net_pay.blade.php",
+                    "className": [
+                        "tab13",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484394659746
+                        },
+                        "filter": true,
+                        "title": "net_pay.blade.php",
+                        "tooltip": "/resources/views/payrolls/net_pay.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab14",
+                    "path": "/routes/web.php",
+                    "className": [
+                        "tab14"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484394488409
+                        },
+                        "filter": true,
+                        "title": "web.php",
+                        "tooltip": "/routes/web.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -306,7 +354,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/bank.blade.php"
+            "/resources/views/layouts/master.blade.php"
         ]
     }
 }

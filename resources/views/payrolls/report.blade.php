@@ -81,7 +81,7 @@
 					</div>
 					<div class="text-center">
 						<h3 class="text-center _600">{{number_format($netPay, 2)}}</h3>
-						<p class="text-muted m-b-md">Net Pay</p>
+						<p class="text-muted m-b-md"><a href="/payslip/net_pay/{{$payroll->id}}">Net Pay</a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>
@@ -117,78 +117,78 @@
 		</div>
 		<div class="padding">
 			<div class="row">
-		    <!--<div class="col-sm-6">-->
-		    <!--    <div class="box">-->
-		    <!--        <div class="box-header">-->
-		    <!--            <span class="label success pull-right">52</span>-->
-		    <!--            <h3>Members</h3>-->
-		    <!--        </div>-->
-		    <!--        <div class="p-b-sm">-->
-		    <!--            <ul class="list no-border m-a-0">-->
-		    <!--                <li class="list-item">-->
-		    <!--                    <a href="#" class="list-left">-->
-		    <!--                        <span class="w-40 avatar danger">-->
-						<!--	                  <span>C</span>-->
-		    <!--                        <i class="on b-white bottom"></i>-->
-		    <!--                        </span>-->
-		    <!--                    </a>-->
-		    <!--                    <div class="list-body">-->
-		    <!--                        <div><a href="#">Chris Fox</a></div>-->
-		    <!--                        <small class="text-muted text-ellipsis">Designer, Blogger</small>-->
-		    <!--                    </div>-->
-		    <!--                </li>-->
-		    <!--                <li class="list-item">-->
-		    <!--                    <a href="#" class="list-left">-->
-		    <!--                        <span class="w-40 avatar purple">-->
-						<!--	                  <span>M</span>-->
-		    <!--                        <i class="on b-white bottom"></i>-->
-		    <!--                        </span>-->
-		    <!--                    </a>-->
-		    <!--                    <div class="list-body">-->
-		    <!--                        <div><a href="#">Mogen Polish</a></div>-->
-		    <!--                        <small class="text-muted text-ellipsis">Writter, Mag Editor</small>-->
-		    <!--                    </div>-->
-		    <!--                </li>-->
-		    <!--                <li class="list-item">-->
-		    <!--                    <a href="#" class="list-left">-->
-		    <!--                        <span class="w-40 avatar info">-->
-						<!--	                  <span>J</span>-->
-		    <!--                        <i class="off b-white bottom"></i>-->
-		    <!--                        </span>-->
-		    <!--                    </a>-->
-		    <!--                    <div class="list-body">-->
-		    <!--                        <div><a href="#">Joge Lucky</a></div>-->
-		    <!--                        <small class="text-muted text-ellipsis">Art director, Movie Cut</small>-->
-		    <!--                    </div>-->
-		    <!--                </li>-->
-		    <!--                <li class="list-item">-->
-		    <!--                    <a href="#" class="list-left">-->
-		    <!--                        <span class="w-40 avatar warning">-->
-						<!--	                  <span>F</span>-->
-		    <!--                        <i class="on b-white bottom"></i>-->
-		    <!--                        </span>-->
-		    <!--                    </a>-->
-		    <!--                    <div class="list-body">-->
-		    <!--                        <div><a href="#">Folisise Chosielie</a></div>-->
-		    <!--                        <small class="text-muted text-ellipsis">Musician, Player</small>-->
-		    <!--                    </div>-->
-		    <!--                </li>-->
-		    <!--                <li class="list-item">-->
-		    <!--                    <a href="#" class="list-left">-->
-		    <!--                        <span class="w-40 avatar success">-->
-						<!--	                  <span>P</span>-->
-		    <!--                        <i class="away b-white bottom"></i>-->
-		    <!--                        </span>-->
-		    <!--                    </a>-->
-		    <!--                    <div class="list-body">-->
-		    <!--                        <div><a href="#">Peter</a></div>-->
-		    <!--                        <small class="text-muted text-ellipsis">Musician, Player</small>-->
-		    <!--                    </div>-->
-		    <!--                </li>-->
-		    <!--            </ul>-->
-		    <!--        </div>-->
-		    <!--    </div>-->
-		    <!--</div>-->
+		    <!--<div class="col-sm-6">
+		        <div class="box">
+		            <div class="box-header">
+		                <span class="label success pull-right">52</span>
+		                <h3>Members</h3>
+		            </div>
+		            <div class="p-b-sm">
+		                <ul class="list no-border m-a-0">
+		                    <li class="list-item">
+		                        <a href="#" class="list-left">
+		                            <span class="w-40 avatar danger">
+							                  <span>C</span>
+		                            <i class="on b-white bottom"></i>
+		                            </span>
+		                        </a>
+		                        <div class="list-body">
+		                            <div><a href="#">Chris Fox</a></div>
+		                            <small class="text-muted text-ellipsis">Designer, Blogger</small>
+		                        </div>
+		                    </li>
+		                    <li class="list-item">
+		                        <a href="#" class="list-left">
+		                            <span class="w-40 avatar purple">
+							                  <span>M</span>
+		                            <i class="on b-white bottom"></i>
+		                            </span>
+		                        </a>
+		                        <div class="list-body">
+		                            <div><a href="#">Mogen Polish</a></div>
+		                            <small class="text-muted text-ellipsis">Writter, Mag Editor</small>
+		                        </div>
+		                    </li>
+		                    <li class="list-item">
+		                        <a href="#" class="list-left">
+		                            <span class="w-40 avatar info">
+							                  <span>J</span>
+		                            <i class="off b-white bottom"></i>
+		                            </span>
+		                        </a>
+		                        <div class="list-body">
+		                            <div><a href="#">Joge Lucky</a></div>
+		                            <small class="text-muted text-ellipsis">Art director, Movie Cut</small>
+		                        </div>
+		                    </li>
+		                    <li class="list-item">
+		                        <a href="#" class="list-left">
+		                            <span class="w-40 avatar warning">
+							                  <span>F</span>
+		                            <i class="on b-white bottom"></i>
+		                            </span>
+		                        </a>
+		                        <div class="list-body">
+		                            <div><a href="#">Folisise Chosielie</a></div>
+		                            <small class="text-muted text-ellipsis">Musician, Player</small>
+		                        </div>
+		                    </li>
+		                    <li class="list-item">
+		                        <a href="#" class="list-left">
+		                            <span class="w-40 avatar success">
+							                  <span>P</span>
+		                            <i class="away b-white bottom"></i>
+		                            </span>
+		                        </a>
+		                        <div class="list-body">
+		                            <div><a href="#">Peter</a></div>
+		                            <small class="text-muted text-ellipsis">Musician, Player</small>
+		                        </div>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		    </div>-->
 		    <div class="col-sm-6">
 		        <div class="box">
 		            <div class="box-header">
@@ -235,7 +235,7 @@
 			                	<?php
 			                	if($pension->id == $paycheckComponent->employee_salary_component_info->employee->employee_pension_info->pension_id){
 			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
-			                		break;
+			                		// break;
 			                	}else{
 			                		continue;
 			                	}

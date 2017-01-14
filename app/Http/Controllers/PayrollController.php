@@ -67,6 +67,14 @@ class PayrollController extends Controller
             'bank' => $bank, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
+    public function showComponent($componentId, $payrollId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
+        $salaryComponent = $this->salaryComponentModel->findById($componentId);
+        return view('payrolls.salary_component', ['payroll' => $payroll, 'paycheckComponents' => $paycheckComponents,
+            'salaryComponent' => $salaryComponent, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+    }
+    
     public function show($id, Request $request){
         $payroll = $this->payrollModel->findById($id);
         $paychecks = $this->paycheckModel->findByPayrollId($id);
@@ -78,6 +86,7 @@ class PayrollController extends Controller
             'salaryComponents' => $salaryComponents,
             'banks' => $this->bankModel->findAll(),
             'pensions' => $this->pensionModel->findAll(),
+            'payroll' => $payroll,
             ]);
     }
 

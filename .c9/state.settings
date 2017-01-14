@@ -37,8 +37,8 @@
                             "timestamp": 1484104681254
                         },
                         "filter": true,
-                        "title": "bash - \"solum\"",
-                        "tooltip": "bash - \"solum\"",
+                        "title": "mysql - \"solum\"",
+                        "tooltip": "mysql - \"solum\"",
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 27,
+            "@document": 29,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 26,
-            "@tab": 23,
-            "@undoManager": 27,
+            "@session": 28,
+            "@tab": 25,
+            "@undoManager": 29,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab15"
+            "tab23"
         ]
     },
     "panels": {
@@ -217,6 +217,8 @@
         },
         "search": {
             "json()": [
+                "bank",
+                "show",
                 "amount",
                 "pension",
                 "bankModel",
@@ -244,18 +246,15 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/database/migrations/2016_12_23_130555_create_employee_pension_infos_table.php",
+            "focus": "/resources/views/payrolls/salary_component.blade.php",
             "meta": {
                 "accessList": [
-                    "tab15",
-                    "tab22",
-                    "tab11",
-                    "tab7",
-                    "tab3",
-                    "tab14",
-                    "tab10",
-                    "tab8",
+                    "tab23",
+                    "tab24",
                     "tab35",
+                    "tab11",
+                    "tab3",
+                    "tab8",
                     "tab9"
                 ]
             },
@@ -317,7 +316,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484375846303
+                            "timestamp": 1484382890686
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -337,7 +336,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484377852999
+                            "timestamp": 1484382738842
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -357,31 +356,11 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484375938897
+                            "timestamp": 1484379873136
                         },
                         "filter": true,
                         "title": "web.php",
                         "tooltip": "/routes/web.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab7",
-                    "path": "/resources/views/payrolls/bank.blade.php",
-                    "className": [
-                        "tab7"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484378253408
-                        },
-                        "filter": true,
-                        "title": "bank.blade.php",
-                        "tooltip": "/resources/views/payrolls/bank.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -409,60 +388,20 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab10",
-                    "path": "/database/migrations/2016_12_23_130512_create_employee_bank_infos_table.php",
+                    "name": "tab23",
+                    "path": "/resources/views/payrolls/salary_component.blade.php",
                     "className": [
-                        "tab10"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484104329287
-                        },
-                        "filter": true,
-                        "title": "2016_12_23_130512_create_employee_bank_infos_table.php",
-                        "tooltip": "/database/migrations/2016_12_23_130512_create_employee_bank_infos_table.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab14",
-                    "path": "/resources/views/layouts/print.blade.php",
-                    "className": [
-                        "tab14"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484106902943
-                        },
-                        "filter": true,
-                        "title": "print.blade.php",
-                        "tooltip": "/resources/views/layouts/print.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab15",
-                    "path": "/database/migrations/2016_12_23_130555_create_employee_pension_infos_table.php",
-                    "className": [
-                        "tab15",
+                        "tab23",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484378653111
+                            "timestamp": 1484383092694
                         },
                         "filter": true,
-                        "title": "2016_12_23_130555_create_employee_pension_infos_table.php",
-                        "tooltip": "/database/migrations/2016_12_23_130555_create_employee_pension_infos_table.php",
+                        "title": "salary_component.blade.php",
+                        "tooltip": "/resources/views/payrolls/salary_component.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -470,19 +409,19 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab22",
-                    "path": "/resources/views/payrolls/selection.blade.php",
+                    "name": "tab24",
+                    "path": "/resources/views/payrolls/bank.blade.php",
                     "className": [
-                        "tab22"
+                        "tab24"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484104329591
+                            "timestamp": 1484383356577
                         },
                         "filter": true,
-                        "title": "selection.blade.php",
-                        "tooltip": "/resources/views/payrolls/selection.blade.php",
+                        "title": "bank.blade.php",
+                        "tooltip": "/resources/views/payrolls/bank.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -496,7 +435,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/selection.blade.php"
+            "/resources/views/payrolls/bank.blade.php"
         ]
     }
 }

@@ -104,7 +104,7 @@
 					</div>
 					<div class="text-center">
 						<h3 class="text-center _600">{{number_format($sum, 2)}}</h3>
-						<p class="text-muted m-b-md">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></p>
+						<p class="text-muted m-b-md"><a href="/payslip/salary_component/{{$salaryComponent->id}}/{{$payroll->id}}">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>

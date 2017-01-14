@@ -32,6 +32,7 @@
 						<tr>
 						<th>#</th>
 						<th>Name</th>
+						<th>Employee No.</th>
 						<th>Bank</th>
 						<th>Sort Code</th>
 						<th>Account Name</th>
@@ -48,6 +49,7 @@
 						<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
+						<td>{{$paycheckSummary->employee->employee_number}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->bank->title}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->bank->sort_code}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->account_name}}</td>

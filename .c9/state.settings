@@ -6,7 +6,7 @@
             "@matchcase": "false",
             "@preservecase": "false",
             "@regex": "false",
-            "@wholeword": "false",
+            "@wholeword": true,
             "@wraparound": "true"
         }
     },
@@ -37,12 +37,12 @@
                             "timestamp": 1484104681254
                         },
                         "filter": true,
-                        "title": "bash - \"solum\"",
-                        "tooltip": "bash - \"solum\"",
+                        "title": "mysql - \"solum\"",
+                        "tooltip": "mysql - \"solum\"",
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 927,
+                            "width": 949,
                             "height": 127
                         }
                     },
@@ -110,20 +110,20 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
-            "@acestatus": 2,
+            "@ace": 1,
+            "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 36,
+            "@document": 6,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 35,
-            "@tab": 27,
-            "@undoManager": 36,
+            "@session": 5,
+            "@tab": 29,
+            "@undoManager": 6,
             "@welcome": 1
         }
     },
@@ -143,13 +143,13 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab25"
+            "tab35"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 216,
+        "@width-left": 194,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 230,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -196,11 +196,10 @@
                 "/storage/app",
                 "/storage/app/public",
                 "/app/Repositories/EmployeePensionInfo",
-                "/resources/views",
-                "/",
-                "/resources",
                 "/resources/views/employees",
-                "/resources/views/users"
+                "/resources/views/users",
+                "/",
+                "/app"
             ]
         }
     },
@@ -217,6 +216,9 @@
         },
         "search": {
             "json()": [
+                "2",
+                "$pensionableEmployee",
+                "$pensionableEmployees",
                 "parse",
                 "btnCancel",
                 "bank",
@@ -256,14 +258,13 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/employees/index.blade.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab25",
-                    "tab26",
-                    "tab24",
                     "tab35",
-                    "tab11"
+                    "tab11",
+                    "tab27",
+                    "tab28"
                 ]
             },
             "name": "pane0",
@@ -293,12 +294,14 @@
                     "name": "tab35",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab35"
+                        "tab35",
+                        "focus",
+                        "changed"
                     ],
                     "document": {
-                        "changed": false,
+                        "changed": true,
                         "meta": {
-                            "timestamp": 1484397976020
+                            "timestamp": 1484402702739
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -306,64 +309,43 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab24",
-                    "path": "/resources/views/payrolls/index.blade.php",
-                    "className": [
-                        "tab24"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484398160478
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/payrolls/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab25",
-                    "path": "/resources/views/employees/index.blade.php",
-                    "className": [
-                        "tab25",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484398354854
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/employees/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
                     "active": true
                 },
                 {
                     "type": "tab",
-                    "name": "tab26",
-                    "path": "/resources/views/users/index.blade.php",
+                    "name": "tab27",
+                    "path": "/app/Employee.php",
                     "className": [
-                        "tab26"
+                        "tab27"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484398390435
+                            "timestamp": 1484264711751
                         },
                         "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/users/index.blade.php",
+                        "title": "Employee.php",
+                        "tooltip": "/app/Employee.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab28",
+                    "path": "/app/EmployeePensionInfo.php",
+                    "className": [
+                        "tab28"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484104329275
+                        },
+                        "filter": true,
+                        "title": "EmployeePensionInfo.php",
+                        "tooltip": "/app/EmployeePensionInfo.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -377,7 +359,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/users/index.blade.php"
+            "/app/EmployeePensionInfo.php"
         ]
     }
 }

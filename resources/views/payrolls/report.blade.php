@@ -224,23 +224,18 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
-		                	<!--
-		                	[{"id":2,"employee_id":2,"salary_component_id":1,"amount":"8.00",},
-		                	{"id":6,"employee_id":3,"salary_component_id":1,"amount":"8.00",}]
-		                	-->
-		                	<?php $employeePensions = $pensions[0]->salary_component->employee_salary_component_infos; ?>
+		                	<!--<?php print_r($pensions[0]->salary_component->employee_salary_component_infos); //exit; ?>-->
+		                	<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_component_infos; ?>
+		                	<?php $pensionsProcessed = array(); ?>
 		                	@foreach($pensions as $pension)
-		                	<?php $amountInEntity = 0; ?>
-			                	@foreach($paycheckComponents as $paycheckComponent)
-			                	<?php
-			                	if($pension->id == $paycheckComponent->employee_salary_component_info->employee->employee_pension_info->pension_id){
-			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
-			                		// break;
-			                	}else{
-			                		continue;
-			                	}
-			                	?>
-						        @endforeach
+		                	<?php $amountInEntity = 0; $employeesProcessed = array(); ?>
+		                		@foreach($pensionableEmployees as $pensionableEmployee)
+				                	@foreach($paycheckComponents as $paycheckComponent)
+				                	<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
+				                	<?php if($paycheckComponent->employee->employee_pension_info->pension_id != $pension->id) continue; ?>
+				                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
+							        @endforeach
+							    @endforeach
 					        <div class="list-group-item">
 					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
 					            <i class="label label-xs red m-r-sm"></i> {{$pension->title}}

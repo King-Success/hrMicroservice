@@ -59,6 +59,14 @@ class PayrollController extends Controller
         $this->pensionModel = $pensionContract;
     }
     
+    public function oneBankReport($bankId, $payrollId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
+        $bank = $this->bankModel->findById($bankId);
+        return view('payrolls.bank', ['payroll' => $payroll, 'paycheckSummaries' => $paycheckSummaries,
+            'bank' => $bank, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+    }
+    
     public function show($id, Request $request){
         $payroll = $this->payrollModel->findById($id);
         $paychecks = $this->paycheckModel->findByPayrollId($id);
@@ -69,7 +77,8 @@ class PayrollController extends Controller
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,
             'salaryComponents' => $salaryComponents,
             'banks' => $this->bankModel->findAll(),
-            'pensions' => $this->pensionModel->findAll()]);
+            'pensions' => $this->pensionModel->findAll(),
+            ]);
     }
 
     public function createPayslip($id, Request $request){

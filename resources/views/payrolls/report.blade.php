@@ -207,7 +207,7 @@
 						        @endforeach
 					        <div class="list-group-item">
 					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i> {{$bank->title}}
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/bank/{{$bank->id}}/{{$paycheckSummaries[0]->payroll_id}}">{{$bank->title}}</a>
 					        </div>
 					        @endforeach
 					    </div>
@@ -222,16 +222,12 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
+		                	<!--<?php print_r($pensions->toJson()); ?>-->
 		                	@foreach($pensions as $pension)
 		                	<?php $amountInEntity = 0; ?>
 			                	@foreach($paycheckComponents as $paycheckComponent)
 			                	<?php
-			                	if(count($paycheckComponent->employee_salary_component_info->salary_component->pension) > 0 &&
-			                		$paycheckComponent->employee_salary_component_info->salary_component->pension[0]->id == $pension->id){
-			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
-			                	}else{
-			                		continue;
-			                	}
+			                	$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
 			                	?>
 						        @endforeach
 					        <div class="list-group-item">

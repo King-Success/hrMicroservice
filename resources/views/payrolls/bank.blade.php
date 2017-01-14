@@ -32,13 +32,14 @@
 						<tr>
 						<th>#</th>
 						<th>Name</th>
-						<th>Employee No.</th>
+						<th>No.</th>
+						<th>Rank</th>
 						<th>Bank</th>
 						<th>Sort Code</th>
 						<th>Account Name</th>
 						<th>Account #</th>
 						<th>Net Pay</th>
-						<th>Paid At</th>
+						<!--<th>Paid At</th>-->
 						<!--<th>Created At</th>-->
 						</tr>
 					</thead>
@@ -50,12 +51,13 @@
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
 						<td>{{$paycheckSummary->employee->employee_number}}</td>
+						<td>{{$paycheckSummary->employee->employee_rank_info ? $paycheckSummary->employee->employee_rank_info->rank->title : ''}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->bank->title}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->bank->sort_code}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->account_name}}</td>
 						<td>{{$paycheckSummary->employee->employee_bank_info->account_number}}</td>
 						<td>{{number_format($paycheckSummary->cycle * $paycheckSummary->net_pay, 2)}}</td>
-						<td>{{$payroll->paid_at}}</td>
+						<!--<td>{{$payroll->paid_at}}</td>-->
 						<!--<td>{{$paycheckSummary->created_at}}</td>-->
 						</tr>
 						@endforeach

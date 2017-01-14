@@ -97,7 +97,7 @@ class PayrollController extends Controller
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         
         return view('payrolls.payslip', ['paychecks' => $paychecks,
-            'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
+            'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]);
         
         // $pdf = \PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
         //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);

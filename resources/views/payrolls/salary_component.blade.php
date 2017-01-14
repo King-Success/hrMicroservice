@@ -32,6 +32,7 @@
 						<tr>
 						<th>#</th>
 						<th>Name</th>
+						<th>Rank</th>
 						<th>Amount</th>
 						<!--<th>Created At</th>-->
 						</tr>
@@ -43,6 +44,7 @@
 						<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckComponent->employee->surname}} {{$paycheckComponent->employee->other_names}}</td>
+						<td>{{$paycheckComponent->employee->employee_rank_info ? $paycheckComponent->employee->employee_rank_info->rank->title : ''}}</td>
 						<td>{{number_format($paycheckComponent->cycle * $paycheckComponent->amount, 2)}}</td>
 						<!--<td>{{$paycheckComponent->created_at}}</td>-->
 						</tr>

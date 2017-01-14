@@ -17,7 +17,7 @@
  <!--</div>-->
 @if(count($payrolls) > 0)
 <!--<div class="padding">-->
-	<div class="row">
+	<div class="container">
 	<!--<div class="col-md-12">-->
 	<div class="col-md-8 offset-sm-2">
 		<div class="box">

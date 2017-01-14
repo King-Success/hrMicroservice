@@ -209,7 +209,7 @@
 						        @endforeach
 					        <div class="list-group-item">
 					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/bank/{{$bank->id}}/{{$paycheckSummaries[0]->payroll_id}}">{{$bank->title}}</a>
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/bank/{{$paycheckSummaries[0]->payroll_id}}/{{$bank->id}}">{{$bank->title}}</a>
 					        </div>
 					        @endforeach
 					    </div>

@@ -222,12 +222,21 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
-		                	<!--<?php print_r($pensions->toJson()); ?>-->
+		                	<!--
+		                	[{"id":2,"employee_id":2,"salary_component_id":1,"amount":"8.00",},
+		                	{"id":6,"employee_id":3,"salary_component_id":1,"amount":"8.00",}]
+		                	-->
+		                	<?php $employeePensions = $pensions[0]->salary_component->employee_salary_component_infos; ?>
 		                	@foreach($pensions as $pension)
 		                	<?php $amountInEntity = 0; ?>
 			                	@foreach($paycheckComponents as $paycheckComponent)
 			                	<?php
-			                	$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
+			                	if($pension->id == $paycheckComponent->employee_salary_component_info->employee->employee_pension_info->pension_id){
+			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
+			                		break;
+			                	}else{
+			                		continue;
+			                	}
 			                	?>
 						        @endforeach
 					        <div class="list-group-item">

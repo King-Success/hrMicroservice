@@ -42,7 +42,7 @@
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 915,
+                            "width": 927,
                             "height": 129
                         }
                     },
@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 35,
+            "@document": 20,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 34,
-            "@tab": 31,
-            "@undoManager": 35,
+            "@session": 19,
+            "@tab": 11,
+            "@undoManager": 20,
             "@welcome": 1
         }
     },
@@ -143,13 +143,13 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab30"
+            "tab10"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 228,
+        "@width-left": 216,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 135,
+        "@scrollpos": 99,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -201,7 +201,9 @@
                 "/app/Repositories/EmployeePensionInfo",
                 "/resources",
                 "/resources/views",
-                "/resources/views/layouts"
+                "/resources/views/layouts",
+                "/app",
+                "/database"
             ]
         }
     },
@@ -218,6 +220,7 @@
         },
         "search": {
             "json()": [
+                "$pensions",
                 "rank",
                 "bank",
                 "show",
@@ -248,42 +251,23 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/layouts/print.blade.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab30",
-                    "tab28",
-                    "tab11",
-                    "tab27",
-                    "tab29",
-                    "tab23",
+                    "tab10",
                     "tab35",
-                    "tab3",
-                    "tab8"
+                    "tab9",
+                    "tab7",
+                    "tab8",
+                    "tab6",
+                    "tab0",
+                    "tab4",
+                    "tab5",
+                    "tab11"
                 ]
             },
             "name": "pane0",
             "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab35",
-                    "path": "/resources/views/payrolls/report.blade.php",
-                    "className": [
-                        "tab35"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484382890686
-                        },
-                        "filter": true,
-                        "title": "report.blade.php",
-                        "tooltip": "/resources/views/payrolls/report.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
                 {
                     "type": "tab",
                     "name": "tab11",
@@ -294,7 +278,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484384691618
+                            "timestamp": 1484384693171
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -306,19 +290,121 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab3",
-                    "path": "/routes/web.php",
+                    "name": "tab35",
+                    "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab3"
+                        "tab35",
+                        "changed",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": true,
+                        "meta": {
+                            "timestamp": 1484391114980
+                        },
+                        "filter": true,
+                        "title": "report.blade.php",
+                        "tooltip": "/resources/views/payrolls/report.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "/app/Pension.php",
+                    "className": [
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484379873136
+                            "timestamp": 1484390532227
                         },
                         "filter": true,
-                        "title": "web.php",
-                        "tooltip": "/routes/web.php",
+                        "title": "Pension.php",
+                        "tooltip": "/app/Pension.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "/database/migrations/2016_12_23_130555_create_employee_pension_infos_table.php",
+                    "className": [
+                        "tab5"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484378654670
+                        },
+                        "filter": true,
+                        "title": "2016_12_23_130555_create_employee_pension_infos_table.php",
+                        "tooltip": "/database/migrations/2016_12_23_130555_create_employee_pension_infos_table.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/database/migrations/2016_12_26_105104_create_employee_salary_component_infos_table.php",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484104329287
+                        },
+                        "filter": true,
+                        "title": "2016_12_26_105104_create_employee_salary_component_infos_table.php",
+                        "tooltip": "/database/migrations/2016_12_26_105104_create_employee_salary_component_infos_table.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab6",
+                    "path": "/database/migrations/2016_12_23_130536_create_pensions_table.php",
+                    "className": [
+                        "tab6"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484110234934
+                        },
+                        "filter": true,
+                        "title": "2016_12_23_130536_create_pensions_table.php",
+                        "tooltip": "/database/migrations/2016_12_23_130536_create_pensions_table.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab7",
+                    "path": "/app/EmployeeSalaryComponentInfo.php",
+                    "className": [
+                        "tab7"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484390462633
+                        },
+                        "filter": true,
+                        "title": "EmployeeSalaryComponentInfo.php",
+                        "tooltip": "/app/EmployeeSalaryComponentInfo.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -327,9 +413,29 @@
                 {
                     "type": "tab",
                     "name": "tab8",
-                    "path": "/app/Employee.php",
+                    "path": "/app/SalaryComponent.php",
                     "className": [
                         "tab8"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484390649626
+                        },
+                        "filter": true,
+                        "title": "SalaryComponent.php",
+                        "tooltip": "/app/SalaryComponent.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab9",
+                    "path": "/app/Employee.php",
+                    "className": [
+                        "tab9"
                     ],
                     "document": {
                         "changed": false,
@@ -346,104 +452,23 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab23",
-                    "path": "/resources/views/payrolls/salary_component.blade.php",
+                    "name": "tab10",
+                    "path": "/app/EmployeePensionInfo.php",
                     "className": [
-                        "tab23"
+                        "tab10"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484384137382
+                            "timestamp": 1484104329275
                         },
                         "filter": true,
-                        "title": "salary_component.blade.php",
-                        "tooltip": "/resources/views/payrolls/salary_component.blade.php",
+                        "title": "EmployeePensionInfo.php",
+                        "tooltip": "/app/EmployeePensionInfo.php",
                         "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab27",
-                    "path": "/resources/views/payrolls/bank.blade.php",
-                    "className": [
-                        "tab27"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484384250561
-                        },
-                        "filter": true,
-                        "title": "bank.blade.php",
-                        "tooltip": "/resources/views/payrolls/bank.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab28",
-                    "path": "/resources/views/payrolls/payslip.blade.php",
-                    "className": [
-                        "tab28"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484384745038
-                        },
-                        "filter": true,
-                        "title": "payslip.blade.php",
-                        "tooltip": "/resources/views/payrolls/payslip.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab29",
-                    "path": "/resources/views/layouts/master.blade.php",
-                    "className": [
-                        "tab29"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484384546330
-                        },
-                        "filter": true,
-                        "title": "master.blade.php",
-                        "tooltip": "/resources/views/layouts/master.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab30",
-                    "path": "/resources/views/layouts/print.blade.php",
-                    "className": [
-                        "tab30",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484106902943
-                        },
-                        "filter": true,
-                        "title": "print.blade.php",
-                        "tooltip": "/resources/views/layouts/print.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -453,7 +478,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/layouts/print.blade.php"
+            "/app/EmployeePensionInfo.php"
         ]
     }
 }

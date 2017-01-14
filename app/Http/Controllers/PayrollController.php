@@ -60,7 +60,7 @@ class PayrollController extends Controller
         $this->pensionModel = $pensionContract;
     }
     
-    public function oneBankReport($bankId, $payrollId, Request $request){
+    public function oneBankReport($payrollId, $bankId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
         $bank = $this->bankModel->findById($bankId);
@@ -68,12 +68,22 @@ class PayrollController extends Controller
             'bank' => $bank, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
-    public function showComponent($componentId, $payrollId, Request $request){
+    public function showComponent($payrollId, $componentId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
         $salaryComponent = $this->salaryComponentModel->findById($componentId);
         return view('payrolls.salary_component', ['payroll' => $payroll, 'paycheckComponents' => $paycheckComponents,
             'salaryComponent' => $salaryComponent, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+    }
+    
+    public function showPension($payrollId, $pensionId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $pension = $this->pensionModel->findById($pensionId);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
+        return view('payrolls.pension', ['payroll' => $payroll, 
+            'paycheckComponents' => $paycheckComponents, 'pension' => $pension,
+            'pensions' => $this->pensionModel->findAll(),
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
     public function showNetPay($payrollId, Request $request){
@@ -107,17 +117,21 @@ class PayrollController extends Controller
         return view('payrolls.payslip', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]);
         
-        // $pdf = \PDF::loadView('payrolls.payslip', ['paychecks' => $paychecks, 
-        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]);
-        // return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
+        view()->share('paychecks', $paychecks);
+        view()->share('paycheckSummaries', $paycheckSummaries);
+        view()->share('paycheckComponents', $paycheckSummaries);
+        view()->share('paycheckSummaries', $paycheckComponents);
+        view()->share('payroll', $payroll);
+        $pdf = \PDF::loadView('payrolls.payslip2')->setPaper('a4', 'landscape');
+        return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
         
         // $pdf = \App::make('dompdf.wrapper');
         // $pdf->loadHTML(loadView('payrolls.payslip', ['paychecks' => $paychecks, 
-        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents]));
+        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]));
         // return $pdf->stream();
     
         // $payslip = View::make('payrolls.payslip', ['paychecks' => $paychecks, 
-        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents])->render();
+        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll])->render();
         // return \PDF::loadHTML($payslip)->setWarnings(false)->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
     }
     

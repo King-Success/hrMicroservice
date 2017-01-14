@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 153,
+        "@height": 155,
         "@maximized": false,
         "json()": {
             "meta": {
@@ -37,13 +37,13 @@
                             "timestamp": 1484104681254
                         },
                         "filter": true,
-                        "title": "mysql - \"solum\"",
-                        "tooltip": "mysql - \"solum\"",
+                        "title": "bash - \"solum\"",
+                        "tooltip": "bash - \"solum\"",
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
                             "width": 949,
-                            "height": 127
+                            "height": 129
                         }
                     },
                     "editorType": "terminal",
@@ -114,16 +114,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 6,
+            "@document": 9,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 5,
-            "@tab": 29,
-            "@undoManager": 6,
+            "@session": 8,
+            "@tab": 6,
+            "@undoManager": 9,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab35"
+            "tab11"
         ]
     },
     "panels": {
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 156,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -196,10 +196,11 @@
                 "/storage/app",
                 "/storage/app/public",
                 "/app/Repositories/EmployeePensionInfo",
-                "/resources/views/employees",
-                "/resources/views/users",
                 "/",
-                "/app"
+                "/resources",
+                "/resources/views",
+                "/resources/views/payrolls",
+                "/resources/views/layouts"
             ]
         }
     },
@@ -216,6 +217,17 @@
         },
         "search": {
             "json()": [
+                "/payslip",
+                "$paycheckComponent",
+                "$pensions",
+                "$pension",
+                "$paycheckComponent",
+                "$pension",
+                "$employeesProcessed",
+                "$pensionsProcessed",
+                "$paycheckComponent",
+                "$paycheckSummary",
+                "showComponent",
                 "2",
                 "$pensionableEmployee",
                 "$pensionableEmployees",
@@ -258,13 +270,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/app/Http/Controllers/PayrollController.php",
             "meta": {
                 "accessList": [
-                    "tab35",
                     "tab11",
-                    "tab27",
-                    "tab28"
+                    "tab4",
+                    "tab5"
                 ]
             },
             "name": "pane0",
@@ -274,12 +285,13 @@
                     "name": "tab11",
                     "path": "/app/Http/Controllers/PayrollController.php",
                     "className": [
-                        "tab11"
+                        "tab11",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484397727259
+                            "timestamp": 1484412269416
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -287,45 +299,23 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab35",
-                    "path": "/resources/views/payrolls/report.blade.php",
-                    "className": [
-                        "tab35",
-                        "focus",
-                        "changed"
-                    ],
-                    "document": {
-                        "changed": true,
-                        "meta": {
-                            "timestamp": 1484402702739
-                        },
-                        "filter": true,
-                        "title": "report.blade.php",
-                        "tooltip": "/resources/views/payrolls/report.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
                     "active": true
                 },
                 {
                     "type": "tab",
-                    "name": "tab27",
-                    "path": "/app/Employee.php",
+                    "name": "tab4",
+                    "path": "/resources/views/payrolls/payslip2.blade.php",
                     "className": [
-                        "tab27"
+                        "tab4"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484264711751
+                            "timestamp": 1484411534389
                         },
                         "filter": true,
-                        "title": "Employee.php",
-                        "tooltip": "/app/Employee.php",
+                        "title": "payslip2.blade.php",
+                        "tooltip": "/resources/views/payrolls/payslip2.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -333,19 +323,19 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab28",
-                    "path": "/app/EmployeePensionInfo.php",
+                    "name": "tab5",
+                    "path": "/routes/web.php",
                     "className": [
-                        "tab28"
+                        "tab5"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484104329275
+                            "timestamp": 1484412233940
                         },
                         "filter": true,
-                        "title": "EmployeePensionInfo.php",
-                        "tooltip": "/app/EmployeePensionInfo.php",
+                        "title": "web.php",
+                        "tooltip": "/routes/web.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -359,7 +349,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/EmployeePensionInfo.php"
+            "/resources/views/payrolls/payslip2.blade.php"
         ]
     }
 }

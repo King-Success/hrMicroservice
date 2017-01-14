@@ -62,7 +62,7 @@
 				<div class="padding">
 					<div>
 						<span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
-						<span class="text-muted l-h-1x"><i class="ion-ios-grid-view text-muted"></i></span>
+						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
 						<h3 class="text-center _600">{{number_format($consolidatedAllowance, 2)}}</h3>
@@ -77,7 +77,7 @@
 				<div class="padding">
 					<div>
 						<span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
-						<span class="text-muted l-h-1x"><i class="ion-ios-grid-view text-muted"></i></span>
+						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
 						<h3 class="text-center _600">{{number_format($netPay, 2)}}</h3>
@@ -106,7 +106,7 @@
 					</div>
 					<div class="text-center">
 						<h3 class="text-center _600">{{number_format($sum, 2)}}</h3>
-						<p class="text-muted m-b-md"><a href="/payslip/salary_component/{{$salaryComponent->id}}/{{$payroll->id}}">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></a></p>
+						<p class="text-muted m-b-md"><a href="/payslip/salary_component/{{$payroll->id}}/{{$salaryComponent->id}}">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>
@@ -226,9 +226,8 @@
 		                <div class="list-group no-border no-radius">
 		                	<!--<?php print_r($pensions[0]->salary_component->employee_salary_component_infos); //exit; ?>-->
 		                	<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_component_infos; ?>
-		                	<?php $pensionsProcessed = array(); ?>
 		                	@foreach($pensions as $pension)
-		                	<?php $amountInEntity = 0; $employeesProcessed = array(); ?>
+		                	<?php $amountInEntity = 0; ?>
 		                		@foreach($pensionableEmployees as $pensionableEmployee)
 				                	@foreach($paycheckComponents as $paycheckComponent)
 				                	<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
@@ -238,7 +237,7 @@
 							    @endforeach
 					        <div class="list-group-item">
 					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i> {{$pension->title}}
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/pension/{{$payroll->id}}/{{$pension->id}}">{{$pension->title}}</a>
 					        </div>
 					        @endforeach
 					    </div>

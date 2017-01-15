@@ -201,7 +201,7 @@
 		                	<?php $amountInEntity = 0; ?>
 			                	@foreach($paycheckSummaries as $paycheckSummary)
 			                	<?php 
-			                	if($paycheckSummary->employee->employee_bank_info && $bank->id == $paycheckSummary->employee->employee_bank_info->bank_id)
+			                	if($paycheckSummary->employee->employee_bank && $bank->id == $paycheckSummary->employee->employee_bank->bank_id)
 			                		$amountInEntity += $paycheckSummary->net_pay * $paycheckSummary->cycle;
 			                	else
 			                		continue;
@@ -228,12 +228,12 @@
 		                	[{"id":2,"employee_id":2,"salary_component_id":1,"amount":"8.00",},
 		                	{"id":6,"employee_id":3,"salary_component_id":1,"amount":"8.00",}]
 		                	-->
-		                	<?php $employeePensions = $pensions[0]->salary_component->employee_salary_component_infos; ?>
+		                	<?php $employeePensions = $pensions[0]->salary_component->employee_salary_components; ?>
 		                	@foreach($pensions as $pension)
 		                	<?php $amountInEntity = 0; ?>
 			                	@foreach($paycheckComponents as $paycheckComponent)
 			                	<?php
-			                	if($pension->id == $paycheckComponent->employee_salary_component_info->employee->employee_pension_info->pension_id){
+			                	if($pension->id == $paycheckComponent->employee_salary_component_info->employee->employee_pension->pension_id){
 			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
 			                		// break;
 			                	}else{

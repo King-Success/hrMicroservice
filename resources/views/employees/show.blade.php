@@ -164,7 +164,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    {!! Form::open(array('url' => '/employeedepartmentinfo/create', 'id'=>'department', 'role' => 'form', 'method'=>'POST')) !!}
+                                    {!! Form::open(array('url' => '/employeedepartment/create', 'id'=>'department', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Department</label>
                                         <select class="form-control c-select" name="department" id="InputDepartment">
@@ -196,7 +196,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    {!! Form::open(array('url' => '/employeerankinfo/create', 'id'=>'rank', 'role' => 'form', 'method'=>'POST')) !!}
+                                    {!! Form::open(array('url' => '/employeerank/create', 'id'=>'rank', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Rank</label>
                                         <select class="form-control c-select" name="rank" id="InputRank">
@@ -229,7 +229,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    {!! Form::open(array('url' => '/employeepaygradeinfo/create', 'id'=>'paygrade', 'role' => 'form', 'method'=>'POST')) !!}
+                                    {!! Form::open(array('url' => '/employeepaygrade/create', 'id'=>'paygrade', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="form-group">
                                       <label>Pay Grade</label>
                                         <select class="form-control c-select" name="paygrade" id="InputPaygrade">
@@ -262,7 +262,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    {!! Form::open(array('url' => '/employeebankinfo/create', 'id'=>'bank', 'role' => 'form', 'method'=>'POST')) !!}
+                                    {!! Form::open(array('url' => '/employeebank/create', 'id'=>'bank', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Account Name</label>
@@ -308,7 +308,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                    {!! Form::open(array('url' => '/employeepensioninfo/create', 'id'=>'pension', 'role' => 'form', 'method'=>'POST')) !!}
+                                    {!! Form::open(array('url' => '/employeepension/create', 'id'=>'pension', 'role' => 'form', 'method'=>'POST')) !!}
                                     <div class="row m-b">
                                       <div class="col-sm-6">
                                         <label>Name of PFA</label>
@@ -351,7 +351,7 @@
                         <div class="box-body">
                             <div class="app-body">
                                 <div class="padding">
-                                  {!! Form::open(array('url' => '/employeesalarycomponentinfo/create', 'id'=>'salarycomponent', 'role' => 'form', 'method'=>'POST')) !!}
+                                  {!! Form::open(array('url' => '/employeesalarycomponent/create', 'id'=>'salarycomponent', 'role' => 'form', 'method'=>'POST')) !!}
                                   <div class="row">
                                   <div class="col-sm-6">
                                     @foreach($salaryComponents as $salaryComponenet)

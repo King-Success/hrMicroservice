@@ -26,7 +26,7 @@ class CreatePaycheckComponentsTable extends Migration
             
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('payroll_id')->references('id')->on('payrolls');
-            $table->foreign('employee_salary_component_info_id')->references('id')->on('employee_salary_component_infos');
+            $table->foreign('employee_salary_component_info_id')->references('id')->on('employee_salary_components');
         });
     }
 

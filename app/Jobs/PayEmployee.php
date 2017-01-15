@@ -65,8 +65,8 @@ class PayEmployee implements ShouldQueue
     }
     
     private function populate_paycheck(){
-        $paygrade = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->amount : 0;
-        $paygradeAllowance = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->allowance : 0;
+        $paygrade = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->amount : 0;
+        $paygradeAllowance = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->allowance : 0;
         $this->consolidatedSalary = $this->employee->employee_basic_salary->amount + $paygrade;
         $this->consolidatedAllowance = $this->employee->employee_basic_salary->allowance + $paygradeAllowance;
         $this->grossTotal = $this->consolidatedSalary + $this->consolidatedAllowance;
@@ -83,8 +83,8 @@ class PayEmployee implements ShouldQueue
     private function populate_paycheck_components(){
         $this->totalDeductions = 0;
         $this->totalEarnings = 0;
-        if(count($this->employee->employee_salary_component_infos) > 0){
-            foreach($this->employee->employee_salary_component_infos as $employee_salary_component_info){
+        if(count($this->employee->employee_salary_components) > 0){
+            foreach($this->employee->employee_salary_components as $employee_salary_component_info){
                 $amount = 0;
                 if($employee_salary_component_info->salary_component->component_type == 'Earning'){
                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
@@ -121,13 +121,13 @@ class PayEmployee implements ShouldQueue
         $paycheckSummary = $this->paycheckSummarymodel->getInstance();
         $paycheckSummary->employee_id = $this->employee->id;
         $paycheckSummary->payroll_id = $this->payroll->id;
-        $paycheckSummary->rank = $this->employee->employee_rank_info ? $this->employee->employee_rank_info->rank->title : '';
-        $paycheckSummary->level = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->employee_level->title : '';
-        $paycheckSummary->step = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->title : '';
+        $paycheckSummary->rank = $this->employee->employee_rank ? $this->employee->employee_rank->rank->title : '';
+        $paycheckSummary->level = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->employee_level->title : '';
+        $paycheckSummary->step = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->title : '';
         $paycheckSummary->basic_salary = $this->employee->employee_basic_salary->amount;
         $paycheckSummary->allowance = $this->employee->employee_basic_salary->allowance;
-        $paycheckSummary->paygrade_amount = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->amount : 0;
-        $paycheckSummary->paygrade_allowance = $this->employee->employee_paygrade_info ? $this->employee->employee_paygrade_info->paygrade->allowance : 0;
+        $paycheckSummary->paygrade_amount = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->amount : 0;
+        $paycheckSummary->paygrade_allowance = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->allowance : 0;
         $paycheckSummary->consolidated_salary = $this->consolidatedSalary;
         $paycheckSummary->consolidated_allowance = $this->consolidatedAllowance;
         $paycheckSummary->gross_total = $this->grossTotal;

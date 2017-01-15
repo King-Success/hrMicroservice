@@ -12,6 +12,6 @@ class PaycheckComponent extends Model
     }
     
     public function employee_salary_component_info(){
-        return $this->belongsTo('App\EmployeeSalaryComponentInfo');
+        return $this->belongsTo('App\EmployeeSalaryComponent');
     }
 }

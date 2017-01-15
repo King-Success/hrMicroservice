@@ -13,7 +13,7 @@ class EmployeeAssignedRank
 {
     use InteractsWithSockets, SerializesModels;
     
-    public $employeeRankInfo;
+    public $employeeRank;
     public $employee;
 
     /**
@@ -21,9 +21,9 @@ class EmployeeAssignedRank
      *
      * @return void
      */
-    public function __construct($employeeRankInfo, $employeeId)
+    public function __construct($employeeRank, $employeeId)
     {
-        $this->employeeRankInfo = $employeeRankInfo;
+        $this->employeeRank = $employeeRank;
         $this->employee = $employeeId;
     }
 

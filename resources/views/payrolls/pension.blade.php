@@ -45,25 +45,25 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_component_infos; ?>
+						<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_components; ?>
 						<?php $counter = 0; $amountInEntity = 0; ?>
 						@foreach($pensionableEmployees as $pensionableEmployee)
 						@foreach ($paycheckComponents as $paycheckComponent)
 						<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
-				        <?php if($paycheckComponent->employee->employee_pension_info->pension_id != $pension->id) continue; ?>
+				        <?php if($paycheckComponent->employee->employee_pension->pension_id != $pension->id) continue; ?>
 						<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckComponent->employee->surname}} {{$paycheckComponent->employee->other_names}}</td>
 						<td>{{$paycheckComponent->employee->employee_number}}</td>
-						<td>{{$paycheckComponent->employee->employee_rank_info ? $paycheckComponent->employee->employee_rank_info->rank->title : ''}}</td>
-						<td>{{$paycheckComponent->employee->employee_paygrade_info ? $paycheckComponent->employee->employee_paygrade_info->paygrade->employee_level->title : ''}}</td>
-						<td>{{$paycheckComponent->employee->employee_paygrade_info ? $paycheckComponent->employee->employee_paygrade_info->paygrade->title : ''}}</td>
-						<td>{{$paycheckComponent->employee->employee_pension_info->pension->title}}</td>
-						<td>{{$paycheckComponent->employee->employee_pension_info->pin_number}}</td>
+						<td>{{$paycheckComponent->employee->employee_rank ? $paycheckComponent->employee->employee_rank->rank->title : ''}}</td>
+						<td>{{$paycheckComponent->employee->employee_paygrade ? $paycheckComponent->employee->employee_paygrade->paygrade->employee_level->title : ''}}</td>
+						<td>{{$paycheckComponent->employee->employee_paygrade ? $paycheckComponent->employee->employee_paygrade->paygrade->title : ''}}</td>
+						<td>{{$paycheckComponent->employee->employee_pension->pension->title}}</td>
+						<td>{{$paycheckComponent->employee->employee_pension->pin_number}}</td>
 						<?php
 						$employeeContribution = $paycheckComponent->cycle * $paycheckComponent->amount;
-						$employerContribution = $paycheckComponent->cycle * $paycheckComponent->employee->employee_pension_info->employer_contribution;
+						$employerContribution = $paycheckComponent->cycle * $paycheckComponent->employee->employee_pension->employer_contribution;
 						?>
 						<td>{{number_format($employeeContribution, 2)}}</td>
 						<td>{{number_format($employerContribution, 2)}}</td>

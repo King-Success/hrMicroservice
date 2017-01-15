@@ -10,31 +10,31 @@ class Employee extends Model
         return $this->belongsTo('App\Prefix');
     }
     
-    public function employee_paygrade_info(){
-        return $this->hasOne('App\EmployeePaygradeInfo'); //one-off access to level/step/basic_salary
+    public function employee_paygrade(){
+        return $this->hasOne('App\EmployeePaygrade'); //one-off access to level/step/basic_salary
     }
     
-    public function employee_rank_info(){
-        return $this->hasOne('App\EmployeeRankInfo');
+    public function employee_rank(){
+        return $this->hasOne('App\EmployeeRank');
     }
     
-    public function employee_department_info(){
-        return $this->hasOne('App\EmployeeDepartmentInfo');
+    public function employee_department(){
+        return $this->hasOne('App\EmployeeDepartment');
     }
     
     public function employee_basic_salary(){
         return $this->hasOne('App\EmployeeBasicSalary');
     }
     
-    public function employee_pension_info(){
-        return $this->hasOne('App\EmployeePensionInfo');
+    public function employee_pension(){
+        return $this->hasOne('App\EmployeePension');
     }
     
-    public function employee_bank_info(){
-        return $this->hasOne('App\EmployeeBankInfo');
+    public function employee_bank(){
+        return $this->hasOne('App\EmployeeBank');
     }
     
-    public function employee_salary_component_infos(){
-        return $this->hasMany('App\EmployeeSalaryComponentInfo');
+    public function employee_salary_components(){
+        return $this->hasMany('App\EmployeeSalaryComponent');
     }
 }

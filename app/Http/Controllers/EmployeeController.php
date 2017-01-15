@@ -19,12 +19,12 @@ use App\Repositories\Pension\PensionContract;
 use App\Repositories\SalaryComponent\SalaryComponentContract;
 
 // 
-use App\Repositories\EmployeeDepartmentInfo\EmployeeDepartmentInfoContract;
-use App\Repositories\EmployeeRankInfo\EmployeeRankInfoContract;
-use App\Repositories\EmployeePaygradeInfo\EmployeePaygradeInfoContract;
-use App\Repositories\EmployeeBankInfo\EmployeeBankInfoContract;
-use App\Repositories\EmployeePensionInfo\EmployeePensionInfoContract;
-use App\Repositories\EmployeeSalaryComponentInfo\EmployeeSalaryComponentInfoContract;
+use App\Repositories\EmployeeDepartment\EmployeeDepartmentContract;
+use App\Repositories\EmployeeRank\EmployeeRankContract;
+use App\Repositories\EmployeePaygrade\EmployeePaygradeContract;
+use App\Repositories\EmployeeBank\EmployeeBankContract;
+use App\Repositories\EmployeePension\EmployeePensionContract;
+use App\Repositories\EmployeeSalaryComponent\EmployeeSalaryComponentContract;
 use App\Repositories\EmployeeBasicSalary\EmployeeBasicSalaryContract;
 
 
@@ -46,12 +46,12 @@ class EmployeeController extends Controller
     protected $salaryComponentModel;
     
     // 
-    protected $employeeDepartmentInfoModel;
-    protected $employeeRankInfoModel;
-    protected $employeePaygradeInfoModel;
-    protected $employeeBankInfoModel;
-    protected $employeePensionInfoModel;
-    protected $employeeSalaryComponentInfoModel;
+    protected $employeeDepartmentModel;
+    protected $employeeRankModel;
+    protected $employeePaygradeModel;
+    protected $employeeBankModel;
+    protected $employeePensionModel;
+    protected $employeeSalaryComponentModel;
     protected $employeeBasicSalaryModel;
     
     public function __construct(EmployeeContract $employeeContract, 
@@ -65,12 +65,12 @@ class EmployeeController extends Controller
         PensionContract $pensionContract,
         SalaryComponentContract $salaryComponentContract,
         
-        EmployeeDepartmentInfoContract $employeeDepartmentInfoContract,
-        EmployeeRankInfoContract $employeeRankInfoContract,
-        EmployeePaygradeInfoContract $employeePaygradeInfoContract,
-        EmployeeBankInfoContract $employeeBankInfoContract,
-        EmployeePensionInfoContract $employeePensionInfoContract,
-        EmployeeSalaryComponentInfoContract $employeeSalaryComponentInfoContract,
+        EmployeeDepartmentContract $employeeDepartmentContract,
+        EmployeeRankContract $employeeRankContract,
+        EmployeePaygradeContract $employeePaygradeContract,
+        EmployeeBankContract $employeeBankContract,
+        EmployeePensionContract $employeePensionContract,
+        EmployeeSalaryComponentContract $employeeSalaryComponentContract,
         EmployeeBasicSalaryContract $employeeBasicSalaryContract
         ) {
         $this->employeeModel = $employeeContract;
@@ -84,12 +84,12 @@ class EmployeeController extends Controller
         $this->pensionModel = $pensionContract;
         $this->salaryComponentModel = $salaryComponentContract;
         
-        $this->employeeDepartmentInfoModel = $employeeDepartmentInfoContract;
-        $this->employeeRankInfoModel = $employeeRankInfoContract;
-        $this->employeePaygradeInfoModel = $employeePaygradeInfoContract;
-        $this->employeeBankInfoModel = $employeeBankInfoContract;
-        $this->employeePensionInfoModel = $employeePensionInfoContract;
-        $this->employeeSalaryComponentInfoModel = $employeeSalaryComponentInfoContract;
+        $this->employeeDepartmentModel = $employeeDepartmentContract;
+        $this->employeeRankModel = $employeeRankContract;
+        $this->employeePaygradeModel = $employeePaygradeContract;
+        $this->employeeBankModel = $employeeBankContract;
+        $this->employeePensionModel = $employeePensionContract;
+        $this->employeeSalaryComponentModel = $employeeSalaryComponentContract;
         $this->employeeBasicSalaryModel = $employeeBasicSalaryContract;
     }
     
@@ -144,12 +144,12 @@ class EmployeeController extends Controller
         $salaryComponents = $this->salaryComponentModel->findAll(); //Allowances
         
         // 
-        $employeeRank = $this->employeeRankInfoModel->findByEmployeeId($id);
-        $employeeDepartment = $this->employeeDepartmentInfoModel->findByEmployeeId($id);
-        $employeePaygrade = $this->employeePaygradeInfoModel->findByEmployeeId($id);
-        $employeeBank = $this->employeeBankInfoModel->findByEmployeeId($id);
-        $employeePension = $this->employeePensionInfoModel->findByEmployeeId($id);
-        $employeeSalaryComponents = $this->employeeSalaryComponentInfoModel->findByEmployeeId($id); //Allowances //Array Expected
+        $employeeRank = $this->employeeRankModel->findByEmployeeId($id);
+        $employeeDepartment = $this->employeeDepartmentModel->findByEmployeeId($id);
+        $employeePaygrade = $this->employeePaygradeModel->findByEmployeeId($id);
+        $employeeBank = $this->employeeBankModel->findByEmployeeId($id);
+        $employeePension = $this->employeePensionModel->findByEmployeeId($id);
+        $employeeSalaryComponents = $this->employeeSalaryComponentModel->findByEmployeeId($id); //Allowances //Array Expected
         $employeeBasicSalary = $this->employeeBasicSalaryModel->findByEmployeeId($id);
         
         return view('employees.show', ['employee'=>$employee, 'departments'=>$departments, 'ranks'=>$ranks, 'paygrades'=>$paygrades,

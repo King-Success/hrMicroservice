@@ -52,13 +52,13 @@
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
 						<td>{{$paycheckSummary->employee->employee_number}}</td>
-						<td>{{$paycheckSummary->employee->employee_rank_info ? $paycheckSummary->employee->employee_rank_info->rank->title : ''}}</td>
-						<td>{{$paycheckSummary->employee->employee_paygrade_info ? $paycheckSummary->employee->employee_paygrade_info->paygrade->employee_level->title : ''}}</td>
-						<td>{{$paycheckSummary->employee->employee_paygrade_info ? $paycheckSummary->employee->employee_paygrade_info->paygrade->title : ''}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank_info->bank->title}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank_info->sort_code}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank_info->account_name}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank_info->account_number}}</td>
+						<td>{{$paycheckSummary->employee->employee_rank ? $paycheckSummary->employee->employee_rank->rank->title : ''}}</td>
+						<td>{{$paycheckSummary->employee->employee_paygrade ? $paycheckSummary->employee->employee_paygrade->paygrade->employee_level->title : ''}}</td>
+						<td>{{$paycheckSummary->employee->employee_paygrade ? $paycheckSummary->employee->employee_paygrade->paygrade->title : ''}}</td>
+						<td>{{$paycheckSummary->employee->employee_bank->bank->title}}</td>
+						<td>{{$paycheckSummary->employee->employee_bank->sort_code}}</td>
+						<td>{{$paycheckSummary->employee->employee_bank->account_name}}</td>
+						<td>{{$paycheckSummary->employee->employee_bank->account_number}}</td>
 						<td>{{number_format($paycheckSummary->cycle * $paycheckSummary->net_pay, 2)}}</td>
 						<!--<td>{{$payroll->paid_at}}</td>-->
 						<!--<td>{{$paycheckSummary->created_at}}</td>-->

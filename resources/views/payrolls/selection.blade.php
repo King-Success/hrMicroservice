@@ -61,12 +61,12 @@
                                         </td>
                                         <td>{{$employee->surname}} {{$employee->other_names}}</td>
                                         <td>{{$employee->employee_number}}</td>
-                                        <td>{{$employee->employee_rank_info ? $employee->employee_rank_info->rank->title : ''}}</td>
-                                        <td>{{$employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->employee_level->title : ''}}</td>
-                                        <td>{{$employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->title : ''}}</td>
+                                        <td>{{$employee->employee_rank ? $employee->employee_rank->rank->title : ''}}</td>
+                                        <td>{{$employee->employee_paygrade ? $employee->employee_paygrade->paygrade->employee_level->title : ''}}</td>
+                                        <td>{{$employee->employee_paygrade ? $employee->employee_paygrade->paygrade->title : ''}}</td>
                                         <?php
-                                        $paygrade = $employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->amount : 0;
-                                        $paygradeAllowance = $employee->employee_paygrade_info ? $employee->employee_paygrade_info->paygrade->allowance : 0;
+                                        $paygrade = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->amount : 0;
+                                        $paygradeAllowance = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->allowance : 0;
                                         $consolidatedSalary = $employee->employee_basic_salary->amount + $paygrade;
                                         $consolidatedAllowance = $employee->employee_basic_salary->allowance + $paygradeAllowance;
                                         ?>
@@ -84,8 +84,8 @@
                                         // $basic_salary = $employee->employee_basic_salary->amount;
                                         $totalDeductions = 0;
                                         $totalEarnings = 0;
-                                        if(count($employee->employee_salary_component_infos) > 0){
-                                            foreach($employee->employee_salary_component_infos as $employee_salary_component_info){
+                                        if(count($employee->employee_salary_components) > 0){
+                                            foreach($employee->employee_salary_components as $employee_salary_component_info){
                                                 if($employee_salary_component_info->salary_component->component_type == 'Earning'){
                                                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                         $totalEarnings += $employee_salary_component_info->amount;

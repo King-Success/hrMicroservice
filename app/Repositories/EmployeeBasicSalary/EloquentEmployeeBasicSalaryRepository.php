@@ -45,7 +45,7 @@ class EloquentEmployeeBasicSalaryRepository implements EmployeeBasicSalaryContra
     }
 
     private function setEmployeeBasicSalaryProperties($employeeBasicSalary, $request) {
-        // Assign attributes to the employeeSalaryComponentInfo here
+        // Assign attributes to the employeeSalaryComponent here
         $employeeBasicSalary->employee_id = $request->employee;
         $employeeBasicSalary->amount = $request->amount ? $request->amount : 0.00;
         $employeeBasicSalary->allowance = $request->allowance ? $request->allowance : 0.00;

@@ -3,16 +3,16 @@
         "search": {
             "@backwards": "false",
             "@highlightmatches": "true",
-            "@matchcase": "false",
+            "@matchcase": false,
             "@preservecase": "false",
             "@regex": "false",
-            "@wholeword": true,
+            "@wholeword": false,
             "@wraparound": "true"
         }
     },
     "console": {
         "@expanded": true,
-        "@height": 155,
+        "@height": 159,
         "@maximized": false,
         "json()": {
             "meta": {
@@ -42,8 +42,8 @@
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 949,
-                            "height": 129
+                            "width": 973,
+                            "height": 133
                         }
                     },
                     "editorType": "terminal",
@@ -110,29 +110,29 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
-            "@acestatus": 1,
+            "@ace": 2,
+            "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 7,
+            "@document": 92,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 6,
-            "@tab": 4,
-            "@undoManager": 7,
+            "@session": 91,
+            "@tab": 88,
+            "@undoManager": 92,
             "@welcome": 1
         }
     },
     "findinfiles": {
         "@console": "true",
-        "@matchcase": "false",
+        "@matchcase": false,
         "@regex": "false",
         "@scope": "selection",
-        "@wholeword": "false"
+        "@wholeword": false
     },
     "menus": {
         "@minimized": "false"
@@ -143,13 +143,13 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab3"
+            "tab85"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 194,
+        "@width-left": 170,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -176,30 +176,26 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 170,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/app/Repositories/Pension",
-                "/app/Http/Controllers",
                 "/vendor/laravel",
                 "/vendor/laravel/framework",
                 "/vendor/laravel/framework/src",
                 "/vendor/laravel/framework/src/Illuminate",
                 "/vendor/laravel/framework/src/Illuminate/Contracts",
                 "/vendor/laravel/framework/src/Illuminate/Contracts/Queue",
-                "/app/Repositories/Payroll",
-                "/app/Repositories/Paycheck",
-                "/app/Repositories/PaycheckComponent",
-                "/app/Repositories/PaycheckSummary",
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
                 "/app/Repositories/EmployeePensionInfo",
                 "/",
-                "/resources",
                 "/resources/views",
-                "/resources/views/payrolls"
+                "/app/Repositories/EmployeePension",
+                "/app/Repositories/EmployeeRank",
+                "/app/Repositories/EmployeeSalaryComponent",
+                "/resources"
             ]
         }
     },
@@ -209,6 +205,19 @@
     "search-history": {
         "replace": {
             "json()": [
+                "setEmployeeSalaryComponentProperties",
+                "$employeeSalaryComponentId",
+                "setEmployeeRankProperties",
+                "$employeeRankId",
+                "setEmployeePensionProperties",
+                "$employeePensionId",
+                "setEmployeePaygradeProperties",
+                "$employeePaygradeId",
+                "employeeDepartmentId",
+                "setEmployeeDepartmentProperties",
+                "setEmployeeBankProperties",
+                "employeeBankId",
+                "employee_paygrade",
                 "_400",
                 "_500",
                 "{{ URL::to('/') }}"
@@ -216,6 +225,10 @@
         },
         "search": {
             "json()": [
+                "employeepaygradeinfo",
+                "info",
+                "setEmployeePaygradeInfoProperties",
+                "employee_paygrade_info",
                 "/payslip",
                 "$paycheckComponent",
                 "$pensions",
@@ -262,6 +275,89 @@
         },
         "searchfiles": {
             "json()": [
+                "employeesalarycomponentinfo",
+                "employeerankinfo",
+                "employeedepartmentinfo",
+                "employeepaygradeinfo",
+                "employeepensioninfo",
+                "info",
+                "employeebankinfo",
+                "info",
+                "infos",
+                "info",
+                "CreateEmployeeDepartmentInfosTable",
+                "CreateEmployeePensionInfosTable",
+                "employee_bank_infos",
+                "EloquentEmployeeBankInfoRepository",
+                "EmployeePaygradeInfoServiceProvider",
+                "EmployeeSalaryComponentInfoServiceProvider",
+                "EmployeeRankInfoServiceProvider",
+                "EmployeeDepartmentInfoServiceProvider",
+                "EmployeePensionInfoServiceProvider",
+                "EmployeeBankInfoServiceProvider",
+                "employeeSalaryComponentInfo",
+                "employeeSalaryComponentInfos",
+                "employeesalarycomponentinfos",
+                "EmployeeSalaryComponentInfoController",
+                "employeeRankInfo",
+                "employeeRankInfos",
+                "employeerankinfos",
+                "EmployeeRankInfoController",
+                "employeePensionInfo",
+                "employeePensionInfos",
+                "employeepensioninfos",
+                "EmployeePensionInfoController",
+                "employeeBankInfo",
+                "employeebankinfos",
+                "employeeBankInfos",
+                "employeeDepartmentInfo",
+                "employeeDepartmentInfos",
+                "employeePaygradeInfo",
+                "employeePaygradeInfos",
+                "employeepaygradeinfos",
+                "EmployeePaygradeInfoController",
+                "employeedepartmentinfos",
+                "EmployeeDepartmentInfoController",
+                "employeeSalaryComponentInfoContract",
+                "employeePensionInfoContract",
+                "employeePaygradeInfoContract",
+                "employeeRankInfoContract",
+                "employeeBankInfoContract",
+                "employeeDepartmentInfoContract",
+                "employeeSalaryComponentInfoModel",
+                "employeePensionInfoModel",
+                "employeeRankInfoModel",
+                "employeePaygradeInfoModel",
+                "employeeDepartmentInfoModel",
+                "employeeBankInfoModel",
+                "EmployeeBankInfoController",
+                "EmployeeSalaryComponentInfoContract",
+                "EloquentEmployeeSalaryComponentInfoRepository",
+                "EloquentEmployeeRankInfoRepository",
+                "EmployeeRankInfoContract",
+                "EmployeePensionInfoContract",
+                "EloquentEmployeePensionInfoRepository",
+                "EmployeePaygradeInfoContract",
+                "EloquentEmployeePaygradeInfoRepository",
+                "$employeeDepartmentInfo",
+                "EmployeeDepartmentInfoContract",
+                "EloquentEmployeeDepartmentInfoRepository",
+                "EmployeeBankInfoContract",
+                "EmployeeBankInfo",
+                "EmployeeSalaryComponentInfo",
+                "EmployeeBankInfo",
+                "EmployeePensionInfo",
+                "EmployeeDepartmentInfo",
+                "EmployeeDepartment",
+                "EmployeeRankInfo",
+                "EmployeePaygradeInfo",
+                "employee_salary_component_infos",
+                "employee_bank_info",
+                "employee_pension_info",
+                "employee_department_info",
+                "employee_rank_info",
+                "employee_paygrade_info",
+                "Info",
                 "Carbon",
                 "strip"
             ]
@@ -269,187 +365,29 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "tab1",
             "meta": {
                 "accessList": [
-                    "tab3",
-                    "tab0",
-                    "tab11",
-                    "tab4",
-                    "tab5"
+                    "tab85"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab11",
-                    "path": "/app/Http/Controllers/PayrollController.php",
-                    "className": [
-                        "tab11"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "PayrollController.php",
-                        "tooltip": "/app/Http/Controllers/PayrollController.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 1716.0006713867188,
-                            "scrollleft": 15,
-                            "selection": {
-                                "start": {
-                                    "row": 123,
-                                    "column": 41
-                                },
-                                "end": {
-                                    "row": 123,
-                                    "column": 41
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
-                        "hash": "c17f80b7697f7d47a392d45c23d2c7dcffab5f81",
-                        "meta": {
-                            "timestamp": 1484412269582
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/resources/views/payrolls/payslip2.blade.php",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "payslip2.blade.php",
-                        "tooltip": "/resources/views/payrolls/payslip2.blade.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 297,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 28,
-                                    "column": 22
-                                },
-                                "end": {
-                                    "row": 28,
-                                    "column": 30
-                                },
-                                "isBackwards": true
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 109,
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "e9e63f2fb476d03fe23bf7d0a3091ba5a0f6fbd6",
-                        "meta": {
-                            "timestamp": 1484411534550
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab5",
+                    "name": "tab85",
                     "path": "/routes/web.php",
                     "className": [
-                        "tab5"
+                        "tab85"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484477855692
+                        },
                         "filter": true,
                         "title": "web.php",
                         "tooltip": "/routes/web.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 3120.8013610839844,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 218,
-                                    "column": 62
-                                },
-                                "end": {
-                                    "row": 218,
-                                    "column": 82
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 109,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "080eb0e752bdb573a78fd4e9fc1ccee74b2d1a41",
-                        "meta": {
-                            "timestamp": 1484412234106
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab0",
-                    "path": "/resources/views/payrolls/index.blade.php",
-                    "className": [
-                        "tab0"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484423639633
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/payrolls/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab3",
-                    "path": "/resources/views/payrolls/report.blade.php",
-                    "className": [
-                        "tab3",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484411217661
-                        },
-                        "filter": true,
-                        "title": "report.blade.php",
-                        "tooltip": "/resources/views/payrolls/report.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -463,7 +401,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/report.blade.php"
+            "/resources/views"
         ]
     }
 }

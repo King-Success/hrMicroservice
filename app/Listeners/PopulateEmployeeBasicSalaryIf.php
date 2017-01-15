@@ -35,8 +35,8 @@ class PopulateEmployeeBasicSalaryIf
     {
         if(!$this->appConfig->rank_is_king) return;
         $employeeBasicSalaryModel = $this->employeeBasicSalaryModel->findByEmployeeId($event->employee);
-        $employeeBasicSalaryModel->amount = $event->employeeRankInfo['basic_salary'];
-        $employeeBasicSalaryModel->allowance = $event->employeeRankInfo['allowance'];
+        $employeeBasicSalaryModel->amount = $event->employeeRank['basic_salary'];
+        $employeeBasicSalaryModel->allowance = $event->employeeRank['allowance'];
         $employeeBasicSalaryModel->save();
     }
 }

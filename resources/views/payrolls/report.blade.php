@@ -201,7 +201,7 @@
 		                	<?php $amountInEntity = 0; ?>
 			                	@foreach($paycheckSummaries as $paycheckSummary)
 			                	<?php 
-			                	if($paycheckSummary->employee->employee_bank_info && $bank->id == $paycheckSummary->employee->employee_bank_info->bank_id)
+			                	if($paycheckSummary->employee->employee_bank && $bank->id == $paycheckSummary->employee->employee_bank->bank_id)
 			                		$amountInEntity += $paycheckSummary->net_pay * $paycheckSummary->cycle;
 			                	else
 			                		continue;
@@ -224,14 +224,14 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
-		                	<!--<?php print_r($pensions[0]->salary_component->employee_salary_component_infos); //exit; ?>-->
-		                	<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_component_infos; ?>
+		                	<!--<?php print_r($pensions[0]->salary_component->employee_salary_components); //exit; ?>-->
+		                	<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_components; ?>
 		                	@foreach($pensions as $pension)
 		                	<?php $amountInEntity = 0; ?>
 		                		@foreach($pensionableEmployees as $pensionableEmployee)
 				                	@foreach($paycheckComponents as $paycheckComponent)
 				                	<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
-				                	<?php if($paycheckComponent->employee->employee_pension_info->pension_id != $pension->id) continue; ?>
+				                	<?php if($paycheckComponent->employee->employee_pension->pension_id != $pension->id) continue; ?>
 				                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
 							        @endforeach
 							    @endforeach

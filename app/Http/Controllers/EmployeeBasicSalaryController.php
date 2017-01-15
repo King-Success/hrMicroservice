@@ -28,6 +28,8 @@ class EmployeeBasicSalaryController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+           'amount' => 'required|numeric|min:0',
+           'employee' => 'required|numeric|exists:employees',
         ]);
 
         $employeeBasicSalary = $this->employeeBasicSalaryModel->edit($id, $request);

@@ -34,6 +34,8 @@ class EmployeeDepartmentController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'department' => 'required|numeric|exists:departments',
+            'employee' => 'required|numeric|exists:employees',
          ]);
          
          $employeeDepartment = $this->employeeDepartmentModel->findByEmployeeId($request->input('employee'));

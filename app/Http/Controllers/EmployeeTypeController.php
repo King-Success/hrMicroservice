@@ -34,6 +34,7 @@ class EmployeeTypeController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+           'title' => 'required',
          ]);
 
          $employeeType = $this->employeeTypeModel->create($request);
@@ -60,6 +61,7 @@ class EmployeeTypeController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+           'title' => 'required',
         ]);
 
         $employeeType = $this->employeeTypeModel->edit($id, $request);

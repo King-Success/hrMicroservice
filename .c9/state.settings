@@ -114,16 +114,16 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 167,
+            "@document": 39,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 166,
-            "@tab": 163,
-            "@undoManager": 167,
+            "@session": 38,
+            "@tab": 38,
+            "@undoManager": 39,
             "@welcome": 1
         }
     },
@@ -131,7 +131,7 @@
         "@console": "true",
         "@matchcase": false,
         "@regex": "false",
-        "@scope": "selection",
+        "@scope": "workspace",
         "@wholeword": false
     },
     "menus": {
@@ -142,8 +142,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab1",
-            "tab162"
+            "tab1"
         ]
     },
     "panels": {
@@ -176,7 +175,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 230,
+        "@scrollpos": 133,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -189,14 +188,17 @@
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
-                "/app/Repositories/EmployeePensionInfo",
                 "/",
                 "/app/Repositories/Tax",
-                "/resources/views/taxs",
                 "/app/Http/Controllers",
                 "/resources/views",
-                "/resources/views/payrolls",
-                "/resources"
+                "/app/Repositories/Prefix",
+                "/app/Repositories/Rank",
+                "/app/Repositories/SalaryComponent",
+                "/database",
+                "/database/migrations",
+                "/app",
+                "/app/Http"
             ]
         }
     },
@@ -297,6 +299,7 @@
         },
         "searchfiles": {
             "json()": [
+                "* 100",
                 "employeesalarycomponentinfo",
                 "employeerankinfo",
                 "employeedepartmentinfo",
@@ -387,78 +390,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/payslip.blade.php",
+            "focus": "tab1",
             "meta": {
-                "accessList": [
-                    "tab162",
-                    "tab161",
-                    "tab160"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab160",
-                    "path": "/resources/views/employees/index.blade.php",
-                    "className": [
-                        "tab160"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484490450332
-                        },
-                        "filter": true,
-                        "title": "index.blade.php",
-                        "tooltip": "/resources/views/employees/index.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab161",
-                    "path": "/resources/views/payrolls/report.blade.php",
-                    "className": [
-                        "tab161"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484490138717
-                        },
-                        "filter": true,
-                        "title": "report.blade.php",
-                        "tooltip": "/resources/views/payrolls/report.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab162",
-                    "path": "/resources/views/payrolls/payslip.blade.php",
-                    "className": [
-                        "tab162",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484384746583
-                        },
-                        "filter": true,
-                        "title": "payslip.blade.php",
-                        "tooltip": "/resources/views/payrolls/payslip.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -466,7 +403,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/payslip.blade.php"
+            "/app/Http/Controllers/PensionController.php"
         ]
     }
 }

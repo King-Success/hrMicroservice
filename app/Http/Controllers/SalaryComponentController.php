@@ -34,6 +34,10 @@ class SalaryComponentController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
+            'amount' => 'required|numeric|min:0',
+            'component_type' => 'required|numeric|in:Earning,Deduction',
+            'value_type' => 'required|numeric|in:Amount,Percentage'
          ]);
 
          $salaryComponent = $this->salaryComponentModel->create($request);
@@ -63,6 +67,10 @@ class SalaryComponentController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+            'title' => 'required',
+            'amount' => 'required|numeric|min:0',
+            'component_type' => 'required|numeric|in:Earning,Deduction',
+            'value_type' => 'required|numeric|in:Amount,Percentage'
         ]);
 
         $salaryComponent = $this->salaryComponentModel->edit($id, $request);

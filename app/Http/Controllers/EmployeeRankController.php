@@ -34,6 +34,8 @@ class EmployeeRankController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'rank' => 'required|numeric|exists:ranks',
+            'employee' => 'required|numeric|exists:employees',
          ]);
          
          $employeeRank = $this->employeeRankModel->findByEmployeeId($request->input('employee'));

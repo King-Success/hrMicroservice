@@ -34,6 +34,8 @@ class RankController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
+            'amount' => 'sometimes|required|numeric|min:0',
          ]);
 
          $rank = $this->rankModel->create($request);
@@ -63,6 +65,8 @@ class RankController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+            'title' => 'required',
+            'amount' => 'sometimes|required|numeric|min:0',
         ]);
 
         $rank = $this->rankModel->edit($id, $request);

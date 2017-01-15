@@ -118,6 +118,9 @@ class EmployeeController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'surname' => 'required',
+            'other_names' => 'required',
+            'email' => 'required|email|unique:users',
          ]);
 
          $employee = $this->employeeModel->create($request);
@@ -177,6 +180,9 @@ class EmployeeController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+           'surname' => 'required',
+           'other_names' => 'required',
+           'email' => 'required|email|unique:users',
         ]);
 
         $employee = $this->employeeModel->edit($id, $request);

@@ -34,6 +34,7 @@ class PrefixController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
          ]);
 
          $prefix = $this->prefixModel->create($request);
@@ -63,6 +64,7 @@ class PrefixController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+            'title' => 'required',
         ]);
 
         $prefix = $this->prefixModel->edit($id, $request);

@@ -34,6 +34,8 @@ class EmployeePaygradeController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'paygrade' => 'required|numeric|exists:paygrades',
+            'employee' => 'required|numeric|exists:employees',
          ]);
          
          $employeePaygrade = $this->employeePaygradeModel->findByEmployeeId($request->input('employee'));

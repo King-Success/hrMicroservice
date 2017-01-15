@@ -34,6 +34,10 @@ class EmployeeBankController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'account_name' => 'required',
+            'account_number' => 'required',
+            'bank' => 'required|numeric|exists:banks',
+            'employee' => 'required|numeric|exists:employees',
          ]);
          
          $employeeBank = $this->employeeBankModel->findByEmployeeId($request->input('employee'));

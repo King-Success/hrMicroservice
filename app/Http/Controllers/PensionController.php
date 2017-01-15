@@ -39,6 +39,8 @@ class PensionController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
+            'salary_component' => 'required|numeric|exists:salary_components',
          ]);
 
          $pension = $this->pensionModel->create($request);
@@ -69,6 +71,8 @@ class PensionController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+            'title' => 'required',
+            'salary_component' => 'required|numeric|exists:salary_components',
         ]);
 
         $pension = $this->pensionModel->edit($id, $request);

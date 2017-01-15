@@ -39,6 +39,9 @@ class PaygradeController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
+            'employee_level_id' => 'required|numeric|exists:employee_levels',
+            'amount' => 'sometimes|required|numeric|min:0',
          ]);
 
          $paygrade = $this->paygradeModel->create($request);
@@ -69,6 +72,9 @@ class PaygradeController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+           'title' => 'required',
+           'employee_level_id' => 'required|numeric|exists:employee_levels',
+           'amount' => 'required|numeric',
         ]);
 
         $paygrade = $this->paygradeModel->edit($id, $request);

@@ -193,6 +193,9 @@ class PayrollController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
+            'paid_at' => 'required|date',
+            'cycle' => 'required|numeric',
          ]);
 
          $payroll = $this->payrollModel->create($request);
@@ -254,6 +257,9 @@ class PayrollController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+            'title' => 'required',
+            'paid_at' => 'required|date',
+            'cycle' => 'required|numeric',
         ]);
 
         $payroll = $this->payrollModel->edit($id, $request);

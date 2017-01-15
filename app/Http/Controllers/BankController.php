@@ -34,6 +34,7 @@ class BankController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'title' => 'required',
          ]);
 
          $bank = $this->bankModel->create($request);
@@ -63,6 +64,7 @@ class BankController extends Controller
     public function update(Request $request, $id) {
         $this->validate($request, [
            // Specify validation rules here
+           'title' => 'required',
         ]);
 
         $bank = $this->bankModel->edit($id, $request);

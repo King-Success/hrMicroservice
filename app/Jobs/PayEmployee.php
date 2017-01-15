@@ -67,8 +67,8 @@ class PayEmployee implements ShouldQueue
     private function populate_paycheck(){
         $paygrade = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->amount : 0;
         $paygradeAllowance = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->allowance : 0;
-        $this->consolidatedSalary = $this->employee->employee_basic_salary->amount + $paygrade;
-        $this->consolidatedAllowance = $this->employee->employee_basic_salary->allowance + $paygradeAllowance;
+        $this->consolidatedSalary = ($this->employee->employee_basic_salary->amount + $paygrade) / 12;
+        $this->consolidatedAllowance = ($this->employee->employee_basic_salary->allowance + $paygradeAllowance) / 12;
         $this->grossTotal = $this->consolidatedSalary + $this->consolidatedAllowance;
         $paycheck = $this->paycheckModel->getInstance();
         $paycheck->employee_id = $this->employee->id;

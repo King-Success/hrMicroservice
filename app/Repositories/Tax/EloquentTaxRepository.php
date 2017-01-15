@@ -42,5 +42,7 @@ class EloquentTaxRepository implements TaxContract
 
     private function setTaxProperties($tax, $request) {
         // Assign attributes to the tax here
+        $tax->title = $request->title;
+        $tax->salary_component_id = $request->salary_component;
     }
 }

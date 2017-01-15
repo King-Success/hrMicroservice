@@ -39,8 +39,14 @@ class EloquentEmployeeTaxRepository implements EmployeeTaxContract
         $employeeTax = $this->findById($employeeTaxId);
         return $employeeTax->delete();
     }
+    
+    public function findByEmployeeId($employeeId){
+        return EmployeeTax::where('employee_id', $employeeId)->first();
+    }
 
     private function setEmployeeTaxProperties($employeeTax, $request) {
         // Assign attributes to the employeeTax here
+        $employeeTax->tax_id = $request->tax;
+        $employeeTax->employee_id = $request->employee;
     }
 }

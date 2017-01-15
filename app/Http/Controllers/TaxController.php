@@ -7,23 +7,26 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Repositories\Tax\TaxContract;
+use App\Repositories\SalaryComponent\SalaryComponentContract;
 
 class TaxController extends Controller
 {
     protected $taxModel;
-    public function __construct(TaxContract $taxContract) {
+    public function __construct(TaxContract $taxContract, SalaryComponentContract $salaryComponentContract) {
         $this->taxModel = $taxContract;
+        $this->salaryComponentModel = $salaryComponentContract;
     }
 
     // Display taxs.index with all taxs
     public function index() {
-        $taxs = $this->taxModel->findAll();
-        return view('taxs.index', ['taxs' => $taxs]);
+        $taxes = $this->taxModel->findAll();
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        return view('taxes.index', ['taxes' => $taxes, 'salaryComponents' => $salaryComponents]);
     }
 
     // Display taxs.create
     public function create() {
-        return view('taxs.create');
+        return view('taxes.create');
     }
 
     /**
@@ -39,6 +42,8 @@ class TaxController extends Controller
          $tax = $this->taxModel->create($request);
          if ($tax->id) {
              // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
          } else {
              return back()
                 ->withInput()
@@ -49,7 +54,9 @@ class TaxController extends Controller
     // Display taxs.edit with tax to edit
     public function edit($id) {
         $tax = $this->taxModel->findById($id);
-        return view('taxs.edit', ['tax' => $tax]);
+        $taxes = $this->taxModel->findAll();
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        return view('taxes.edit', ['tax' => $tax, 'taxes' => $taxes, 'salaryComponents' => $salaryComponents]);
     }
 
     /**
@@ -65,6 +72,8 @@ class TaxController extends Controller
         $tax = $this->taxModel->edit($id, $request);
         if ($tax->id) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return back();
         } else {
             return back()
                ->withInput()
@@ -79,6 +88,8 @@ class TaxController extends Controller
     public function delete(Request $request, $id) {
         if ($this->taxModel->remove($id)) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/tax');
         } else {
             return back()
                ->with('error', 'Could not delete Tax. Try again!');

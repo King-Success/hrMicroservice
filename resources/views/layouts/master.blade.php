@@ -159,6 +159,11 @@
                     </a>
                   </li>
                   <li>
+                    <a href="/tax" >
+                      <span class="nav-text">Tax</span>
+                    </a>
+                  </li>
+                  <li>
                     <a href="/salarycomponent" >
                       <span class="nav-text">Salary Component</span>
                     </a>

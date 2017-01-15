@@ -16,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\EmployeeCreated' => [
             'App\Listeners\CreateUserForEmployee',
             'App\Listeners\CreateBasicSalaryForEmployee',
+            'App\Listeners\CreateTaxEntryForEmployee',
         ],
         'App\Events\PayrollCreationStarted' => [
             'App\Listeners\FreezeAllInputs',

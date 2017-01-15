@@ -223,3 +223,21 @@ Route::get('/payslip/tax/{payroll_id}', 'PayrollController@showTaxComponent')->m
 Route::get('/payslip/pension/{payroll_id}/{pension_id}', 'PayrollController@showPension')->middleware('auth');
 Route::get('/payslip/pension/{payroll_id}', 'PayrollController@showPensionComponent')->middleware('auth');
 Route::get('/payslip/net_pay/{payroll_id}', 'PayrollController@showNetPay')->middleware('auth');
+
+Route::group(['prefix' => 'tax', 'middleware' => ['auth']], function() {
+    Route::get('/', 'TaxController@index')->name('tax_index');
+    Route::get('/create', 'TaxController@create')->name('create_tax');
+    Route::post('/create', 'TaxController@store')->name('store_tax');
+    Route::get('/{id}/edit', 'TaxController@edit')->name('edit_tax');
+    Route::put('/{id}/edit', 'TaxController@update')->name('update_tax');
+    Route::get('/{id}/delete', 'TaxController@delete')->name('delete_tax');
+});
+
+Route::group(['prefix' => 'employeetax', 'middleware' => ['auth']], function() {
+    // Route::get('/', 'EmployeeTaxController@index')->name('employeetax_index');
+    // Route::get('/create', 'EmployeeTaxController@create')->name('create_employeetax');
+    Route::post('/create', 'EmployeeTaxController@store')->name('store_employeetax');
+    // Route::get('/{id}/edit', 'EmployeeTaxController@edit')->name('edit_employeetax');
+    // Route::put('/{id}/edit', 'EmployeeTaxController@update')->name('update_employeetax');
+    // Route::get('/{id}/delete', 'EmployeeTaxController@delete')->name('delete_employeetax');
+});

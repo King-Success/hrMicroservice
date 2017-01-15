@@ -15,6 +15,11 @@ class CreateEmployeeTaxesTable extends Migration
     {
         Schema::create('employee_taxes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('employee_id')->unsigned();
+            $table->integer('tax_id')->unsigned();
+            
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('tax_id')->references('id')->on('pensions');
             $table->timestamps();
         });
     }

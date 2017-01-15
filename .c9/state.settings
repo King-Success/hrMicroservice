@@ -4,7 +4,7 @@
             "@backwards": "false",
             "@highlightmatches": "true",
             "@matchcase": false,
-            "@preservecase": "false",
+            "@preservecase": true,
             "@regex": "false",
             "@wholeword": false,
             "@wraparound": "true"
@@ -42,7 +42,7 @@
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 973,
+                            "width": 937,
                             "height": 133
                         }
                     },
@@ -114,16 +114,16 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 92,
+            "@document": 140,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 91,
-            "@tab": 88,
-            "@undoManager": 92,
+            "@session": 139,
+            "@tab": 136,
+            "@undoManager": 140,
             "@welcome": 1
         }
     },
@@ -142,14 +142,13 @@
     },
     "panecycle": {
         "json()": [
-            "tab1",
-            "tab85"
+            "tab1"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 170,
+        "@width-left": 206,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -191,11 +190,10 @@
                 "/storage/app/public",
                 "/app/Repositories/EmployeePensionInfo",
                 "/",
-                "/resources/views",
-                "/app/Repositories/EmployeePension",
-                "/app/Repositories/EmployeeRank",
-                "/app/Repositories/EmployeeSalaryComponent",
-                "/resources"
+                "/app/Repositories/Tax",
+                "/resources/views/taxs",
+                "/resources/views/employees",
+                "/app/Repositories"
             ]
         }
     },
@@ -205,6 +203,8 @@
     "search-history": {
         "replace": {
             "json()": [
+                "Tax",
+                "tax",
                 "setEmployeeSalaryComponentProperties",
                 "$employeeSalaryComponentId",
                 "setEmployeeRankProperties",
@@ -225,6 +225,16 @@
         },
         "search": {
             "json()": [
+                "pension",
+                "Pension",
+                "pension",
+                "employeetax",
+                "pension",
+                "PFA",
+                "pensions",
+                "Pensions",
+                "Pension",
+                "pension",
                 "employeepaygradeinfo",
                 "info",
                 "setEmployeePaygradeInfoProperties",
@@ -367,33 +377,10 @@
         "json()": {
             "focus": "tab1",
             "meta": {
-                "accessList": [
-                    "tab85"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab85",
-                    "path": "/routes/web.php",
-                    "className": [
-                        "tab85"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484477855692
-                        },
-                        "filter": true,
-                        "title": "web.php",
-                        "tooltip": "/routes/web.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -401,7 +388,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views"
+            "/app/Repositories/EmployeeTax/EloquentEmployeeTaxRepository.php"
         ]
     }
 }

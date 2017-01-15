@@ -13,8 +13,13 @@ class CreateTaxesTable extends Migration
      */
     public function up()
     {
+        // Only one entry would suffice for this table
         Schema::create('taxes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title')->default('Tax');
+            $table->integer('salary_component_id')->unsigned();
+            
+            $table->foreign('salary_component_id')->references('id')->on('salary_components');
             $table->timestamps();
         });
     }

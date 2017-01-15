@@ -9,4 +9,5 @@ interface EmployeeTaxContract
     public function findAll();
     public function findById($employeeTaxId);
     public function remove($employeeTaxId);
+    public function findByEmployeeId($employeeId);
 }

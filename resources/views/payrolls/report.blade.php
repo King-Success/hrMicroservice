@@ -219,6 +219,32 @@
 		    <div class="col-sm-6">
 		        <div class="box">
 		            <div class="box-header">
+		                <span class="label success pull-right">1</span>
+		                <h3>Tax</h3>
+		            </div>
+		            <div class="p-b-sm">
+		                <div class="list-group no-border no-radius">
+		                	<!--<?php print_r($tax->salary_component->employee_salary_components); //exit; ?>-->
+		                	<?php $taxableEmployees = $tax->salary_component->employee_salary_components; ?>
+		                	<?php $amountInEntity = 0; ?>
+	                		@foreach($taxableEmployees as $taxableEmployee)
+			                	@foreach($paycheckComponents as $paycheckComponent)
+			                	<?php if($paycheckComponent->employee_salary_component_info_id != $taxableEmployee->id) continue; ?>
+			                	<?php if($paycheckComponent->employee->employee_tax->tax_id != $tax->id) continue; ?>
+			                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
+						        @endforeach
+						    @endforeach
+					        <div class="list-group-item">
+					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/tax/{{$payroll->id}}">{{$tax->title}}</a>
+					        </div>
+					    </div>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="col-sm-6">
+		        <div class="box">
+		            <div class="box-header">
 		                <span class="label success pull-right">{{count($pensions)}}</span>
 		                <h3>Pension</h3>
 		            </div>

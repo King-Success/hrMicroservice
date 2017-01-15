@@ -26,6 +26,7 @@ use App\Repositories\SalaryComponent\SalaryComponentContract;
 
 use App\Repositories\Bank\BankContract;
 use App\Repositories\Pension\PensionContract;
+use App\Repositories\Tax\TaxContract;
 
 // use PDF;
 // use View;
@@ -42,11 +43,12 @@ class PayrollController extends Controller
     
     protected $bankModel;
     protected $pensionModel;
+    protected $taxModel;
     
     public function __construct(PayrollContract $payrollContract, EmployeeContract $employeeContract,
         PaycheckContract $paycheckContract, PaycheckSummaryContract $paycheckSummaryContract, 
         PaycheckComponentContract $paycheckComponentContract, SalaryComponentContract $salaryComponentModelContract,
-        BankContract $bankContract, PensionContract $pensionContract) {
+        BankContract $bankContract, PensionContract $pensionContract, TaxContract $taxContract) {
         $this->payrollModel = $payrollContract;
         $this->employeeModel = $employeeContract;
         $this->appConfig = Cache::get('AppConfig');
@@ -58,6 +60,7 @@ class PayrollController extends Controller
         
         $this->bankModel = $bankContract;
         $this->pensionModel = $pensionContract;
+        $this->taxModel = $taxContract;
     }
     
     public function oneBankReport($payrollId, $bankId, Request $request){
@@ -86,6 +89,15 @@ class PayrollController extends Controller
             'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
+    public function showTax($payrollId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $taxes = $this->taxModel->findAll();
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
+        return view('payrolls.tax', ['payroll' => $payroll, 
+            'paycheckComponents' => $paycheckComponents, 'tax' => $taxes->last(),
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+    }
+    
     public function showNetPay($payrollId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
@@ -99,12 +111,14 @@ class PayrollController extends Controller
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         $salaryComponents = $this->salaryComponentModel->findAll();
+        $taxes = $this->taxModel->findAll();
         return view('payrolls.report', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,
             'salaryComponents' => $salaryComponents,
             'banks' => $this->bankModel->findAll(),
             'pensions' => $this->pensionModel->findAll(),
             'payroll' => $payroll,
+            'tax' => $taxes->last(),
             ]);
     }
 

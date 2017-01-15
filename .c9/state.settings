@@ -114,16 +114,16 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 144,
+            "@document": 163,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 143,
-            "@tab": 140,
-            "@undoManager": 144,
+            "@session": 162,
+            "@tab": 159,
+            "@undoManager": 163,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab139"
+            "tab151"
         ]
     },
     "panels": {
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 356,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -193,10 +193,10 @@
                 "/",
                 "/app/Repositories/Tax",
                 "/resources/views/taxs",
-                "/resources/views/taxes",
-                "/resources",
                 "/resources/views",
-                "/resources/views/payrolls"
+                "/resources/views/payrolls",
+                "/app/Http/Controllers",
+                "/routes"
             ]
         }
     },
@@ -228,6 +228,12 @@
         },
         "search": {
             "json()": [
+                "pension",
+                "$payrollId",
+                "show",
+                "$pensionableEmployee",
+                "allowance",
+                "basic_salar",
                 "consolidatedSalary",
                 "basic_salar",
                 "pension",
@@ -380,72 +386,30 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/selection.blade.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab139",
-                    "tab138",
-                    "tab136"
+                    "tab151"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab136",
-                    "path": "/resources/views/taxes/edit.blade.php",
+                    "name": "tab151",
+                    "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab136"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484482116630
-                        },
-                        "filter": true,
-                        "title": "edit.blade.php",
-                        "tooltip": "/resources/views/taxes/edit.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab138",
-                    "path": "/app/Jobs/PayEmployee.php",
-                    "className": [
-                        "tab138"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484482409640
-                        },
-                        "filter": true,
-                        "title": "PayEmployee.php",
-                        "tooltip": "/app/Jobs/PayEmployee.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab139",
-                    "path": "/resources/views/payrolls/selection.blade.php",
-                    "className": [
-                        "tab139",
+                        "tab151",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484473839917
+                            "timestamp": 1484488778012
                         },
                         "filter": true,
-                        "title": "selection.blade.php",
-                        "tooltip": "/resources/views/payrolls/selection.blade.php",
+                        "title": "report.blade.php",
+                        "tooltip": "/resources/views/payrolls/report.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -459,7 +423,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/selection.blade.php"
+            "/routes/web.php"
         ]
     }
 }

@@ -20,10 +20,10 @@
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
                     <div class="app-body">
-                        <div class="padding">
+                        <!--<div class="padding">-->
                             <div class="table-responsive" id="datatable">
 
-                            <table class="table b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
+                            <table class="table table-striped b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
                                   lengthChange: false,
                                   buttons: ['excel', 'pdf', 'colvis' ],
                                   'initComplete': function () {
@@ -111,7 +111,7 @@
                             </table>
                             
                             </div>
-                        </div>
+                        <!--</div>-->
                     </div>
                 </div>
             </div>

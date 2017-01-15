@@ -37,4 +37,9 @@ class Employee extends Model
     public function employee_salary_components(){
         return $this->hasMany('App\EmployeeSalaryComponent');
     }
+    
+    public function employee_tax(){
+        return $this->hasOne('App\EmployeeTax');
+    }
+    
 }

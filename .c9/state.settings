@@ -114,16 +114,16 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 140,
+            "@document": 141,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 139,
-            "@tab": 136,
-            "@undoManager": 140,
+            "@session": 140,
+            "@tab": 137,
+            "@undoManager": 141,
             "@welcome": 1
         }
     },
@@ -142,7 +142,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab1"
+            "tab1",
+            "tab136"
         ]
     },
     "panels": {
@@ -175,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 230,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -192,8 +193,10 @@
                 "/",
                 "/app/Repositories/Tax",
                 "/resources/views/taxs",
-                "/resources/views/employees",
-                "/app/Repositories"
+                "/app/Repositories",
+                "/resources",
+                "/resources/views",
+                "/resources/views/taxes"
             ]
         }
     },
@@ -375,12 +378,36 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab1",
+            "focus": "/resources/views/taxes/edit.blade.php",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab136"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab136",
+                    "path": "/resources/views/taxes/edit.blade.php",
+                    "className": [
+                        "tab136",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484479994067
+                        },
+                        "filter": true,
+                        "title": "edit.blade.php",
+                        "tooltip": "/resources/views/taxes/edit.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -388,7 +415,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Repositories/EmployeeTax/EloquentEmployeeTaxRepository.php"
+            "/resources/views/taxes/edit.blade.php"
         ]
     }
 }

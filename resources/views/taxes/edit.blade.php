@@ -8,7 +8,7 @@
         <div class="col-md-6" id="manageTax">
             <div class="box">
                 <div class="box-header">
-                    <h2>Manage Tax</h2><small>Edit/Remove the selected PFA</small></div>
+                    <h2>Manage Tax</h2><small>Edit the selected PFA</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
                     {!! Form::open(array('url' => '/tax/' . $tax->id . '/edit', 'role' => 'form', 'method'=>'PUT')) !!}
@@ -30,7 +30,7 @@
                         </div>
                         
                         <button type="submit" class="btn black m-b">SAVE</button>
-                        <a href="/tax/{{$tax->id}}/delete" id="deleteTax" class="m-b" style="text-decoration: underline;">DELETE</a>
+                        <!--<a href="/tax/{{$tax->id}}/delete" id="deleteTax" class="m-b" style="text-decoration: underline;">DELETE</a>-->
                     {!! Form::close() !!}
                 </div>
             </div>

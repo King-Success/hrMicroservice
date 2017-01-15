@@ -121,7 +121,7 @@ Route::group(['prefix' => 'employeebank', 'middleware' => ['auth']], function() 
 });
 Route::group(['prefix' => 'pension', 'middleware' => ['auth']], function() {
     Route::get('/', 'PensionController@index')->name('pension_index');
-    Route::get('/create', 'PensionController@create')->name('create_pension');
+    // Route::get('/create', 'PensionController@create')->name('create_pension');
     Route::post('/create', 'PensionController@store')->name('store_pension');
     Route::get('/{id}/edit', 'PensionController@edit')->name('edit_pension');
     Route::put('/{id}/edit', 'PensionController@update')->name('update_pension');

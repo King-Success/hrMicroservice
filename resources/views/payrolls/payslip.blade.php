@@ -75,7 +75,7 @@
                         </tr>
                         @endforeach
                     </table>
-                    <div class="padding">
+                    <div class="container">
                         <div>Authorized Signature_________________________</div>
                     </div>
                 </div>

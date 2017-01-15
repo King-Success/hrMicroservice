@@ -35,7 +35,7 @@
                         <div class="table-responsive" id="datatable">
                             <table id="employees" class="table b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
                                   lengthChange: false,
-                                  buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+                                  buttons: [ /*'copy', */'excel', 'pdf', 'colvis' ],
                                   'initComplete': function () {
                                     this.api().buttons().container()
                                       .appendTo( '#datatable .col-md-6:eq(0)' );

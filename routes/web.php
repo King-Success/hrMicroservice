@@ -226,11 +226,11 @@ Route::get('/payslip/net_pay/{payroll_id}', 'PayrollController@showNetPay')->mid
 
 Route::group(['prefix' => 'tax', 'middleware' => ['auth']], function() {
     Route::get('/', 'TaxController@index')->name('tax_index');
-    Route::get('/create', 'TaxController@create')->name('create_tax');
+    // Route::get('/create', 'TaxController@create')->name('create_tax');
     Route::post('/create', 'TaxController@store')->name('store_tax');
     Route::get('/{id}/edit', 'TaxController@edit')->name('edit_tax');
     Route::put('/{id}/edit', 'TaxController@update')->name('update_tax');
-    Route::get('/{id}/delete', 'TaxController@delete')->name('delete_tax');
+    // Route::get('/{id}/delete', 'TaxController@delete')->name('delete_tax');
 });
 
 Route::group(['prefix' => 'employeetax', 'middleware' => ['auth']], function() {

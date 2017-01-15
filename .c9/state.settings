@@ -114,16 +114,16 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 141,
+            "@document": 142,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 140,
-            "@tab": 137,
-            "@undoManager": 141,
+            "@session": 141,
+            "@tab": 138,
+            "@undoManager": 142,
             "@welcome": 1
         }
     },
@@ -143,7 +143,7 @@
     "panecycle": {
         "json()": [
             "tab1",
-            "tab136"
+            "tab137"
         ]
     },
     "panels": {
@@ -176,7 +176,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 230,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -194,9 +194,8 @@
                 "/app/Repositories/Tax",
                 "/resources/views/taxs",
                 "/app/Repositories",
-                "/resources",
-                "/resources/views",
-                "/resources/views/taxes"
+                "/resources/views/taxes",
+                "/routes"
             ]
         }
     },
@@ -378,9 +377,10 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/taxes/edit.blade.php",
+            "focus": "/routes/web.php",
             "meta": {
                 "accessList": [
+                    "tab137",
                     "tab136"
                 ]
             },
@@ -391,17 +391,37 @@
                     "name": "tab136",
                     "path": "/resources/views/taxes/edit.blade.php",
                     "className": [
-                        "tab136",
+                        "tab136"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484482116630
+                        },
+                        "filter": true,
+                        "title": "edit.blade.php",
+                        "tooltip": "/resources/views/taxes/edit.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab137",
+                    "path": "/routes/web.php",
+                    "className": [
+                        "tab137",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484479994067
+                            "timestamp": 1484480227120
                         },
                         "filter": true,
-                        "title": "edit.blade.php",
-                        "tooltip": "/resources/views/taxes/edit.blade.php",
+                        "title": "web.php",
+                        "tooltip": "/routes/web.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -415,7 +435,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/taxes/edit.blade.php"
+            "/routes/web.php"
         ]
     }
 }

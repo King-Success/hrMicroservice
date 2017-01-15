@@ -35,7 +35,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-paper-airplane text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h3 class="text-center _600">{{count($paycheckSummaries)}}</h3>
+						<h6 class="text-center _600">{{count($paycheckSummaries)}}</h6>
 						<p class="text-muted m-b-md">Payslips</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -50,7 +50,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h3 class="text-center _600">{{number_format($consolidatedSalary, 2)}}</h3>
+						<h6 class="text-center _600">{{number_format($consolidatedSalary, 2)}}</h6>
 						<p class="text-muted m-b-md">Consolidated Salary</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -65,7 +65,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h3 class="text-center _600">{{number_format($consolidatedAllowance, 2)}}</h3>
+						<h6 class="text-center _600">{{number_format($consolidatedAllowance, 2)}}</h6>
 						<p class="text-muted m-b-md">Allowance</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -80,7 +80,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h3 class="text-center _600">{{number_format($netPay, 2)}}</h3>
+						<h6 class="text-center _600">{{number_format($netPay, 2)}}</h6>
 						<p class="text-muted m-b-md"><a href="/payslip/net_pay/{{$payroll->id}}">Net Pay</a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -105,7 +105,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-document text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h3 class="text-center _600">{{number_format($sum, 2)}}</h3>
+						<h6 class="text-center _600">{{number_format($sum, 2)}}</h6>
 						<p class="text-muted m-b-md"><a href="/payslip/salary_component/{{$payroll->id}}/{{$salaryComponent->id}}">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>

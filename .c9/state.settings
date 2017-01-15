@@ -28,8 +28,7 @@
                     "name": "tab1",
                     "path": "",
                     "className": [
-                        "tab1",
-                        "focus"
+                        "tab1"
                     ],
                     "document": {
                         "changed": false,
@@ -114,16 +113,16 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 163,
+            "@document": 164,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 162,
-            "@tab": 159,
-            "@undoManager": 163,
+            "@session": 163,
+            "@tab": 160,
+            "@undoManager": 164,
             "@welcome": 1
         }
     },
@@ -142,8 +141,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab1",
-            "tab151"
+            "tab151",
+            "tab1"
         ]
     },
     "panels": {
@@ -176,7 +175,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 290,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -196,7 +195,7 @@
                 "/resources/views",
                 "/resources/views/payrolls",
                 "/app/Http/Controllers",
-                "/routes"
+                "/resources"
             ]
         }
     },
@@ -389,7 +388,8 @@
             "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab151"
+                    "tab151",
+                    "tab159"
                 ]
             },
             "name": "pane0",
@@ -405,7 +405,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484488778012
+                            "timestamp": 1484488987403
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -414,6 +414,26 @@
                     },
                     "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab159",
+                    "path": "/resources/views/payrolls/selection.blade.php",
+                    "className": [
+                        "tab159"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484489906614
+                        },
+                        "filter": true,
+                        "title": "selection.blade.php",
+                        "tooltip": "/resources/views/payrolls/selection.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -423,7 +443,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/routes/web.php"
+            "/resources/views/payrolls/selection.blade.php"
         ]
     }
 }

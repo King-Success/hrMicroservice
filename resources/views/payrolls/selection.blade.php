@@ -74,12 +74,12 @@
                                         <td>{{number_format($paygrade, 2)}}</td>
                                         <td>{{number_format($paygradeAllowance, 2)}}</td>
                                         -->
-                                        <td>{{number_format($consolidatedSalary, 2)}}</td>
-                                        <td>{{number_format($consolidatedAllowance, 2)}}</td>
+                                        <td>{{number_format($consolidatedSalary * $payroll->cycle, 2)}}</td>
+                                        <td>{{number_format($consolidatedAllowance * $payroll->cycle, 2)}}</td>
                                         <?php
                                         $grossTotal = $consolidatedSalary + $consolidatedAllowance;
                                         ?>
-                                        <td>{{number_format($grossTotal, 2)}}</td>
+                                        <td>{{number_format($grossTotal * $payroll->cycle, 2)}}</td>
                                         <?php
                                         // $basic_salary = $employee->employee_basic_salary->amount;
                                         $totalDeductions = 0;
@@ -102,9 +102,9 @@
                                             }
                                         }
                                         ?>
-                                        <td>{{number_format($totalDeductions, 2)}}</td>
-                                        <td>{{number_format($totalEarnings, 2)}}</td>
-                                        <td>{{number_format($grossTotal + $totalEarnings - $totalDeductions, 2)}}</td>
+                                        <td>{{number_format($totalDeductions * $payroll->cycle, 2)}}</td>
+                                        <td>{{number_format($totalEarnings * $payroll->cycle, 2)}}</td>
+                                        <td>{{number_format(($grossTotal + $totalEarnings - $totalDeductions) * $payroll->cycle, 2)}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

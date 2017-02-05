@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends($view_type ? 'layouts.print' : 'layouts.master')
 
 @section('content')
 
@@ -8,8 +8,10 @@
 	<div class="text-center">
 		<h2 class="_700 m-b">{{$salaryComponent->title}}</h2>
 		<h5 class="m-b-md">{{$salaryComponent->title}} for {{$payroll->title}} {{$payroll->paid_at}}</h5>
-		<a href="/payslip/salary_component/{{$salaryComponent->id}}/{{$payroll->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
+		@if(!$view_type)
+		<a href="/payslip/salary_component/{{$payroll->id}}/{{$salaryComponent->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
 		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
+		@endif
 	</div>
 	</div>
 </div>

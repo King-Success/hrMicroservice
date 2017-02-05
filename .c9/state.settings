@@ -141,16 +141,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 27,
+            "@document": 31,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 25,
-            "@tab": 27,
-            "@undoManager": 27,
+            "@session": 29,
+            "@tab": 31,
+            "@undoManager": 31,
             "@welcome": 1
         }
     },
@@ -169,7 +169,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab25",
+            "tab4",
             "tab12"
         ]
     },
@@ -425,12 +425,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/payslip.blade.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
+                    "tab4",
                     "tab25",
-                    "tab26",
-                    "tab4"
+                    "tab26"
                 ]
             },
             "name": "pane0",
@@ -440,7 +440,8 @@
                     "name": "tab4",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab4"
+                        "tab4",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -453,20 +454,19 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
                     "name": "tab25",
                     "path": "/resources/views/payrolls/payslip.blade.php",
                     "className": [
-                        "tab25",
-                        "focus"
+                        "tab25"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486328685475
+                            "timestamp": 1486329616796
                         },
                         "filter": true,
                         "title": "payslip.blade.php",
@@ -474,7 +474,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",

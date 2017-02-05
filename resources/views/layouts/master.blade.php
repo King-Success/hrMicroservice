@@ -31,6 +31,8 @@
   <!-- endbuild -->
   <link rel="stylesheet" href="{{ URL::to('/') }}/css/styles/font.css" type="text/css" />
   @yield('css_header')
+  <!-- jQuery -->
+  <script src="{{ URL::to('/') }}/libs/jquery/dist/jquery.js"></script>
 </head>
 <body>
   <div class="app" id="app">
@@ -38,7 +40,7 @@
 <!-- ############ LAYOUT START-->
 
   <!-- aside -->
-  <div id="aside" class="app-aside fade nav-dropdown black">
+  <div id="aside" class="app-aside fade nav-dropdown dark">
     <!-- fluid app aside -->
     <div class="navside dk" data-layout="column">
       <div class="navbar no-radius">
@@ -445,8 +447,6 @@
   </div>
 
 <!-- build:js scripts/app.min.js -->
-<!-- jQuery -->
-  <script src="{{ URL::to('/') }}/libs/jquery/dist/jquery.js"></script>
 <!-- Bootstrap -->
   <script src="{{ URL::to('/') }}/libs/tether/dist/js/tether.min.js"></script>
   <script src="{{ URL::to('/') }}/libs/bootstrap/dist/js/bootstrap.js"></script>

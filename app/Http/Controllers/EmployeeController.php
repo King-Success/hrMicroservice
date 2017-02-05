@@ -201,7 +201,7 @@ class EmployeeController extends Controller
      * Delete Employee from database
      * Redirect to prefered route or perform other action
      */
-    public function delete($id) {
+    public function delete(Request $request, $id) {
         if ($this->employeeModel->remove($id)) {
             // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');

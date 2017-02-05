@@ -33,6 +33,7 @@ class CreateEmployeesTable extends Migration
             
             $table->foreign('prefix_id')->references('id')->on('prefixes');
             $table->foreign('employee_type_id')->references('id')->on('employee_types');
+            $table->softDeletes();
             
         });
     }

@@ -351,10 +351,12 @@
 				            <div class="container" style="margin-top: 50px; margin-bottom: 40px;">
                         		<div>Authorized Signature_________________________</div>
                     		</div>
+                    		<!--
                     		<div class="container">
                         		<center><button class="md-btn md-fab m-b-sm blue print_slip">
                         			<i class="fa fa-print"></i></button></center>
                     		</div>
+                    		-->
 				        </div>
 				    </div>
 				<!--</div>-->

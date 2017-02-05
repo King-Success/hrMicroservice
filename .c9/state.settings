@@ -17,6 +17,7 @@
         "json()": {
             "meta": {
                 "accessList": [
+                    "tab12",
                     "tab1",
                     "tab2"
                 ]
@@ -28,8 +29,7 @@
                     "name": "tab1",
                     "path": "",
                     "className": [
-                        "tab1",
-                        "focus"
+                        "tab1"
                     ],
                     "document": {
                         "changed": false,
@@ -37,17 +37,17 @@
                             "timestamp": 1484104681254
                         },
                         "filter": true,
-                        "title": "bash - \"solum\"",
-                        "tooltip": "bash - \"solum\"",
+                        "title": "php - \"solum\"",
+                        "tooltip": "php - \"solum\"",
                         "terminal": {
                             "id": "devel_859",
                             "cwd": "",
-                            "width": 937,
+                            "width": 874,
                             "height": 133
                         }
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -91,6 +91,31 @@
                     },
                     "editorType": "immediate",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab12",
+                    "path": "",
+                    "className": [
+                        "tab12"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486281132181
+                        },
+                        "filter": true,
+                        "title": "bash - \"musty@solum: ~/dippay\"",
+                        "tooltip": "bash - \"musty@solum: ~/dippay\"",
+                        "terminal": {
+                            "id": "devel_556",
+                            "cwd": "",
+                            "width": 874,
+                            "height": 133
+                        }
+                    },
+                    "editorType": "terminal",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -110,20 +135,20 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
-            "@acestatus": 2,
+            "@ace": 1,
+            "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 39,
+            "@document": 15,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 38,
-            "@tab": 38,
-            "@undoManager": 39,
+            "@session": 14,
+            "@tab": 15,
+            "@undoManager": 15,
             "@welcome": 1
         }
     },
@@ -142,13 +167,14 @@
     },
     "panecycle": {
         "json()": [
-            "tab1"
+            "tab14",
+            "tab12"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 206,
+        "@width-left": 269,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -175,7 +201,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 133,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -188,17 +214,17 @@
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
-                "/",
                 "/app/Repositories/Tax",
-                "/app/Http/Controllers",
                 "/resources/views",
                 "/app/Repositories/Prefix",
                 "/app/Repositories/Rank",
                 "/app/Repositories/SalaryComponent",
+                "/",
+                "/resources/views/prefixes",
+                "/resources/views/layouts",
+                "/app/Http/Controllers",
                 "/database",
-                "/database/migrations",
-                "/app",
-                "/app/Http"
+                "/database/seeds"
             ]
         }
     },
@@ -230,6 +256,7 @@
         },
         "search": {
             "json()": [
+                "$employee",
                 "Authorized Signature",
                 "pension",
                 "$payrollId",
@@ -390,12 +417,162 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab1",
+            "focus": "/app/Repositories/Employee/EloquentEmployeeRepository.php",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab14",
+                    "tab10",
+                    "tab0",
+                    "tab9",
+                    "tab8",
+                    "tab6",
+                    "tab4"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "/database/seeds/UserTableSeeder.php",
+                    "className": [
+                        "tab0"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484104329287
+                        },
+                        "filter": true,
+                        "title": "UserTableSeeder.php",
+                        "tooltip": "/database/seeds/UserTableSeeder.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/resources/views/payrolls/report.blade.php",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486279512171
+                        },
+                        "filter": true,
+                        "title": "report.blade.php",
+                        "tooltip": "/resources/views/payrolls/report.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab6",
+                    "path": "/resources/views/employees/edit.blade.php",
+                    "className": [
+                        "tab6"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486280791137
+                        },
+                        "filter": true,
+                        "title": "edit.blade.php",
+                        "tooltip": "/resources/views/employees/edit.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab8",
+                    "path": "/database/migrations/2016_12_22_204752_create_employees_table.php",
+                    "className": [
+                        "tab8"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486280961692
+                        },
+                        "filter": true,
+                        "title": "2016_12_22_204752_create_employees_table.php",
+                        "tooltip": "/database/migrations/2016_12_22_204752_create_employees_table.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab9",
+                    "path": "/app/Employee.php",
+                    "className": [
+                        "tab9"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486281021925
+                        },
+                        "filter": true,
+                        "title": "Employee.php",
+                        "tooltip": "/app/Employee.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab10",
+                    "path": "/app/Http/Controllers/EmployeeController.php",
+                    "className": [
+                        "tab10"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486281288743
+                        },
+                        "filter": true,
+                        "title": "EmployeeController.php",
+                        "tooltip": "/app/Http/Controllers/EmployeeController.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab14",
+                    "path": "/app/Repositories/Employee/EloquentEmployeeRepository.php",
+                    "className": [
+                        "tab14",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1484104329279
+                        },
+                        "filter": true,
+                        "title": "EloquentEmployeeRepository.php",
+                        "tooltip": "/app/Repositories/Employee/EloquentEmployeeRepository.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -403,7 +580,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Http/Controllers/PensionController.php"
+            "/database/seeds/UserTableSeeder.php"
         ]
     }
 }

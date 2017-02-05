@@ -99,7 +99,8 @@
                     "name": "tab12",
                     "path": "",
                     "className": [
-                        "tab12"
+                        "tab12",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -141,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 33,
+            "@document": 39,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 31,
-            "@tab": 33,
-            "@undoManager": 33,
+            "@session": 37,
+            "@tab": 39,
+            "@undoManager": 39,
             "@welcome": 1
         }
     },
@@ -169,8 +170,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab4",
-            "tab12"
+            "tab12",
+            "tab37"
         ]
     },
     "panels": {
@@ -203,7 +204,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 157,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -216,22 +217,15 @@
                 "/resources/views/vendor/notifications",
                 "/storage/app",
                 "/storage/app/public",
-                "/app/Repositories/Tax",
-                "/resources/views",
-                "/app/Repositories/Rank",
-                "/app/Repositories/SalaryComponent",
                 "/",
                 "/resources/views/prefixes",
                 "/resources/views/layouts",
                 "/app/Http/Controllers",
-                "/app/Repositories",
-                "/app/Repositories/Employee",
-                "/app/Repositories/EmployeeBank",
-                "/app/Repositories/EmployeeDepartment",
-                "/app/Repositories/EmployeePaygrade",
-                "/resources",
                 "/app",
-                "/app/Http"
+                "/app/Listeners",
+                "/app/Repositories",
+                "/app/Jobs",
+                "/app/DigitalPatterns"
             ]
         }
     },
@@ -263,6 +257,7 @@
         },
         "search": {
             "json()": [
+                "PayEmployee",
                 "January 2015 Payslip",
                 "payrolls.payslip",
                 "$employee",
@@ -426,50 +421,27 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/app/Jobs/PayEmployee.php",
             "meta": {
                 "accessList": [
-                    "tab4",
-                    "tab32",
-                    "tab31",
-                    "tab26"
+                    "tab37",
+                    "tab38",
+                    "tab36"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab4",
-                    "path": "/resources/views/payrolls/report.blade.php",
-                    "className": [
-                        "tab4",
-                        "changed",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": true,
-                        "meta": {
-                            "timestamp": 1486327791636
-                        },
-                        "filter": true,
-                        "title": "report.blade.php",
-                        "tooltip": "/resources/views/payrolls/report.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab26",
+                    "name": "tab36",
                     "path": "/app/Http/Controllers/PayrollController.php",
                     "className": [
-                        "tab26"
+                        "tab36"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486328776175
+                            "timestamp": 1486328776356
                         },
                         "filter": true,
                         "title": "PayrollController.php",
@@ -481,39 +453,40 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab31",
-                    "path": "/resources/views/payrolls/pension.blade.php",
+                    "name": "tab37",
+                    "path": "/app/Jobs/PayEmployee.php",
                     "className": [
-                        "tab31"
+                        "tab37",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486331804142
+                            "timestamp": 1484482410207
                         },
                         "filter": true,
-                        "title": "pension.blade.php",
-                        "tooltip": "/resources/views/payrolls/pension.blade.php",
+                        "title": "PayEmployee.php",
+                        "tooltip": "/app/Jobs/PayEmployee.php",
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
-                    "name": "tab32",
-                    "path": "/resources/views/payrolls/net_pay.blade.php",
+                    "name": "tab38",
+                    "path": "/app/DigitalPatterns/PayrollGlobals.php",
                     "className": [
-                        "tab32"
+                        "tab38"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486329589548
+                            "timestamp": 1484111608266
                         },
                         "filter": true,
-                        "title": "net_pay.blade.php",
-                        "tooltip": "/resources/views/payrolls/net_pay.blade.php",
+                        "title": "PayrollGlobals.php",
+                        "tooltip": "/app/DigitalPatterns/PayrollGlobals.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -527,7 +500,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Http/Controllers/PayrollController.php"
+            "/app/DigitalPatterns/PayrollGlobals.php"
         ]
     }
 }

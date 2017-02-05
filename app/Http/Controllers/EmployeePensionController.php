@@ -34,7 +34,7 @@ class EmployeePensionController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
-            'pension' => 'required|numeric|exists:pensions',
+            'pension' => 'required|numeric|exists:pensions,id',
             'employer_contribution' => 'sometimes|required|numeric|min:0',
          ]);
          

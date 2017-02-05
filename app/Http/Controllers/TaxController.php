@@ -38,7 +38,7 @@ class TaxController extends Controller
          $this->validate($request, [
             // Specify validation rules here
             'title' => 'required',
-            'salary_component' => 'required|numeric|exists:salary_components',
+            'salary_component' => 'required|numeric|exists:salary_components,id',
          ]);
 
          $tax = $this->taxModel->create($request);
@@ -70,7 +70,7 @@ class TaxController extends Controller
         $this->validate($request, [
            // Specify validation rules here
            'title' => 'required',
-           'salary_component' => 'required|numeric|exists:salary_components',
+           'salary_component' => 'required|numeric|exists:salary_components,id',
         ]);
 
         $tax = $this->taxModel->edit($id, $request);

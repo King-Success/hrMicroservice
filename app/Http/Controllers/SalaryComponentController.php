@@ -36,8 +36,8 @@ class SalaryComponentController extends Controller
             // Specify validation rules here
             'title' => 'required',
             'amount' => 'required|numeric|min:0',
-            'component_type' => 'required|numeric|in:Earning,Deduction',
-            'value_type' => 'required|numeric|in:Amount,Percentage'
+            'component_type' => 'required|in:Earning,Deduction',
+            'value_type' => 'required|in:Amount,Percentage'
          ]);
 
          $salaryComponent = $this->salaryComponentModel->create($request);
@@ -69,8 +69,8 @@ class SalaryComponentController extends Controller
            // Specify validation rules here
             'title' => 'required',
             'amount' => 'required|numeric|min:0',
-            'component_type' => 'required|numeric|in:Earning,Deduction',
-            'value_type' => 'required|numeric|in:Amount,Percentage'
+            'component_type' => 'required|in:Earning,Deduction',
+            'value_type' => 'required|in:Amount,Percentage'
         ]);
 
         $salaryComponent = $this->salaryComponentModel->edit($id, $request);

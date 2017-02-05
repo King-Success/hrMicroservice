@@ -19,8 +19,8 @@
                             <label for="InputComponentType" class="col-sm-2 form-control-label">Component</label>
                             <div class="col-sm-10">
                                 <select class="form-control c-select" name="component_type" id="InputComponentType">
-                                    <option>Earning</option>
-                                    <option>Deduction</option>
+                                    <option value="Earning">Earning</option>
+                                    <option value="Deduction">Deduction</option>
                                 </select>
                             </div>
                         </div>

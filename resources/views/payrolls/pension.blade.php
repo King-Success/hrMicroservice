@@ -1,15 +1,16 @@
-@extends('layouts.master')
+@extends($view_type ? 'layouts.print' : 'layouts.master')
 
 @section('content')
-
 <!-- ############ PAGE START-->
 <div class="padding">
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
 		<h2 class="_700 m-b">{{$pension->title}}</h2>
 		<h5 class="m-b-md">Shedule of Payment to "{{$pension->title}}" {{$payroll->paid_at}}</h5>
+		@if(!$view_type)
 		<a href="/payslip/pension/{{$payroll->id}}/{{$pension->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
 		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
+		@endif
 	</div>
 	</div>
 </div>

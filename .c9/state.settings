@@ -99,7 +99,8 @@
                     "name": "tab12",
                     "path": "",
                     "className": [
-                        "tab12"
+                        "tab12",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -141,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 31,
+            "@document": 33,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 29,
-            "@tab": 31,
-            "@undoManager": 31,
+            "@session": 31,
+            "@tab": 33,
+            "@undoManager": 33,
             "@welcome": 1
         }
     },
@@ -169,8 +170,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab4",
-            "tab12"
+            "tab12",
+            "tab31"
         ]
     },
     "panels": {
@@ -425,9 +426,11 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/resources/views/payrolls/pension.blade.php",
             "meta": {
                 "accessList": [
+                    "tab31",
+                    "tab32",
                     "tab4",
                     "tab25",
                     "tab26"
@@ -440,8 +443,7 @@
                     "name": "tab4",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab4",
-                        "focus"
+                        "tab4"
                     ],
                     "document": {
                         "changed": false,
@@ -454,7 +456,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -491,6 +493,48 @@
                         "filter": true,
                         "title": "PayrollController.php",
                         "tooltip": "/app/Http/Controllers/PayrollController.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab31",
+                    "path": "/resources/views/payrolls/pension.blade.php",
+                    "className": [
+                        "tab31",
+                        "changed",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": true,
+                        "meta": {
+                            "timestamp": 1486331606243
+                        },
+                        "filter": true,
+                        "title": "pension.blade.php",
+                        "tooltip": "/resources/views/payrolls/pension.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab32",
+                    "path": "/resources/views/payrolls/net_pay.blade.php",
+                    "className": [
+                        "tab32"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486329589548
+                        },
+                        "filter": true,
+                        "title": "net_pay.blade.php",
+                        "tooltip": "/resources/views/payrolls/net_pay.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",

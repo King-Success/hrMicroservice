@@ -313,7 +313,7 @@
 				<!--<div class="col-md-12">-->
 				    <div class="box">
 				        <div class="box-header">
-				            <h2>{{$AppConfig->company_title}}</h2><small>January 2015 Payslip</small></div>
+				            <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}} {{$payroll->paid_at}}</small></div>
 				        <div class="box-divider m-a-0"></div>
 				        <div class="box-body">
 				            <div><h3>{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}</h3><small><i>Staff No: {{$paycheck->employee->employee_number}}</i></small></div>

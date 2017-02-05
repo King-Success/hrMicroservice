@@ -99,8 +99,7 @@
                     "name": "tab12",
                     "path": "",
                     "className": [
-                        "tab12",
-                        "focus"
+                        "tab12"
                     ],
                     "document": {
                         "changed": false,
@@ -170,8 +169,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab12",
-            "tab31"
+            "tab4",
+            "tab12"
         ]
     },
     "panels": {
@@ -264,6 +263,7 @@
         },
         "search": {
             "json()": [
+                "January 2015 Payslip",
                 "payrolls.payslip",
                 "$employee",
                 "Authorized Signature",
@@ -426,13 +426,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/pension.blade.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab31",
-                    "tab32",
                     "tab4",
-                    "tab25",
+                    "tab32",
+                    "tab31",
                     "tab26"
                 ]
             },
@@ -443,10 +442,12 @@
                     "name": "tab4",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab4"
+                        "tab4",
+                        "changed",
+                        "focus"
                     ],
                     "document": {
-                        "changed": false,
+                        "changed": true,
                         "meta": {
                             "timestamp": 1486327791636
                         },
@@ -456,27 +457,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab25",
-                    "path": "/resources/views/payrolls/payslip.blade.php",
-                    "className": [
-                        "tab25"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486329616796
-                        },
-                        "filter": true,
-                        "title": "payslip.blade.php",
-                        "tooltip": "/resources/views/payrolls/payslip.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -503,14 +484,12 @@
                     "name": "tab31",
                     "path": "/resources/views/payrolls/pension.blade.php",
                     "className": [
-                        "tab31",
-                        "changed",
-                        "focus"
+                        "tab31"
                     ],
                     "document": {
-                        "changed": true,
+                        "changed": false,
                         "meta": {
-                            "timestamp": 1486331606243
+                            "timestamp": 1486331804142
                         },
                         "filter": true,
                         "title": "pension.blade.php",
@@ -518,7 +497,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",

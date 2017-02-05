@@ -257,6 +257,7 @@
 		                		@foreach($pensionableEmployees as $pensionableEmployee)
 				                	@foreach($paycheckComponents as $paycheckComponent)
 				                	<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
+				                	<?php if(!$paycheckComponent->employee->employee_pension) continue; ?>
 				                	<?php if($paycheckComponent->employee->employee_pension->pension_id != $pension->id) continue; ?>
 				                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
 							        @endforeach

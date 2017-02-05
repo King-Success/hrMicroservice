@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends($view_type ? 'layouts.print' : 'layouts.master')
 
 @section('css_header')
         <style type="text/css">
@@ -21,6 +21,7 @@
 @section('content')
 
 <!-- ############ PAGE START-->
+@if(!$view_type)
 <div class="padding">
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
@@ -31,7 +32,7 @@
 	</div>
 	</div>
 </div>
-
+@endif
 <div class="padding">
     <div class="row">
         <?php $counter = 0; ?>

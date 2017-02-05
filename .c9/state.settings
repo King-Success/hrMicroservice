@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 159,
+        "@height": 165,
         "@maximized": false,
         "json()": {
             "meta": {
@@ -113,7 +113,7 @@
                             "id": "devel_556",
                             "cwd": "",
                             "width": 874,
-                            "height": 133
+                            "height": 139
                         }
                     },
                     "editorType": "terminal",
@@ -141,16 +141,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 24,
+            "@document": 27,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 22,
-            "@tab": 24,
-            "@undoManager": 24,
+            "@session": 25,
+            "@tab": 27,
+            "@undoManager": 27,
             "@welcome": 1
         }
     },
@@ -169,7 +169,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab19",
+            "tab25",
             "tab12"
         ]
     },
@@ -203,7 +203,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 157,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -224,12 +224,14 @@
                 "/resources/views/prefixes",
                 "/resources/views/layouts",
                 "/app/Http/Controllers",
-                "/app",
                 "/app/Repositories",
                 "/app/Repositories/Employee",
                 "/app/Repositories/EmployeeBank",
                 "/app/Repositories/EmployeeDepartment",
-                "/app/Repositories/EmployeePaygrade"
+                "/app/Repositories/EmployeePaygrade",
+                "/resources",
+                "/app",
+                "/app/Http"
             ]
         }
     },
@@ -261,6 +263,7 @@
         },
         "search": {
             "json()": [
+                "payrolls.payslip",
                 "$employee",
                 "Authorized Signature",
                 "pension",
@@ -422,72 +425,16 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/app/Http/Controllers/EmployeeBankController.php",
+            "focus": "/resources/views/payrolls/payslip.blade.php",
             "meta": {
                 "accessList": [
-                    "tab19",
-                    "tab18",
-                    "tab22",
-                    "tab3",
-                    "tab11",
-                    "tab7",
-                    "tab5",
-                    "tab16",
-                    "tab0",
-                    "tab4",
-                    "tab6",
-                    "tab8",
-                    "tab9",
-                    "tab10",
-                    "tab14",
-                    "tab15",
-                    "tab17"
+                    "tab25",
+                    "tab26",
+                    "tab4"
                 ]
             },
             "name": "pane0",
             "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab0",
-                    "path": "/database/seeds/UserTableSeeder.php",
-                    "className": [
-                        "tab0"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "UserTableSeeder.php",
-                        "tooltip": "/database/seeds/UserTableSeeder.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 23,
-                                    "column": 26
-                                },
-                                "end": {
-                                    "row": 23,
-                                    "column": 45
-                                },
-                                "isBackwards": true
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
-                        "hash": "d2062ce49307d7b5a966955ec4181148c4bce8c4",
-                        "meta": {
-                            "timestamp": 1484104329287
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
                 {
                     "type": "tab",
                     "name": "tab4",
@@ -496,389 +443,13 @@
                         "tab4"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486327791636
+                        },
                         "filter": true,
                         "title": "report.blade.php",
                         "tooltip": "/resources/views/payrolls/report.blade.php",
-                        "ace": {
-                            "folds": [
-                                {
-                                    "start": {
-                                        "row": 119,
-                                        "column": 32
-                                    },
-                                    "end": {
-                                        "row": 190,
-                                        "column": 6
-                                    },
-                                    "placeholder": "..."
-                                },
-                                {
-                                    "start": {
-                                        "row": 191,
-                                        "column": 28
-                                    },
-                                    "end": {
-                                        "row": 217,
-                                        "column": 6
-                                    },
-                                    "placeholder": "..."
-                                },
-                                {
-                                    "start": {
-                                        "row": 218,
-                                        "column": 28
-                                    },
-                                    "end": {
-                                        "row": 243,
-                                        "column": 6
-                                    },
-                                    "placeholder": "..."
-                                },
-                                {
-                                    "start": {
-                                        "row": 244,
-                                        "column": 28
-                                    },
-                                    "end": {
-                                        "row": 271,
-                                        "column": 6
-                                    },
-                                    "placeholder": "..."
-                                },
-                                {
-                                    "start": {
-                                        "row": 275,
-                                        "column": 45
-                                    },
-                                    "end": {
-                                        "row": 296,
-                                        "column": 1
-                                    },
-                                    "placeholder": "..."
-                                }
-                            ],
-                            "scrolltop": 2623.7011108398438,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 353,
-                                    "column": 26
-                                },
-                                "end": {
-                                    "row": 353,
-                                    "column": 26
-                                },
-                                "isBackwards": true
-                            },
-                            "options": {
-                                "tabSize": 4,
-                                "useSoftTabs": false,
-                                "guessTabSize": false,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
-                        "hash": "024c1f6d96ede4708290fff076b622222a8fc0d5",
-                        "meta": {
-                            "timestamp": 1486279512355
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab6",
-                    "path": "/resources/views/employees/edit.blade.php",
-                    "className": [
-                        "tab6"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "edit.blade.php",
-                        "tooltip": "/resources/views/employees/edit.blade.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 1494,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 113,
-                                    "column": 39
-                                },
-                                "end": {
-                                    "row": 113,
-                                    "column": 39
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 10,
-                                "state": "start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "ad2c8a5048b32de0235dac721f7d838a20e4f20f",
-                        "meta": {
-                            "timestamp": 1486280791321
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab8",
-                    "path": "/database/migrations/2016_12_22_204752_create_employees_table.php",
-                    "className": [
-                        "tab8"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "2016_12_22_204752_create_employees_table.php",
-                        "tooltip": "/database/migrations/2016_12_22_204752_create_employees_table.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 180,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 35,
-                                    "column": 34
-                                },
-                                "end": {
-                                    "row": 35,
-                                    "column": 34
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 18,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "f2777862c35c48a93808ceb38335a8f8e50f3284",
-                        "meta": {
-                            "timestamp": 1486280961894
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab9",
-                    "path": "/app/Employee.php",
-                    "className": [
-                        "tab9"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "Employee.php",
-                        "tooltip": "/app/Employee.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 5,
-                                    "column": 44
-                                },
-                                "end": {
-                                    "row": 5,
-                                    "column": 44
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 16,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "ccf36ca497ce03f1f4b6c7d1a71cf70a8dea9e3a",
-                        "meta": {
-                            "timestamp": 1486281022102
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab10",
-                    "path": "/app/Http/Controllers/EmployeeController.php",
-                    "className": [
-                        "tab10"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "EmployeeController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeeController.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 2979.6011657714844,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 204,
-                                    "column": 48
-                                },
-                                "end": {
-                                    "row": 204,
-                                    "column": 48
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 29,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "37392ed924d99c09a232eff3d2e7fc874ea0d605",
-                        "meta": {
-                            "timestamp": 1486281288923
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab14",
-                    "path": "/app/Repositories/Employee/EloquentEmployeeRepository.php",
-                    "className": [
-                        "tab14"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "EloquentEmployeeRepository.php",
-                        "tooltip": "/app/Repositories/Employee/EloquentEmployeeRepository.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 722.3003692626953,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 52,
-                                    "column": 23
-                                },
-                                "end": {
-                                    "row": 52,
-                                    "column": 23
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 45,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "d0619cbc8643bc148e46af2ddfaa45e73d8b1d82",
-                        "meta": {
-                            "timestamp": 1484104329279
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab15",
-                    "path": "/app/Repositories/Rank/EloquentRankRepository.php",
-                    "className": [
-                        "tab15"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "EloquentRankRepository.php",
-                        "tooltip": "/app/Repositories/Rank/EloquentRankRepository.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 421.2001647949219,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 27,
-                                    "column": 5
-                                },
-                                "end": {
-                                    "row": 27,
-                                    "column": 5
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 26,
-                                "state": "php-start",
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "c6b5a35185fbd299b6313c21a1d404c029487b14",
-                        "meta": {
-                            "timestamp": 1484104329283
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab16",
-                    "path": "/app/Http/Controllers/EmployeeRankController.php",
-                    "className": [
-                        "tab16"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486325099630
-                        },
-                        "filter": true,
-                        "title": "EmployeeRankController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeeRankController.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -886,60 +457,20 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab17",
-                    "path": "/app/Http/Controllers/EmployeeDepartmentController.php",
+                    "name": "tab25",
+                    "path": "/resources/views/payrolls/payslip.blade.php",
                     "className": [
-                        "tab17"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486325074511
-                        },
-                        "filter": true,
-                        "title": "EmployeeDepartmentController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeeDepartmentController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab18",
-                    "path": "/app/Http/Controllers/EmployeePaygradeController.php",
-                    "className": [
-                        "tab18"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486326218668
-                        },
-                        "filter": true,
-                        "title": "EmployeePaygradeController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeePaygradeController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab19",
-                    "path": "/app/Http/Controllers/EmployeeBankController.php",
-                    "className": [
-                        "tab19",
+                        "tab25",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486282208389
+                            "timestamp": 1486328685475
                         },
                         "filter": true,
-                        "title": "EmployeeBankController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeeBankController.php",
+                        "title": "payslip.blade.php",
+                        "tooltip": "/resources/views/payrolls/payslip.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -947,99 +478,19 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab3",
-                    "path": "/app/Http/Controllers/PaygradeController.php",
+                    "name": "tab26",
+                    "path": "/app/Http/Controllers/PayrollController.php",
                     "className": [
-                        "tab3"
+                        "tab26"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486325296412
+                            "timestamp": 1486328776175
                         },
                         "filter": true,
-                        "title": "PaygradeController.php",
-                        "tooltip": "/app/Http/Controllers/PaygradeController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab5",
-                    "path": "/app/Http/Controllers/PensionController.php",
-                    "className": [
-                        "tab5"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486325281378
-                        },
-                        "filter": true,
-                        "title": "PensionController.php",
-                        "tooltip": "/app/Http/Controllers/PensionController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab7",
-                    "path": "/app/Http/Controllers/TaxController.php",
-                    "className": [
-                        "tab7"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486325377312
-                        },
-                        "filter": true,
-                        "title": "TaxController.php",
-                        "tooltip": "/app/Http/Controllers/TaxController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab11",
-                    "path": "/app/Http/Controllers/SalaryComponentController.php",
-                    "className": [
-                        "tab11"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486325748396
-                        },
-                        "filter": true,
-                        "title": "SalaryComponentController.php",
-                        "tooltip": "/app/Http/Controllers/SalaryComponentController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab22",
-                    "path": "/app/Http/Controllers/EmployeePensionController.php",
-                    "className": [
-                        "tab22"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486326141095
-                        },
-                        "filter": true,
-                        "title": "EmployeePensionController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeePensionController.php",
+                        "title": "PayrollController.php",
+                        "tooltip": "/app/Http/Controllers/PayrollController.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -1053,7 +504,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Repositories/EmployeePaygrade/EloquentEmployeePaygradeRepository.php"
+            "/app/Http/Controllers/PayrollController.php"
         ]
     }
 }

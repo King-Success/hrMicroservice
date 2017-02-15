@@ -242,3 +242,5 @@ Route::group(['prefix' => 'employeetax', 'middleware' => ['auth']], function() {
     // Route::put('/{id}/edit', 'EmployeeTaxController@update')->name('update_employeetax');
     // Route::get('/{id}/delete', 'EmployeeTaxController@delete')->name('delete_employeetax');
 });
+
+Route::get('/logout', 'UserController@logout');

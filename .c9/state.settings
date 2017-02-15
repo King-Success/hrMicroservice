@@ -113,7 +113,7 @@
                         "terminal": {
                             "id": "devel_556",
                             "cwd": "",
-                            "width": 874,
+                            "width": 923,
                             "height": 139
                         }
                     },
@@ -142,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 12,
+            "@document": 17,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 10,
-            "@tab": 9,
-            "@undoManager": 12,
+            "@session": 15,
+            "@tab": 15,
+            "@undoManager": 17,
             "@welcome": 1
         }
     },
@@ -171,13 +171,13 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab8"
+            "tab11"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 269,
+        "@width-left": 220,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -204,7 +204,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 1663,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -222,9 +222,7 @@
                 "/resources/views/layouts",
                 "/app/Http/Controllers",
                 "/app/Repositories",
-                "/app",
                 "/app/Repositories/EmployeeSalaryComponent",
-                "/resources",
                 "/resources/views",
                 "/resources/views/payrolls"
             ]
@@ -431,14 +429,16 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/payrolls/report.blade.php",
+            "focus": "/app/Http/Controllers/UserController.php",
             "meta": {
                 "accessList": [
+                    "tab11",
+                    "tab14",
+                    "tab3",
                     "tab8",
                     "tab7",
                     "tab4",
-                    "tab5",
-                    "tab3"
+                    "tab5"
                 ]
             },
             "name": "pane0",
@@ -528,13 +528,12 @@
                     "name": "tab8",
                     "path": "/resources/views/payrolls/report.blade.php",
                     "className": [
-                        "tab8",
-                        "focus"
+                        "tab8"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1486332498554
+                            "timestamp": 1487158303777
                         },
                         "filter": true,
                         "title": "report.blade.php",
@@ -542,7 +541,48 @@
                         "ace": {}
                     },
                     "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab11",
+                    "path": "/app/Http/Controllers/UserController.php",
+                    "className": [
+                        "tab11",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1487161191660
+                        },
+                        "filter": true,
+                        "title": "UserController.php",
+                        "tooltip": "/app/Http/Controllers/UserController.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab14",
+                    "path": "/routes/web.php",
+                    "className": [
+                        "tab14"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1487161363058
+                        },
+                        "filter": true,
+                        "title": "web.php",
+                        "tooltip": "/routes/web.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -552,7 +592,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/resources/views/payrolls/report.blade.php"
+            "/app/Http/Controllers/UserController.php"
         ]
     }
 }

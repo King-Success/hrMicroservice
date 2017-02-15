@@ -34,6 +34,7 @@ class EmployeeSalaryComponentController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
+            'salary_components' => 'required',
          ]);
         //  Delete existing
         $this->employeeSalaryComponentModel->clear($request->input('employee'));

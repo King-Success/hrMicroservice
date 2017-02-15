@@ -36,7 +36,7 @@
 					</div>
 					<div class="text-center">
 						<h6 class="text-center _600">{{count($paycheckSummaries)}}</h6>
-						<p class="text-muted m-b-md">Payslips</p>
+						<p class="text-muted m-b-md"><a href="/payslip/{{$paychecks[0]->payroll_id}}">Payslips</a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>

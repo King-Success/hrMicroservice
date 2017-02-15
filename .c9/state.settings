@@ -142,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 39,
+            "@document": 12,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 37,
-            "@tab": 39,
-            "@undoManager": 39,
+            "@session": 10,
+            "@tab": 9,
+            "@undoManager": 12,
             "@welcome": 1
         }
     },
@@ -171,7 +171,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab37"
+            "tab8"
         ]
     },
     "panels": {
@@ -204,7 +204,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 1663,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -221,11 +221,12 @@
                 "/resources/views/prefixes",
                 "/resources/views/layouts",
                 "/app/Http/Controllers",
-                "/app",
-                "/app/Listeners",
                 "/app/Repositories",
-                "/app/Jobs",
-                "/app/DigitalPatterns"
+                "/app",
+                "/app/Repositories/EmployeeSalaryComponent",
+                "/resources",
+                "/resources/views",
+                "/resources/views/payrolls"
             ]
         }
     },
@@ -235,6 +236,7 @@
     "search-history": {
         "replace": {
             "json()": [
+                "$employee",
                 "Tax",
                 "tax",
                 "setEmployeeSalaryComponentProperties",
@@ -257,6 +259,14 @@
         },
         "search": {
             "json()": [
+                "payslip",
+                "$consolidatedSalary",
+                "delete",
+                "this->",
+                "$this->employee",
+                "general",
+                "$amount",
+                "$paygradeAllowance",
                 "PayEmployee",
                 "January 2015 Payslip",
                 "payrolls.payslip",
@@ -421,43 +431,24 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/app/Jobs/PayEmployee.php",
+            "focus": "/resources/views/payrolls/report.blade.php",
             "meta": {
                 "accessList": [
-                    "tab37",
-                    "tab38",
-                    "tab36"
+                    "tab8",
+                    "tab7",
+                    "tab4",
+                    "tab5",
+                    "tab3"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab36",
-                    "path": "/app/Http/Controllers/PayrollController.php",
-                    "className": [
-                        "tab36"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486328776356
-                        },
-                        "filter": true,
-                        "title": "PayrollController.php",
-                        "tooltip": "/app/Http/Controllers/PayrollController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab37",
+                    "name": "tab3",
                     "path": "/app/Jobs/PayEmployee.php",
                     "className": [
-                        "tab37",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -470,27 +461,88 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
-                    "name": "tab38",
-                    "path": "/app/DigitalPatterns/PayrollGlobals.php",
+                    "name": "tab4",
+                    "path": "/resources/views/employees/show.blade.php",
                     "className": [
-                        "tab38"
+                        "tab4"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1484111608266
+                            "timestamp": 1487150994624
                         },
                         "filter": true,
-                        "title": "PayrollGlobals.php",
-                        "tooltip": "/app/DigitalPatterns/PayrollGlobals.php",
+                        "title": "show.blade.php",
+                        "tooltip": "/resources/views/employees/show.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "/app/Http/Controllers/EmployeeSalaryComponentController.php",
+                    "className": [
+                        "tab5"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1487154422813
+                        },
+                        "filter": true,
+                        "title": "EmployeeSalaryComponentController.php",
+                        "tooltip": "/app/Http/Controllers/EmployeeSalaryComponentController.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab7",
+                    "path": "/resources/views/payrolls/payslip.blade.php",
+                    "className": [
+                        "tab7"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486332388920
+                        },
+                        "filter": true,
+                        "title": "payslip.blade.php",
+                        "tooltip": "/resources/views/payrolls/payslip.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab8",
+                    "path": "/resources/views/payrolls/report.blade.php",
+                    "className": [
+                        "tab8",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1486332498554
+                        },
+                        "filter": true,
+                        "title": "report.blade.php",
+                        "tooltip": "/resources/views/payrolls/report.blade.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -500,7 +552,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/DigitalPatterns/PayrollGlobals.php"
+            "/resources/views/payrolls/report.blade.php"
         ]
     }
 }

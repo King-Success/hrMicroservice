@@ -340,6 +340,49 @@
             <!--- END -->
           </div>
         
+          <div class="tab-pane p-v-sm" id="tab_8">
+            <div class="streamline">
+                <!-- Begin -->
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2>Basic Salary</h2><small>Annual Consolidated Salary {{$AppConfig->rank_is_king ? 'Determined by Rank' : ''}}</small></div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="box-body">
+                            <div class="app-body">
+                                <div class="padding">
+                                    {!! Form::open(array('url' => '/employee_basic_salary/' . $employeeBasicSalary->id . '/edit', 'id'=>'basic_salary', 'role' => 'form', 'method'=>'PUT')) !!}
+                                    <div class="form-group">
+                                      <label>Basic Salary</label>
+                                      <input type="number" value="{{$employeeBasicSalary->amount}}" name="amount" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Allowance</label>
+                                      <input type="number" value="{{$employeeBasicSalary->allowance}}" name="allowance" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
+                                    </div>
+                                    <div class="form-group">
+                                    <?php
+                                    $paygrade = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->amount : 0;
+                                    $paygradeAllowance = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->allowance : 0;
+                                    $consolidatedSalary = ($employee->employee_basic_salary->amount + $paygrade) / 12;
+                                    $consolidatedAllowance = ($employee->employee_basic_salary->allowance + $paygradeAllowance) / 12;
+                                    $grossTotal = $consolidatedSalary + $consolidatedAllowance;
+                                    ?>
+                                    <h3 class="">Gross Total: N{{number_format($grossTotal,2)}}</h3>
+                                    </div>
+                                    <input type="hidden" name="employee" value="{{$employee->id}}">
+                                    <!--<div class="col-sm-6"></div>-->
+                                    <button type="submit" class="btn black m-b" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>SAVE CHANGES</button>
+                                  {!! Form::close() !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+          </div>
+          
           <div class="tab-pane p-v-sm" id="tab_7">
             <div class="streamline">
                 <!-- Begin -->
@@ -382,6 +425,36 @@
                                     @endforeach
                                   </div>
                                   </div>
+                                  <div class="row">
+                                  <?php
+                                  $totalDeductions = 0;
+                                  $totalEarnings = 0;
+                                  if(count($employee->employee_salary_components) > 0){
+                                      foreach($employee->employee_salary_components as $employee_salary_component_info){
+                                          $amount = 0;
+                                          if($employee_salary_component_info->salary_component->component_type == 'Earning'){
+                                              if($employee_salary_component_info->salary_component->value_type == 'Amount'){
+                                                  $totalEarnings += $employee_salary_component_info->amount;
+                                                  $amount = $employee_salary_component_info->amount;
+                                              }else{
+                                                  $totalEarnings += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                                  $amount = $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                              }
+                                          }else{
+                                              if($employee_salary_component_info->salary_component->value_type == 'Amount'){
+                                                  $totalDeductions += $employee_salary_component_info->amount;
+                                                  $amount = $employee_salary_component_info->amount;
+                                              }else{
+                                                  $totalDeductions += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                                  $amount = $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                              }
+                                          }
+                                      }
+                                  }
+                                      ?>
+                                  <h3 class="">Total Earnings: N{{number_format($totalEarnings,2)}}</h3>
+                                  <h3 class="">Total Deductions: N{{number_format($totalDeductions,2)}}</h3>
+                                  </div>
                                   <input type="hidden" name="employee" value="{{$employee->id}}">
                                   <button type="submit" class="btn black m-b">SAVE CHANGES</button>
                                   {!! Form::close() !!}
@@ -394,38 +467,7 @@
             </div>
           </div>
           
-          <div class="tab-pane p-v-sm" id="tab_8">
-            <div class="streamline">
-                <!-- Begin -->
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h2>Basic Salary</h2><small>Annual Consolidated Salary {{$AppConfig->rank_is_king ? 'Determined by Rank' : ''}}</small></div>
-                        <div class="box-divider m-a-0"></div>
-                        <div class="box-body">
-                            <div class="app-body">
-                                <div class="padding">
-                                    {!! Form::open(array('url' => '/employee_basic_salary/' . $employeeBasicSalary->id . '/edit', 'id'=>'basic_salary', 'role' => 'form', 'method'=>'PUT')) !!}
-                                    <div class="form-group">
-                                      <label>Basic Salary</label>
-                                      <input type="number" value="{{$employeeBasicSalary->amount}}" name="amount" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
-                                    </div>
-                                    <div class="form-group">
-                                      <label>Allowance</label>
-                                      <input type="number" value="{{$employeeBasicSalary->allowance}}" name="allowance" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
-                                    </div>
-                                    <input type="hidden" name="employee" value="{{$employee->id}}">
-                                    <!--<div class="col-sm-6"></div>-->
-                                    <button type="submit" class="btn black m-b" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>SAVE CHANGES</button>
-                                  {!! Form::close() !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END -->
-            </div>
-          </div>
+          
           
         </div>
       </div>

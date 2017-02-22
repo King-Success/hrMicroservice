@@ -355,7 +355,21 @@
 <!-- ############ PAGE START-->
 <!-- only need a height for layout 4 -->
 <div style="min-height: 200px">
-    @yield('content')
+  @if (Session::has('status'))
+    <div class="alert alert-success fade in">
+      <a href="#" class="close" data-dismiss="alert">×</a>
+      <p>{{ Session::get('status') }}</p>
+    </div>
+  @endif
+  
+  @if (count($errors))
+    <div class="alert alert-success fade in">
+      <a href="#" class="close" data-dismiss="alert">×</a>
+      {!! Html::ul($errors->all()) !!}
+    </div>
+  @endif
+  
+  @yield('content')
 </div>
 
 <!-- ############ PAGE END-->

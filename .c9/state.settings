@@ -142,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 17,
+            "@document": 6,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 15,
-            "@tab": 15,
-            "@undoManager": 17,
+            "@session": 4,
+            "@tab": 5,
+            "@undoManager": 6,
             "@welcome": 1
         }
     },
@@ -171,7 +171,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab11"
+            "tab3"
         ]
     },
     "panels": {
@@ -224,7 +224,10 @@
                 "/app/Repositories",
                 "/app/Repositories/EmployeeSalaryComponent",
                 "/resources/views",
-                "/resources/views/payrolls"
+                "/resources/views/payrolls",
+                "/resources",
+                "/app",
+                "/app/Http"
             ]
         }
     },
@@ -429,16 +432,11 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/app/Http/Controllers/UserController.php",
+            "focus": "/resources/views/layouts/master.blade.php",
             "meta": {
                 "accessList": [
-                    "tab11",
-                    "tab14",
                     "tab3",
-                    "tab8",
-                    "tab7",
-                    "tab4",
-                    "tab5"
+                    "tab4"
                 ]
             },
             "name": "pane0",
@@ -446,119 +444,19 @@
                 {
                     "type": "tab",
                     "name": "tab3",
-                    "path": "/app/Jobs/PayEmployee.php",
+                    "path": "/resources/views/layouts/master.blade.php",
                     "className": [
-                        "tab3"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484482410207
-                        },
-                        "filter": true,
-                        "title": "PayEmployee.php",
-                        "tooltip": "/app/Jobs/PayEmployee.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/resources/views/employees/show.blade.php",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1487150994624
-                        },
-                        "filter": true,
-                        "title": "show.blade.php",
-                        "tooltip": "/resources/views/employees/show.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab5",
-                    "path": "/app/Http/Controllers/EmployeeSalaryComponentController.php",
-                    "className": [
-                        "tab5"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1487154422813
-                        },
-                        "filter": true,
-                        "title": "EmployeeSalaryComponentController.php",
-                        "tooltip": "/app/Http/Controllers/EmployeeSalaryComponentController.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab7",
-                    "path": "/resources/views/payrolls/payslip.blade.php",
-                    "className": [
-                        "tab7"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1486332388920
-                        },
-                        "filter": true,
-                        "title": "payslip.blade.php",
-                        "tooltip": "/resources/views/payrolls/payslip.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab8",
-                    "path": "/resources/views/payrolls/report.blade.php",
-                    "className": [
-                        "tab8"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1487158303777
-                        },
-                        "filter": true,
-                        "title": "report.blade.php",
-                        "tooltip": "/resources/views/payrolls/report.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab11",
-                    "path": "/app/Http/Controllers/UserController.php",
-                    "className": [
-                        "tab11",
+                        "tab3",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1487161191660
+                            "timestamp": 1487749850572
                         },
                         "filter": true,
-                        "title": "UserController.php",
-                        "tooltip": "/app/Http/Controllers/UserController.php",
+                        "title": "master.blade.php",
+                        "tooltip": "/resources/views/layouts/master.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -566,19 +464,19 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab14",
-                    "path": "/routes/web.php",
+                    "name": "tab4",
+                    "path": "/app/Http/Controllers/BankController.php",
                     "className": [
-                        "tab14"
+                        "tab4"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1487161363058
+                            "timestamp": 1484508047633
                         },
                         "filter": true,
-                        "title": "web.php",
-                        "tooltip": "/routes/web.php",
+                        "title": "BankController.php",
+                        "tooltip": "/app/Http/Controllers/BankController.php",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -592,7 +490,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Http/Controllers/UserController.php"
+            "/app/Http/Controllers/BankController.php"
         ]
     }
 }

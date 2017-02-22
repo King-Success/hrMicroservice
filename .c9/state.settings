@@ -142,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 6,
+            "@document": 7,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 4,
-            "@tab": 5,
-            "@undoManager": 6,
+            "@session": 5,
+            "@tab": 6,
+            "@undoManager": 7,
             "@welcome": 1
         }
     },
@@ -436,6 +436,7 @@
             "meta": {
                 "accessList": [
                     "tab3",
+                    "tab5",
                     "tab4"
                 ]
             },
@@ -452,7 +453,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1487749850572
+                            "timestamp": 1487752072384
                         },
                         "filter": true,
                         "title": "master.blade.php",
@@ -477,6 +478,26 @@
                         "filter": true,
                         "title": "BankController.php",
                         "tooltip": "/app/Http/Controllers/BankController.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "/resources/views/auth/login.blade.php",
+                    "className": [
+                        "tab5"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1487752092230
+                        },
+                        "filter": true,
+                        "title": "login.blade.php",
+                        "tooltip": "/resources/views/auth/login.blade.php",
                         "ace": {}
                     },
                     "editorType": "ace",

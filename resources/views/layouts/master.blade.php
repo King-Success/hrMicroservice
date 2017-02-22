@@ -363,7 +363,7 @@
   @endif
   
   @if (count($errors))
-    <div class="alert alert-success fade in">
+    <div class="alert alert-warning fade in">
       <a href="#" class="close" data-dismiss="alert">×</a>
       {!! Html::ul($errors->all()) !!}
     </div>

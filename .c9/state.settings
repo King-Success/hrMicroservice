@@ -142,16 +142,16 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 7,
+            "@document": 8,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@preferences": 1,
-            "@session": 5,
-            "@tab": 6,
-            "@undoManager": 7,
+            "@session": 6,
+            "@tab": 7,
+            "@undoManager": 8,
             "@welcome": 1
         }
     },
@@ -171,7 +171,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab3"
+            "tab0"
         ]
     },
     "panels": {
@@ -225,8 +225,6 @@
                 "/app/Repositories/EmployeeSalaryComponent",
                 "/resources/views",
                 "/resources/views/payrolls",
-                "/resources",
-                "/app",
                 "/app/Http"
             ]
         }
@@ -432,12 +430,13 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/resources/views/layouts/master.blade.php",
+            "focus": "/config/database.php",
             "meta": {
                 "accessList": [
+                    "tab0",
                     "tab3",
-                    "tab5",
-                    "tab4"
+                    "tab4",
+                    "tab5"
                 ]
             },
             "name": "pane0",
@@ -447,13 +446,12 @@
                     "name": "tab3",
                     "path": "/resources/views/layouts/master.blade.php",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1487752072384
+                            "timestamp": 1487752130576
                         },
                         "filter": true,
                         "title": "master.blade.php",
@@ -461,7 +459,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -471,14 +469,39 @@
                         "tab4"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1484508047633
-                        },
                         "filter": true,
                         "title": "BankController.php",
                         "tooltip": "/app/Http/Controllers/BankController.php",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 766.00048828125,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 77,
+                                    "column": 49
+                                },
+                                "end": {
+                                    "row": 77,
+                                    "column": 53
+                                },
+                                "isBackwards": true
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 349,
+                                "mode": "ace/mode/php"
+                            }
+                        },
+                        "hash": "6314c89c5f1a3ce75229cb927b5913715485ec29",
+                        "meta": {
+                            "timestamp": 1484508047633
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -491,17 +514,63 @@
                         "tab5"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1487752092230
-                        },
                         "filter": true,
                         "title": "login.blade.php",
                         "tooltip": "/resources/views/auth/login.blade.php",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 71,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 37,
+                                    "column": 59
+                                },
+                                "end": {
+                                    "row": 37,
+                                    "column": 59
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 348,
+                                "mode": "ace/mode/php"
+                            }
+                        },
+                        "hash": "67be2246a25950c95699eae2846067aa3c3737b6",
+                        "meta": {
+                            "timestamp": 1487752092296
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "/config/database.php",
+                    "className": [
+                        "tab0",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1487842477239
+                        },
+                        "filter": true,
+                        "title": "database.php",
+                        "tooltip": "/config/database.php",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -511,7 +580,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/app/Http/Controllers/BankController.php"
+            "/config/app.php"
         ]
     }
 }

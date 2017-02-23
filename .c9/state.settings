@@ -171,7 +171,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab0"
+            "tab3"
         ]
     },
     "panels": {
@@ -430,149 +430,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/config/database.php",
+            "focus": "tab12",
             "meta": {
-                "accessList": [
-                    "tab0",
-                    "tab3",
-                    "tab4",
-                    "tab5"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab3",
-                    "path": "/resources/views/layouts/master.blade.php",
-                    "className": [
-                        "tab3"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1487752130576
-                        },
-                        "filter": true,
-                        "title": "master.blade.php",
-                        "tooltip": "/resources/views/layouts/master.blade.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/app/Http/Controllers/BankController.php",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "BankController.php",
-                        "tooltip": "/app/Http/Controllers/BankController.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 766.00048828125,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 77,
-                                    "column": 49
-                                },
-                                "end": {
-                                    "row": 77,
-                                    "column": 53
-                                },
-                                "isBackwards": true
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 349,
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "6314c89c5f1a3ce75229cb927b5913715485ec29",
-                        "meta": {
-                            "timestamp": 1484508047633
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab5",
-                    "path": "/resources/views/auth/login.blade.php",
-                    "className": [
-                        "tab5"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "login.blade.php",
-                        "tooltip": "/resources/views/auth/login.blade.php",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 71,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 37,
-                                    "column": 59
-                                },
-                                "end": {
-                                    "row": 37,
-                                    "column": 59
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 348,
-                                "mode": "ace/mode/php"
-                            }
-                        },
-                        "hash": "67be2246a25950c95699eae2846067aa3c3737b6",
-                        "meta": {
-                            "timestamp": 1487752092296
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab0",
-                    "path": "/config/database.php",
-                    "className": [
-                        "tab0",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1487842477239
-                        },
-                        "filter": true,
-                        "title": "database.php",
-                        "tooltip": "/config/database.php",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"

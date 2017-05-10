@@ -27,17 +27,17 @@
                         {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    <div class="alert alert-warning fade in">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    </div>
                                 @endif
                                 <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
                             </div>
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
+                                    <div class="alert alert-warning fade in">
                                         <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                    </div>
                                 @endif
                                 <input type="password" name="password" class="form-control" placeholder="password" value="" required>
                             </div>

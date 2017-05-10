@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends($view_type ? 'layouts.print' : 'layouts.master')
 
 @section('css_header')
         <style type="text/css">
@@ -26,8 +26,10 @@
 	<div class="text-center">
 		<h2 class="_700 m-b">{{$payroll->title}}</h2>
 		<h5 class="m-b-md">Payment Slips for {{$payroll->title}} {{$payroll->paid_at}}</h5>
+		@if(!$view_type)
 		<a href="/payslip/{{$payroll->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
 		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
+		@endif
 	</div>
 	</div>
 </div>
@@ -39,7 +41,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="box-header">
-                    <h2>{{$AppConfig->company_title}}</h2><small>January 2015 Payslip</small></div>
+                    <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}}</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
                     <div><h3>{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}</h3><small><i>Staff No: {{$paycheck->employee->employee_number}}</i></small></div>

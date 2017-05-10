@@ -15,6 +15,11 @@ class UserController extends Controller
     public function __construct(UserContract $userContract) {
         $this->userModel = $userContract;
     }
+    
+    public function logout(Request $request){
+        Auth::logout();
+        return redirect('/');
+    }
 
     // Display users.index with all users
     public function index() {

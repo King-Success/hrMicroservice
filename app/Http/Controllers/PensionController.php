@@ -40,7 +40,7 @@ class PensionController extends Controller
          $this->validate($request, [
             // Specify validation rules here
             'title' => 'required',
-            'salary_component' => 'required|numeric|exists:salary_components',
+            'salary_component' => 'required|numeric|exists:salary_components,id',
          ]);
 
          $pension = $this->pensionModel->create($request);
@@ -72,7 +72,7 @@ class PensionController extends Controller
         $this->validate($request, [
            // Specify validation rules here
             'title' => 'required',
-            'salary_component' => 'required|numeric|exists:salary_components',
+            'salary_component' => 'required|numeric|exists:salary_components,id',
         ]);
 
         $pension = $this->pensionModel->edit($id, $request);

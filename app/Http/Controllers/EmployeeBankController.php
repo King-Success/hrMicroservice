@@ -36,8 +36,8 @@ class EmployeeBankController extends Controller
             // Specify validation rules here
             'account_name' => 'required',
             'account_number' => 'required',
-            'bank' => 'required|numeric|exists:banks',
-            'employee' => 'required|numeric|exists:employees',
+            'bank' => 'required|numeric|exists:banks,id',
+            'employee' => 'required|numeric|exists:employees,id',
          ]);
          
          $employeeBank = $this->employeeBankModel->findByEmployeeId($request->input('employee'));

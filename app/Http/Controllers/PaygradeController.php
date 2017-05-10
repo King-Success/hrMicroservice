@@ -40,7 +40,7 @@ class PaygradeController extends Controller
          $this->validate($request, [
             // Specify validation rules here
             'title' => 'required',
-            'employee_level_id' => 'required|numeric|exists:employee_levels',
+            'employee_level_id' => 'required|numeric|exists:employee_levels,id',
             'amount' => 'sometimes|required|numeric|min:0',
          ]);
 
@@ -73,7 +73,7 @@ class PaygradeController extends Controller
         $this->validate($request, [
            // Specify validation rules here
            'title' => 'required',
-           'employee_level_id' => 'required|numeric|exists:employee_levels',
+           'employee_level_id' => 'required|numeric|exists:employee_levels,id',
            'amount' => 'required|numeric',
         ]);
 

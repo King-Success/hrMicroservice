@@ -46,7 +46,7 @@ Route::group(['prefix' => 'employee', 'middleware' => ['auth']], function() {
     Route::get('/{id}/edit', 'EmployeeController@edit')->name('edit_employee');
     Route::get('/{id}', 'EmployeeController@show')->name('show_employee');
     Route::put('/{id}/edit', 'EmployeeController@update')->name('update_employee');
-    Route::get('/{id}/delete', 'EmployeeController@delete')->name('delete_employee');
+    Route::delete('/{id}', 'EmployeeController@delete')->name('delete_employee');
 });
 
 Route::group(['prefix' => 'rank', 'middleware' => ['auth']], function() {
@@ -242,3 +242,5 @@ Route::group(['prefix' => 'employeetax', 'middleware' => ['auth']], function() {
     // Route::put('/{id}/edit', 'EmployeeTaxController@update')->name('update_employeetax');
     // Route::get('/{id}/delete', 'EmployeeTaxController@delete')->name('delete_employeetax');
 });
+
+Route::get('/logout', 'UserController@logout');

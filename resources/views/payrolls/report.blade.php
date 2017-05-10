@@ -36,7 +36,7 @@
 					</div>
 					<div class="text-center">
 						<h6 class="text-center _600">{{count($paycheckSummaries)}}</h6>
-						<p class="text-muted m-b-md">Payslips</p>
+						<p class="text-muted m-b-md"><a href="/payslip/{{$paychecks[0]->payroll_id}}">Payslips</a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>
@@ -257,6 +257,7 @@
 		                		@foreach($pensionableEmployees as $pensionableEmployee)
 				                	@foreach($paycheckComponents as $paycheckComponent)
 				                	<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
+				                	<?php if(!$paycheckComponent->employee->employee_pension) continue; ?>
 				                	<?php if($paycheckComponent->employee->employee_pension->pension_id != $pension->id) continue; ?>
 				                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
 							        @endforeach
@@ -312,7 +313,7 @@
 				<!--<div class="col-md-12">-->
 				    <div class="box">
 				        <div class="box-header">
-				            <h2>{{$AppConfig->company_title}}</h2><small>January 2015 Payslip</small></div>
+				            <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}} {{$payroll->paid_at}}</small></div>
 				        <div class="box-divider m-a-0"></div>
 				        <div class="box-body">
 				            <div><h3>{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}</h3><small><i>Staff No: {{$paycheck->employee->employee_number}}</i></small></div>
@@ -351,10 +352,12 @@
 				            <div class="container" style="margin-top: 50px; margin-bottom: 40px;">
                         		<div>Authorized Signature_________________________</div>
                     		</div>
+                    		<!--
                     		<div class="container">
                         		<center><button class="md-btn md-fab m-b-sm blue print_slip">
                         			<i class="fa fa-print"></i></button></center>
                     		</div>
+                    		-->
 				        </div>
 				    </div>
 				<!--</div>-->

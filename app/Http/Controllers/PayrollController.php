@@ -129,6 +129,7 @@ class PayrollController extends Controller
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         
         return view('payrolls.payslip', ['paychecks' => $paychecks,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]);
         
         view()->share('paychecks', $paychecks);

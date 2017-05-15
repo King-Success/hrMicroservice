@@ -32,7 +32,7 @@
                 </div>
                 <div class="box-body">
                     <div class="app-body">
-                        <div class="table-responsive" id="datatable">
+                        <div class="" id="datatable">
                             <table id="employees" class="table b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
                                   lengthChange: false,
                                   buttons: [ /*'copy', */'excel', 'pdf', 'colvis' ],

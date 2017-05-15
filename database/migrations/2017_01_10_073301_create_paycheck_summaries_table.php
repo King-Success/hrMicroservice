@@ -34,6 +34,24 @@ class CreatePaycheckSummariesTable extends Migration
             $table->integer('cycle')->default(1); //monthly X 1, 2 months = X 2
             $table->timestamps();
             
+            $table->decimal('pension_amount', 12, 2)->default(0.00);
+            $table->decimal('pension_employee_contribution_amount', 12, 2)->default(0.00);
+            $table->string('pension_pin_number')->default('');
+            $table->string('pension_company')->default('');
+            $table->boolean('pensionable')->default(false);
+            $table->integer('pension_id')->default(0);
+            
+            $table->decimal('tax_amount', 12, 2)->default(0.00);
+            $table->boolean('taxable')->default(false);
+            $table->integer('tax_id')->default(0);
+            
+            $table->string('bank')->nullable();
+            $table->boolean('bankable')->default(false);
+            $table->integer('bank_id')->default(0);
+            $table->string('bank_account_number')->nullable();
+            $table->string('bank_account_name')->nullable();
+            $table->string('bank_sort_code')->nullable();
+            
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('payroll_id')->references('id')->on('payrolls');
         });

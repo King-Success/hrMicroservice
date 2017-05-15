@@ -93,7 +93,7 @@
 			<?php $sum = 0; ?>
 			@foreach($paycheckComponents as $paycheckComponent)
 			<?php 
-			if($paycheckComponent->employee_salary_component_info->salary_component->id != $salaryComponent->id) continue; 
+			if($paycheckComponent->component_id != $salaryComponent->id) continue; 
 			$sum += $paycheckComponent->amount * $paycheckComponent->cycle;
 			?>
 			@endforeach
@@ -233,7 +233,7 @@
 		                	<?php $amountInEntity = 0; ?>
 			                	@foreach($paycheckComponents as $paycheckComponent)
 			                	<?php
-			                	if($pension->id == $paycheckComponent->employee_salary_component_info->employee->employee_pension->pension_id){
+			                	if($pension->id == $paycheckComponent->componentId){
 			                		$amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle;
 			                		// break;
 			                	}else{
@@ -315,7 +315,7 @@
 				                @foreach($paycheckComponents as $paycheckComponent)
 				                <?php if($paycheckComponent->employee_id != $paycheck->employee_id) continue; ?>
 				                <tr>
-				                    <td>{{$paycheckComponent->employee_salary_component_info->salary_component->title}}</td>
+				                    <td>{{$paycheckComponent->component_title}}</td>
 				                    <td align="right">{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
 				                </tr>
 				                @endforeach

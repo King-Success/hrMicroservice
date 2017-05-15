@@ -18,15 +18,20 @@ class CreatePaycheckComponentsTable extends Migration
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
             $table->integer('payroll_id')->unsigned();
-            $table->integer('employee_salary_component_info_id')->unsigned();
+            $table->integer('component_id');
+            $table->string('component_title')->nullable();
+            $table->string('component_permanent_title')->nullable();
             $table->decimal('amount', 12, 2)->default(0.00);
             $table->enum('component_type', ['Earning', 'Deduction']);
             $table->integer('cycle')->default(1); //monthly X 1, 2 months = X 2
             $table->timestamps();
             
+            $table->string('rank')->nullable();
+            $table->string('level')->nullable();
+            $table->string('step')->nullable();
+            
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('payroll_id')->references('id')->on('payrolls');
-            $table->foreign('employee_salary_component_info_id')->references('id')->on('employee_salary_components');
         });
     }
 

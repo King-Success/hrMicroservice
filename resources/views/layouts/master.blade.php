@@ -464,6 +464,7 @@
 <!-- Bootstrap -->
   <script src="{{ URL::to('/') }}/libs/tether/dist/js/tether.min.js"></script>
   <script src="{{ URL::to('/') }}/libs/bootstrap/dist/js/bootstrap.js"></script>
+  <!--<script src="{{ URL::to('/') }}/scripts/app.min.js"></script>-->
 <!-- core -->
   <script src="{{ URL::to('/') }}/libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
   <script src="{{ URL::to('/') }}/libs/PACE/pace.min.js"></script>

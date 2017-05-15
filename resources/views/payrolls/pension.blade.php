@@ -46,33 +46,38 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_components; ?>
-						<?php $counter = 0; $amountInEntity = 0; ?>
-						@foreach($pensionableEmployees as $pensionableEmployee)
-						@foreach ($paycheckComponents as $paycheckComponent)
-						<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
-				        <?php if($paycheckComponent->employee->employee_pension->pension_id != $pension->id) continue; ?>
-						<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
-						<tr>
+						<?php $counter = 0; $total = 0; $totalEmployee = 0; $totalEmployer = 0; ?>
+						@foreach($pensionables as $pensioner)
+	                	<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckComponent->employee->surname}} {{$paycheckComponent->employee->other_names}}</td>
-						<td>{{$paycheckComponent->employee->employee_number}}</td>
-						<td>{{$paycheckComponent->employee->employee_rank ? $paycheckComponent->employee->employee_rank->rank->title : ''}}</td>
-						<td>{{$paycheckComponent->employee->employee_paygrade ? $paycheckComponent->employee->employee_paygrade->paygrade->employee_level->title : ''}}</td>
-						<td>{{$paycheckComponent->employee->employee_paygrade ? $paycheckComponent->employee->employee_paygrade->paygrade->title : ''}}</td>
-						<td>{{$paycheckComponent->employee->employee_pension->pension->title}}</td>
-						<td>{{$paycheckComponent->employee->employee_pension->pin_number}}</td>
+						<td>{{$pensioner->employee->surname}} {{$pensioner->employee->other_names}}</td>
+						<td>{{$pensioner->employee->employee_number}}</td>
+						<td>{{$pensioner->rank ? $pensioner->rank : ''}}</td>
+						<td>{{$pensioner->step ? $pensioner->step : ''}}</td>
+						<td>{{$pensioner->level ? $pensioner->level : ''}}</td>
+						<td>{{$pension->title}}</td>
+						<td>{{$pensioner->pension_pin_number}}</td>
 						<?php
-						$employeeContribution = $paycheckComponent->cycle * $paycheckComponent->amount;
-						$employerContribution = $paycheckComponent->cycle * $paycheckComponent->employee->employee_pension->employer_contribution;
+						$employeeContribution = $pensioner->cycle * $pensioner->pension_amount;
+						$employerContribution = $pensioner->cycle * $pensioner->pension_employee_contribution_amount;
 						?>
 						<td>{{number_format($employeeContribution, 2)}}</td>
 						<td>{{number_format($employerContribution, 2)}}</td>
 						<td>{{number_format($employeeContribution + $employerContribution, 2)}}</td>
-						<!--<td>{{$paycheckComponent->created_at}}</td>-->
+						<!--<td>{{$pensioner->created_at}}</td>-->
 						</tr>
-						@endforeach
-						@endforeach
+						<?php 
+						$totalEmployee += $employeeContribution;
+						$totalEmployer += $employerContribution; 
+						$total +=  $totalEmployee + $totalEmployer;
+						?>
+				        @endforeach
+				        <tr>
+						<th colspan="8"><b>Totals</b></th>
+						<td><b>&#8358;{{number_format($totalEmployee, 2)}}</b></td>
+						<td><b>&#8358;{{number_format($totalEmployer, 2)}}</b></td>
+						<td><b>&#8358;{{number_format($total, 2)}}</b></td>
+						</tr>
 					</tbody>
 					</table>
 				</div>

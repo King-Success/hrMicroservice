@@ -48,24 +48,29 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php $counter = 0; ?>
+						<?php $counter = 0; $total = 0; ?>
 						@foreach ($paycheckSummaries as $paycheckSummary)
 						<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
 						<td>{{$paycheckSummary->employee->employee_number}}</td>
-						<td>{{$paycheckSummary->employee->employee_rank ? $paycheckSummary->employee->employee_rank->rank->title : ''}}</td>
-						<td>{{$paycheckSummary->employee->employee_paygrade ? $paycheckSummary->employee->employee_paygrade->paygrade->employee_level->title : ''}}</td>
-						<td>{{$paycheckSummary->employee->employee_paygrade ? $paycheckSummary->employee->employee_paygrade->paygrade->title : ''}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank->bank->title}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank->sort_code}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank->account_name}}</td>
-						<td>{{$paycheckSummary->employee->employee_bank->account_number}}</td>
+						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
+						<td>{{$paycheckSummary->level ? $paycheckSummary->level : ''}}</td>
+						<td>{{$paycheckSummary->step ? $paycheckSummary->step : ''}}</td>
+						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank : ''}}</td>
+						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_sort_code : ''}}</td>
+						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_name : ''}}</td>
+						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_number : ''}}</td>
 						<td>{{number_format($paycheckSummary->cycle * $paycheckSummary->net_pay, 2)}}</td>
 						<!--<td>{{$payroll->paid_at}}</td>-->
 						<!--<td>{{$paycheckSummary->created_at}}</td>-->
 						</tr>
+						<?php $total += $paycheckSummary->cycle * $paycheckSummary->net_pay; ?>
 						@endforeach
+						<tr>
+						<th colspan="10"><b>Total</b></th>
+						<td><b>&#8358;{{number_format($total, 2)}}</b></td>
+						</tr>
 					</tbody>
 					</table>
 				</div>

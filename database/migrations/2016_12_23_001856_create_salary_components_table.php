@@ -16,6 +16,7 @@ class CreateSalaryComponentsTable extends Migration
         Schema::create('salary_components', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('permanent_title')->nullable();
             $table->enum('component_type', ['Earning', 'Deduction']);
             $table->enum('value_type', ['Amount', 'Percentage']);
             $table->decimal('amount', 12, 2)->default(0.00);

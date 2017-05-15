@@ -62,7 +62,7 @@
                         @foreach($paycheckComponents as $paycheckComponent)
                         <?php if($paycheckComponent->employee_id != $paycheck->employee_id) continue; ?>
                         <tr>
-                            <td>{{$paycheckComponent->employee_salary_component_info->salary_component->title}}</td>
+                            <td>{{$paycheckComponent->component_title}}</td>
                             <td align="right">{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
                         </tr>
                         @endforeach

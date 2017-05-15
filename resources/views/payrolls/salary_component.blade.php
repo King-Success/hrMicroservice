@@ -41,18 +41,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php $counter = 0; ?>
+						<?php $counter = 0; $total = 0; ?>
 						@foreach ($paycheckComponents as $paycheckComponent)
-						<?php if($paycheckComponent->employee_salary_component_info->salary_component_id != $salaryComponent->id) continue; ?>
+						<?php if($paycheckComponent->component_id != $salaryComponent->id) continue; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckComponent->employee->surname}} {{$paycheckComponent->employee->other_names}}</td>
 						<td>{{$paycheckComponent->employee->employee_number}}</td>
-						<td>{{$paycheckComponent->employee->employee_rank ? $paycheckComponent->employee->employee_rank->rank->title : ''}}</td>
+						<td>{{$paycheckComponent->rank ? $paycheckComponent->rank : ''}}</td>
 						<td>{{number_format($paycheckComponent->cycle * $paycheckComponent->amount, 2)}}</td>
 						<!--<td>{{$paycheckComponent->created_at}}</td>-->
+						<?php $total += $paycheckComponent->cycle * $paycheckComponent->amount; ?>
 						</tr>
 						@endforeach
+						<tr>
+						<th colspan="4"><b>Total</b></th>
+						<td><b>&#8358;{{number_format($total, 2)}}</b></td>
+						</tr>
 					</tbody>
 					</table>
 				</div>

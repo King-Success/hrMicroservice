@@ -22,12 +22,14 @@ class SalaryComponentTableSeeder extends Seeder
         $object = new StdClass;
         $object->title = "Pension Deduction";
         $object->component_type = "Deduction"; //or Deduction
+        $object->permanent_title = "pension";
         $object->value_type = "Percentage"; // or Percentage (of consolidated salary)
         $object->amount = 8; //globally, but overridable on employee's individual page
         $this->objectModel->create($object);
         
         $object = new StdClass;
         $object->title = "Tax Deduction";
+        $object->permanent_title = "tax";
         $object->component_type = "Deduction"; //or Deduction
         $object->value_type = "Percentage"; // or Percentage (of consolidated salary)
         $object->amount = 5; //globally, but overridable on employee's individual page

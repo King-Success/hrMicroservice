@@ -41,26 +41,26 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php $taxableEmployees = $tax->salary_component->employee_salary_components; ?>
-						<?php $counter = 0; $amountInEntity = 0; ?>
-						@foreach($taxableEmployees as $taxableEmployee)
-						@foreach ($paycheckComponents as $paycheckComponent)
-						<?php if($paycheckComponent->employee_salary_component_info_id != $taxableEmployee->id) continue; ?>
-				        <?php if($paycheckComponent->employee->employee_tax->tax_id != $tax->id) continue; ?>
-						<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
+						<?php $counter = 0; $total = 0; ?>
+						@foreach($paycheckSummaries as $paycheckSummary)
+						<?php if(!$paycheckSummary->taxable) continue; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckComponent->employee->surname}} {{$paycheckComponent->employee->other_names}}</td>
-						<td>{{$paycheckComponent->employee->employee_number}}</td>
-						<td>{{$paycheckComponent->employee->employee_rank ? $paycheckComponent->employee->employee_rank->rank->title : ''}}</td>
+						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
+						<td>{{$paycheckSummary->employee->employee_number}}</td>
+						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
 						<?php
-						$amount = $paycheckComponent->cycle * $paycheckComponent->amount;
+						$amount = $paycheckSummary->cycle * $paycheckSummary->tax_amount;
 						?>
 						<td>{{number_format($amount, 2)}}</td>
-						<!--<td>{{$paycheckComponent->created_at}}</td>-->
+						<!--<td>{{$paycheckSummary->created_at}}</td>-->
 						</tr>
+						<?php $total += $paycheckSummary->cycle * $paycheckSummary->tax_amount; ?>
 						@endforeach
-						@endforeach
+						<tr>
+						<th colspan="4"><b>Total</b></th>
+						<td><b>&#8358;{{number_format($total, 2)}}</b></td>
+						</tr>
 					</tbody>
 					</table>
 				</div>

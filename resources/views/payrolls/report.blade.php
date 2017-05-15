@@ -50,7 +50,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h6 class="text-center _600">{{number_format($consolidatedSalary, 2)}}</h6>
+						<h6 class="text-center _600">&#8358;{{number_format($consolidatedSalary, 2)}}</h6>
 						<p class="text-muted m-b-md">Consolidated Salary</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -65,7 +65,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h6 class="text-center _600">{{number_format($consolidatedAllowance, 2)}}</h6>
+						<h6 class="text-center _600">&#8358;{{number_format($consolidatedAllowance, 2)}}</h6>
 						<p class="text-muted m-b-md">Allowance</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -80,7 +80,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h6 class="text-center _600">{{number_format($netPay, 2)}}</h6>
+						<h6 class="text-center _600">&#8358;{{number_format($netPay, 2)}}</h6>
 						<p class="text-muted m-b-md"><a href="/payslip/net_pay/{{$payroll->id}}">Net Pay</a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -93,7 +93,7 @@
 			<?php $sum = 0; ?>
 			@foreach($paycheckComponents as $paycheckComponent)
 			<?php 
-			if($paycheckComponent->employee_salary_component_info->salary_component->id != $salaryComponent->id) continue; 
+			if($paycheckComponent->component_id != $salaryComponent->id) continue; 
 			$sum += $paycheckComponent->amount * $paycheckComponent->cycle;
 			?>
 			@endforeach
@@ -105,7 +105,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-document text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h6 class="text-center _600">{{number_format($sum, 2)}}</h6>
+						<h6 class="text-center _600">&#8358;{{number_format($sum, 2)}}</h6>
 						<p class="text-muted m-b-md"><a href="/payslip/salary_component/{{$payroll->id}}/{{$salaryComponent->id}}">{{$salaryComponent->title}}<!-- ({{$salaryComponent->component_type == "Earning" ? '+' : '-'}}) --></a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -197,19 +197,14 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
-		                	@foreach($banks as $bank)
+		                	@foreach($bankables as $bankCompany => $bankers)
 		                	<?php $amountInEntity = 0; ?>
-			                	@foreach($paycheckSummaries as $paycheckSummary)
-			                	<?php 
-			                	if($paycheckSummary->employee->employee_bank && $bank->id == $paycheckSummary->employee->employee_bank->bank_id)
-			                		$amountInEntity += $paycheckSummary->net_pay * $paycheckSummary->cycle;
-			                	else
-			                		continue;
-			                	?>
-						        @endforeach
+		                		@foreach($bankers as $banker)
+				                	<?php $amountInEntity += $banker['net_pay'] * $banker['cycle']; ?>
+							    @endforeach
 					        <div class="list-group-item">
-					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/bank/{{$paycheckSummaries[0]->payroll_id}}/{{$bank->id}}">{{$bank->title}}</a>
+					            <span class="pull-right text-muted">&#8358;{{number_format($amountInEntity, 2)}}</span>
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/bank/{{$payroll->id}}/{{$bankers[0]['bank_id']}}">{{$bankCompany}}</a>
 					        </div>
 					        @endforeach
 					    </div>
@@ -224,18 +219,13 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
-		                	<!--<?php print_r($tax->salary_component->employee_salary_components); //exit; ?>-->
-		                	<?php $taxableEmployees = $tax->salary_component->employee_salary_components; ?>
 		                	<?php $amountInEntity = 0; ?>
-	                		@foreach($taxableEmployees as $taxableEmployee)
-			                	@foreach($paycheckComponents as $paycheckComponent)
-			                	<?php if($paycheckComponent->employee_salary_component_info_id != $taxableEmployee->id) continue; ?>
-			                	<?php if($paycheckComponent->employee->employee_tax->tax_id != $tax->id) continue; ?>
-			                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
-						        @endforeach
-						    @endforeach
+		                	@foreach($paycheckComponents as $paycheckComponent)
+		                	<?php if($paycheckComponent->component_permanent_title != 'tax') continue; ?>
+		                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
+					        @endforeach
 					        <div class="list-group-item">
-					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
+					            <span class="pull-right text-muted">&#8358;{{number_format($amountInEntity, 2)}}</span>
 					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/tax/{{$payroll->id}}">{{$tax->title}}</a>
 					        </div>
 					    </div>
@@ -250,21 +240,14 @@
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
-		                	<!--<?php print_r($pensions[0]->salary_component->employee_salary_components); //exit; ?>-->
-		                	<?php $pensionableEmployees = $pensions[0]->salary_component->employee_salary_components; ?>
-		                	@foreach($pensions as $pension)
+		                	@foreach($pensionables as $pensionCompany => $pensioners)
 		                	<?php $amountInEntity = 0; ?>
-		                		@foreach($pensionableEmployees as $pensionableEmployee)
-				                	@foreach($paycheckComponents as $paycheckComponent)
-				                	<?php if($paycheckComponent->employee_salary_component_info_id != $pensionableEmployee->id) continue; ?>
-				                	<?php if(!$paycheckComponent->employee->employee_pension) continue; ?>
-				                	<?php if($paycheckComponent->employee->employee_pension->pension_id != $pension->id) continue; ?>
-				                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
-							        @endforeach
+		                		@foreach($pensioners as $pensioner)
+				                	<?php $amountInEntity += $pensioner['pension_amount'] * $pensioner['cycle']; ?>
 							    @endforeach
 					        <div class="list-group-item">
-					            <span class="pull-right text-muted">{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/pension/{{$payroll->id}}/{{$pension->id}}">{{$pension->title}}</a>
+					            <span class="pull-right text-muted">&#8358;{{number_format($amountInEntity, 2)}}</span>
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/pension/{{$payroll->id}}/{{$pensioners[0]['pension_id']}}">{{$pensionCompany}}</a>
 					        </div>
 					        @endforeach
 					    </div>
@@ -320,15 +303,15 @@
 				            <table class="table">
 				                <tr>
 				                    <td>Consolidated Salary</td>
-				                    <td align="right">{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
+				                    <td align="right">&#8358;{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
 				                </tr>
 				                <tr>
 				                    <td>Peculiar Allowance</td>
-				                    <td align="right">{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
+				                    <td align="right">&#8358;{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
 				                </tr>
 				                <tr class="total">
 				                    <td>Total</td>
-				                    <td align="right">{{number_format(($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle), 2)}}</td>
+				                    <td align="right">&#8358;{{number_format(($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle), 2)}}</td>
 				                </tr>
 				            </table>
 				            <div><h5>Allowances</h5><small><i>Earnings/Deductions</i></small></div>
@@ -336,8 +319,8 @@
 				                @foreach($paycheckComponents as $paycheckComponent)
 				                <?php if($paycheckComponent->employee_id != $paycheck->employee_id) continue; ?>
 				                <tr>
-				                    <td>{{$paycheckComponent->employee_salary_component_info->salary_component->title}}</td>
-				                    <td align="right">{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
+				                    <td>{{$paycheckComponent->component_title}}</td>
+				                    <td align="right">&#8358;{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
 				                </tr>
 				                @endforeach
 				                
@@ -345,7 +328,7 @@
 				                <?php if($paycheckSummary->employee_id != $paycheck->employee_id) continue; ?>
 				                <tr class="total">
 				                    <td>Net Pay</td>
-				                    <td align="right">{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</td>
+				                    <td align="right">&#8358;{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</td>
 				                </tr>
 				                @endforeach
 				            </table>

@@ -75,25 +75,31 @@ class PayrollController extends Controller
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
         $salaryComponent = $this->salaryComponentModel->findById($componentId);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
         return view('payrolls.salary_component', ['payroll' => $payroll, 'paycheckComponents' => $paycheckComponents,
-            'salaryComponent' => $salaryComponent, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+            'salaryComponent' => $salaryComponent, 'paycheckSummaries' => $paycheckSummaries,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
     public function showPension($payrollId, $pensionId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $pension = $this->pensionModel->findById($pensionId);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
+        $pensionables = $paycheckSummaries->where('pensionable', true)->where('pension_id', $pensionId);
         return view('payrolls.pension', ['payroll' => $payroll, 
             'paycheckComponents' => $paycheckComponents, 'pension' => $pension,
-            'pensions' => $this->pensionModel->findAll(),
-            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+            'pensions' => $this->pensionModel->findAll(), 'paycheckSummaries' => $paycheckSummaries,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
+            'pensionables' => $pensionables,]);
     }
     
     public function showTax($payrollId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $taxes = $this->taxModel->findAll();
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
-        return view('payrolls.tax', ['payroll' => $payroll, 
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
+        return view('payrolls.tax', ['payroll' => $payroll, 'paycheckSummaries' => $paycheckSummaries,
             'paycheckComponents' => $paycheckComponents, 'tax' => $taxes->last(),
             'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
@@ -110,6 +116,11 @@ class PayrollController extends Controller
         $paychecks = $this->paycheckModel->findByPayrollId($id);
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        $pensionables = $paycheckSummaries->where('pensionable', true)->groupBy('pension_company')->toArray();
+        $taxables = $paycheckSummaries->where('taxable', true)->toArray();
+        $bankables = $paycheckSummaries->where('bankable', true)->groupBy('bank')->toArray();
+        // dd($taxables);
+        // exit;
         $salaryComponents = $this->salaryComponentModel->findAll();
         $taxes = $this->taxModel->findAll();
         return view('payrolls.report', ['paychecks' => $paychecks,
@@ -119,6 +130,9 @@ class PayrollController extends Controller
             'pensions' => $this->pensionModel->findAll(),
             'payroll' => $payroll,
             'tax' => $taxes->last(),
+            'pensionables' => $pensionables,
+            'taxables' => $taxables,
+            'bankables' => $bankables,
             ]);
     }
 

@@ -48,15 +48,15 @@
                     <table class="table">
                         <tr>
                             <td>Consolidated Salary</td>
-                            <td align="right">{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
+                            <td align="right">&#8358;{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
                         </tr>
                         <tr>
                             <td>Peculiar Allowance</td>
-                            <td align="right">{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
+                            <td align="right">&#8358;{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
                         </tr>
                         <tr class="total">
                             <td>Total</td>
-                            <td align="right">{{number_format(($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle), 2)}}</td>
+                            <td align="right">&#8358;{{number_format(($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle), 2)}}</td>
                         </tr>
                     </table>
                     <div><h5>Allowances</h5><small><i>Earnings/Deductions</i></small></div>
@@ -64,8 +64,8 @@
                         @foreach($paycheckComponents as $paycheckComponent)
                         <?php if($paycheckComponent->employee_id != $paycheck->employee_id) continue; ?>
                         <tr>
-                            <td>{{$paycheckComponent->employee_salary_component_info->salary_component->title}}</td>
-                            <td align="right">{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
+                            <td>{{$paycheckComponent->component_title}}</td>
+                            <td align="right">&#8358;{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
                         </tr>
                         @endforeach
                         
@@ -73,7 +73,7 @@
                         <?php if($paycheckSummary->employee_id != $paycheck->employee_id) continue; ?>
                         <tr class="total">
                             <td>Net Pay</td>
-                            <td align="right">{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</td>
+                            <td align="right">&#8358;{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</td>
                         </tr>
                         @endforeach
                     </table>

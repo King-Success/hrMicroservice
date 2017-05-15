@@ -106,10 +106,15 @@ class PayEmployee implements ShouldQueue
                 $paycheckComponent = $this->paycheckComponentModel->getInstance();
                 $paycheckComponent->employee_id = $this->employee->id;
                 $paycheckComponent->payroll_id = $this->payroll->id;
-                $paycheckComponent->employee_salary_component_info_id = $employee_salary_component_info->id;
+                $paycheckComponent->component_title = $employee_salary_component_info->salary_component->title;
+                $paycheckComponent->component_permanent_title = $employee_salary_component_info->salary_component->permanent_title;
+                $paycheckComponent->component_id = $employee_salary_component_info->salary_component->id;
                 $paycheckComponent->amount = $amount;
                 $paycheckComponent->component_type = $employee_salary_component_info->salary_component->component_type;
                 $paycheckComponent->cycle = $this->payroll->cycle;
+                $paycheckComponent->rank = $this->employee->employee_rank ? $this->employee->employee_rank->rank->title : '';
+                $paycheckComponent->level = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->employee_level->title : '';
+                $paycheckComponent->step = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->title : '';
                 if(!$paycheckComponent->save()){
                     throw new \Exception("Error Creating paycheck component for employee " . $this->employee->surname);
                 }
@@ -135,6 +140,48 @@ class PayEmployee implements ShouldQueue
         $paycheckSummary->total_earnings = $this->totalEarnings;
         $paycheckSummary->net_pay = $this->grossTotal + $this->totalEarnings - $this->totalDeductions;
         $paycheckSummary->cycle = $this->payroll->cycle; 
+        
+        $pensionAmount = 0;
+        if(count($this->employee->employee_salary_components) > 0){
+            foreach($this->employee->employee_salary_components as $employee_salary_component_info){
+                if($employee_salary_component_info->salary_component->permanent_title != "pension") continue;
+                if($employee_salary_component_info->salary_component->value_type == 'Amount'){
+                    $pensionAmount = $employee_salary_component_info->amount;
+                }else{
+                    $pensionAmount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                }
+                $paycheckSummary->pension_amount = $pensionAmount;
+                $paycheckSummary->pension_employee_contribution_amount = $this->employee->employee_pension->employer_contribution;
+                $paycheckSummary->pension_pin_number = $this->employee->employee_pension->pin_number;
+                $paycheckSummary->pension_company = $this->employee->employee_pension->pension->title;
+                $paycheckSummary->pensionable = true;
+                $paycheckSummary->pension_id = $employee_salary_component_info->salary_component->id;
+            }
+        }
+        
+        $taxAmount = 0;
+        if(count($this->employee->employee_salary_components) > 0){
+            foreach($this->employee->employee_salary_components as $employee_salary_component_info){
+                if($employee_salary_component_info->salary_component->permanent_title != "tax") continue;
+                if($employee_salary_component_info->salary_component->value_type == 'Amount'){
+                    $taxAmount = $employee_salary_component_info->amount;
+                }else{
+                    $taxAmount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                }
+                $paycheckSummary->tax_amount = $taxAmount;
+                $paycheckSummary->taxable = true;
+                $paycheckSummary->tax_id = $employee_salary_component_info->salary_component->id;
+            }
+        }
+        
+        if($this->employee->employee_bank->bank && $this->employee->employee_bank->bank->title){
+            $paycheckSummary->bank = $this->employee->employee_bank->bank->title;
+            $paycheckSummary->bankable = true;
+            $paycheckSummary->bank_id = $this->employee->employee_bank->bank->id;
+            $paycheckSummary->bank_account_name = $this->employee->employee_bank->account_name;
+            $paycheckSummary->bank_account_number = $this->employee->employee_bank->account_number;
+            $paycheckSummary->bank_sort_code = $this->employee->employee_bank->sort_code;
+        }
         
         if(!$paycheckSummary->save()){
             throw new \Exception("Error Creating paycheck summary for employee " . $this->employee->surname);

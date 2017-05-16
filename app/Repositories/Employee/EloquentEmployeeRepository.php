@@ -30,7 +30,8 @@ class EloquentEmployeeRepository implements EmployeeContract
     }
 
     public function findAll() {
-        return Employee::all();
+        return Employee::with('employee_department')
+        ->get();
     }
 
     public function findById($employeeId) {

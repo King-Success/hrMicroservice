@@ -17,8 +17,8 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="InputSalaryComponent" class="col-sm-2 form-control-label">Salary Component</label>
                             <div class="col-sm-10">
+                                <label for="InputSalaryComponent">Salary Component</label>
                                 <select class="form-control c-select" name="salary_component" id="InputSalaryComponent">
                                     @foreach($salaryComponents as $salaryComponent)
                                     <option value="{{$salaryComponent->id}}">{{$salaryComponent->title}}</option>

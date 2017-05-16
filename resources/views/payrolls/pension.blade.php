@@ -48,6 +48,7 @@
 					<tbody>
 						<?php $counter = 0; $total = 0; $totalEmployee = 0; $totalEmployer = 0; ?>
 						@foreach($pensionables as $pensioner)
+						<?php if($pensioner->pension_id != $pension->id) continue; ?>
 	                	<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$pensioner->employee->surname}} {{$pensioner->employee->other_names}}</td>

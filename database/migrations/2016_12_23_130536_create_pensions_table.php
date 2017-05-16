@@ -15,7 +15,7 @@ class CreatePensionsTable extends Migration
     {
         Schema::create('pensions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title'); //NAME OF PFA
+            $table->string('title')->unique(); //NAME OF PFA
             $table->integer('salary_component_id')->unsigned();
             $table->timestamps();
             

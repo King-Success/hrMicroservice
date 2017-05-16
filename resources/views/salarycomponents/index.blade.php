@@ -16,8 +16,8 @@
                             <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Enter Salary Component. e.g Car Insurance">
                         </div>
                         <div class="form-group row">
-                            <label for="InputComponentType" class="col-sm-2 form-control-label">Component</label>
                             <div class="col-sm-10">
+                                <label for="InputComponentType">Component</label>
                                 <select class="form-control c-select" name="component_type" id="InputComponentType">
                                     <option value="Earning">Earning</option>
                                     <option value="Deduction">Deduction</option>
@@ -25,8 +25,8 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="InputValueType" class="col-sm-2 form-control-label">Value</label>
                             <div class="col-sm-10">
+                                <label for="InputValueType">Value</label>
                                 <select class="form-control c-select" name="value_type" id="InputValueType">
                                     <option value="Percentage">Percentage</option>
                                     <option value="Amount" selected>Amount</option>

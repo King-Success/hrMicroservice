@@ -115,6 +115,15 @@
                   <span class="nav-text">Users</span>
                 </a>
               </li>
+              
+              <li {{ Request::is('search/', '*') ? 'active' : ''}}>
+                <a href="/search" class="b-default">
+                  <span class="nav-icon">
+                    <i class="ion-search"></i>
+                  </span>
+                  <span class="nav-text">Search</span>
+                </a>
+              </li>
             
               <li class="nav-header hidden-folded m-t">
                 <span class="text-xs">Administration</span>

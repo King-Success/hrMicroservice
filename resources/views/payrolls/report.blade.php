@@ -241,13 +241,14 @@
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
 		                	@foreach($pensionables as $pensionCompany => $pensioners)
-		                	<?php $amountInEntity = 0; ?>
+		                	<?php $amountInEntity = 0; $pension_id; ?>
 		                		@foreach($pensioners as $pensioner)
 				                	<?php $amountInEntity += $pensioner['pension_amount'] * $pensioner['cycle']; ?>
+				                	<?php $pension_id = $pensioner['pension_id']; ?>
 							    @endforeach
 					        <div class="list-group-item">
 					            <span class="pull-right text-muted">&#8358;{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/pension/{{$payroll->id}}/{{$pensioners[0]['pension_id']}}">{{$pensionCompany}}</a>
+					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/pension/{{$payroll->id}}/{{$pension_id}}">{{$pensionCompany}}</a>
 					        </div>
 					        @endforeach
 					    </div>

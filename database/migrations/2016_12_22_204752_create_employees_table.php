@@ -29,6 +29,8 @@ class CreateEmployeesTable extends Migration
             $table->integer('employee_type_id')->unsigned();
             $table->string('profile_is_complete')->default(0);
             $table->integer('setup_stage')->default(1);
+            $table->boolean('flag')->default(true);
+            $table->boolean('retired')->default(false);
             $table->timestamps();
             
             $table->foreign('prefix_id')->references('id')->on('prefixes');

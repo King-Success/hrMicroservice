@@ -19,8 +19,8 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="InputELevel" class="col-sm-2 form-control-label">Employee Level</label>
                             <div class="col-sm-10">
+                                <label for="InputELevel">Employee Level</label>
                                 <select class="form-control c-select" name="employee_level_id" id="InputELevel">
                                     @foreach($employeeLevels as $levels)
                                     <option value="{{$levels->id}}" {{$levels->id == $paygrade->employee_level_id ? 'selected' : ''}}>{{$levels->title}}</option>

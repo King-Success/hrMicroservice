@@ -45,4 +45,8 @@ class Employee extends Model
         return $this->hasOne('App\EmployeeTax');
     }
     
+    public function employee_type(){
+        return $this->belongsTo('App\EmployeeType');
+    }
+    
 }

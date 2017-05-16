@@ -17,8 +17,8 @@
                             <input type="hidden" id="InputEditId" name="id" value="{{$salaryComponent->id}}">
                         </div>
                         <div class="form-group row">
-                            <label for="InputEditComponentType" class="col-sm-2 form-control-label">Component</label>
                             <div class="col-sm-10">
+                                <label for="InputComponentType">Component</label>
                                 <select class="form-control c-select" name="component_type" id="InputEditComponentType">
                                     <option value="Earning" {{$salaryComponent->component_type == 'Earning' ? 'selected' : ''}}>Earning</option>
                                     <option value="Deduction" {{$salaryComponent->component_type == 'Deduction' ? 'selected' : ''}}>Deduction</option>
@@ -26,8 +26,8 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="InputEditValueType" class="col-sm-2 form-control-label">Value</label>
                             <div class="col-sm-10">
+                                <label for="InputEditValueType">Value</label>
                                 <select class="form-control c-select" name="value_type" id="InputEditValueType">
                                     <option value="Percentage" @if($salaryComponent->value_type == 'Percentage'){{'selected'}}@endif>Percentage</option>
                                     <option value="Amount" @if($salaryComponent->value_type == 'Amount'){{'selected'}}@endif>Amount</option>

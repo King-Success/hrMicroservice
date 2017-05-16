@@ -244,3 +244,6 @@ Route::group(['prefix' => 'employeetax', 'middleware' => ['auth']], function() {
 });
 
 Route::get('/logout', 'UserController@logout');
+
+Route::get('/search', 'SearchController@index');
+Route::post('/search', 'SearchController@search');

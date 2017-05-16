@@ -121,7 +121,7 @@
                   <span class="nav-icon">
                     <i class="ion-search"></i>
                   </span>
-                  <span class="nav-text">Search</span>
+                  <span class="nav-text">Search Filter</span>
                 </a>
               </li>
             

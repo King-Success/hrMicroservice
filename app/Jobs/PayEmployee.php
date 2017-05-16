@@ -155,7 +155,7 @@ class PayEmployee implements ShouldQueue
                 $paycheckSummary->pension_pin_number = $this->employee->employee_pension->pin_number;
                 $paycheckSummary->pension_company = $this->employee->employee_pension->pension->title;
                 $paycheckSummary->pensionable = true;
-                $paycheckSummary->pension_id = $employee_salary_component_info->salary_component->id;
+                $paycheckSummary->pension_id = $this->employee->employee_pension->pension_id;
             }
         }
         

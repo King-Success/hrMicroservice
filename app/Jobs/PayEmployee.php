@@ -174,7 +174,7 @@ class PayEmployee implements ShouldQueue
             }
         }
         
-        if($this->employee->employee_bank->bank && $this->employee->employee_bank->bank->title){
+        if($this->employee->employee_bank && $this->employee->employee_bank->bank && $this->employee->employee_bank->bank->title){
             $paycheckSummary->bank = $this->employee->employee_bank->bank->title;
             $paycheckSummary->bankable = true;
             $paycheckSummary->bank_id = $this->employee->employee_bank->bank->id;

@@ -18,7 +18,7 @@ class CreateEmployeeTaxesTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('tax_id')->unsigned();
             
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('tax_id')->references('id')->on('pensions');
             $table->timestamps();
         });

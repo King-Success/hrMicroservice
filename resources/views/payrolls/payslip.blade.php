@@ -44,7 +44,7 @@
                     <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}}</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
-                    <div><h3>{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}</h3><small><i>Staff No: {{$paycheck->employee->employee_number}}</i></small></div>
+                    <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
                     <table class="table">
                         <tr>
                             <td>Consolidated Salary</td>

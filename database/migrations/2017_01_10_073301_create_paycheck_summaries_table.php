@@ -16,7 +16,13 @@ class CreatePaycheckSummariesTable extends Migration
         //
         Schema::create('paycheck_summaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('employee_id')->unsigned();
+            // $table->integer('employee_id')->unsigned();
+            $table->string('employee_prefix')->nullable();
+            $table->integer('employee_id')->default(0);
+            $table->string('employee_surname')->nullable();
+            $table->string('employee_othernames')->nullable();
+            $table->string('employee_number')->nullable();
+            $table->string('employee_type')->nullable();
             $table->integer('payroll_id')->unsigned();
             $table->string('rank')->nullable();
             $table->string('level')->nullable();
@@ -52,8 +58,8 @@ class CreatePaycheckSummariesTable extends Migration
             $table->string('bank_account_name')->nullable();
             $table->string('bank_sort_code')->nullable();
             
-            $table->foreign('employee_id')->references('id')->on('employees');
-            $table->foreign('payroll_id')->references('id')->on('payrolls');
+            // $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('payroll_id')->references('id')->on('payrolls')->onDelete('cascade');
         });
     }
 

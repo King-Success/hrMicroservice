@@ -46,8 +46,8 @@
 						<?php if(!$paycheckSummary->taxable) continue; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
-						<td>{{$paycheckSummary->employee->employee_number}}</td>
+						<td>{{$paycheckSummary->employee_surname}} {{$paycheckSummary->employee_other_names}}</td>
+						<td>{{$paycheckSummary->employee_number}}</td>
 						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
 						<?php
 						$amount = $paycheckSummary->cycle * $paycheckSummary->tax_amount;

@@ -17,7 +17,7 @@
                         </div>
                         @if($AppConfig->rank_is_king)
                         <div class="form-group">
-                            <label for="InputBasicSalary">Basic Salary</label>
+                            <label for="InputBasicSalary">Consolidated Salary</label>
                             <input type="text" value="0.00" name="basic_salary" class="form-control" id="InputBasicSalary" placeholder="Enter Amount">
                         </div>
                         
@@ -49,7 +49,7 @@
                                         <th>Title</th>
                                         @if($AppConfig->rank_is_king)
                                         <th>Allowance</th>
-                                        <th>Basic Salary</th>
+                                        <th>Consolidated Salary</th>
                                         @else
                                         <th>Created At</th>
                                         @endif

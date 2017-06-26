@@ -16,7 +16,13 @@ class CreatePaycheckComponentsTable extends Migration
         //
         Schema::create('paycheck_components', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('employee_id')->unsigned();
+            // $table->integer('employee_id')->unsigned();
+            $table->string('employee_prefix')->nullable();
+            $table->integer('employee_id')->default(0);
+            $table->string('employee_surname')->nullable();
+            $table->string('employee_othernames')->nullable();
+            $table->string('employee_number')->nullable();
+            $table->string('employee_type')->nullable();
             $table->integer('payroll_id')->unsigned();
             $table->integer('component_id');
             $table->string('component_title')->nullable();
@@ -30,8 +36,8 @@ class CreatePaycheckComponentsTable extends Migration
             $table->string('level')->nullable();
             $table->string('step')->nullable();
             
-            $table->foreign('employee_id')->references('id')->on('employees');
-            $table->foreign('payroll_id')->references('id')->on('payrolls');
+            // $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('payroll_id')->references('id')->on('payrolls')->onDelete('cascade');
         });
     }
 

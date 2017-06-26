@@ -67,8 +67,8 @@
                                         <?php
                                         $paygrade = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->amount : 0;
                                         $paygradeAllowance = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->allowance : 0;
-                                        $consolidatedSalary = ($employee->employee_basic_salary->amount + $paygrade) / 12;
-                                        $consolidatedAllowance = ($employee->employee_basic_salary->allowance + $paygradeAllowance) / 12;
+                                        $consolidatedSalary = ($employee->employee_basic_salary->amount + $paygrade);
+                                        $consolidatedAllowance = ($employee->employee_basic_salary->allowance + $paygradeAllowance);
                                         ?>
                                         <!--
                                         <td>{{number_format($paygrade, 2)}}</td>

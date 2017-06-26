@@ -16,7 +16,7 @@ class CreateEmployeeBasicSalaryTable extends Migration
         Schema::create('employee_basic_salaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->decimal('amount', 12, 2)->default(0.00);
             $table->decimal('allowance', 12, 2)->default(0.00);
             $table->timestamps();

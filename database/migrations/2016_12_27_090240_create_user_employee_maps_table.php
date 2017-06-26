@@ -19,7 +19,7 @@ class CreateUserEmployeeMapsTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('user_id')->unsigned();
             
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
             
             $table->timestamps();

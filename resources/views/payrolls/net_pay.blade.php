@@ -52,8 +52,8 @@
 						@foreach ($paycheckSummaries as $paycheckSummary)
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
-						<td>{{$paycheckSummary->employee->employee_number}}</td>
+						<td>{{$paycheckSummary->employee_surname}} {{$paycheckSummary->employee_other_names}}</td>
+						<td>{{$paycheckSummary->employee_number}}</td>
 						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
 						<td>{{$paycheckSummary->level ? $paycheckSummary->level : ''}}</td>
 						<td>{{$paycheckSummary->step ? $paycheckSummary->step : ''}}</td>

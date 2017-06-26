@@ -46,8 +46,8 @@
 						<?php if($paycheckComponent->component_id != $salaryComponent->id) continue; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckComponent->employee->surname}} {{$paycheckComponent->employee->other_names}}</td>
-						<td>{{$paycheckComponent->employee->employee_number}}</td>
+						<td>{{$paycheckComponent->employee_surname}} {{$paycheckComponent->employee_other_names}}</td>
+						<td>{{$paycheckComponent->employee_number}}</td>
 						<td>{{$paycheckComponent->rank ? $paycheckComponent->rank : ''}}</td>
 						<td>{{number_format($paycheckComponent->cycle * $paycheckComponent->amount, 2)}}</td>
 						<!--<td>{{$paycheckComponent->created_at}}</td>-->

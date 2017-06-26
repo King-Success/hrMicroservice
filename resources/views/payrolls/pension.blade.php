@@ -51,8 +51,8 @@
 						<?php if($pensioner->pension_id != $pension->id) continue; ?>
 	                	<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$pensioner->employee->surname}} {{$pensioner->employee->other_names}}</td>
-						<td>{{$pensioner->employee->employee_number}}</td>
+						<td>{{$pensioner->employee_surname}} {{$pensioner->employee_other_names}}</td>
+						<td>{{$pensioner->employee_number}}</td>
 						<td>{{$pensioner->rank ? $pensioner->rank : ''}}</td>
 						<td>{{$pensioner->step ? $pensioner->step : ''}}</td>
 						<td>{{$pensioner->level ? $pensioner->level : ''}}</td>

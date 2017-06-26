@@ -19,7 +19,7 @@ class CreateEmployeePaygradesTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('paygrade_id')->unsigned();
             
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('paygrade_id')->references('id')->on('paygrades');
             
             $table->timestamps();

@@ -21,7 +21,7 @@ class CreateEmployeeSalaryComponentsTable extends Migration
             
             $table->decimal('amount', 12, 2)->default(0.00);
             
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('salary_component_id')->references('id')->on('salary_components');
             
             $table->timestamps();

@@ -67,11 +67,16 @@ class PayEmployee implements ShouldQueue
     private function populate_paycheck(){
         $paygrade = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->amount : 0;
         $paygradeAllowance = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->allowance : 0;
-        $this->consolidatedSalary = ($this->employee->employee_basic_salary->amount + $paygrade) / 12;
-        $this->consolidatedAllowance = ($this->employee->employee_basic_salary->allowance + $paygradeAllowance) / 12;
+        $this->consolidatedSalary = ($this->employee->employee_basic_salary->amount + $paygrade);
+        $this->consolidatedAllowance = ($this->employee->employee_basic_salary->allowance + $paygradeAllowance);
         $this->grossTotal = $this->consolidatedSalary + $this->consolidatedAllowance;
         $paycheck = $this->paycheckModel->getInstance();
         $paycheck->employee_id = $this->employee->id;
+        $paycheck->employee_prefix = $this->employee->prefix->title;
+        $paycheck->employee_surname = $this->employee->surname;
+        $paycheck->employee_othernames = $this->employee->other_names;
+        $paycheck->employee_number = $this->employee->employee_number;
+        $paycheck->employee_type = $this->employee->employee_type->title;
         $paycheck->payroll_id = $this->payroll->id;
         $paycheck->consolidated_salary = $this->consolidatedSalary;
         $paycheck->consolidated_allowance = $this->consolidatedAllowance;
@@ -105,6 +110,11 @@ class PayEmployee implements ShouldQueue
                 }
                 $paycheckComponent = $this->paycheckComponentModel->getInstance();
                 $paycheckComponent->employee_id = $this->employee->id;
+                $paycheckComponent->employee_prefix = $this->employee->prefix->title;
+                $paycheckComponent->employee_surname = $this->employee->surname;
+                $paycheckComponent->employee_othernames = $this->employee->other_names;
+                $paycheckComponent->employee_number = $this->employee->employee_number;
+                $paycheckComponent->employee_type = $this->employee->employee_type->title;
                 $paycheckComponent->payroll_id = $this->payroll->id;
                 $paycheckComponent->component_title = $employee_salary_component_info->salary_component->title;
                 $paycheckComponent->component_permanent_title = $employee_salary_component_info->salary_component->permanent_title;
@@ -125,6 +135,11 @@ class PayEmployee implements ShouldQueue
     private function populate_paycheck_summary(){
         $paycheckSummary = $this->paycheckSummarymodel->getInstance();
         $paycheckSummary->employee_id = $this->employee->id;
+        $paycheckSummary->employee_prefix = $this->employee->prefix->title;
+        $paycheckSummary->employee_surname = $this->employee->surname;
+        $paycheckSummary->employee_othernames = $this->employee->other_names;
+        $paycheckSummary->employee_number = $this->employee->employee_number;
+        $paycheckSummary->employee_type = $this->employee->employee_type->title;
         $paycheckSummary->payroll_id = $this->payroll->id;
         $paycheckSummary->rank = $this->employee->employee_rank ? $this->employee->employee_rank->rank->title : '';
         $paycheckSummary->level = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->employee_level->title : '';

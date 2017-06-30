@@ -60,7 +60,7 @@
 						<td>{{$pensioner->pension_pin_number}}</td>
 						<?php
 						$employeeContribution = $pensioner->cycle * $pensioner->pension_amount;
-						$employerContribution = $pensioner->cycle * $pensioner->pension_employee_contribution_amount;
+						$employerContribution = $pensioner->cycle * $pensioner->pension_employer_contribution_amount;
 						?>
 						<td>{{number_format($employeeContribution, 2)}}</td>
 						<td>{{number_format($employerContribution, 2)}}</td>

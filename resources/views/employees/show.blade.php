@@ -356,19 +356,22 @@
                                       <label>Consolidated Salary</label>
                                       <input type="number" value="{{$employeeBasicSalary->amount}}" name="amount" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
                                     </div>
+                                    <!--
                                     <div class="form-group">
-                                      <label>Allowance</label>
+                                      <label>Peculiar Allowance</label>
                                       <input type="number" value="{{$employeeBasicSalary->allowance}}" name="allowance" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
                                     </div>
+                                    -->
+                                    <input type="hidden" value="{{$employeeBasicSalary->allowance}}" name="allowance" class="form-control" {{$AppConfig->rank_is_king ? 'disabled' : ''}}>
                                     <div class="form-group">
                                     <?php
                                     $paygrade = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->amount : 0;
                                     $paygradeAllowance = $employee->employee_paygrade ? $employee->employee_paygrade->paygrade->allowance : 0;
-                                    $consolidatedSalary = ($employee->employee_basic_salary->amount + $paygrade) / 12;
-                                    $consolidatedAllowance = ($employee->employee_basic_salary->allowance + $paygradeAllowance) / 12;
+                                    $consolidatedSalary = ($employee->employee_basic_salary->amount + $paygrade);
+                                    $consolidatedAllowance = ($employee->employee_basic_salary->allowance + $paygradeAllowance);
                                     $grossTotal = $consolidatedSalary + $consolidatedAllowance;
                                     ?>
-                                    <h3 class="">Gross Total: N{{number_format($grossTotal,2)}}</h3>
+                                    <h3 class="">Total: N{{number_format($grossTotal,2)}}</h3>
                                     </div>
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
                                     <!--<div class="col-sm-6"></div>-->
@@ -452,7 +455,7 @@
                                       }
                                   }
                                       ?>
-                                  <h3 class="">Total Earnings: N{{number_format($totalEarnings,2)}}</h3>
+                                  <h3 class="">Total Allowances: N{{number_format($totalEarnings,2)}}</h3>
                                   <h3 class="">Total Deductions: N{{number_format($totalDeductions,2)}}</h3>
                                   </div>
                                   <input type="hidden" name="employee" value="{{$employee->id}}">

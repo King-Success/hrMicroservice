@@ -294,6 +294,8 @@ class PayrollController extends Controller
     public function delete(Request $request, $id) {
         if ($this->payrollModel->remove($id)) {
             // Redirect or do whatever you like
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/');
         } else {
             return back()
                ->with('error', 'Could not delete Payroll. Try again!');

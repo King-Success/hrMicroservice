@@ -213,7 +213,7 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
     Route::post('/{id}/paycheck', 'PayrollController@createPaycheck')->name('create_paycheck');
     // Route::get('/{id}/edit', 'PayrollController@edit')->name('edit_payroll');
     // Route::put('/{id}/edit', 'PayrollController@update')->name('update_payroll');
-    // Route::get('/{id}/delete', 'PayrollController@delete')->name('delete_payroll');
+    Route::delete('/{id}', 'PayrollController@delete')->name('delete_payroll');
 });
 
 Route::get('/payslip/{id}', 'PayrollController@createPayslip')->middleware('auth');

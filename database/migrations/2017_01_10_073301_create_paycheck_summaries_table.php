@@ -41,7 +41,7 @@ class CreatePaycheckSummariesTable extends Migration
             $table->timestamps();
             
             $table->decimal('pension_amount', 12, 2)->default(0.00);
-            $table->decimal('pension_employee_contribution_amount', 12, 2)->default(0.00);
+            $table->decimal('pension_employer_contribution_amount', 12, 2)->default(0.00);
             $table->string('pension_pin_number')->default('');
             $table->string('pension_company')->default('');
             $table->boolean('pensionable')->default(false);

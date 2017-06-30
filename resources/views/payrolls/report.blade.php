@@ -58,6 +58,13 @@
 					</div>
 				</div>
 			</div>
+			<?php $sum = 0; ?>
+			@foreach($paycheckComponents as $paycheckComponent)
+			<?php 
+			if($paycheckComponent->component_type != "Earning") continue; 
+			$sum += $paycheckComponent->amount * $paycheckComponent->cycle;
+			?>
+			@endforeach
 			<div class="col-xs-6 col-sm-3 b-r b-b">
 				<div class="padding">
 					<div>
@@ -65,7 +72,7 @@
 						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
 					</div>
 					<div class="text-center">
-						<h6 class="text-center _600">&#8358;{{number_format($consolidatedAllowance, 2)}}</h6>
+						<h6 class="text-center _600">&#8358;{{number_format($sum, 2)}}</h6>
 						<p class="text-muted m-b-md">Allowance</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -255,6 +262,15 @@
 		            </div>
 		        </div>
 		    </div>
+		    <div class="col-sm-6">
+		        <div class="box">
+		            <div class="box-header">
+		                <h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
+			            <button class="m-b btn">DELETE</button>
+			            {!! Form::close() !!}</h3>
+		            </div>
+		        </div>
+		    </div>
 		</div>
 		</div>
 	</div>
@@ -273,7 +289,7 @@
 						</span>
 					</span>
 					<span class="list-body text-ellipsis">
-							{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}
+							{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}
 					</span>
 				</a>
 				@endforeach
@@ -287,7 +303,7 @@
 <?php $counter = 0; ?>
 @foreach($paychecks as $paycheck)
 <div class="modal fade inactive payslip" id="employee_{{$paycheck->employee_id}}" data-backdrop="false">
-    <div class="modal-right w-xxl dark-white b-l">
+    <div class="modal-right w-xxl dark-white b-l" style="overflow">
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
             <div class="p-a b-b">
@@ -300,40 +316,81 @@
 				            <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}} {{$payroll->paid_at}}</small></div>
 				        <div class="box-divider m-a-0"></div>
 				        <div class="box-body">
-				            <div><h3>{{$paycheck->employee->prefix->title}} {{$paycheck->employee->surname}} {{$paycheck->employee->other_names}}</h3><small><i>Staff No: {{$paycheck->employee->employee_number}}</i></small></div>
+				            <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
+				            <?php $grossTotal = 0; ?>
 				            <table class="table">
 				                <tr>
 				                    <td>Consolidated Salary</td>
 				                    <td align="right">&#8358;{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
 				                </tr>
+				                <!--
 				                <tr>
 				                    <td>Peculiar Allowance</td>
 				                    <td align="right">&#8358;{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
 				                </tr>
+				                -->
+				                <!--
 				                <tr class="total">
 				                    <td>Total</td>
 				                    <td align="right">&#8358;{{number_format(($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle), 2)}}</td>
 				                </tr>
+				                -->
+				            <?php $grossTotal += ($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle); ?>
 				            </table>
-				            <div><h5>Allowances</h5><small><i>Earnings/Deductions</i></small></div>
-				            <table class="table">
-				                @foreach($paycheckComponents as $paycheckComponent)
-				                <?php if($paycheckComponent->employee_id != $paycheck->employee_id) continue; ?>
-				                <tr>
-				                    <td>{{$paycheckComponent->component_title}}</td>
-				                    <td align="right">&#8358;{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
-				                </tr>
-				                @endforeach
-				                
-				                @foreach($paycheckSummaries as $paycheckSummary)
-				                <?php if($paycheckSummary->employee_id != $paycheck->employee_id) continue; ?>
-				                <tr class="total">
-				                    <td>Net Pay</td>
-				                    <td align="right">&#8358;{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</td>
-				                </tr>
-				                @endforeach
-				            </table>
-				            <div class="container" style="margin-top: 50px; margin-bottom: 40px;">
+				            <div><h5>Allowances</h5><small><i>Earnings</i></small></div>
+		                    <table class="table">
+		                        <?php $subTotal = 0; ?>
+		                        @foreach($paycheckComponents as $paycheckComponent)
+		                        <?php if($paycheckComponent->employee_id != $paycheck->employee_id ||
+		                            $paycheckComponent->component_type=="Deduction") continue; ?>
+		                        <tr>
+		                            <td>{{$paycheckComponent->component_title}}</td>
+		                            <?php $subTotal += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
+		                            <td align="right">&#8358;{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
+		                        </tr>
+		                        @endforeach
+		                        
+		                        <tr class="total">
+		                            <td>Total Allowances</td>
+		                            <td align="right">&#8358;{{number_format($subTotal, 2)}}</td>
+		                        </tr>
+		                        
+		                    </table>
+		                    <?php $grossTotal += $subTotal; ?>
+		                    <table class="table">
+		                        <tr>
+		                            <td><h5><b>Gross Total</b></h5></td>
+		                            <td align="right"><h5><b>&#8358;{{number_format($grossTotal, 2)}}</b></h5></td>
+		                        </tr>
+		                    </table>
+				            <div><h5>Deductions</h5><small><i>Deductions</i></small></div>
+		                    <table class="table">
+		                        <?php $subTotal = 0; ?>
+		                        @foreach($paycheckComponents as $paycheckComponent)
+		                        <?php if($paycheckComponent->employee_id != $paycheck->employee_id ||
+		                            $paycheckComponent->component_type=="Earning") continue; ?>
+		                        <tr>
+		                            <td>{{$paycheckComponent->component_title}}</td>
+		                            <?php $subTotal += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
+		                            <td align="right">&#8358;{{number_format($paycheckComponent->amount * $paycheckComponent->cycle, 2)}}</td>
+		                        </tr>
+		                        @endforeach
+		                        
+		                        <tr class="total">
+		                            <td>Total Deductions</td>
+		                            <td align="right">&#8358;{{number_format($subTotal, 2)}}</td>
+		                        </tr>
+		                    </table>
+		                    <table class="table">
+		                        @foreach($paycheckSummaries as $paycheckSummary)
+		                        <?php if($paycheckSummary->employee_id != $paycheck->employee_id) continue; ?>
+		                        <tr class="total">
+		                            <td><h5><b>Net Pay</h5></b></td>
+		                            <td align="right"><h5><b>&#8358;{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</h5></b></td>
+		                        </tr>
+		                        @endforeach
+		                    </table>
+				            <div class="container" style="margin-top: 30px; margin-bottom: 40px;">
                         		<div>Authorized Signature_________________________</div>
                     		</div>
                     		<!--
@@ -350,6 +407,16 @@
     </div>
 </div>
 @endforeach
+
+		<script type="text/javascript">
+            $('#deletePayroll').submit(function(evt){
+                evt.preventDefault();
+                if(confirm("Are you sure you want to delete this record?")){
+                    console.log("goodluck deleting.");
+                    this.submit()
+                }
+            })
+        </script>
 
 <!-- ############ PAGE END-->
 @stop

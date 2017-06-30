@@ -72,6 +72,7 @@ class PayEmployee implements ShouldQueue
         $this->grossTotal = $this->consolidatedSalary + $this->consolidatedAllowance;
         $paycheck = $this->paycheckModel->getInstance();
         $paycheck->employee_id = $this->employee->id;
+        $paycheck->cycle = $this->payroll->cycle;
         $paycheck->employee_prefix = $this->employee->prefix->title;
         $paycheck->employee_surname = $this->employee->surname;
         $paycheck->employee_othernames = $this->employee->other_names;
@@ -166,7 +167,7 @@ class PayEmployee implements ShouldQueue
                     $pensionAmount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
                 }
                 $paycheckSummary->pension_amount = $pensionAmount;
-                $paycheckSummary->pension_employee_contribution_amount = $this->employee->employee_pension->employer_contribution;
+                $paycheckSummary->pension_employer_contribution_amount = $this->employee->employee_pension->employer_contribution;
                 $paycheckSummary->pension_pin_number = $this->employee->employee_pension->pin_number;
                 $paycheckSummary->pension_company = $this->employee->employee_pension->pension->title;
                 $paycheckSummary->pensionable = true;

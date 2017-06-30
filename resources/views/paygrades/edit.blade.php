@@ -29,10 +29,15 @@
                             </div>
                         </div>
                         
+                        
+                        @if($AppConfig->rank_is_king)
+                        <input type="hidden" value="{{$paygrade->amount}}" name="amount"/>
+                        @else
                         <div class="form-group">
                             <label for="InputEditAmount">Amount (N)</label>
                             <input type="text" value="{{$paygrade->amount}}" name="amount" class="form-control" id="InputEditAmount" placeholder="Enter amount">
                         </div>
+                        @endif
                         <button type="submit" class="btn black m-b">UPDATE</button>
                         <a href="/paygrade/{{$paygrade->id}}/delete" id="deletePaygrade" class="m-b" style="text-decoration: underline;">DELETE</a>
                     {!! Form::close() !!}
@@ -53,7 +58,9 @@
                                     <tr>
                                         <th>Title/Step</th>
                                         <th>Level</th>
+                                        @if(!$AppConfig->rank_is_king)
                                         <th>Amount (N)</th>
+                                        @endif
                                         <!--<th>Created At</th>-->
                                     </tr>
                                     </thead>
@@ -62,7 +69,9 @@
                                     <tr>
                                         <td><a href="/paygrade/"{{$paygrade->id}}/edit">{{$paygrade->title}}</a></td>
                                         <td>{{$paygrade->employee_level->title}}</td>
+                                        @if(!$AppConfig->rank_is_king)
                                         <td>{{$paygrade->amount}}</td>
+                                        @endif
                                         <!--<td>{{$paygrade->created_at}}</td>-->
                                     </tr>
                                     @endforeach

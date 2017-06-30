@@ -22,10 +22,13 @@
                             <label for="InputEditBasicSalary">Consolidated Salary</label>
                             <input type="text" value="{{$rank->basic_salary}}" name="basic_salary" class="form-control" id="InputEditBasicSalary" placeholder="Enter Amount">
                         </div>
+                        <!--
                         <div class="form-group">
                             <label for="InputEditPaa">Allowance</label>
                             <input type="text" value="{{$rank->allowance}}" name="allowance" class="form-control" id="InputEditPaa" placeholder="Enter Allowance">
                         </div>
+                        -->
+                        <input type="hidden" value="{{$rank->allowance}}" name="allowance">
                         @else
                         <input type="hidden" name="basic_salary" value="0">
                         <input type="hidden" name="allowance" value="0">
@@ -50,7 +53,7 @@
                                     <tr>
                                         <th>Title</th>
                                         @if($AppConfig->rank_is_king)
-                                        <th>Allowance</th>
+                                        <!--<th>Allowance</th>-->
                                         <th>Consolidated Salary</th>
                                         @else
                                         <th>Created At</th>
@@ -62,7 +65,7 @@
                                     <tr>
                                         <td><a href="/rank/{{$_rank->id}}/edit">{{$_rank->title}}</a></td>
                                         @if($AppConfig->rank_is_king)
-                                        <td>{{$_rank->allowance}}</td>
+                                        <!--<td>{{$_rank->allowance}}</td>-->
                                         <td>{{$_rank->basic_salary}}</t>
                                         @else
                                         <td>{{$_rank->created_at}}</td>

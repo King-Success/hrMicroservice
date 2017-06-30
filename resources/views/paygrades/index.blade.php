@@ -27,11 +27,14 @@
                                 </select>
                             </div>
                         </div>
-                        
+                        @if($AppConfig->rank_is_king)
+                        <input type="hidden" value="0.00" name="amount"/>
+                        @else
                         <div class="form-group">
                             <label for="InputAmount">Amount (N)</label>
                             <input type="text" value="0.00" name="amount" class="form-control" id="InputAmount" placeholder="Enter amount">
                         </div>
+                        @endif
                         <!--
                         <div class="form-group">
                             <label for="InputAllowance">Allowance (N)</label>
@@ -57,7 +60,9 @@
                                     <tr>
                                         <th>Title/Step</th>
                                         <th>Level</th>
+                                        @if(!$AppConfig->rank_is_king)
                                         <th>Amount (N)</th>
+                                        @endif
                                         <!--<th>Allowance (N)</th>-->
                                         <!--<th>Created At</th>-->
                                     </tr>
@@ -67,7 +72,9 @@
                                     <tr>
                                         <td><a href="/paygrade/{{$paygrade->id}}/edit">{{$paygrade->title}}</a></td>
                                         <td>{{$paygrade->employee_level->title}}</td>
+                                        @if(!$AppConfig->rank_is_king)
                                         <td>{{$paygrade->amount}}</td>
+                                        @endif
                                         <!--<td>{{$paygrade->allowance}}</td>-->
                                         <!--<td>{{$paygrade->created_at}}</td>-->
                                     </tr>

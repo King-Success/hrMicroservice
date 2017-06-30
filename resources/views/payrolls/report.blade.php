@@ -286,6 +286,10 @@
 		    </div>
 		    <div class="col-sm-6">
 		        <div class="box">
+		        	<div class="box-header">
+		                <span class="label success pull-right">1</span>
+		                <h3>Action</h3>
+		            </div>
 		            <div class="box-header">
 		                <h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
 			            <button class="m-b btn">DELETE</button>
@@ -334,9 +338,11 @@
             <div class="row-row light">
 				<!--<div class="col-md-12">-->
 				    <div class="box">
+				    	<!--
 				        <div class="box-header">
 				            <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}} {{$payroll->paid_at}}</small></div>
 				        <div class="box-divider m-a-0"></div>
+				        -->
 				        <div class="box-body">
 				            <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
 				            <?php $grossTotal = 0; ?>

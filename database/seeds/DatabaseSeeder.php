@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PensionTableSeeder::class);
         $this->call(BankTableSeeder::class);
         $this->call(TaxTableSeeder::class);
-        
-        $this->call(EmployeeTableSeeder::class);
+        if (!App::environment('production')) {
+            $this->call(EmployeeTableSeeder::class);
+        }
     }
 }

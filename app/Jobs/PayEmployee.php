@@ -167,11 +167,11 @@ class PayEmployee implements ShouldQueue
                     $pensionAmount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
                 }
                 $paycheckSummary->pension_amount = $pensionAmount;
-                $paycheckSummary->pension_employer_contribution_amount = $this->employee->employee_pension->employer_contribution;
-                $paycheckSummary->pension_pin_number = $this->employee->employee_pension->pin_number;
-                $paycheckSummary->pension_company = $this->employee->employee_pension->pension->title;
-                $paycheckSummary->pensionable = true;
-                $paycheckSummary->pension_id = $this->employee->employee_pension->pension_id;
+                $paycheckSummary->pension_employer_contribution_amount = $this->employee->employee_pension ? $this->employee->employee_pension->employer_contribution : 0;
+                $paycheckSummary->pension_pin_number = $this->employee->employee_pension ? $this->employee->employee_pension->pin_number : '';
+                $paycheckSummary->pension_company = $this->employee->employee_pension ? $this->employee->employee_pension->pension->title : '';
+                $paycheckSummary->pensionable = $this->employee->employee_pension ? true : false;
+                $paycheckSummary->pension_id = $this->employee->employee_pension ? $this->employee->employee_pension->pension_id : 0;
             }
         }
         

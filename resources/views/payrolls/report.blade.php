@@ -73,14 +73,36 @@
 					</div>
 					<div class="text-center">
 						<h6 class="text-center _600">&#8358;{{number_format($sum, 2)}}</h6>
-						<p class="text-muted m-b-md">Allowance</p>
+						<p class="text-muted m-b-md">Total Allowances</p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>
 					</div>
 				</div>
 			</div>
+			<?php $sum = 0; ?>
+			@foreach($paycheckComponents as $paycheckComponent)
+			<?php 
+			if($paycheckComponent->component_type != "Deduction") continue; 
+			$sum += $paycheckComponent->amount * $paycheckComponent->cycle;
+			?>
+			@endforeach
 			<div class="col-xs-6 col-sm-3 b-b">
+				<div class="padding">
+					<div>
+						<span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
+						<span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
+					</div>
+					<div class="text-center">
+						<h6 class="text-center _600">&#8358;{{number_format($sum, 2)}}</h6>
+						<p class="text-muted m-b-md">Total Deductions</p>
+						<div>
+							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 b-r b-b">
 				<div class="padding">
 					<div>
 						<span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
@@ -95,7 +117,7 @@
 					</div>
 				</div>
 			</div>
-			<?php $edgeDetection = 1; ?>
+			<?php $edgeDetection = 2; ?>
 			@foreach($salaryComponents as $salaryComponent)
 			<?php $sum = 0; ?>
 			@foreach($paycheckComponents as $paycheckComponent)

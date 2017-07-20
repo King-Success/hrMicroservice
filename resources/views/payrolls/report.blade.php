@@ -303,7 +303,7 @@
 	<div class="col-lg w-lg w-auto-md white bg">
 		<div>
 			<div class="p-a">
-				<h6 class="text-muted m-a-0"><a href="/payslip/{{$paychecks[0]->payroll_id}}">{{$paychecks[0]->payroll->title}} - {{$paychecks[0]->payroll->paid_at}}</a></h6>
+				<h6 class="text-muted m-a-0"><a href="/payslip/paycheck_summary/{{$paychecks[0]->payroll_id}}">{{$paychecks[0]->payroll->title}} - {{$paychecks[0]->payroll->paid_at}}</a></h6>
 			</div>
 			<div class="list inset">
 				@foreach($paychecks as $paycheck)

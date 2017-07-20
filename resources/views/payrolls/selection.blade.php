@@ -21,7 +21,7 @@
                 <div class="box-body">
                     <div class="app-body">
                         <!--<div class="padding">-->
-                            <div class="table-responsive" >
+                            <div class="table-responsive">
 
                             <table class="table table-striped b-t b-b">
                                 <thead align="center">

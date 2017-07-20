@@ -106,6 +106,20 @@ class PayrollController extends Controller
             'pensionables' => $pensionables,]);
     }
     
+    public function getPaycheckSummary($payrollId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
+        $componentGroups = $paycheckComponents->groupBy('component_type');
+        // dd($componentGroups['Earning']);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
+        return view('payrolls.paycheck_summary', ['payroll' => $payroll, 
+            'componentGroups' => $componentGroups,
+            'earnings' => $componentGroups['Earning']->unique('component_title'),
+            'deductions' => $componentGroups['Deduction']->unique('component_title'),
+            'paycheckComponents' => $paycheckComponents, 'paycheckSummaries' => $paycheckSummaries,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
+    }
+    
     public function showTax($payrollId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $taxes = $this->taxModel->findAll();

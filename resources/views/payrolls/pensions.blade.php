@@ -5,10 +5,10 @@
 <div class="padding">
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
-		<h2 class="_700 m-b">{{$pension->title}}</h2>
-		<h5 class="m-b-md">Schedule of Payment to "{{$pension->title}}" {{$payroll->paid_at}}</h5>
+		<h2 class="_700 m-b">Pension Schedule</h2>
+		<h5 class="m-b-md">Staff Pension Schedule for {{$payroll->paid_at}}</h5>
 		@if(!$view_type)
-		<a href="/payslip/pension/{{$payroll->id}}/{{$pension->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
+		<a href="/payslip/pension/{{$payroll->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
 		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
 		@endif
 	</div>
@@ -22,7 +22,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$pension->title}}</small></div>
+			<h2>{{$AppConfig->company_title}} - Staff Pension Schedule </h2></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -49,7 +49,6 @@
 					<tbody>
 						<?php $counter = 0; $total = 0; $totalEmployee = 0; $totalEmployer = 0; $totalVoluntary = 0; ?>
 						@foreach($pensionables as $pensioner)
-						<?php if($pensioner->pension_id != $pension->id) continue; ?>
 	                	<tr>
 						<td>{{ ++$counter }}</td>
 						<td>{{$pensioner->employee_surname}} {{$pensioner->employee_othernames}}</td>
@@ -57,7 +56,7 @@
 						<td>{{$pensioner->rank ? $pensioner->rank : ''}}</td>
 						<td>{{$pensioner->step ? $pensioner->step : ''}}</td>
 						<td>{{$pensioner->level ? $pensioner->level : ''}}</td>
-						<td>{{$pension->title}}</td>
+						<td>{{$pensioner->pension_company}}</td>
 						<td>{{$pensioner->pension_pin_number}}</td>
 						<?php
 						$employeeContribution = $pensioner->cycle * $pensioner->pension_amount;

@@ -21,16 +21,9 @@
                 <div class="box-body">
                     <div class="app-body">
                         <!--<div class="padding">-->
-                            <div class="table-responsive" id="datatable">
+                            <div class="table-responsive" >
 
-                            <table class="table table-striped b-t b-b"  data-ui-jp="dataTable" data-ui-options="{
-                                  lengthChange: false,
-                                  buttons: ['excel', 'pdf', 'colvis' ],
-                                  'initComplete': function () {
-                                    this.api().buttons().container()
-                                      .appendTo( '#datatable .col-md-6:eq(0)' );
-                                  }
-                                }" >
+                            <table class="table table-striped b-t b-b">
                                 <thead align="center">
                                     <th></th>
                                     <th>Employee</th>

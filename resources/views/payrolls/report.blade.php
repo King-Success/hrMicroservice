@@ -265,7 +265,7 @@
 		        <div class="box">
 		            <div class="box-header">
 		                <span class="label success pull-right">{{count($pensions)}}</span>
-		                <h3>Pension</h3>
+		                <h3><a href="/payslip/pension/{{$payroll->id}}">Pension</a></h3>
 		            </div>
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
@@ -315,7 +315,7 @@
 						</span>
 					</span>
 					<span class="list-body text-ellipsis">
-							{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}
+							{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_othernames}}
 					</span>
 				</a>
 				@endforeach
@@ -344,7 +344,7 @@
 				        <div class="box-divider m-a-0"></div>
 				        -->
 				        <div class="box-body">
-				            <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
+				            <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_othernames}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
 				            <?php $grossTotal = 0; ?>
 				            <table class="table">
 				                <tr>

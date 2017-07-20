@@ -7,7 +7,7 @@
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
 		<h2 class="_700 m-b">{{$bank->title}}</h2>
-		<h5 class="m-b-md">Shedule of Payment to {{$bank->title}} for {{$payroll->title}} {{$payroll->paid_at}}</h5>
+		<h5 class="m-b-md">Schedule of Payment to {{$bank->title}} for {{$payroll->title}} {{$payroll->paid_at}}</h5>
 		@if(!$view_type)
 		<a href="/payslip/bank/{{$payroll->id}}/{{$bank->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
 		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
@@ -23,7 +23,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Shedule</h2><small>{{$bank->title}}</small></div>
+			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$bank->title}}</small></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -33,7 +33,6 @@
 					<thead>
 						<tr>
 						<th>#</th>
-						<th>Name</th>
 						<th>No.</th>
 						<th>Rank</th>
 						<th>Bank</th>
@@ -51,8 +50,7 @@
 						<?php if(!$paycheckSummary->bankable || $paycheckSummary->bank_id != $bank->id) continue; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckSummary->employee->surname}} {{$paycheckSummary->employee->other_names}}</td>
-						<td>{{$paycheckSummary->employee->employee_number}}</td>
+						<td>{{$paycheckSummary->employee_number}}</td>
 						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_sort_code : ''}}</td>

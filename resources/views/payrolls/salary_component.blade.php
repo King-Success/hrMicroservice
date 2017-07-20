@@ -23,7 +23,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Shedule</h2><small>{{$salaryComponent->title}}</small></div>
+			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$salaryComponent->title}}</small></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -46,7 +46,7 @@
 						<?php if($paycheckComponent->component_id != $salaryComponent->id) continue; ?>
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckComponent->employee_surname}} {{$paycheckComponent->employee_other_names}}</td>
+						<td>{{$paycheckComponent->employee_surname}} {{$paycheckComponent->employee_othernames}}</td>
 						<td>{{$paycheckComponent->employee_number}}</td>
 						<td>{{$paycheckComponent->rank ? $paycheckComponent->rank : ''}}</td>
 						<td>{{number_format($paycheckComponent->cycle * $paycheckComponent->amount, 2)}}</td>

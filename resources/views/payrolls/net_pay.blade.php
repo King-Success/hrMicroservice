@@ -7,7 +7,7 @@
 	<div class="p-y-lg clearfix" id="tagline">
 	<div class="text-center">
 		<h2 class="_700 m-b">{{$payroll->title}}</h2>
-		<h5 class="m-b-md">Shedule of Payment for "{{$payroll->title}}" {{$payroll->paid_at}}</h5>
+		<h5 class="m-b-md">Schedule of Payment for "{{$payroll->title}}" {{$payroll->paid_at}}</h5>
 		@if(!$view_type)
 		<a href="/payslip/net_pay/{{$payroll->id}}?view_type=print" class="btn rounded btn-outline b-info text-info p-x-md m-y">Print</a>
 		<a href="/payroll/{{$payroll->id}}" class="btn blue rounded btn-outline b-default text-default p-x-md m-y">{{$payroll->title}}</a>
@@ -23,7 +23,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Shedule</h2><small>{{$payroll->title}}</small></div>
+			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$payroll->title}}</small></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -33,7 +33,6 @@
 					<thead>
 						<tr>
 						<th>#</th>
-						<th>Name</th>
 						<th>No.</th>
 						<th>Rank</th>
 						<th>Step</th>
@@ -52,7 +51,6 @@
 						@foreach ($paycheckSummaries as $paycheckSummary)
 						<tr>
 						<td>{{ ++$counter }}</td>
-						<td>{{$paycheckSummary->employee_surname}} {{$paycheckSummary->employee_other_names}}</td>
 						<td>{{$paycheckSummary->employee_number}}</td>
 						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
 						<td>{{$paycheckSummary->level ? $paycheckSummary->level : ''}}</td>

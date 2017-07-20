@@ -20,6 +20,7 @@ class CreateEmployeePensionsTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('pension_id')->unsigned();
             $table->decimal('employer_contribution', 12, 2)->default(0.00);
+            $table->decimal('voluntary_contribution', 12, 2)->default(0.00);
             
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('pension_id')->references('id')->on('pensions');

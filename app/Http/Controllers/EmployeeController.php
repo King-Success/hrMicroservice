@@ -181,8 +181,7 @@ class EmployeeController extends Controller
         $this->validate($request, [
            // Specify validation rules here
            'surname' => 'required',
-           'other_names' => 'required',
-           'email' => 'required|email|unique:users',
+           'other_names' => 'required'
         ]);
 
         $employee = $this->employeeModel->edit($id, $request);

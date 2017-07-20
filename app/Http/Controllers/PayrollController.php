@@ -94,6 +94,18 @@ class PayrollController extends Controller
             'pensionables' => $pensionables,]);
     }
     
+    public function showPensionComponent($payrollId, Request $request){
+        $payroll = $this->payrollModel->findById($payrollId);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($payrollId);
+        $pensionables = $paycheckSummaries->where('pensionable', true);
+        return view('payrolls.pensions', ['payroll' => $payroll, 
+            'paycheckComponents' => $paycheckComponents,
+            'pensions' => $this->pensionModel->findAll(), 'paycheckSummaries' => $paycheckSummaries,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
+            'pensionables' => $pensionables,]);
+    }
+    
     public function showTax($payrollId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $taxes = $this->taxModel->findAll();

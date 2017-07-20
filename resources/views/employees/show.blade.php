@@ -326,7 +326,12 @@
                                     
                                     <div class="form-group">
                                       <label>Employer's Contribution</label>
-                                      <input type="number" value="{{ $employeePension ? $employeePension->employer_contribution : 0}}" name="employer_contribution" class="form-control">
+                                      <input type="text" value="{{ $employeePension ? $employeePension->employer_contribution : 0}}" name="employer_contribution" class="form-control">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Voluntary Contribution</label>
+                                      <input type="text" value="{{ $employeePension ? $employeePension->voluntary_contribution : 0}}" name="voluntary_contribution" class="form-control">
                                     </div>
                                     
                                     <input type="hidden" name="employee" value="{{$employee->id}}">
@@ -422,7 +427,7 @@
                                         </p>
                                       </div>
                                       <div class="col-sm-6">
-                                        <input type="number" value="{{$amount > 0 ? $amount : $salaryComponenet->amount}}" name="salary_component_amount[{{$salaryComponenet->id}}]" class="form-control">   
+                                        <input type="text" value="{{$amount > 0 ? $amount : $salaryComponenet->amount}}" name="salary_component_amount[{{$salaryComponenet->id}}]" class="form-control">   
                                       </div>   
                                     </div>
                                     @endforeach

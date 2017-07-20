@@ -50,5 +50,6 @@ class EloquentEmployeePensionRepository implements EmployeePensionContract
         $employeePension->pension_id = $request->pension;
         $employeePension->employee_id = $request->employee;
         $employeePension->employer_contribution = $request->employer_contribution;
+        $employeePension->voluntary_contribution = $request->voluntary_contribution;
     }
 }

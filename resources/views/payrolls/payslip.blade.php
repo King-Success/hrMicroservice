@@ -44,7 +44,7 @@
                     <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}}</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
-                    <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_other_names}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
+                    <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_othernames}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
                     <?php $grossTotal = 0; ?>
                     <table class="table">
                         <tr>

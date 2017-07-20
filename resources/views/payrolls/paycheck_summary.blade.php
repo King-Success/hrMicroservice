@@ -92,6 +92,12 @@
                             <td>{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</td>
                         </tr>
                         @endforeach
+                        <!--
+                        <tr>
+    						<th colspan="3"><b>Total</b></th>
+    						<td><b>&#8358;{{number_format(6666, 2)}}</b></td>
+						</tr>
+						-->
 					</tbody>
 					</table>
 				</div>

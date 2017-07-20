@@ -22,7 +22,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$pension->title}}</small></div>
+			<h2 style="text-transform: uppercase;">{{$AppConfig->company_title}} - Staff Pension Schedule</h2><small>{{$pension->title}}</small></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -30,19 +30,19 @@
 				<div class="table-responsive" id="xdatatable">
 					<table id="payrolls" class="table table-striped b-t b-b"  data-ui-jp="xdataTable">
 					<thead>
-						<tr>
-							<th>#</th>
-							<th>Name</th>
+						<tr style="text-transform: uppercase;">
+							<th>S/N</th>
+							<th>Details</th>
 							<th>No.</th>
 							<th>Rank</th>
-							<th>Step</th>
+							<th>Steps</th>
 							<th>Level</th>
-							<th>Pension</th>
-							<th>Pin #</th>
+							<th>Name of PFA</th>
+							<th>Pin Number</th>
 							<th>Employee Contribution</th>
 							<th>Employer Contribution</th>
 							<th>Voluntary Contribution</th>
-							<th>Total</th>
+							<th>Total Contribution</th>
 							<!--<th>Created At</th>-->
 						</tr>
 					</thead>

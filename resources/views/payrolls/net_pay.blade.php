@@ -23,7 +23,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$payroll->title}}</small></div>
+			<h2 style="text-transform: uppercase;">{{$AppConfig->company_title}} - Staff Net Payment Schedule</h2><small>{{$payroll->title}}</small></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -31,17 +31,18 @@
 				<div class="table-responsive" id="xdatatable">
 					<table id="payrolls" class="table table-striped b-t b-b"  data-ui-jp="xdataTable">
 					<thead>
-						<tr>
-						<th>#</th>
-						<th>No.</th>
+						<tr style="text-transform: uppercase;">
+						<th>S/N</th>
+						<th>Details</th>
+						<th>PSN. NO.</th>
 						<th>Rank</th>
-						<th>Step</th>
 						<th>Level</th>
+						<th>Steps</th>
 						<th>Bank</th>
 						<th>Sort Code</th>
-						<th>Account Name</th>
-						<th>Account #</th>
+						<th>Account No.</th>
 						<th>Net Pay</th>
+						
 						<!--<th>Paid At</th>-->
 						<!--<th>Created At</th>-->
 						</tr>
@@ -51,13 +52,13 @@
 						@foreach ($paycheckSummaries as $paycheckSummary)
 						<tr>
 						<td>{{ ++$counter }}</td>
+						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_name : ''}}</td>
 						<td>{{$paycheckSummary->employee_number}}</td>
 						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
 						<td>{{$paycheckSummary->level ? $paycheckSummary->level : ''}}</td>
 						<td>{{$paycheckSummary->step ? $paycheckSummary->step : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_sort_code : ''}}</td>
-						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_name : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_number : ''}}</td>
 						<td>{{number_format($paycheckSummary->cycle * $paycheckSummary->net_pay, 2)}}</td>
 						<!--<td>{{$payroll->paid_at}}</td>-->
@@ -66,7 +67,7 @@
 						<?php $total += $paycheckSummary->cycle * $paycheckSummary->net_pay; ?>
 						@endforeach
 						<tr>
-						<th colspan="10"><b>Total</b></th>
+						<th colspan="9"><b>Total</b></th>
 						<td><b>&#8358;{{number_format($total, 2)}}</b></td>
 						</tr>
 					</tbody>

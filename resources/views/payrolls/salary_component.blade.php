@@ -23,7 +23,7 @@
 	<!--<div class="col-md-8 offset-sm-2">-->
 		<div class="box">
 		<div class="box-header">
-			<h2>{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$salaryComponent->title}}</small></div>
+			<h2 style="text-transform: uppercase;">{{$AppConfig->company_title}} Payment Schedule</h2><small>{{$salaryComponent->title}}</small></div>
 		<div class="box-divider m-a-0"></div>
 		<div class="box-body">
 			<div class="app-body">
@@ -31,10 +31,10 @@
 				<div class="table-responsive" id="xdatatable">
 					<table id="payrolls" class="table table-striped b-t b-b"  data-ui-jp="xdataTable">
 					<thead>
-						<tr>
+						<tr style="text-transform: uppercase;">
 						<th>#</th>
-						<th>Name</th>
-						<th>No.</th>
+						<th>Details</th>
+						<th>PSN No.</th>
 						<th>Rank</th>
 						<th>Amount</th>
 						<!--<th>Created At</th>-->

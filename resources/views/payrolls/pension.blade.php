@@ -34,9 +34,9 @@
 							<th>S/N</th>
 							<th>Details</th>
 							<th>No.</th>
-							<th>Rank</th>
-							<th>Steps</th>
-							<th>Level</th>
+							<!--<th>Rank</th>-->
+							<!--<th>Steps</th>-->
+							<!--<th>Level</th>-->
 							<th>Name of PFA</th>
 							<th>Pin Number</th>
 							<th>Employee Contribution</th>
@@ -54,9 +54,9 @@
 						<td>{{ ++$counter }}</td>
 						<td>{{$pensioner->employee_surname}} {{$pensioner->employee_othernames}}</td>
 						<td>{{$pensioner->employee_number}}</td>
-						<td>{{$pensioner->rank ? $pensioner->rank : ''}}</td>
-						<td>{{$pensioner->step ? $pensioner->step : ''}}</td>
-						<td>{{$pensioner->level ? $pensioner->level : ''}}</td>
+						<!--<td>{{$pensioner->rank ? $pensioner->rank : ''}}</td>-->
+						<!--<td>{{$pensioner->step ? $pensioner->step : ''}}</td>-->
+						<!--<td>{{$pensioner->level ? $pensioner->level : ''}}</td>-->
 						<td>{{$pension->title}}</td>
 						<td>{{$pensioner->pension_pin_number}}</td>
 						<?php
@@ -74,11 +74,11 @@
 						$totalEmployee += $employeeContribution;
 						$totalEmployer += $employerContribution; 
 						$totalVoluntary += $voluntaryContribution;
-						$total +=  $totalEmployee + $totalEmployer + $totalVoluntary;
+						$total +=  ($employeeContribution + $employerContribution + $voluntaryContribution);
 						?>
 				        @endforeach
 				        <tr>
-						<th colspan="8"><b>Totals</b></th>
+						<th colspan="5"><b>Totals</b></th>
 						<td><b>&#8358;{{number_format($totalEmployee, 2)}}</b></td>
 						<td><b>&#8358;{{number_format($totalEmployer, 2)}}</b></td>
 						<td><b>&#8358;{{number_format($totalVoluntary, 2)}}</b></td>

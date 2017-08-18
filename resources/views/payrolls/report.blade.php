@@ -270,9 +270,9 @@
 		            <div class="p-b-sm">
 		                <div class="list-group no-border no-radius">
 		                	@foreach($pensionables as $pensionCompany => $pensioners)
-		                	<?php $amountInEntity = 0; $pension_id; /*print_r($pensioners);*/ ?>
+		                	<?php $amountInEntity = 0; $pension_id; /*dd($pensioners);*/ ?>
 		                		@foreach($pensioners as $pensioner)
-				                	<?php $amountInEntity += $pensioner['pension_amount'] * $pensioner['cycle']; ?>
+				                	<?php $amountInEntity += ($pensioner['pension_amount'] + $pensioner['pension_employer_contribution_amount'] + $pensioner['pension_voluntary_contribution_amount']) * $pensioner['cycle']; ?>
 				                	<?php $pension_id = $pensioner['pension_id']; ?>
 							    @endforeach
 					        <div class="list-group-item">

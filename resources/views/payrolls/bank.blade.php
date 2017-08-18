@@ -35,9 +35,9 @@
 						<th>S/N</th>
 						<th>Details</th>
 						<th>PSN. NO.</th>
-						<th>Rank</th>
-						<th>Level</th>
-						<th>Steps</th>
+						<!--<th>Rank</th>-->
+						<!--<th>Level</th>-->
+						<!--<th>Steps</th>-->
 						<th>Bank</th>
 						<th>Sort Code</th>
 						<th>Account No.</th>
@@ -54,9 +54,9 @@
 						<td>{{ ++$counter }}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_name : ''}}</td>
 						<td>{{$paycheckSummary->employee_number}}</td>
-						<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>
-						<td>{{$paycheckSummary->level ? $paycheckSummary->level : ''}}</td>
-						<td>{{$paycheckSummary->step ? $paycheckSummary->step : ''}}</td>
+						<!--<td>{{$paycheckSummary->rank ? $paycheckSummary->rank : ''}}</td>-->
+						<!--<td>{{$paycheckSummary->level ? $paycheckSummary->level : ''}}</td>-->
+						<!--<td>{{$paycheckSummary->step ? $paycheckSummary->step : ''}}</td>-->
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_sort_code : ''}}</td>
 						<td>{{$paycheckSummary->bankable ? $paycheckSummary->bank_account_number : ''}}</td>
@@ -67,7 +67,7 @@
 						<?php $total += $paycheckSummary->cycle * $paycheckSummary->net_pay; ?>
 						@endforeach
 						<tr>
-						<th colspan="9"><b>Total</b></th>
+						<th colspan="6"><b>Total</b></th>
 						<td><b>&#8358;{{number_format($total, 2)}}</b></td>
 						</tr>
 					</tbody>

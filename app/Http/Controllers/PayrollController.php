@@ -143,6 +143,7 @@ class PayrollController extends Controller
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         $pensionables = $paycheckSummaries->where('pensionable', true)->groupBy('pension_company')->toArray();
+        // dd($paycheckSummaries->groupBy('pension_company')->toArray());
         $taxables = $paycheckSummaries->where('taxable', true)->toArray();
         $bankables = $paycheckSummaries->where('bankable', true)->groupBy('bank')->toArray();
         // dd($taxables);

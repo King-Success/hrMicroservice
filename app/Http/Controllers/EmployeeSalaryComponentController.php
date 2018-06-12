@@ -34,23 +34,23 @@ class EmployeeSalaryComponentController extends Controller
      public function store(Request $request) {
          $this->validate($request, [
             // Specify validation rules here
-            'salary_components' => 'required',
+            // 'salary_components' => 'required',
          ]);
         //  Delete existing
         $this->employeeSalaryComponentModel->clear($request->input('employee'));
          
         $selectedSalaryComponents = $request->input('salary_components');
         $salaryComponentAmounts = $request->input('salary_component_amount');
-        
-        foreach($selectedSalaryComponents as $selectedSalaryComponent){
-             $salaryComponent = new \StdClass;
-             $salaryComponent->employee = $request->input('employee');
-             $salaryComponent->salary_component = $selectedSalaryComponent;
-             $salaryComponent->amount = $salaryComponentAmounts[$selectedSalaryComponent];
-             if($this->employeeSalaryComponentModel->create($salaryComponent)) continue;
-             throw new \Exception('A fatal error occured.');
-         }
-         
+        if($selectedSalaryComponents){
+            foreach($selectedSalaryComponents as $selectedSalaryComponent){
+                 $salaryComponent = new \StdClass;
+                 $salaryComponent->employee = $request->input('employee');
+                 $salaryComponent->salary_component = $selectedSalaryComponent;
+                 $salaryComponent->amount = $salaryComponentAmounts[$selectedSalaryComponent];
+                 if($this->employeeSalaryComponentModel->create($salaryComponent)) continue;
+                 throw new \Exception('A fatal error occured.');
+             }
+        }
          if (true) {
              // Redirect or do whatever you like
             $request->session()->flash('status', 'Task was successful!');

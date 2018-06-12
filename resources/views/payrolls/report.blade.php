@@ -240,27 +240,7 @@
 		            </div>
 		        </div>
 		    </div>
-		    <div class="col-sm-6">
-		        <div class="box">
-		            <div class="box-header">
-		                <span class="label success pull-right">1</span>
-		                <h3>Tax</h3>
-		            </div>
-		            <div class="p-b-sm">
-		                <div class="list-group no-border no-radius">
-		                	<?php $amountInEntity = 0; ?>
-		                	@foreach($paycheckComponents as $paycheckComponent)
-		                	<?php if($paycheckComponent->component_permanent_title != 'tax') continue; ?>
-		                	<?php $amountInEntity += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
-					        @endforeach
-					        <div class="list-group-item">
-					            <span class="pull-right text-muted">&#8358;{{number_format($amountInEntity, 2)}}</span>
-					            <i class="label label-xs red m-r-sm"></i><a href="/payslip/tax/{{$payroll->id}}">{{$tax->title}}</a>
-					        </div>
-					    </div>
-		            </div>
-		        </div>
-		    </div>
+
 		    <div class="col-sm-6">
 		        <div class="box">
 		            <div class="box-header">

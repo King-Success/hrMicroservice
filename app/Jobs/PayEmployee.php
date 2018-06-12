@@ -69,7 +69,7 @@ class PayEmployee implements ShouldQueue
         $paygradeAllowance = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->allowance : 0;
         $this->consolidatedSalary = ($this->employee->employee_basic_salary->amount + $paygrade);
         $this->consolidatedAllowance = ($this->employee->employee_basic_salary->allowance + $paygradeAllowance);
-        $this->grossTotal = $this->consolidatedSalary + $this->consolidatedAllowance;
+        $this->grossTotal = ($this->consolidatedSalary / 12) + $this->consolidatedAllowance;
         $paycheck = $this->paycheckModel->getInstance();
         $paycheck->employee_id = $this->employee->id;
         $paycheck->cycle = $this->payroll->cycle;
@@ -97,16 +97,16 @@ class PayEmployee implements ShouldQueue
                         $this->totalEarnings += $employee_salary_component_info->amount;
                         $amount = $employee_salary_component_info->amount;
                     }else{
-                        $this->totalEarnings += $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
-                        $amount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                        $this->totalEarnings += ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
+                        $amount = ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                     }
                 }else{
                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                         $this->totalDeductions += $employee_salary_component_info->amount;
                         $amount = $employee_salary_component_info->amount;
                     }else{
-                        $this->totalDeductions += $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
-                        $amount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                        $this->totalDeductions += ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
+                        $amount = ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                     }
                 }
                 $paycheckComponent = $this->paycheckComponentModel->getInstance();
@@ -164,10 +164,10 @@ class PayEmployee implements ShouldQueue
                 if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                     $pensionAmount = $employee_salary_component_info->amount;
                 }else{
-                    $pensionAmount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                    $pensionAmount = ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                 }
                 $paycheckSummary->pension_amount = $pensionAmount;
-                $paycheckSummary->pension_employer_contribution_amount = $this->employee->employee_pension ? $this->employee->employee_pension->employer_contribution : 0;
+                $paycheckSummary->pension_employer_contribution_amount = $this->employee->employee_pension ? ($this->employee->employee_pension->employer_contribution / 100) * ($this->consolidatedSalary / 12) : 0;
                 $paycheckSummary->pension_voluntary_contribution_amount = $this->employee->employee_pension ? $this->employee->employee_pension->voluntary_contribution : 0;
                 $paycheckSummary->pension_pin_number = $this->employee->employee_pension ? $this->employee->employee_pension->pin_number : '';
                 $paycheckSummary->pension_company = $this->employee->employee_pension ? $this->employee->employee_pension->pension->title : '';
@@ -183,7 +183,7 @@ class PayEmployee implements ShouldQueue
                 if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                     $taxAmount = $employee_salary_component_info->amount;
                 }else{
-                    $taxAmount = $this->consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                    $taxAmount = ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                 }
                 $paycheckSummary->tax_amount = $taxAmount;
                 $paycheckSummary->taxable = true;

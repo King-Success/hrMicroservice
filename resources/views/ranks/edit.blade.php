@@ -19,7 +19,7 @@
                         </div>
                         @if($AppConfig->rank_is_king)
                         <div class="form-group">
-                            <label for="InputEditBasicSalary">Consolidated Salary</label>
+                            <label for="InputEditBasicSalary">Consolidated Salary (per annum)</label>
                             <input type="text" value="{{$rank->basic_salary}}" name="basic_salary" class="form-control" id="InputEditBasicSalary" placeholder="Enter Amount">
                         </div>
                         <!--

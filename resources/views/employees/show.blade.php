@@ -325,12 +325,12 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                      <label>Employer's Contribution</label>
-                                      <input type="text" value="{{ $employeePension ? $employeePension->employer_contribution : 0}}" name="employer_contribution" class="form-control">
+                                      <label>Employer's Contribution (%)</label>
+                                      <input type="text" value="{{ $employeePension ? $employeePension->employer_contribution : 10}}" name="employer_contribution" class="form-control">
                                     </div>
                                     
                                     <div class="form-group">
-                                      <label>Voluntary Contribution</label>
+                                      <label>Voluntary Contribution (N)</label>
                                       <input type="text" value="{{ $employeePension ? $employeePension->voluntary_contribution : 0}}" name="voluntary_contribution" class="form-control">
                                     </div>
                                     
@@ -422,7 +422,7 @@
                                             @endif
                                             @endforeach
                                             />
-                                            <i class="indigo"></i>{{$salaryComponenet->title}}
+                                            <i class="indigo"></i>{{$salaryComponenet->title}}{{$salaryComponenet->value_type == 'Amount' ? '' : '(%)' }}
                                           </label>
                                         </p>
                                       </div>
@@ -439,22 +439,17 @@
                                   $totalEarnings = 0;
                                   if(count($employee->employee_salary_components) > 0){
                                       foreach($employee->employee_salary_components as $employee_salary_component_info){
-                                          $amount = 0;
                                           if($employee_salary_component_info->salary_component->component_type == 'Earning'){
                                               if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                   $totalEarnings += $employee_salary_component_info->amount;
-                                                  $amount = $employee_salary_component_info->amount;
                                               }else{
-                                                  $totalEarnings += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
-                                                  $amount = $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                                  $totalEarnings += ($consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                                               }
                                           }else{
                                               if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                   $totalDeductions += $employee_salary_component_info->amount;
-                                                  $amount = $employee_salary_component_info->amount;
                                               }else{
-                                                  $totalDeductions += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
-                                                  $amount = $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                                  $totalDeductions += ($consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                                               }
                                           }
                                       }

@@ -70,7 +70,7 @@
                                         <td>{{number_format($consolidatedSalary * $payroll->cycle, 2)}}</td>
                                         <!--<td>{{number_format($consolidatedAllowance * $payroll->cycle, 2)}}</td>-->
                                         <?php
-                                        $grossTotal = $consolidatedSalary + $consolidatedAllowance;
+                                        $grossTotal = ($consolidatedSalary / 12) + $consolidatedAllowance;
                                         ?>
                                         <?php
                                         // $basic_salary = $employee->employee_basic_salary->amount;
@@ -82,13 +82,13 @@
                                                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                         $totalEarnings += $employee_salary_component_info->amount;
                                                     }else{
-                                                        $totalEarnings += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                                        $totalEarnings += ($consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                                                     }
                                                 }else{
                                                     if($employee_salary_component_info->salary_component->value_type == 'Amount'){
                                                         $totalDeductions += $employee_salary_component_info->amount;
                                                     }else{
-                                                        $totalDeductions += $consolidatedSalary * ($employee_salary_component_info->amount / 100);
+                                                        $totalDeductions += ($consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                                                     }
                                                 }
                                             }

@@ -19,7 +19,7 @@
 <!--<div class="padding">-->
 	<div class="container">
 	<!--<div class="col-md-12">-->
-	<div class="col-md-8 offset-sm-2">
+	<div class="col-md-10 offset-sm-4">
 		<div class="box">
 		<div class="box-header">
 			<h2>Payroll History</h2><small>Payroll History</small></div>
@@ -38,6 +38,7 @@
 						<th>Cycle</th>
 						<th>Description</th>
 						<!--<th>Created At</th>-->
+						<th>#</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -51,6 +52,9 @@
 						<td>{{$payroll->cycle}}</td>
 						<td>{{$payroll->description}}</td>
 						<!--<td>{{$payroll->created_at}}</td>-->
+						<td><h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
+			            <button class="btn btn-danger">DELETE</button>
+			            {!! Form::close() !!}</h3></td>
 						</tr>
 						@endforeach
 					</tbody>
@@ -65,5 +69,15 @@
 	</div>
 <!--</div>-->
 @endif
+
+        <script type="text/javascript">
+            $('#deletePayroll').submit(function(evt){
+                evt.preventDefault();
+                if(confirm("Are you sure you want to delete this record?")){
+                    console.log("goodluck deleting.");
+                    this.submit()
+                }
+            })
+        </script>
 <!-- ############ PAGE END-->
 @stop

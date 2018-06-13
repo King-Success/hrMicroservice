@@ -37,40 +37,28 @@
 <div class="padding">
     <div class="row">
         <?php $counter = 0; ?>
-        @foreach($paychecks as $paycheck)
+        @foreach($payslips as $paycheck)
         <div class="col-md-4">
             <div class="box">
                 <div class="box-header">
                     <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}}</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
-                    <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_othernames}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
+                    <div><h3>{{$paycheck[0]->employee_prefix}} {{$paycheck[0]->employee_surname}} {{$paycheck[0]->employee_othernames}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
                     <?php $grossTotal = 0; ?>
                     <table class="table">
                         <tr>
                             <td>Consolidated Salary</td>
-                            <td align="right">&#8358;{{number_format($paycheck->consolidated_salary * $paycheck->cycle, 2)}}</td>
+                            <td align="right">&#8358;{{number_format($paycheck[0]->consolidated_salary * $paycheck[0]->cycle, 2)}}</td>
                         </tr>
-                        <!--
-                        <tr>
-                            <td>Peculiar Allowance</td>
-                            <td align="right">&#8358;{{number_format($paycheck->consolidated_allowance * $paycheck->cycle, 2)}}</td>
-                        </tr>
-                        -->
-                        <!--
-                        <tr class="total">
-                            <td>Total</td>
-                            <td align="right">&#8358;{{number_format(($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle), 2)}}</td>
-                        </tr>
-                        -->
-                    <?php $grossTotal += ($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle); ?>
+                        
+                    <?php $grossTotal += ($paycheck[0]->consolidated_salary * $paycheck[0]->cycle) + ($paycheck[0]->consolidated_allowance * $paycheck[0]->cycle); ?>
                     </table>
                     <div><h5>Allowances</h5><small><i>Earnings</i></small></div>
                     <table class="table">
                         <?php $subTotal = 0; ?>
-                        @foreach($paycheckComponents as $paycheckComponent)
-                        <?php if($paycheckComponent->employee_id != $paycheck->employee_id ||
-                            $paycheckComponent->component_type=="Deduction") continue; ?>
+                        @foreach($paycheck as $paycheckComponent)
+                        <?php if($paycheckComponent->component_type=="Deduction") continue; ?>
                         <tr>
                             <td>{{$paycheckComponent->component_title}}</td>
                             <?php $subTotal += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
@@ -94,9 +82,8 @@
                     <div><h5>Deductions</h5><small><i>Deductions</i></small></div>
                     <table class="table">
                         <?php $subTotal = 0; ?>
-                        @foreach($paycheckComponents as $paycheckComponent)
-                        <?php if($paycheckComponent->employee_id != $paycheck->employee_id ||
-                            $paycheckComponent->component_type=="Earning") continue; ?>
+                        @foreach($paycheck as $paycheckComponent)
+                        <?php if($paycheckComponent->component_type=="Earning") continue; ?>
                         <tr>
                             <td>{{$paycheckComponent->component_title}}</td>
                             <?php $subTotal += $paycheckComponent->amount * $paycheckComponent->cycle; ?>
@@ -111,13 +98,10 @@
                     </table>
                     <div><h5>Total</h5><small><i></i></small></div>
                     <table class="table">
-                        @foreach($paycheckSummaries as $paycheckSummary)
-                        <?php if($paycheckSummary->employee_id != $paycheck->employee_id) continue; ?>
                         <tr class="total">
                             <td><h5><b>Net Pay</b></h5></td>
-                            <td align="right"><h5><b>&#8358;{{number_format($paycheckSummary->net_pay * $paycheckSummary->cycle, 2)}}</b></h5></td>
+                            <td align="right"><h5><b>&#8358;{{number_format($paycheck[0]->net_pay * $paycheck[0]->cycle, 2)}}</b></h5></td>
                         </tr>
-                        @endforeach
                     </table>
                     <div class="container">
                         <div>Authorized Signature_________________________</div>

@@ -183,18 +183,40 @@ class PayrollController extends Controller
 
     public function createPayslip($id, Request $request){
         $payroll = $this->payrollModel->findById($id);
-        $paychecks = $this->paycheckModel->findByPayrollId($id);
-        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
-        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
-        
-        return view('payrolls.payslip', ['paychecks' => $paychecks,
+        // $paychecks = $this->paycheckModel->findByPayrollId($id);
+        //$paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
+        //$paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        dd("tests");
+        $raw = \DB::table('paycheck_components')
+        ->leftJoin('paycheck_summaries', 'paycheck_summaries.employee_id', '=', 'paycheck_components.employee_id')
+        ->select('paycheck_components.*'
+        , 'paycheck_summaries.employee_prefix'
+        , 'paycheck_summaries.pension_employer_contribution_amount'
+        , 'paycheck_summaries.pension_voluntary_contribution_amount'
+        , 'paycheck_summaries.pension_amount'
+        , 'paycheck_summaries.pensionable'
+        , 'paycheck_summaries.consolidated_salary'
+        , 'paycheck_summaries.consolidated_allowance'
+        , 'paycheck_summaries.basic_salary'
+        , 'paycheck_summaries.gross_total'
+        , 'paycheck_summaries.total_deductions'
+        , 'paycheck_summaries.total_earnings'
+        , 'paycheck_summaries.net_pay')
+        ->orderBy('paycheck_components.employee_id', 'asc')
+        ->orderBy('paycheck_components.created_at', 'asc')
+        ->get()->groupBy('employee_id');
+        dd("test");
+        return view('payrolls.payslip', [
+            // 'paychecks' => $paychecks,
             'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
-            'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]);
+            // 'paycheckSummaries' => $paycheckSummaries, 
+            // 'paycheckComponents' => $paycheckComponents, 
+            'payroll' => $payroll,
+            'payslips' => $raw]);
         
         view()->share('paychecks', $paychecks);
         view()->share('paycheckSummaries', $paycheckSummaries);
-        view()->share('paycheckComponents', $paycheckSummaries);
-        view()->share('paycheckSummaries', $paycheckComponents);
+        view()->share('paycheckComponents', $paycheckComponents);
         view()->share('payroll', $payroll);
         $pdf = \PDF::loadView('payrolls.payslip2')->setPaper('a4', 'landscape');
         return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');

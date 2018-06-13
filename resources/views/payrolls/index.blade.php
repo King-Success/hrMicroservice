@@ -19,7 +19,7 @@
 <!--<div class="padding">-->
 	<div class="container">
 	<!--<div class="col-md-12">-->
-	<div class="col-md-10 offset-sm-4">
+	<div class="col-md-8 offset-sm-2">
 		<div class="box">
 		<div class="box-header">
 			<h2>Payroll History</h2><small>Payroll History</small></div>

@@ -140,32 +140,32 @@ class PayrollController extends Controller
     
     public function show($id, Request $request){
         $payroll = $this->payrollModel->findById($id);
-        // $paychecks = $this->paycheckModel->findByPayrollId($id);
-        // $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
-        // $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
-        // $pensionables = $paycheckSummaries->where('pensionable', true)->groupBy('pension_company')->toArray();
-        // $taxables = $paycheckSummaries->where('taxable', true)->toArray();
-        // $bankables = $paycheckSummaries->where('bankable', true)->groupBy('bank')->toArray();
-        // $salaryComponents = $this->salaryComponentModel->findAll();
-        // $taxes = $this->taxModel->findAll();
-        // $raw = \DB::table('paycheck_components')
-        // ->leftJoin('paycheck_summaries', 'paycheck_summaries.employee_id', '=', 'paycheck_components.employee_id')
-        // ->select('paycheck_components.*'
-        // , 'paycheck_summaries.employee_prefix'
-        // , 'paycheck_summaries.pension_employer_contribution_amount'
-        // , 'paycheck_summaries.pension_voluntary_contribution_amount'
-        // , 'paycheck_summaries.pension_amount'
-        // , 'paycheck_summaries.pensionable'
-        // , 'paycheck_summaries.consolidated_salary'
-        // , 'paycheck_summaries.consolidated_allowance'
-        // , 'paycheck_summaries.basic_salary'
-        // , 'paycheck_summaries.gross_total'
-        // , 'paycheck_summaries.total_deductions'
-        // , 'paycheck_summaries.total_earnings'
-        // , 'paycheck_summaries.net_pay')
-        // ->orderBy('paycheck_components.employee_id', 'asc')
-        // ->orderBy('paycheck_components.created_at', 'asc')
-        // ->get()->groupBy('employee_id');
+        $paychecks = $this->paycheckModel->findByPayrollId($id);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        $pensionables = $paycheckSummaries->where('pensionable', true)->groupBy('pension_company')->toArray();
+        $taxables = $paycheckSummaries->where('taxable', true)->toArray();
+        $bankables = $paycheckSummaries->where('bankable', true)->groupBy('bank')->toArray();
+        $salaryComponents = $this->salaryComponentModel->findAll();
+        $taxes = $this->taxModel->findAll();
+        $raw = \DB::table('paycheck_components')
+        ->leftJoin('paycheck_summaries', 'paycheck_summaries.employee_id', '=', 'paycheck_components.employee_id')
+        ->select('paycheck_components.*'
+        , 'paycheck_summaries.employee_prefix'
+        , 'paycheck_summaries.pension_employer_contribution_amount'
+        , 'paycheck_summaries.pension_voluntary_contribution_amount'
+        , 'paycheck_summaries.pension_amount'
+        , 'paycheck_summaries.pensionable'
+        , 'paycheck_summaries.consolidated_salary'
+        , 'paycheck_summaries.consolidated_allowance'
+        , 'paycheck_summaries.basic_salary'
+        , 'paycheck_summaries.gross_total'
+        , 'paycheck_summaries.total_deductions'
+        , 'paycheck_summaries.total_earnings'
+        , 'paycheck_summaries.net_pay')
+        ->orderBy('paycheck_components.employee_id', 'asc')
+        ->orderBy('paycheck_components.created_at', 'asc')
+        ->get()->groupBy('employee_id');
         dd("here");
         return view('payrolls.report', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,

@@ -156,6 +156,7 @@ class PayEmployee implements ShouldQueue
         $paycheckSummary->total_earnings = $this->totalEarnings;
         $paycheckSummary->net_pay = $this->grossTotal + $this->totalEarnings - $this->totalDeductions;
         $paycheckSummary->cycle = $this->payroll->cycle; 
+        $paycheckSummary->department = $this->employee->employee_department->department->title;
         
         $pensionAmount = 0;
         if(count($this->employee->employee_salary_components) > 0){

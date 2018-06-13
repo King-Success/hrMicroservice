@@ -8,7 +8,7 @@
                     <div class="pull-center">
                         <a href="index.html" class="navbar-brand">
                             <div data-ui-include="'images/logo.svg'"></div>
-                            <img src="/images/logo.png" alt="." class="hide"> <span class="hidden-folded inline">Payroll</span>
+                            <img src="{{ url('/images/logo.png') }}" alt="." class="hide"> <span class="hidden-folded inline">Payroll</span>
                         </a>
                     </div>
                 </div>

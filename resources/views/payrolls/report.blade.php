@@ -418,22 +418,22 @@
                     this.submit()
                 }
             });
-            document.addEventListener("DOMContentLoaded", function(event) {
-            	$('.sendmaillink').on("click", function(evt){
-            		console.log("sendmaillink");
-            		evt.preventDefault();
-            		$.ajax({
-		                url: $(this).attr('href'), 
-		                method: 'GET',
-		            }).done(function( data ) {
-		                if(data && data.status = "pending"){
-		                    alert("Your message will be sent if your internet is good or the employee has a valid email address");
-		                }else{
-		                   alert("Something wicked occured");
-		                }
-		            });
-            	});
-            });
+            // document.addEventListener("DOMContentLoaded", function(event) {
+            // 	$('.sendmaillink').on("click", function(evt){
+            // 		console.log("sendmaillink");
+            // 		evt.preventDefault();
+            // 		$.ajax({
+		          //      url: $(this).attr('href'), 
+		          //      method: 'GET',
+		          //  }).done(function( data ) {
+		          //      if(data && data.status = "pending"){
+		          //          alert("Your message will be sent if your internet is good or the employee has a valid email address");
+		          //      }else{
+		          //         alert("Something wicked occured");
+		          //      }
+		          //  });
+            // 	});
+            // });
         </script>
 
 

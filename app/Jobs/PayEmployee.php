@@ -110,6 +110,11 @@ class PayEmployee implements ShouldQueue
                         $this->totalDeductions += ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                         $amount = ($this->consolidatedSalary / 12) * ($employee_salary_component_info->amount / 100);
                     }
+                    if($employee_salary_component_info->salary_component->permanent_title == 'pension'){
+                        $this->totalDeductions += $this->employee->employee_pension ? $this->employee->employee_pension->voluntary_contribution : 0;
+                        //$amount is ignored for pension
+                        //TODO: Should Employer Contribution be added here?
+                    }
                 }
                 $paycheckComponent = $this->paycheckComponentModel->getInstance();
                 $paycheckComponent->employee_id = $this->employee->id;

@@ -217,6 +217,8 @@ Route::group(['prefix' => 'payroll', 'middleware' => ['auth']], function() {
 });
 
 Route::get('/payslip/{id}', 'PayrollController@createPayslip')->middleware('auth');
+Route::get('/v2/payslip/{id}', 'PayrollController@createPayslipV2')->middleware('auth');
+
 Route::get('/payslip/bank/{payroll_id}/{bank_id}', 'PayrollController@oneBankReport')->middleware('auth');
 Route::get('/payslip/salary_component/{payroll_id}/{componentId}', 'PayrollController@showComponent')->middleware('auth');
 Route::get('/payslip/tax/{payroll_id}', 'PayrollController@showTaxComponent')->middleware('auth');
@@ -226,6 +228,7 @@ Route::get('/payslip/pension/{payroll_id}', 'PayrollController@showPensionCompon
 Route::get('/payslip/net_pay/{payroll_id}', 'PayrollController@showNetPay')->middleware('auth');
 Route::get('/payslip/paycheck_summary/{payroll_id}', 'PayrollController@getPaycheckSummary')->middleware('auth');
 Route::get('/payslip/employee/{payroll_id}/{employee_id}', 'PayrollController@showOnePaySlip')->middleware('auth');
+Route::get('/v2/payslip/employee/{payroll_id}/{employee_id}', 'PayrollController@showOnePaySlipV2')->middleware('auth');
 
 Route::group(['prefix' => 'tax', 'middleware' => ['auth']], function() {
     Route::get('/', 'TaxController@index')->name('tax_index');

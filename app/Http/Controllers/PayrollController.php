@@ -84,6 +84,42 @@ class PayrollController extends Controller
             ]);
     }
     
+    public function showOnePaySlipV2($payroll_id, $employee_id, Request $request){
+        $payroll = $this->payrollModel->findById($payroll_id);
+        $payslips = \DB::table('paycheck_components')
+        ->join('paycheck_summaries', function($join){
+            $join->on('paycheck_summaries.payroll_id', 'paycheck_components.payroll_id');
+            $join->on('paycheck_summaries.employee_id', 'paycheck_components.employee_id');
+        })
+        ->select(
+        ['paycheck_components.component_title', 
+        'paycheck_components.component_permanent_title', 
+        'paycheck_components.employee_id', 
+        'paycheck_components.cycle',
+        'paycheck_components.component_type',
+        'paycheck_components.amount',
+        'paycheck_components.employee_surname', 'paycheck_components.employee_othernames', 'paycheck_summaries.employee_prefix',
+        'paycheck_summaries.pension_employer_contribution_amount',
+        'paycheck_summaries.pension_voluntary_contribution_amount',
+        'paycheck_summaries.pension_amount', 
+        'paycheck_summaries.pensionable', 'paycheck_summaries.consolidated_salary', 
+        'paycheck_summaries.consolidated_allowance', 'paycheck_summaries.basic_salary', 
+        'paycheck_summaries.gross_total', 'paycheck_summaries.total_deductions', 'paycheck_summaries.total_earnings',
+        'paycheck_summaries.net_pay',
+        'paycheck_summaries.payroll_id as ps_payroll_id',
+        'paycheck_components.payroll_id',
+        'paycheck_summaries.employee_number'])
+        ->where('paycheck_components.payroll_id', $payroll_id)
+        ->where('paycheck_components.employee_id', $employee_id)
+        ->get();
+        
+        return view('payrolls.one_payslipV2', [
+            'paycheck' => $payslips,
+            'payroll' => $payroll,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
+            ]);
+    }
+    
     public function showComponent($payrollId, $componentId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
@@ -119,6 +155,7 @@ class PayrollController extends Controller
             'pensionables' => $pensionables,]);
     }
     
+    //TODO See:
     public function getPaycheckSummary($payrollId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);
@@ -192,7 +229,7 @@ class PayrollController extends Controller
         ->get()->groupBy('employee_id');
         
         // foreach($payslips as $paycheck){
-        //     if($paycheck[0]->employee_id != 15) continue;
+        //     if($paycheck[0]->employee_id != 230) continue;
         //     dd($paycheck);
         // }
         return view('payrolls.report', ['paychecks' => $paychecks,
@@ -207,6 +244,41 @@ class PayrollController extends Controller
             'bankables' => $bankables,
             'payslips' => $payslips
             ]);
+    }
+    
+    public function createPayslipV2($id, Request $request){
+        ini_set("memory_limit", "2048M");
+        ini_set("max_execution_time", 0);
+        
+        $payroll = $this->payrollModel->findById($id);
+        $payslips = \DB::table('paycheck_components')
+        ->join('paycheck_summaries', function($join){
+            $join->on('paycheck_summaries.payroll_id', 'paycheck_components.payroll_id');
+            $join->on('paycheck_summaries.employee_id', 'paycheck_components.employee_id');
+        })
+        ->select(
+        ['paycheck_components.component_title', 
+        'paycheck_components.component_permanent_title', 
+        'paycheck_components.employee_id', 
+        'paycheck_components.cycle',
+        'paycheck_components.component_type',
+        'paycheck_components.amount',
+        'paycheck_components.employee_surname', 'paycheck_components.employee_othernames', 'paycheck_summaries.employee_prefix',
+        'paycheck_summaries.pension_employer_contribution_amount',
+        'paycheck_summaries.pension_voluntary_contribution_amount',
+        'paycheck_summaries.pension_amount', 
+        'paycheck_summaries.pensionable', 'paycheck_summaries.consolidated_salary', 
+        'paycheck_summaries.consolidated_allowance', 'paycheck_summaries.basic_salary', 
+        'paycheck_summaries.gross_total', 'paycheck_summaries.total_deductions', 'paycheck_summaries.total_earnings',
+        'paycheck_summaries.net_pay',
+        'paycheck_summaries.payroll_id as ps_payroll_id',
+        'paycheck_components.payroll_id',
+        'paycheck_summaries.employee_number'])
+        ->where('paycheck_components.payroll_id', $id)
+        ->get()->groupBy('employee_id');
+        
+        return view('payrolls.payslipV2', ['payslips' => $payslips,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false, 'payroll' => $payroll]);
     }
 
     public function createPayslip($id, Request $request){

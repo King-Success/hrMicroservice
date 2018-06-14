@@ -37,7 +37,7 @@
 					</div>
 					<div class="text-center">
 						<h6 class="text-center _600">{{count($paycheckSummaries)}}</h6>
-						<p class="text-muted m-b-md"><a href="/payslip/{{$paychecks[0]->payroll_id}}">Payslips</a></p>
+						<p class="text-muted m-b-md"><a href="{{url('/payslip/'.$paychecks[0]->payroll_id)}}">Payslips</a> <a href="{{url('/v2/payslip/'.$paychecks[0]->payroll_id)}}">V2</a></p>
 						<div>
 							<span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
 						</div>
@@ -314,7 +314,7 @@
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
             <div class="p-a b-b">
-                <span class="h5">Payslip | <a href="{{ url('/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) }}" class="btn btn-primary">PRINT</a> | <a href="" class="btn btn-info">SEND EMAIL</a></span>
+                <span class="h5">Payslip | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="btn btn-primary">PRINT</a> | <a href="" class="btn btn-info">SEND EMAIL</a></span>
             </div>
             <div style="overflow: auto;">
             <div class="row-row light">

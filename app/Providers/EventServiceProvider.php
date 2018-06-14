@@ -35,8 +35,8 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\PopulateEmployeeBasicSalaryIf',
         ],
         
-        'App\Events\SendPayslipsByMails' => [
-            'App\Listeners\SendPayslipsByMails',
+        'App\Events\PayslipDispatch' => [
+            'App\Listeners\SendPayslipByMail',
         ],
     ];
 

@@ -9,20 +9,22 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class SendPayslipsByMails
+class PayslipDispatch
 {
     use InteractsWithSockets, SerializesModels;
     
     public $payroll_id;
+    public $employee_id;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($payroll_id)
+    public function __construct($payroll_id, $employee_id)
     {
         $this->payroll_id = $payroll_id;
+        $this->employee_id = $employee_id;
         
     }
 

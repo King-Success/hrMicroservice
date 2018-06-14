@@ -112,8 +112,7 @@ class PayEmployee implements ShouldQueue
                     }
                     if($employee_salary_component_info->salary_component->permanent_title == 'pension'){
                         $this->totalDeductions += $this->employee->employee_pension ? $this->employee->employee_pension->voluntary_contribution : 0;
-                        //$amount is ignored for pension
-                        //TODO: Should Employer Contribution be added here?
+                        //$amount is ignored for pension to reapper again in employee's payslip
                     }
                 }
                 $paycheckComponent = $this->paycheckComponentModel->getInstance();

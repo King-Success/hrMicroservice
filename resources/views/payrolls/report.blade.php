@@ -314,7 +314,7 @@
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
             <div class="p-a b-b">
-                <span class="h5">Payslip</span>
+                <span class="h5">Payslip | <a href"{{ url('/payslip/employee/'.$payroll->id.'/'.$paycheck->employee_id) }}" class="btn btn-default">PRINT</a> | <a href="" class="btn btn-default">SEND EMAIL</a></span>
             </div>
             <div class="row-row light">
 				<!--<div class="col-md-12">-->

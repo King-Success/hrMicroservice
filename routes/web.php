@@ -225,6 +225,7 @@ Route::get('/payslip/tax/{payroll_id}', 'PayrollController@showTax')->middleware
 Route::get('/payslip/pension/{payroll_id}', 'PayrollController@showPensionComponent')->middleware('auth');
 Route::get('/payslip/net_pay/{payroll_id}', 'PayrollController@showNetPay')->middleware('auth');
 Route::get('/payslip/paycheck_summary/{payroll_id}', 'PayrollController@getPaycheckSummary')->middleware('auth');
+Route::get('/payslip/employee/{payroll_id}/{employee_id}', 'PayrollController@showOnePaySlip')->middleware('auth');
 
 Route::group(['prefix' => 'tax', 'middleware' => ['auth']], function() {
     Route::get('/', 'TaxController@index')->name('tax_index');

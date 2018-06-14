@@ -7,4 +7,5 @@ interface PaycheckSummaryContract
     public function getInstance();
     public function findById($paycheckSummaryId);
     public function findByPayrollId($payrollId);
+    public function findByPayrollEmployeeId($payrollId, $employeeId);
 }

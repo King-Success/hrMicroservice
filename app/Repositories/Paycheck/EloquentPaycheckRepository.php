@@ -32,4 +32,8 @@ class EloquentPaycheckRepository implements PaycheckContract
     public function findByPayrollId($payrollId){
         return Paycheck::where('payroll_id', '=', $payrollId)->get();
     }
+    
+    public function findByPayrollEmployeeId($payrollId, $employeeId){
+        return Paycheck::where('payroll_id', '=', $payrollId)->where('employee_id', '=', $employeeId)->get()->first();
+    }
 }

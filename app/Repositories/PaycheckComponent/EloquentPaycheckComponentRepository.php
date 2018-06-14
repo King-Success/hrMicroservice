@@ -24,4 +24,8 @@ class EloquentPaycheckComponentRepository implements PaycheckComponentContract
     public function findByPayrollId($payrollId){
         return PaycheckComponent::where('payroll_id', '=', $payrollId)->get();
     }
+    
+    public function findByPayrollEmployeeId($payrollId, $employeeId){
+        return PaycheckComponent::where('payroll_id', '=', $payrollId)->where('employee_id', '=', $employeeId)->get();
+    }
 }

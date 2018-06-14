@@ -34,6 +34,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\EmployeeAssignedRank' => [
             'App\Listeners\PopulateEmployeeBasicSalaryIf',
         ],
+        
+        'App\Events\SendPayslipsByMails' => [
+            'App\Listeners\SendPayslipsByMails',
+        ],
     ];
 
     /**

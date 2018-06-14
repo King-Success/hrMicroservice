@@ -70,6 +70,19 @@ class PayrollController extends Controller
             'bank' => $bank, 'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false]);
     }
     
+    public function showOnePaySlip($payroll_id, $employee_id, Request $request){
+        $payroll = $this->payrollModel->findById($payroll_id);
+        $paycheck = $this->paycheckModel->findByPayrollEmployeeId($payroll_id, $employee_id);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollEmployeeId($payroll_id, $employee_id);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollEmployeeId($payroll_id, $employee_id);
+        return view('payrolls.one_payslip', [
+            'paychecks' => $paychecks,
+            'paycheckSummaries' => $paycheckSummaries, 
+            'paycheckComponents' => $paycheckComponents,
+            'payroll' => $payroll,
+            ]);
+    }
+    
     public function showComponent($payrollId, $componentId, Request $request){
         $payroll = $this->payrollModel->findById($payrollId);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($payrollId);

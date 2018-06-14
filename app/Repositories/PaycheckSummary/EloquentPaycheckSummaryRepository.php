@@ -24,4 +24,8 @@ class EloquentPaycheckSummaryRepository implements PaycheckSummaryContract
     public function findByPayrollId($payrollId){
         return PaycheckSummary::where('payroll_id', '=', $payrollId)->get();
     }
+    
+    public function findByPayrollEmployeeId($payrollId, $employeeId){
+        return PaycheckSummary::where('payroll_id', '=', $payrollId)->where('employee_id', '=', $employeeId)->get();
+    }
 }

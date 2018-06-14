@@ -53,12 +53,10 @@ class PayrollController extends Controller
         $this->payrollModel = $payrollContract;
         $this->employeeModel = $employeeContract;
         $this->appConfig = Cache::get('AppConfig');
-        
         $this->paycheckModel = $paycheckContract;
         $this->paycheckComponentModel = $paycheckComponentContract;
         $this->paycheckSummaryModel = $paycheckSummaryContract;
         $this->salaryComponentModel = $salaryComponentModelContract;
-        
         $this->bankModel = $bankContract;
         $this->pensionModel = $pensionContract;
         $this->taxModel = $taxContract;
@@ -139,8 +137,13 @@ class PayrollController extends Controller
     }
     
     public function show($id, Request $request){
+        
+        ini_set("memory_limit", "2048M");
+        ini_set("max_execution_time", 0);
+        
         $payroll = $this->payrollModel->findById($id);
         $paychecks = $this->paycheckModel->findByPayrollId($id);
+        // $paychecks = \App\Paycheck::where('payroll_id', $id)->get();
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
         $pensionables = $paycheckSummaries->where('pensionable', true)->groupBy('pension_company')->toArray();
@@ -148,25 +151,6 @@ class PayrollController extends Controller
         $bankables = $paycheckSummaries->where('bankable', true)->groupBy('bank')->toArray();
         $salaryComponents = $this->salaryComponentModel->findAll();
         $taxes = $this->taxModel->findAll();
-        $raw = \DB::table('paycheck_components')
-        ->leftJoin('paycheck_summaries', 'paycheck_summaries.employee_id', '=', 'paycheck_components.employee_id')
-        ->select('paycheck_components.*'
-        , 'paycheck_summaries.employee_prefix'
-        , 'paycheck_summaries.pension_employer_contribution_amount'
-        , 'paycheck_summaries.pension_voluntary_contribution_amount'
-        , 'paycheck_summaries.pension_amount'
-        , 'paycheck_summaries.pensionable'
-        , 'paycheck_summaries.consolidated_salary'
-        , 'paycheck_summaries.consolidated_allowance'
-        , 'paycheck_summaries.basic_salary'
-        , 'paycheck_summaries.gross_total'
-        , 'paycheck_summaries.total_deductions'
-        , 'paycheck_summaries.total_earnings'
-        , 'paycheck_summaries.net_pay')
-        ->orderBy('paycheck_components.employee_id', 'asc')
-        ->orderBy('paycheck_components.created_at', 'asc')
-        ->get()->groupBy('employee_id');
-        dd("here");
         return view('payrolls.report', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,
             'salaryComponents' => $salaryComponents,
@@ -177,46 +161,26 @@ class PayrollController extends Controller
             'pensionables' => $pensionables,
             'taxables' => $taxables,
             'bankables' => $bankables,
-            'payslips' => $raw
             ]);
     }
 
     public function createPayslip($id, Request $request){
+        ini_set("memory_limit", "2048M");
+        ini_set("max_execution_time", 0);
+        
         $payroll = $this->payrollModel->findById($id);
-        // $paychecks = $this->paycheckModel->findByPayrollId($id);
-        //$paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
-        //$paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
-        dd("tests");
-        $raw = \DB::table('paycheck_components')
-        ->leftJoin('paycheck_summaries', 'paycheck_summaries.employee_id', '=', 'paycheck_components.employee_id')
-        ->select('paycheck_components.*'
-        , 'paycheck_summaries.employee_prefix'
-        , 'paycheck_summaries.pension_employer_contribution_amount'
-        , 'paycheck_summaries.pension_voluntary_contribution_amount'
-        , 'paycheck_summaries.pension_amount'
-        , 'paycheck_summaries.pensionable'
-        , 'paycheck_summaries.consolidated_salary'
-        , 'paycheck_summaries.consolidated_allowance'
-        , 'paycheck_summaries.basic_salary'
-        , 'paycheck_summaries.gross_total'
-        , 'paycheck_summaries.total_deductions'
-        , 'paycheck_summaries.total_earnings'
-        , 'paycheck_summaries.net_pay')
-        ->orderBy('paycheck_components.employee_id', 'asc')
-        ->orderBy('paycheck_components.created_at', 'asc')
-        ->get()->groupBy('employee_id');
-        dd("test");
-        return view('payrolls.payslip', [
-            // 'paychecks' => $paychecks,
+        $paychecks = $this->paycheckModel->findByPayrollId($id);
+        $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollId($id);
+        $paycheckComponents = $this->paycheckComponentModel->findByPayrollId($id);
+        
+        return view('payrolls.payslip', ['paychecks' => $paychecks,
             'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
-            // 'paycheckSummaries' => $paycheckSummaries, 
-            // 'paycheckComponents' => $paycheckComponents, 
-            'payroll' => $payroll,
-            'payslips' => $raw]);
+            'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]);
         
         view()->share('paychecks', $paychecks);
         view()->share('paycheckSummaries', $paycheckSummaries);
-        view()->share('paycheckComponents', $paycheckComponents);
+        view()->share('paycheckComponents', $paycheckSummaries);
+        view()->share('paycheckSummaries', $paycheckComponents);
         view()->share('payroll', $payroll);
         $pdf = \PDF::loadView('payrolls.payslip2')->setPaper('a4', 'landscape');
         return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');

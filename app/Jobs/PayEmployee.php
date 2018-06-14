@@ -13,6 +13,7 @@ use App\Payroll;
 use App\Repositories\Paycheck\PaycheckContract;
 use App\Repositories\PaycheckComponent\PaycheckComponentContract;
 use App\Repositories\PaycheckSummary\PaycheckSummaryContract;
+use Illuminate\Support\Facades\Log;
 
 class PayEmployee implements ShouldQueue
 {
@@ -51,9 +52,9 @@ class PayEmployee implements ShouldQueue
      * @param  PaycheckSummaryContract  $paycheckSummaryContract
      * @return void
      */
-    public function handle(PaycheckContract  $paycheckContract, 
-        PaycheckComponentContract  $paycheckComponentContract,
-        PaycheckSummaryContract  $paycheckSummaryContract)
+    public function handle(  $paycheckContract, 
+          $paycheckComponentContract,
+          $paycheckSummaryContract)
     {
         //
         $this->paycheckModel = $paycheckContract;
@@ -65,12 +66,13 @@ class PayEmployee implements ShouldQueue
     }
     
     private function populate_paycheck(){
+        Log::info("Creating Paycheck for.." . $this->employee->id);
         $paygrade = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->amount : 0;
         $paygradeAllowance = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->allowance : 0;
         $this->consolidatedSalary = ($this->employee->employee_basic_salary->amount + $paygrade);
         $this->consolidatedAllowance = ($this->employee->employee_basic_salary->allowance + $paygradeAllowance);
         $this->grossTotal = ($this->consolidatedSalary / 12) + $this->consolidatedAllowance;
-        $paycheck = $this->paycheckModel->getInstance();
+        $paycheck = new \App\Paycheck;
         $paycheck->employee_id = $this->employee->id;
         $paycheck->cycle = $this->payroll->cycle;
         $paycheck->employee_prefix = $this->employee->prefix->title;
@@ -81,9 +83,9 @@ class PayEmployee implements ShouldQueue
         $paycheck->payroll_id = $this->payroll->id;
         $paycheck->consolidated_salary = $this->consolidatedSalary;
         $paycheck->consolidated_allowance = $this->consolidatedAllowance;
-        if(!$paycheck->save()){
-            throw new \Exception("Error Creating paycheck for employee " . $this->employee->surname);
-        }
+        $paycheck->department = $this->employee->employee_department ? $this->employee->employee_department->department->title : '';
+        $paycheck->save();
+        Log::info('created with id' . $paycheck->id . ', payroll_id: '. $this->payroll->id);
     }
     
     private function populate_paycheck_components(){
@@ -126,6 +128,7 @@ class PayEmployee implements ShouldQueue
                 $paycheckComponent->rank = $this->employee->employee_rank ? $this->employee->employee_rank->rank->title : '';
                 $paycheckComponent->level = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->employee_level->title : '';
                 $paycheckComponent->step = $this->employee->employee_paygrade ? $this->employee->employee_paygrade->paygrade->title : '';
+                $paycheckComponent->department = $this->employee->employee_department ? $this->employee->employee_department->department->title : '';
                 if(!$paycheckComponent->save()){
                     throw new \Exception("Error Creating paycheck component for employee " . $this->employee->surname);
                 }
@@ -156,7 +159,7 @@ class PayEmployee implements ShouldQueue
         $paycheckSummary->total_earnings = $this->totalEarnings;
         $paycheckSummary->net_pay = $this->grossTotal + $this->totalEarnings - $this->totalDeductions;
         $paycheckSummary->cycle = $this->payroll->cycle; 
-        $paycheckSummary->department = $this->employee->employee_department->department->title;
+        $paycheckSummary->department = $this->employee->employee_department ? $this->employee->employee_department->department->title : '';
         
         $pensionAmount = 0;
         if(count($this->employee->employee_salary_components) > 0){

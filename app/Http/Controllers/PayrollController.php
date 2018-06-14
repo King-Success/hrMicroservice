@@ -76,10 +76,11 @@ class PayrollController extends Controller
         $paycheckSummaries = $this->paycheckSummaryModel->findByPayrollEmployeeId($payroll_id, $employee_id);
         $paycheckComponents = $this->paycheckComponentModel->findByPayrollEmployeeId($payroll_id, $employee_id);
         return view('payrolls.one_payslip', [
-            'paychecks' => $paychecks,
+            'paycheck' => $paycheck,
             'paycheckSummaries' => $paycheckSummaries, 
             'paycheckComponents' => $paycheckComponents,
             'payroll' => $payroll,
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
             ]);
     }
     
@@ -164,6 +165,34 @@ class PayrollController extends Controller
         $bankables = $paycheckSummaries->where('bankable', true)->groupBy('bank')->toArray();
         $salaryComponents = $this->salaryComponentModel->findAll();
         $taxes = $this->taxModel->findAll();
+        $payslips = \DB::table('paycheck_components')
+        ->rightJoin('paycheck_summaries', 'paycheck_summaries.employee_id', 'paycheck_components.employee_id')
+        ->select(
+        ['paycheck_components.component_title', 
+        'paycheck_components.component_permanent_title', 
+        'paycheck_components.employee_surname', 'paycheck_components.employee_othernames', 'paycheck_summaries.employee_prefix',
+        'paycheck_summaries.pension_employer_contribution_amount',
+        'paycheck_summaries.pension_voluntary_contribution_amount',
+        'paycheck_summaries.pension_amount', 
+        'paycheck_summaries.pensionable', 'paycheck_summaries.consolidated_salary', 
+        'paycheck_summaries.consolidated_allowance', 'paycheck_summaries.basic_salary', 
+        'paycheck_summaries.gross_total', 'paycheck_summaries.total_deductions', 'paycheck_summaries.total_earnings',
+        'paycheck_summaries.net_pay'])
+        ->where('paycheck_components.payroll_id', $id)
+        ->get();
+        // $raw = \DB::raw('SELECT 
+        // paycheck_components.component_title, paycheck_components.component_permanent_title, 
+        // paycheck_components.employee_surname, paycheck_components.employee_othernames, paycheck_summaries.employee_prefix,
+        // paycheck_summaries.pension_employer_contribution_amount,
+        // paycheck_summaries.pension_voluntary_contribution_amount,
+        // paycheck_summaries.pension_amount, 
+        // paycheck_summaries.pensionable, paycheck_summaries.consolidated_salary, 
+        // paycheck_summaries.consolidated_allowance, paycheck_summaries.basic_salary, 
+        // paycheck_summaries.gross_total, paycheck_summaries.total_deductions, paycheck_summaries.total_earnings,
+        // paycheck_summaries.net_pay from paycheck_components 
+        // RIGHT JOIN paycheck_summaries ON paycheck_summaries.employee_id = paycheck_components.employee_id
+        // WHERE paycheck_components.payroll_id = ' . $id . ' LIMIT 0, 100')->get();
+        
         return view('payrolls.report', ['paychecks' => $paychecks,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents,
             'salaryComponents' => $salaryComponents,
@@ -174,6 +203,7 @@ class PayrollController extends Controller
             'pensionables' => $pensionables,
             'taxables' => $taxables,
             'bankables' => $bankables,
+            'payslips' => $payslips
             ]);
     }
 

@@ -2,11 +2,6 @@
 
 @section('css_header')
         <style type="text/css">
-            
-            .table td, .table th {
-                padding: 2px;
-            }
-            
             .total{
                 font-weight: bold; 
                 font-size: 16px;
@@ -25,7 +20,7 @@
                     <h2>{{$AppConfig->company_title}}</h2><small>{{$payroll->title}}</small></div>
                 <div class="box-divider m-a-0"></div>
                 <div class="box-body">
-                    <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_othernames}}</h3><small><i>Staff No: {{$paycheck->employee_number}}</i></small></div>
+                    <div><h3>{{$paycheck->employee_prefix}} {{$paycheck->employee_surname}} {{$paycheck->employee_othernames}}</h3><h6><i>Staff No: {{$paycheck->employee_number}}</i></h6></div>
                     <?php $grossTotal = 0; ?>
                     <table class="table">
                         <tr>
@@ -34,7 +29,7 @@
                         </tr>
                     <?php $grossTotal += ($paycheck->consolidated_salary * $paycheck->cycle) + ($paycheck->consolidated_allowance * $paycheck->cycle); ?>
                     </table>
-                    <div><h5>Allowances</h5><small><i>Earnings</i></small></div>
+                    <div><p style="font-size: 16px; font-weight: bold; margin:0px; padding:0px;">Allowances</p><small><i>Earnings</i></small></div>
                     <table class="table">
                         <?php $subTotal = 0; ?>
                         @foreach($paycheckComponents as $paycheckComponent)
@@ -60,7 +55,8 @@
                         </tr>
                     </table>
 
-                    <div><h5>Deductions</h5><small><i>Deductions</i></small></div>
+                    <!--<div><h5>Deductions</h5><small><i>Deductions</i></small></div>-->
+                    <div><p style="font-size: 16px; font-weight: bold; margin:0px; padding:0px;">Deductions</p><small><i>Deductions</i></small></div>
                     <table class="table">
                         <?php $subTotal = 0; ?>
                         @foreach($paycheckComponents as $paycheckComponent)
@@ -89,12 +85,17 @@
                         @endforeach
                     </table>
                     <div class="container">
-                        <div>Authorized Signature_________________________</div>
+                        <div>Authorized Signature ___________________</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  $('.table td, .table th').css('padding', '0px');
+  $('.table').css('margin-bottom', '0px');
+});
+</script>
 @stop

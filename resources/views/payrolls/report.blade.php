@@ -314,7 +314,7 @@
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
             <div class="p-a b-b">
-                <span class="h5">Payslip | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="btn btn-primary">PRINT</a> | <a href="" class="btn btn-info">SEND EMAIL</a></span>
+                <span class="h5">Payslip | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="btn btn-primary">PRINT</a> | <a href="{{url('/mailpayslip/'. $payroll->id . '/' . $paycheck[0]->employee_id)}}" class="btn btn-info sendmaillink">SEND EMAIL</a></span>
             </div>
             <div style="overflow: auto;">
             <div class="row-row light">
@@ -417,8 +417,25 @@
                     console.log("goodluck deleting.");
                     this.submit()
                 }
-            })
+            });
+            document.addEventListener("DOMContentLoaded", function(event) {
+            	$('.sendmaillink').on("click", function(evt){
+            		console.log("sendmaillink");
+            		evt.preventDefault();
+            		$.ajax({
+		                url: $(this).attr('href'), 
+		                method: 'GET',
+		            }).done(function( data ) {
+		                if(data && data.status = "pending"){
+		                    alert("Your message will be sent if your internet is good or the employee has a valid email address");
+		                }else{
+		                   alert("Something wicked occured");
+		                }
+		            });
+            	});
+            });
         </script>
+
 
 <!-- ############ PAGE END-->
 @stop

@@ -43,9 +43,11 @@ class SendPayslipByMail
         $payroll_id = $event->payroll_id;
         $employee_id = $event->employee_id;
         
+        Log::info("handling event for employee: " . $employee_id . ", payroll: " . $payroll_id);
+        
         $employee = $this->employeeModel->findById($employee_id);
         if(!$employee && !$employee->email){
-            Log::info("User does not have a valid email");
+            Log::info("The Employee: " . $employee_id . ", does not have a valid email");
             return;
         }
         $payroll = $this->payrollModel->findById($payroll_id);

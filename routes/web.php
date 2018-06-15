@@ -254,3 +254,4 @@ Route::get('/search', 'SearchController@index');
 Route::post('/search', 'SearchController@search');
 
 Route::get('/mailpayslip/{payroll_id}/{employee_id}', 'ApiController@sendPayslip');
+Route::get('/mailpayslips/{payroll_id}', 'ApiController@sendPayslips');

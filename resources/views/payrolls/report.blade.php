@@ -408,33 +408,54 @@
 		</div>
     </div>
 </div>
+
+<!-- .modal -->
+<div id="mailAjaxNotifier" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">Alert</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p id="mailAjaxNotifierMessage">Your message will be sent if your internet is good or the employee has a valid email address</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn primary p-x-md" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+
+
 @endforeach
 
-		<script type="text/javascript">
-            $('#deletePayroll').submit(function(evt){
-                evt.preventDefault();
-                if(confirm("Are you sure you want to delete this record?")){
-                    console.log("goodluck deleting.");
-                    this.submit()
-                }
-            });
-            // document.addEventListener("DOMContentLoaded", function(event) {
-            // 	$('.sendmaillink').on("click", function(evt){
-            // 		console.log("sendmaillink");
-            // 		evt.preventDefault();
-            // 		$.ajax({
-		          //      url: $(this).attr('href'), 
-		          //      method: 'GET',
-		          //  }).done(function( data ) {
-		          //      if(data && data.status = "pending"){
-		          //          alert("Your message will be sent if your internet is good or the employee has a valid email address");
-		          //      }else{
-		          //         alert("Something wicked occured");
-		          //      }
-		          //  });
-            // 	});
-            // });
-        </script>
+<script type="text/javascript">
+    $('#deletePayroll').submit(function(evt){
+        evt.preventDefault();
+        if(confirm("Are you sure you want to delete this record?")){
+            console.log("goodluck deleting.");
+            this.submit()
+        }
+    });
+    
+	$('.sendmaillink').on("click", function(evt){
+		evt.preventDefault();
+		$.ajax({
+            url: $(this).attr('href'), 
+            method: 'GET',
+        }).done(function( data ) {
+            if(data && data.status){
+            	if(data.message){
+                	$('#mailAjaxNotifierMessage').html(data.message);
+            	}
+            }else{
+               $('#mailAjaxNotifierMessage').html("Error occured while sending, please try again");
+            }
+            $('#mailAjaxNotifier').modal({show: true});
+        });
+	});
+</script>
 
 
 <!-- ############ PAGE END-->

@@ -43,7 +43,7 @@ class SendPayslipByMail
         $payroll_id = $event->payroll_id;
         $employee_id = $event->employee_id;
         
-        Log::info("handling event for employee: " . $employee_id . ", payroll: " . $payroll_id);
+        Log::info("mailpayslip event for employee: " . $employee_id . ", payroll: " . $payroll_id);
         
         $employee = $this->employeeModel->findById($employee_id);
         if(!$employee && !$employee->email){

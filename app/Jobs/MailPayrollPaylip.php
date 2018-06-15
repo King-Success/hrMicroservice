@@ -35,7 +35,7 @@ class MailPayrollPaylip implements ShouldQueue
      */
     public function handle()
     {
-        Log::info("handling jobs for employee: " . $this->employee_id . ", payroll: " . $this->payroll_id);
+        Log::info("mailpayslip job for employee: " . $this->employee_id . ", payroll: " . $this->payroll_id);
         event(new PayslipDispatch($this->payroll_id, $this->employee_id));
     }
 }

@@ -25,9 +25,9 @@
                     <table class="table">
                         <tr>
                             <td>Consolidated Salary</td>
-                            <td align="right">&#8358;{{number_format($paycheck[0]->consolidated_salary * $paycheck[0]->cycle, 2)}}</td>
+                            <td align="right">&#8358;{{number_format(($paycheck[0]->consolidated_salary / 12) * $paycheck[0]->cycle, 2)}}</td>
                         </tr>
-                    <?php $grossTotal += ($paycheck[0]->consolidated_salary * $paycheck[0]->cycle) + ($paycheck[0]->consolidated_allowance * $paycheck[0]->cycle); ?>
+                    <?php $grossTotal += (($paycheck[0]->consolidated_salary / 12) * $paycheck[0]->cycle) + ($paycheck[0]->consolidated_allowance * $paycheck[0]->cycle); ?>
                     </table>
                     <div><p style="font-size: 16px; font-weight: bold; margin:0px; padding:0px;">Allowances</p><small><i>Earnings</i></small></div>
                     <table class="table">

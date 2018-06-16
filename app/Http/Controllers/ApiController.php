@@ -43,7 +43,7 @@ class ApiController extends Controller
                 foreach($paychecks as $paycheck){
                     dispatch(new MailPayrollPaylip($payroll_id, $paycheck->employee_id));
                 }
-                $response = json_encode(["status"=> true, "message" => "You have have exceeded the maximum number of payslip count of ". PayrollGlobals::$MAX_PAYSLIPS_TO_SEND_BY_MAIL_VIA_WEB . ' being limit to process via the web, An external process if setup will trigger this task automatically. You can also run it manually from terminal with: <br/> <code>cd /var/www/payroll && php artisan queue:work</code>']);
+                $response = json_encode(["status"=> true, "message" => "You have have exceeded the maximum number of payslip count of ". PayrollGlobals::$MAX_PAYSLIPS_TO_SEND_BY_MAIL_VIA_WEB . ' being limit to process via the web, An external process if setup will trigger this task automatically. You can also run it manually from terminal with: <br/> <code>php /var/www/payroll/artisan queue:work</code>']);
             }
         }else{
             $response = json_encode(["status"=> true, "message" => "Payroll does not exists"]);

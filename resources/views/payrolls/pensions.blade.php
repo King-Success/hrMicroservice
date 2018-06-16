@@ -87,6 +87,9 @@
 					</table>
 				</div>
 				<!--</div>-->
+			     <div class="container" style="margin-top: 30px; margin-bottom: 40px;">
+		    		<div>Authorized Signature_________________________</div>
+				</div>
 			</div>
 			</div>
 		</div>

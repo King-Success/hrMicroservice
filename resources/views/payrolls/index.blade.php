@@ -33,10 +33,10 @@
 						<tr>
 						<!--<th>#</th>-->
 						<th>Title</th>
-						<th>Payslip</th>
-						<th>Date</th>
 						<th>Cycle</th>
-						<th>Description</th>
+						<th>#</th>
+						<th>Date</th>
+						<!--<th>Description</th>-->
 						<!--<th>Created At</th>-->
 						<th>#</th>
 						</tr>
@@ -47,12 +47,12 @@
 						<tr>
 						<!--<td>{{ ++$counter }}</td>-->
 						<td><a href="/payroll/{{$payroll->id}}">{{$payroll->title}}</a></td>
-						<td><a href="/payslip/{{$payroll->id}}">View</a></td>
-						<td>{{$payroll->paid_at}}</td>
 						<td>{{$payroll->cycle}}</td>
-						<td>{{$payroll->description}}</td>
+						<td><a class="btn btn-primary" href="/payslip/{{$payroll->id}}">Payslips</a></td>
+						<td>{{$payroll->paid_at}}</td>
+						<!--<td>{{$payroll->description}}</td>-->
 						<!--<td>{{$payroll->created_at}}</td>-->
-						<td><h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
+						<td><h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'class'=> 'deletePayroll')) !!}
 			            <button class="btn btn-danger">DELETE</button>
 			            {!! Form::close() !!}</h3></td>
 						</tr>
@@ -71,7 +71,7 @@
 @endif
 
         <script type="text/javascript">
-            $('#deletePayroll').submit(function(evt){
+            $('.deletePayroll').submit(function(evt){
                 evt.preventDefault();
                 if(confirm("Are you sure you want to delete this record?")){
                     console.log("goodluck deleting.");

@@ -23,7 +23,7 @@ class ApiController extends Controller
         $payroll = $this->payrollModel->findById($payroll_id);
         if ($payroll) {
             event(new PayslipDispatch($payroll_id, $employee_id));
-            $response = json_encode(["status"=> true, "message" => "The email will be sent provided you have a good internet connection"]);
+            $response = json_encode(["status"=> true, "message" => "The payslip will be sent provided you have a working internet connection"]);
         }else{
             $response = json_encode(["status"=> true, "message" => "Payroll does not exists"]);
         }
@@ -38,7 +38,7 @@ class ApiController extends Controller
                 foreach($paychecks as $paycheck){
                     event(new PayslipDispatch($payroll_id, $paycheck->employee_id));
                 }
-                $response = json_encode(["status"=> true, "message" => "The email will be sent provided you have a good internet connection"]);
+                $response = json_encode(["status"=> true, "message" => "The payslips will be sent by mail provided you have a working internet connection"]);
             }else{
                 foreach($paychecks as $paycheck){
                     dispatch(new MailPayrollPaylip($payroll_id, $paycheck->employee_id));

@@ -266,16 +266,24 @@
 		        </div>
 		    </div>
 		    <div class="col-sm-6">
-		        <div class="box">
-		        	<div class="box-header">
-		                <span class="label success pull-right">1</span>
+		    	<div class="row">
+		        <!--<div class="box">-->
+		        	<!--<div class="box-header">-->
+		                <!--<span class="label success pull-right">2</span>-->
 		                <h3>Action</h3>
-		            </div>
-		            <div class="box-header">
-		                <h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
-			            <button class="m-b btn">DELETE</button>
+		            <!--</div>-->
+		            <!--<div class="box-header">-->
+		            	<div class="col-sm-6">
+		                	<h3><a id="sendmailslink" href="{{url('/mailpayslips/'. $payroll->id)}}" class="m-b btn btn-primary">MAIL PAYSLIPS</a></h3>
+			            </div>
+			            <div class="col-sm-6">
+			            	 <h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
+			            <button class="m-b btn btn-danger">DELETE PAYROLL</button>
 			            {!! Form::close() !!}</h3>
-		            </div>
+			            </div>
+		            <!--</div>-->
+		            
+		        <!--</div>-->
 		        </div>
 		    </div>
 		</div>
@@ -314,7 +322,7 @@
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
             <div class="p-a b-b">
-                <span class="h5">Payslip | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="btn btn-primary">PRINT</a> | <a href="{{url('/mailpayslip/'. $payroll->id . '/' . $paycheck[0]->employee_id)}}" class="btn btn-info sendmaillink">SEND EMAIL</a></span>
+                <span class="h5">Payslip | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="btn btn-primary">PRINT</a> | <a href="{{url('/mailpayslip/'. $payroll->id . '/' . $paycheck[0]->employee_id)}}" class="btn btn-info" id="sendmaillink">SEND EMAIL</a></span>
             </div>
             <div style="overflow: auto;">
             <div class="row-row light">
@@ -439,8 +447,11 @@
         }
     });
     
-	$('.sendmaillink').on("click", function(evt){
+    var lock = 0;
+    $('#sendmailslink').on("click", function(evt){
 		evt.preventDefault();
+		if(lock != 0) return
+    	lock++;
 		$.ajax({
             url: $(this).attr('href'), 
             method: 'GET',
@@ -453,6 +464,27 @@
                $('#mailAjaxNotifierMessage').html("Error occured while sending, please try again");
             }
             $('#mailAjaxNotifier').modal({show: true});
+            lock = 0;
+        });
+	});
+    
+	$('#sendmaillink').on("click", function(evt){
+		evt.preventDefault();
+		if(lock != 0) return
+    	lock++;
+		$.ajax({
+            url: $(this).attr('href'), 
+            method: 'GET',
+        }).done(function( data ) {
+            if(data && data.status){
+            	if(data.message){
+                	$('#mailAjaxNotifierMessage').html(data.message);
+            	}
+            }else{
+               $('#mailAjaxNotifierMessage').html("Error occured while sending, please try again");
+            }
+            $('#mailAjaxNotifier').modal({show: true});
+            lock = 0;
         });
 	});
 </script>

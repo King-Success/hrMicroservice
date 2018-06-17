@@ -122,8 +122,8 @@
             </div>
         </div>
         @if($counter % 3 == 0)
-            <div class="page-break"></div>
             </div>
+            <div class="page-break" style="page-break-before: always;"></div>
         @endif
         <?php $counter++; ?>
         @endforeach

@@ -28,6 +28,21 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-md-6">
+            {!! Form::open(array('url' => '/user/' . $user->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deleteUser')) !!}
+            <button class="m-b btn">DELETE</button>
+            {!! Form::close() !!}
+        </div>
+        <script type="text/javascript">
+            $('#deleteUser').submit(function(evt){
+                evt.preventDefault();
+                if(confirm("Are you sure you want to delete this record?")){
+                    console.log("goodluck deleting.");
+                    this.submit()
+                }
+            })
+        </script>
     </div>
 </div>
 

@@ -36,7 +36,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function() {
     Route::get('/{id}/edit', 'UserController@edit')->name('edit_user');
     Route::get('/{id}', 'UserController@show')->name('show_user');
     Route::put('/{id}/edit', 'UserController@update')->name('update_user');
-    Route::get('/{id}/delete', 'UserController@delete')->name('delete_user');
+    // Route::get('/{id}/delete', 'UserController@delete')->name('delete_user');
+    Route::delete('/{id}', 'UserController@delete')->name('delete_user');
 });
 
 Route::group(['prefix' => 'employee', 'middleware' => ['auth']], function() {

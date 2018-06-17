@@ -293,23 +293,6 @@ class PayrollController extends Controller
         return view('payrolls.payslip', ['paychecks' => $paychecks,
             'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false,
             'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]);
-        
-        view()->share('paychecks', $paychecks);
-        view()->share('paycheckSummaries', $paycheckSummaries);
-        view()->share('paycheckComponents', $paycheckSummaries);
-        view()->share('paycheckSummaries', $paycheckComponents);
-        view()->share('payroll', $payroll);
-        $pdf = \PDF::loadView('payrolls.payslip2')->setPaper('a4', 'landscape');
-        return $pdf->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
-        
-        // $pdf = \App::make('dompdf.wrapper');
-        // $pdf->loadHTML(loadView('payrolls.payslip', ['paychecks' => $paychecks, 
-        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll]));
-        // return $pdf->stream();
-    
-        // $payslip = View::make('payrolls.payslip', ['paychecks' => $paychecks, 
-        //     'paycheckSummaries' => $paycheckSummaries, 'paycheckComponents' => $paycheckComponents, 'payroll' => $payroll])->render();
-        // return \PDF::loadHTML($payslip)->setWarnings(false)->download($payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
     }
     
     public function index() {

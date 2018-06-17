@@ -19,7 +19,7 @@
 @stop
 
 @section('content')
-
+@if(!$view_type)
 <!-- ############ PAGE START-->
 <div class="padding">
 	<div class="p-y-lg clearfix" id="tagline">
@@ -33,11 +33,15 @@
 	</div>
 	</div>
 </div>
+@endif
 
 <div class="padding">
-    <div class="row">
+    <!--<div class="row">-->
         <?php $counter = 1; ?>
         @foreach($payslips as $paycheck)
+        @if($counter % 3 == 1)
+        <div class="row">
+        @endif
         <div class="col-md-4">
             <div class="box">
                 <div class="box-header">
@@ -104,7 +108,7 @@
                             <td align="right"><b>&#8358;{{number_format($subTotal, 2)}}</b></td>
                         </tr>
                     </table>
-                    <div><h5>Total</h5><small><i></i></small></div>
+                    <!--<div><h5>Total</h5><small><i></i></small></div>-->
                     <table class="table">
                         <tr class="total">
                             <td><h5><b>Net Pay</b></h5></td>
@@ -119,10 +123,11 @@
         </div>
         @if($counter % 3 == 0)
             <div class="page-break"></div>
+            </div>
         @endif
         <?php $counter++; ?>
         @endforeach
-    </div>
+    <!--</div>-->
 </div>
 
 <script>

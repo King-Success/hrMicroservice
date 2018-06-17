@@ -80,7 +80,7 @@
                             <td align="right"><b>&#8358;{{number_format($subTotal, 2)}}</b></td>
                         </tr>
                     </table>
-                    <div><h5>Total</h5><small><i></i></small></div>
+                    <!--<div><h5>Total</h5><small><i></i></small></div>-->
                     <table class="table">
                         <tr class="total">
                             <td><h5><b>Net Pay</b></h5></td>

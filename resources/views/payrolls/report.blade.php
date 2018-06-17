@@ -274,12 +274,12 @@
 		            <!--</div>-->
 		            <!--<div class="box-header">-->
 		            	<div class="col-sm-6">
-		                	<h3><a id="sendmailslink" href="{{url('/mailpayslips/'. $payroll->id)}}" class="m-b btn btn-primary">MAIL PAYSLIPS</a></h3>
+		                	<a id="sendmailslink" href="{{url('/mailpayslips/'. $payroll->id)}}" class="md-btn btn btn-primary"><i class="fa fa-at"></i> MAIL PAYSLIPS</a>
 			            </div>
 			            <div class="col-sm-6">
-			            	 <h3>{!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
-			            <button class="m-b btn btn-danger">DELETE PAYROLL</button>
-			            {!! Form::close() !!}</h3>
+			            	 {!! Form::open(array('url' => '/payroll/' . $payroll->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deletePayroll')) !!}
+			            <button class="md-btn btn btn-danger"><i class="fa fa-trash"></i> DELETE PAYROLL</button>
+			            {!! Form::close() !!}
 			            </div>
 		            <!--</div>-->
 		            
@@ -322,7 +322,7 @@
         <div class="row-col">
             <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
             <div class="p-a b-b">
-                <span class="h5">Payslip | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="btn btn-primary">PRINT</a> | <a href="{{url('/mailpayslip/'. $payroll->id . '/' . $paycheck[0]->employee_id)}}" class="btn btn-info" id="sendmaillink">SEND EMAIL</a></span>
+                <span class="h5"><a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id)}}"><i class="fa fa-eye"></i> Payslip</a> | <a href="{{ url('/v2/payslip/employee/'.$payroll->id.'/'.$paycheck[0]->employee_id) . '?view_type=print'}}" class="md-btn btn btn-primary"><i class="fa fa-print"></i> PRINT</a> | <a href="{{url('/mailpayslip/'. $payroll->id . '/' . $paycheck[0]->employee_id)}}" class="md-btn btn btn-info sendmaillink"><i class="fa fa-at"></i> MAIL</a></span>
             </div>
             <div style="overflow: auto;">
             <div class="row-row light">
@@ -468,7 +468,7 @@
         });
 	});
     
-	$('#sendmaillink').on("click", function(evt){
+	$('.sendmaillink').on("click", function(evt){
 		evt.preventDefault();
 		if(lock != 0) return
     	lock++;

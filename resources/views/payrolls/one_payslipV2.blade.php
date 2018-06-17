@@ -42,8 +42,8 @@
                         @endforeach
                         
                         <tr class="total">
-                            <td>Total Allowances</td>
-                            <td align="right">&#8358;{{number_format($subTotal, 2)}}</td>
+                            <td><b>Total Allowances</b></td>
+                            <td align="right"><b>&#8358;{{number_format($subTotal, 2)}}</b></td>
                         </tr>
                     </table>
                     <?php $grossTotal += $subTotal; ?>
@@ -76,8 +76,8 @@
                         @endforeach
                         
                         <tr class="total">
-                            <td>Total Deductions</td>
-                            <td align="right">&#8358;{{number_format($subTotal, 2)}}</td>
+                            <td><b>Total Deductions</b></td>
+                            <td align="right"><b>&#8358;{{number_format($subTotal, 2)}}</b></td>
                         </tr>
                     </table>
                     <div><h5>Total</h5><small><i></i></small></div>

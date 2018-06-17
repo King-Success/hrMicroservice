@@ -48,7 +48,7 @@
 						<!--<td>{{ ++$counter }}</td>-->
 						<td><a href="/payroll/{{$payroll->id}}">{{$payroll->title}}</a></td>
 						<td>{{$payroll->cycle}}</td>
-						<td><a class="btn btn-primary" href="/payslip/{{$payroll->id}}">Payslips</a></td>
+						<td><a class="btn btn-primary" href="/v2/payslip/{{$payroll->id}}">Payslips</a></td>
 						<td>{{$payroll->paid_at}}</td>
 						<!--<td>{{$payroll->description}}</td>-->
 						<!--<td>{{$payroll->created_at}}</td>-->

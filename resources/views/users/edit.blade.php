@@ -31,7 +31,7 @@
         
         <div class="col-md-6">
             {!! Form::open(array('url' => '/user/' . $user->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deleteUser')) !!}
-            <button class="m-b btn">DELETE</button>
+            <button class="m-b btn btn-danger">DELETE</button>
             {!! Form::close() !!}
         </div>
         <script type="text/javascript">

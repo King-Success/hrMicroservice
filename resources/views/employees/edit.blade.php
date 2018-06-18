@@ -107,7 +107,7 @@
         
         <div class="col-md-6">
             {!! Form::open(array('url' => '/employee/' . $employee->id, 'role' => 'form', 'method'=>'DELETE', 'id'=> 'deleteEmployee')) !!}
-            <button class="m-b btn">DELETE</button>
+            <button class="m-b btn btn-danger">DELETE</button>
             {!! Form::close() !!}
         </div>
         <script type="text/javascript">

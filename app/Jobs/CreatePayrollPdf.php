@@ -64,9 +64,13 @@ class CreatePayrollPdf implements ShouldQueue
         ->where('paycheck_components.payroll_id', $payroll->id)
         ->get()->groupBy('employee_id');
         
+        Log::info("rendering view");
+        
         $payslip = \View::make('payrolls.payslipV2', ['payslips' => $payslips,
-            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false, 'payroll' => $payroll])->render();
-            
-        \PDF::loadHTML($payslip)->save(base_path() . '/public/payslips/'.$payroll->title . '_' . $payroll->paid_at . '_payslip.pdf');
+            'view_type' => isset($_GET['view_type']) ? $_GET['view_type'] : false, 'payroll' => $payroll, 'errors' => []])->render();
+        Log::info("view generated");
+        $dompdf = \PDF::loadHTML($payslip);
+        /*$dompdf->load_html($payslip); $dompdf->render(); */$pdfdata = $dompdf->output();
+        file_put_contents (base_path()."/test.pdf", $pdfdata);
     }
 }
